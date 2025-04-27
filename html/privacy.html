@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveYourTime - Gizlilik Politikası</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4ade80;
+            --primary-dark: #22c55e;
+            --primary-light: rgba(74, 222, 128, 0.1);
+            --bg-dark: #111827;
+            --card-bg: #1f2937;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #374151;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+        
+        header p {
+            color: var(--text-muted);
+        }
+        
+        .policy-section {
+            margin-bottom: 30px;
+            background-color: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+        
+        .policy-section h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+        }
+        
+        .policy-section h2 i {
+            margin-right: 10px;
+        }
+        
+        .policy-section p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .policy-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .policy-section li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        
+        .last-updated {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .button {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: var(--card-bg);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        
+        .button i {
+            margin-right: 8px;
+        }
+        
+        .button.primary {
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            border: none;
+        }
+        
+        .button.primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+            
+            .policy-section {
+                padding: 15px;
+            }
+            
+            .buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SaveYourTime Gizlilik Politikası</h1>
+            <p>Veri gizliliğinizi nasıl koruduğumuza dair bilgiler</p>
+        </header>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-shield-alt"></i> Gizlilik Taahhüdü</h2>
+            <p>SaveYourTime olarak, gizliliğinize ve veri güvenliğinize büyük önem veriyoruz. Bu uzantı, <span class="highlight">hiçbir veriyi dış sunuculara göndermez</span> ve tüm bilgileriniz sadece sizin kendi tarayıcınızda saklanır.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-database"></i> Toplanan Bilgiler</h2>
+            <p>SaveYourTime, yalnızca aşağıdaki bilgileri toplar ve kaydeder:</p>
+            <ul>
+                <li>Belirlediğiniz web sitelerinde geçirdiğiniz süre</li>
+                <li>Belirlediğiniz günlük süre limitleri</li>
+                <li>Uzantı ayarlarınız ve tercihleriniz</li>
+            </ul>
+            <p>Bu bilgiler <span class="highlight">sadece sizin yerel tarayıcınızda saklanır</span> ve uzantımızın düzgün çalışabilmesi için gereklidir.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-server"></i> Veri Depolama ve İletim</h2>
+            <p>SaveYourTime:</p>
+            <ul>
+                <li><span class="highlight">Hiçbir kullanıcı verisini harici sunuculara göndermez</span></li>
+                <li>Tüm verileri tarayıcınızın yerel depolama alanında (localStorage) saklar</li>
+                <li>İnternet bağlantınız olmadığında bile çalışabilir</li>
+                <li>Hiçbir çerez (cookie) kullanmaz</li>
+                <li>Hiçbir kullanıcı kimliği veya oturum bilgisi takibi yapmaz</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-lock"></i> Veri Güvenliği</h2>
+            <p>Verileriniz yalnızca kendi tarayıcınızda saklandığı için:</p>
+            <ul>
+                <li>Tarayıcı geçmişinizi veya önbelleğinizi temizlerseniz, bu veriler silinebilir</li>
+                <li>Uzantıyı kaldırdığınızda, tüm kayıtlı verileri tarayıcınızdan temizleyebilirsiniz</li>
+                <li>Verilerinize sadece sizin tarayıcınız erişebilir</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-hand-paper"></i> İzinler</h2>
+            <p>SaveYourTime, çalışabilmek için aşağıdaki tarayıcı izinlerine ihtiyaç duyar:</p>
+            <ul>
+                <li>Aktif sekme erişimi (belirttiğiniz sitelerde geçen süreyi izleyebilmek için)</li>
+                <li>Yerel depolama erişimi (ayarlarınızı ve süre bilgilerinizi saklayabilmek için)</li>
+            </ul>
+            <p>Bu izinler, uzantının temel işlevselliğini sağlamak için gerekli minimum izinlerdir.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-code"></i> Açık Kaynak Kod</h2>
+            <p>SaveYourTime, tamamen açık kaynak kodlu bir projedir. Kod tabanımız GitHub üzerinde herkesin incelemesine açıktır.</p>
+            <p>Bu şeffaflık, gizlilik taahhütlerimize ne kadar bağlı olduğumuzun bir göstergesidir. Kod incelemesi yapmak isteyen herkes, uzantının gerçekten hiçbir veri göndermediğini doğrulayabilir.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-user-shield"></i> Kullanıcı Hakları</h2>
+            <p>SaveYourTime kullanıcısı olarak:</p>
+            <ul>
+                <li>İstediğiniz zaman tarayıcı ayarlarınızdan uzantıyı kaldırabilirsiniz</li>
+                <li>Uzantı ayarlarından tüm kayıtlı verileri silebilirsiniz</li>
+                <li>Uzantı ayarlarından istediğiniz verileri değiştirebilirsiniz</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-question-circle"></i> Sorular</h2>
+            <p>Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen GitHub projemiz üzerinden iletişime geçiniz.</p>
+        </section>
+
+        <div class="last-updated">
+            <p>Son güncelleme tarihi: 24 Nisan 2025</p>
+        </div>
+
+        <div class="buttons">
+            <a href="settings.html" class="button primary">
+                <i class="fas fa-cog"></i> Ayarlara Dön
+            </a>
+            <a href="welcome.html" class="button">
+                <i class="fas fa-home"></i> Ana Sayfa
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>SaveYourTime &copy; 2025 | <a href="https://github.com/username/saveyourtime" target="_blank">GitHub</a></p>
+    </footer>
+</body>
+</html>

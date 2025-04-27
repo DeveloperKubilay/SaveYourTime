@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "Save your time",
+  "version": "1.0",
+  "description": "Limit time soon, save ur time!!!",
+  "permissions": [
+      "activeTab",
+      "storage"
+  ],
+  "background": {
+      "service_worker": "background.js"
+  },
+  "action": {
+      "default_popup": "html/popup.html"
+  },
+  "options_page": "html/settings.html",
+  "web_accessible_resources": [
+      {
+          "resources": ["html/privacy.html", "html/thanks.html", "html/warn.html"],
+          "matches": ["<all_urls>"]
+      }
+  ],
+  "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+  "content_scripts": [
+      {
+          "matches": ["<all_urls>"],
+          "js": ["script.js"]
+      }
+  ]
+}
