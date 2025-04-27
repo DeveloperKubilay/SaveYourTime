@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zaman Doldu - SaveYourTime</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4ade80 !important;
+            --primary-dark: #22c55e !important;
+            --bg-dark: #111827 !important;
+            --card-bg: #1f2937 !important;
+            --text-light: #f3f4f6 !important;
+            --text-muted: #9ca3af !important;
+            --border: #374151 !important;
+        }
+
+        * {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+        }
+
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        span,
+        button,
+        div,
+        strong {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            letter-spacing: normal !important;
+            font-style: normal !important;
+        }
+
+        body {
+            background-color: rgba(17, 24, 39, 0.97) !important;
+            color: var(--text-light) !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            justify-content: center !important;
+            align-items: center !important;
+            line-height: 1.5 !important;
+            padding: 20px !important;
+            backdrop-filter: blur(5px) !important;
+        }
+
+        .time-limit-container {
+            background-color: var(--card-bg) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+            width: 90% !important;
+            max-width: 600px !important;
+            overflow: hidden !important;
+            display: flex !important;
+            flex-direction: column !important;
+            animation: slideIn 0.6s ease !important;
+            border: 1px solid var(--border) !important;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0 !important;
+                transform: translateY(-40px) !important;
+            }
+
+            to {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+        }
+
+        .time-limit-content {
+            display: flex !important;
+            padding: 30px !important;
+        }
+
+        .left-section {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            margin-right: 30px !important;
+        }
+
+        .shield-container {
+            width: 110px !important;
+            height: 110px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            margin-bottom: 20px !important;
+            position: relative !important;
+        }
+
+        .shield-bg {
+            position: absolute !important;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 50% !important;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, rgba(74, 222, 128, 0.1) 50%, rgba(74, 222, 128, 0) 70%) !important;
+            animation: pulse 2s infinite !important;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95) !important;
+                opacity: 0.8 !important;
+            }
+
+            70% {
+                transform: scale(1.1) !important;
+                opacity: 0.3 !important;
+            }
+
+            100% {
+                transform: scale(0.95) !important;
+                opacity: 0.8 !important;
+            }
+        }
+
+        .shield-icon {
+            width: 80px !important;
+            height: 80px !important;
+            background-color: rgba(74, 222, 128, 0.15) !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            z-index: 1 !important;
+        }
+
+        .shield-icon i {
+            font-size: 38px !important;
+            color: var(--primary) !important;
+        }
+
+        .right-section {
+            flex: 1 !important;
+        }
+
+        .site-name {
+            font-size: 20px !important;
+            color: var(--primary) !important;
+            font-weight: 600 !important;
+            margin-bottom: 10px !important;
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .site-name i {
+            margin-right: 8px !important;
+            font-size: 16px !important;
+            color: var(--primary) !important;
+        }
+
+        .site-name span {
+            color: var(--primary) !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 20px !important;
+        }
+
+        .time-limit-message {
+            margin-top: 10px !important;
+            margin-bottom: 25px !important;
+        }
+
+        .time-limit-message h2 {
+            font-size: 28px !important;
+            margin-bottom: 12px !important;
+            color: var(--text-light) !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: 600 !important;
+        }
+
+        .time-limit-message p {
+            color: var(--text-muted) !important;
+            font-size: 16px !important;
+            line-height: 1.6 !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: normal !important;
+        }
+
+        .add-time-options {
+            display: grid !important;
+            grid-template-columns: repeat(4, 1fr) !important;
+            gap: 10px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .time-option-btn {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: var(--text-light) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 8px !important;
+            padding: 10px 0 !important;
+            font-size: 14px !important;
+            cursor: pointer !important;
+            transition: all 0.2s !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+        }
+
+        .time-option-btn:hover {
+            background-color: rgba(74, 222, 128, 0.1) !important;
+            border-color: rgba(74, 222, 128, 0.3) !important;
+        }
+
+        .time-option-btn i {
+            font-size: 18px !important;
+            margin-bottom: 5px !important;
+            color: var(--primary) !important;
+        }
+
+        .time-option-btn span {
+            color: var(--text-light) !important;
+            font-size: 14px !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: normal !important;
+        }
+
+        .action-buttons {
+            display: flex !important;
+            gap: 10px !important;
+            margin-top: 15px !important;
+        }
+
+        .action-btn {
+            padding: 12px 24px !important;
+            border-radius: 8px !important;
+            font-weight: 500 !important;
+            cursor: pointer !important;
+            transition: all 0.2s !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            font-size: 16px !important;
+            border: none !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+        }
+
+        .action-btn i {
+            margin-right: 8px !important;
+            color: inherit !important;
+        }
+
+        .continue-btn {
+            background-color: var(--primary) !important;
+            color: var(--bg-dark) !important;
+            flex: 1 !important;
+        }
+
+        .continue-btn:hover {
+            background-color: var(--primary-dark) !important;
+            transform: translateY(-1px) !important;
+        }
+
+        .continue-btn span {
+            color: var(--bg-dark) !important;
+            font-size: 16px !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: 500 !important;
+        }
+
+        .settings-btn {
+            background-color: rgba(255, 255, 255, 0.08) !important;
+            color: var(--text-muted) !important;
+            width: 60px !important;
+            /* Increased from 50px to 60px */
+            height: 48px !important;
+            /* Added explicit height to match the continue button */
+            padding: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+
+        .settings-btn:hover {
+            background-color: rgba(255, 255, 255, 0.12) !important;
+        }
+
+        .settings-btn i {
+            margin: 0 !important;
+            font-size: 20px !important;
+            /* Slightly bigger icon */
+            color: var(--text-muted) !important;
+        }
+
+        .footer {
+            display: flex !important;
+            justify-content: space-between !important;
+            padding: 15px 30px !important;
+            background-color: rgba(0, 0, 0, 0.15) !important;
+            border-top: 1px solid var(--border) !important;
+            color: var(--text-muted) !important;
+            font-size: 14px !important;
+        }
+
+        .daily-stats {
+            display: flex !important;
+            align-items: center !important;
+        }
+
+        .daily-stats i {
+            margin-right: 8px !important;
+            color: rgba(74, 222, 128, 0.7) !important;
+        }
+
+        .daily-stats span {
+            color: var(--text-muted) !important;
+            font-size: 14px !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: normal !important;
+        }
+
+        .daily-stats strong {
+            color: var(--text-light) !important;
+            font-size: 14px !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: 600 !important;
+        }
+
+        .powered-by {
+            opacity: 0.7 !important;
+            color: var(--text-muted) !important;
+            font-size: 14px !important;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            font-weight: normal !important;
+        }
+
+        /* Font Awesome fix */
+        .fas {
+            font-family: "Font Awesome 6 Free" !important;
+            font-weight: 900 !important;
+            -moz-osx-font-smoothing: grayscale !important;
+            -webkit-font-smoothing: antialiased !important;
+            display: inline-block !important;
+            font-style: normal !important;
+            font-variant: normal !important;
+            text-rendering: auto !important;
+            line-height: 1 !important;
+        }
+
+        @media (max-width: 640px) {
+            .time-limit-content {
+                flex-direction: column !important;
+                align-items: center !important;
+                text-align: center !important;
+            }
+
+            .left-section {
+                margin-right: 0 !important;
+                margin-bottom: 20px !important;
+            }
+
+            .add-time-options {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+
+            .footer {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 10px !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="time-limit-container">
+        <div class="time-limit-content">
+            <div class="left-section">
+                <div class="shield-container">
+                    <div class="shield-bg"></div>
+                    <div class="shield-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <div class="site-name">
+                    <i class="fas fa-globe"></i>
+                    <span id="site-domain">youtube.com</span>
+                </div>
+
+                <div class="time-limit-message">
+                    <h2>Zamanınızı Doldurdunuz!</h2>
+                    <p>Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere
+                        yönlendirmek için harika bir fırsat!</p>
+                </div>
+
+                <div class="add-time-options">
+                    <button class="time-option-btn" onclick="addTime(15)">
+                        <i class="fas fa-clock"></i>
+                        <span>+15 dakika</span>
+                    </button>
+                    <button class="time-option-btn" onclick="addTime(30)">
+                        <i class="fas fa-clock"></i>
+                        <span>+30 dakika</span>
+                    </button>
+                    <button class="time-option-btn" onclick="addTime(60)">
+                        <i class="fas fa-clock"></i>
+                        <span>+1 saat</span>
+                    </button>
+                    <button class="time-option-btn" onclick="addTime(120)">
+                        <i class="fas fa-clock"></i>
+                        <span>+2 saat</span>
+                    </button>
+                </div>
+
+                <div class="action-buttons">
+                    <button class="action-btn continue-btn" onclick="continueAnyway()">
+                        <i class="fas fa-arrow-right"></i>
+                        <span>Yine de Devam Et</span>
+                    </button>
+                    <button class="action-btn settings-btn" onclick="openSettings()">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="daily-stats">
+                <i class="fas fa-chart-pie"></i>
+                <span>Bugün: <strong>5 site</strong> için toplam <strong>3 saat 20 dakika</strong> kullanım</span>
+            </div>
+            <div class="powered-by">SaveYourTime</div>
+        </div>
+    </div>
+
+    <script>
+        // Site adını dinamik olarak ayarla
+        document.addEventListener('DOMContentLoaded', function () {
+            // Chrome extension'dan site adını alabiliriz
+            // Şimdilik varsayılan olarak ayarlıyoruz
+            const currentSite = "youtube.com"; // Bu değer extension'dan alınacak
+            document.getElementById('site-domain').textContent = currentSite;
+            document.title = currentSite + " - Zaman Doldu";
+        });
+
+        function addTime(minutes) {
+            // Extension'a zaman eklemek için mesaj gönder
+            console.log(`${minutes} dakika eklendi`);
+            // Gerçek implementasyon:
+            // chrome.runtime.sendMessage({action: "addTime", minutes: minutes, site: currentSite});
+            alert(`${minutes} dakika eklenmiştir. Sayfayı yeniliyorum...`);
+            // Sayfayı yenile veya kapat
+            setTimeout(() => window.close(), 1500);
+        }
+
+        function continueAnyway() {
+            // Kullanıcının engellemeyi görmezden gelmesine izin ver
+            console.log("Kullanıcı devam etmeyi seçti");
+            // Gerçek implementasyon:
+            // chrome.runtime.sendMessage({action: "continueAnyway", site: currentSite});
+            window.close();
+        }
+
+        function openSettings() {
+            // Ayarlar sayfasını aç
+            console.log("Ayarlar açılıyor");
+            // Gerçek implementasyon:
+            // chrome.runtime.sendMessage({action: "openSettings"});
+            window.open('settings.html', '_blank');
+        }
+    </script>
+</body>
+
+</html>

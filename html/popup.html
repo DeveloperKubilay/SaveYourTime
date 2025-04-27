@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaveYourTime</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4ade80;
+            --primary-dark: #22c55e;
+            --primary-light: rgba(74, 222, 128, 0.15);
+            --bg-dark: #111827;
+            --card-bg: #1f2937;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #374151;
+            --red: #ef4444;
+            --yellow: #f59e0b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            width: 320px;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            overflow: hidden;
+        }
+        
+        .popup-container {
+            padding: 16px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .header h1 {
+            font-size: 16px;
+            color: var(--primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .header h1 i {
+            margin-right: 8px;
+        }
+        
+        .settings-btn {
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: color 0.2s;
+            font-size: 18px;
+        }
+        
+        .settings-btn:hover {
+            color: var(--text-light);
+        }
+        
+        .current-site {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 16px;
+            border: 1px solid var(--border);
+        }
+        
+        .progress-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-right: 16px;
+        }
+        
+        .circle-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .time-used {
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 2px;
+        }
+        
+        .time-left {
+            font-size: 10px;
+            color: var(--text-muted);
+        }
+        
+        .site-info {
+            flex: 1;
+        }
+        
+        .site-name {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            color: var(--text-light);
+        }
+        
+        .site-name i {
+            margin-right: 8px;
+            font-size: 14px;
+            color: var(--primary);
+        }
+        
+        .site-limit {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+        
+        .time-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .time-btn {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            border: none;
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .time-btn:hover {
+            background-color: rgba(74, 222, 128, 0.25);
+        }
+        
+        .other-sites {
+            margin-top: 16px;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding-left: 2px;
+            color: var(--text-muted);
+        }
+        
+        .site-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .site-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(31, 41, 55, 0.5);
+            border-radius: 8px;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        
+        .site-item:hover {
+            background-color: var(--card-bg);
+        }
+        
+        .site-item-name {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .site-item-time {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-size: 14px;
+        }
+        
+        .footer-link:hover {
+            color: var(--primary);
+        }
+        
+        .status {
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .status i {
+            margin-right: 4px;
+            color: var(--primary);
+        }
+        
+        /* SVG Circle Progress */
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+            transform: rotate(-90deg);
+        }
+        
+        .progress-circle__background {
+            fill: none;
+            stroke: rgba(74, 222, 128, 0.1);
+            stroke-width: 8;
+        }
+        
+        .progress-circle__progress {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 8;
+            stroke-dasharray: 251.2;
+            stroke-dashoffset: 251.2;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="popup-container">
+        <div class="header">
+            <h1><i class="fas fa-hourglass-half"></i> SaveYourTime</h1>
+            <i class="fas fa-cog settings-btn" id="settingsBtn"></i>
+        </div>
+        
+        <div class="current-site">
+            <div class="progress-container">
+                <svg class="progress-circle" viewBox="0 0 100 100">
+                    <circle class="progress-circle__background" cx="50" cy="50" r="40"></circle>
+                    <circle class="progress-circle__progress" cx="50" cy="50" r="40" id="progressCircle"></circle>
+                </svg>
+                <div class="circle-info">
+                    <div class="time-used" id="timeUsed">2s 15dk</div>
+                    <div class="time-left" id="timeLeft">45dk kaldı</div>
+                </div>
+            </div>
+            
+            <div class="site-info">
+                <div class="site-name">
+                    <i class="fas fa-globe"></i>
+                    <span id="currentSiteName">youtube.com</span>
+                </div>
+                <div class="site-limit" id="siteLimit">Günlük Limit: 3 saat</div>
+                <div class="time-actions">
+                    <button class="time-btn" onclick="addTime(15)">+15dk</button>
+                    <button class="time-btn" onclick="addTime(30)">+30dk</button>
+                    <button class="time-btn" onclick="addTime(60)">+1s</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="other-sites">
+            <div class="section-title">Diğer Kısıtlı Siteler</div>
+            <div class="site-list" id="siteList">
+                <div class="site-item">
+                    <div class="site-item-name">facebook.com</div>
+                    <div class="site-item-time">1s / 2s</div>
+                </div>
+                <div class="site-item">
+                    <div class="site-item-name">twitter.com</div>
+                    <div class="site-item-time">25dk / 1s</div>
+                </div>
+                <div class="site-item">
+                    <div class="site-item-name">instagram.com</div>
+                    <div class="site-item-time">45dk / 1.5s</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="status">
+                <i class="fas fa-circle-check"></i>
+                <span>Aktif</span>
+            </div>
+            <div class="footer-links">
+                <a href="#" class="footer-link" title="Ayarlar" id="openSettings">
+                    <i class="fas fa-sliders-h"></i>
+                </a>
+                <a href="#" class="footer-link" title="İstatistikler" id="openStats">
+                    <i class="fas fa-chart-bar"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Örnek süre değerleri (gerçek uygulamada burası backend'den gelecek)
+        let kullanılangünlükzaman = 8100000; // 2 saat 15 dakika (ms cinsinden)
+        let toplamgünlükzaman = 10800000;   // 3 saat (ms cinsinden)
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Başlangıç değerleriyle progress dairesini güncelle
+            updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
+            
+            // Butonlara event listener'lar ekle
+            document.getElementById('settingsBtn').addEventListener('click', openSettings);
+            document.getElementById('openSettings').addEventListener('click', openSettings);
+            document.getElementById('openStats').addEventListener('click', openStats);
+            
+            // Gerçek uygulamada aktif sekme bilgilerini al
+            getCurrentTabInfo();
+        });
+        
+        // Progress çemberini güncelleme fonksiyonu
+        function updateProgressCircle(usedTime, totalTime) {
+            // Yüzde hesapla
+            const percentage = Math.min((usedTime / totalTime) * 100, 100);
+            
+            // SVG progress dairesini güncelle
+            const progressCircle = document.getElementById('progressCircle');
+            const circumference = 2 * Math.PI * 35; // r=35 olarak değiştirin
+            const offset = circumference - (percentage / 100) * circumference;
+            progressCircle.style.strokeDasharray = `${circumference}`;
+            progressCircle.style.strokeDashoffset = offset;
+            
+            // %75 üzerinde sarı, %90 üzerinde kırmızı renk kullan
+            if (percentage >= 90) {
+                progressCircle.style.stroke = 'var(--red)';
+            } else if (percentage >= 75) {
+                progressCircle.style.stroke = 'var(--yellow)';
+            } else {
+                progressCircle.style.stroke = 'var(--primary)';
+            }
+            
+            // Kullanılan süre ve kalan süre metinlerini güncelle
+            const timeUsedText = msToTimeString(usedTime);
+            const timeLeftText = msToTimeString(totalTime - usedTime);
+            
+            document.getElementById('timeUsed').textContent = timeUsedText;
+            document.getElementById('timeLeft').textContent = timeLeftText + ' kaldı';
+            document.getElementById('siteLimit').textContent = 'Günlük Limit: ' + msToTimeString(totalTime);
+        }
+        
+        // Milisaniyeyi okunabilir saat/dakika formatına çevir
+        function msToTimeString(ms) {
+            const hours = Math.floor(ms / (1000 * 60 * 60));
+            const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (hours > 0) {
+                return hours + 's ' + (minutes > 0 ? minutes + 'dk' : '');
+            } else {
+                return minutes + 'dk';
+            }
+        }
+        
+        // Ek süre ekle fonksiyonu
+        function addTime(minutes) {
+            const msToAdd = minutes * 60 * 1000;
+            toplamgünlükzaman += msToAdd;
+            
+            // Progress dairesini güncelle
+            updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
+            
+            // Gerçek uygulamada burada backend'e kayıt yapılacak
+            console.log(`${minutes} dakika eklendi.`);
+        }
+        
+        // Aktif sekme bilgilerini al
+        function getCurrentTabInfo() {
+            // Chrome uzantısı için:
+            // chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            //     if (tabs[0]) {
+            //         const url = new URL(tabs[0].url);
+            //         const domain = url.hostname;
+            //         document.getElementById('currentSiteName').textContent = domain;
+            //         
+            //         // Backend'den bu site için kullanım sürelerini al
+            //         // fetchSiteUsageData(domain);
+            //     }
+            // });
+            
+            // Test verileri
+            const activeSite = "youtube.com";
+            document.getElementById('currentSiteName').textContent = activeSite;
+        }
+        
+        // Site kullanım verilerini backend'den al
+        function fetchSiteUsageData(domain) {
+            // Gerçek uygulamada backend'den veri çekme kodu
+            // API çağrısı veya yerel depolama erişimi
+            
+            // Örnek test değerleri
+            kullanılangünlükzaman = 8100000; // 2 saat 15 dakika
+            toplamgünlükzaman = 10800000;    // 3 saat
+            
+            updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
+        }
+        
+        // Ayarlar sayfasını aç
+        function openSettings(e) {
+            if (e) e.preventDefault();
+            // Chrome uzantısı için:
+            // chrome.runtime.openOptionsPage();
+            window.open('settings.html', '_blank');
+        }
+        
+        // İstatistikler sayfasını aç
+        function openStats(e) {
+            if (e) e.preventDefault();
+            window.open('settings.html#dashboard', '_blank');
+        }
+    </script>
+</body>
+</html>
