@@ -1,0 +1,114 @@
+document.addEventListener('DOMContentLoaded', async function() {
+    try {
+        // First, load available languages
+        const languagesResponse = await fetch('../languages/data.json');
+        const languagesData = await languagesResponse.json();
+        const availableLanguages = languagesData.languages;
+        
+        // Get saved language or use default (en)
+        let selectedLang = "en";
+        
+        try {
+            const { lang } = await chrome.storage.local.get(['lang']);
+            selectedLang = lang || "en";
+        } catch (chromeError) {
+            // Fallback to localStorage if not in extension context
+            selectedLang = localStorage.getItem('lang') || "en";
+            console.info('Using localStorage for language settings');
+        }
+        
+        // Load the appropriate language file
+        const selectedLanguageFile = availableLanguages[selectedLang]?.file || "en.json";
+        const langResponse = await fetch(`../languages/${selectedLanguageFile}`);
+        const translations = await langResponse.json();
+
+        // Apply translations to elements with data-lang attributes
+        applyTranslations(translations);
+        
+        // Populate language switcher dropdown
+        populateLanguageSwitcher(availableLanguages, selectedLang);
+        
+        // Set up language switching
+        setupLanguageSwitcher(availableLanguages);
+        
+    } catch (error) {
+        console.error('Error loading language data:', error);
+        fallbackToEnglish();
+    }
+});
+
+// Apply translations to all elements with data-lang attributes
+function applyTranslations(translations) {
+    const elements = document.querySelectorAll('[data-lang]');
+    
+    elements.forEach(element => {
+        const key = element.getAttribute('data-lang');
+        const translation = getNestedTranslation(translations, key);
+        
+        if (translation) {
+            element.textContent = translation;
+        }
+    });
+}
+
+// Get nested translation using dot notation (e.g., "app.name")
+function getNestedTranslation(translations, key) {
+    const keys = key.split('.');
+    let result = translations;
+    
+    for (const k of keys) {
+        if (result && result[k] !== undefined) {
+            result = result[k];
+        } else {
+            return undefined;
+        }
+    }
+    
+    return result;
+}
+
+// Populate the language switcher dropdown
+function populateLanguageSwitcher(availableLanguages, currentLang) {
+    const languageSwitcher = document.getElementById('languageSwitcher');
+    if (!languageSwitcher) return;
+    
+    languageSwitcher.innerHTML = '';
+    
+    Object.keys(availableLanguages).forEach(langCode => {
+        const language = availableLanguages[langCode];
+        const option = document.createElement('option');
+        option.value = langCode;
+        option.textContent = `${language.flag} ${language.name}`;
+        option.selected = langCode === currentLang;
+        languageSwitcher.appendChild(option);
+    });
+}
+
+// Handle language switching
+function setupLanguageSwitcher(availableLanguages) {
+    const languageSwitcher = document.getElementById('languageSwitcher');
+    if (!languageSwitcher) return;
+    
+    languageSwitcher.addEventListener('change', async function() {
+        const selectedLang = this.value;
+        
+        try {
+            await chrome.storage.local.set({ lang: selectedLang });
+        } catch (chromeError) {
+            localStorage.setItem('lang', selectedLang);
+        }
+        
+        window.location.reload();
+    });
+}
+
+// Fallback function when language loading fails
+async function fallbackToEnglish() {
+    try {
+        const langResponse = await fetch('../languages/en.json');
+        const translations = await langResponse.json();
+        applyTranslations(translations);
+    } catch (err) {
+        console.error('Failed to load fallback language:', err);
+    }
+}

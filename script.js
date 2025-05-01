@@ -2,12 +2,11 @@
 // const { checkUsage, basicRegex, formatTime, useTemplate } = window;
 
 var patterns;
-var lang = "tr.json"
 var Localwebsites = ["html/warn.html"]
 
 async function setup() {
     try {
-        const { Urls = [] } = await chrome.storage.local.get(['Urls']);
+        const { Urls = [],lang = "en.json" } = await chrome.storage.local.get(['Urls', 'lang']);
         Localwebsites = await Promise.all(
             Localwebsites.map(async (localwebsite) => {
                 const res = await fetch(chrome.runtime.getURL(localwebsite));
