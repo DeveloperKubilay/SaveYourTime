@@ -2,11 +2,32 @@
  * Common page initialization script to avoid CSP inline script violations
  */
 
+// Load i18n first
 document.addEventListener('DOMContentLoaded', async function() {
     console.log('Page handler: DOM content loaded');
     
-    // First, ensure i18n is loaded and initialized
-    if (window.i18n) {
+    // Load i18n-loader if not already loaded
+    if (!window.SaveYourTime_I18n) {
+        console.log('i18n not loaded, attempting to load it');
+        try {
+            // Import i18n-loader.js
+            await import(chrome.runtime.getURL('js/i18n-loader.js'));
+            
+            // Wait for i18n to be loaded
+            if (!window.SaveYourTime_I18n) {
+                await new Promise(resolve => {
+                    document.addEventListener('i18nLoaded', resolve, { once: true });
+                    // Set a timeout in case i18n never loads
+                    setTimeout(resolve, 3000);
+                });
+            }
+        } catch (error) {
+            console.error('Error loading i18n:', error);
+        }
+    }
+    
+    // Now check if i18n is loaded
+    if (window.SaveYourTime_I18n) {
         try {
             // Wait for full i18n initialization before showing content
             await initializeTranslations();
@@ -17,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             // Listen for language change events
             document.addEventListener('languageChanged', function(e) {
                 console.log('Language changed to:', e.detail.language);
-                window.i18n.translatePage();
+                window.SaveYourTime_I18n.translatePage();
                 
                 // Update any dynamic content after translation
                 updateDynamicContent();
@@ -37,7 +58,7 @@ async function initializeTranslations() {
     return new Promise(async (resolve) => {
         try {
             // If i18n is already initialized, just use it
-            if (window.i18n && window.i18n.isInitialized) {
+            if (window.SaveYourTime_I18n && window.SaveYourTime_I18n.isInitialized) {
                 console.log('i18n already initialized');
                 resolve();
                 return;
@@ -47,25 +68,25 @@ async function initializeTranslations() {
             const savedLang = localStorage.getItem('language') || 'en';
             
             // Ensure languages are loaded
-            await window.i18n.loadAvailableLanguages();
+            await window.SaveYourTime_I18n.loadAvailableLanguages();
             
             // Load the saved language
-            if (savedLang && window.i18n.isLanguageAvailable(savedLang)) {
+            if (savedLang && window.SaveYourTime_I18n.isLanguageAvailable(savedLang)) {
                 console.log(`Loading saved language: ${savedLang}`);
-                await window.i18n.switchLanguage(savedLang);
+                await window.SaveYourTime_I18n.switchLanguage(savedLang);
             } else {
                 console.log('No valid saved language found, using default');
-                await window.i18n.switchLanguage('en');
+                await window.SaveYourTime_I18n.switchLanguage('en');
             }
             
             // Initialize language switchers
-            window.i18n.initLanguageSwitchers();
+            window.SaveYourTime_I18n.initLanguageSwitchers();
             
             // Mark i18n as fully initialized
-            window.i18n.isInitialized = true;
+            window.SaveYourTime_I18n.isInitialized = true;
             
             // Apply translations immediately
-            window.i18n.translatePage();
+            window.SaveYourTime_I18n.translatePage();
             
             resolve();
         } catch (error) {
@@ -131,8 +152,8 @@ function setupWarnPageButtons() {
     window.addTime = function(minutes) {
         console.log(`Adding ${minutes} minutes`);
         
-        const message = window.i18n ? 
-            `${minutes} ${window.i18n.t('common.time.minutes')} ${window.i18n.t('warn.addTime')}` :
+        const message = window.SaveYourTime_I18n ? 
+            `${minutes} ${window.SaveYourTime_I18n.t('common.time.minutes')} ${window.SaveYourTime_I18n.t('warn.addTime')}` :
             `${minutes} minutes added`;
             
         alert(message);
@@ -154,16 +175,15 @@ function setupWarnPageButtons() {
  * Update the warn page content after language change
  */
 function updateWarnPageContent() {
-    if (!window.i18n) return;
+    if (!window.SaveYourTime_I18n) return;
     
     // Update site title
     const currentSite = document.getElementById('site-domain')?.textContent || "example.com";
-    document.title = currentSite + " - " + window.i18n.t('warn.title');
+    document.title = currentSite + " - " + window.SaveYourTime_I18n.t('warn.title');
     
     // Update stats text
-    const statsText = window.i18n.t('warn.dailyStats', {
-        siteCount: '5',
-        totalTime: '3 ' + window.i18n.t('common.time.hours') + ' 20 ' + window.i18n.t('common.time.minutes')
+    const statsText = window.SaveYourTime_I18n.t('warn.dailyStats', {
+        totalTime: '3 ' + window.SaveYourTime_I18n.t('common.time.hours') + ' 20 ' + window.SaveYourTime_I18n.t('common.time.minutes')
     });
     
     const statsElement = document.getElementById('daily-stats-text');
@@ -174,9 +194,9 @@ function updateWarnPageContent() {
     // Update time buttons
     const timeButtons = document.querySelectorAll('.time-option-btn span');
     if (timeButtons.length >= 4) {
-        timeButtons[0].textContent = "+15 " + window.i18n.t('common.time.minutes');
-        timeButtons[1].textContent = "+30 " + window.i18n.t('common.time.minutes');
-        timeButtons[2].textContent = "+1 " + window.i18n.t('common.time.hour');
-        timeButtons[3].textContent = "+2 " + window.i18n.t('common.time.hours');
+        timeButtons[0].textContent = "+15 " + window.SaveYourTime_I18n.t('common.time.minutes');
+        timeButtons[1].textContent = "+30 " + window.SaveYourTime_I18n.t('common.time.minutes');
+        timeButtons[2].textContent = "+1 " + window.SaveYourTime_I18n.t('common.time.hour');
+        timeButtons[3].textContent = "+2 " + window.SaveYourTime_I18n.t('common.time.hours');
     }
 }

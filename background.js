@@ -1,10 +1,12 @@
 chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason === 'install') {
+        chrome.storage.local.clear();
+
         // Set initial storage data
         chrome.storage.local.set({ Urls: [
             {
                 url: "https://ifconfig.me",
-                limit: 1000000,
+                limit: 10000,
                 limited: false
             }
         ],

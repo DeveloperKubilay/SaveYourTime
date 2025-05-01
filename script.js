@@ -1,9 +1,6 @@
 var patterns;
 var websitedata = "";
-
-const checkUrlPatterns = (urlToCheck) => {
-    return patterns.find(pattern => urlToCheck.startsWith(pattern.url)) || {};
-};
+var lang = "tr.json"
 
 async function checkUsage(data) {
     try {
@@ -15,39 +12,75 @@ async function checkUsage(data) {
         return 0;
     }
 }
+function basicRegex(text, data) {
+    function resolve(key) {
+        const keys = key.split('.');
+        let value = lang;
+        for (let k of keys) {
+            value = value?.[k];
+            if (value === undefined) break;
+        }
+        if (value !== undefined) return value;
+        value = data;
+        for (let k of keys) {
+            value = value?.[k];
+            if (value === undefined) break;
+        }
+        return value !== undefined ? value : '';
+    }
+
+    return text.replace(/\{\{\s*(.*?)\s*\}\}/g, (_, key) => {
+        let temp = resolve(key);
+        if (typeof temp === 'string') {
+            return temp.replace(/\{\{\s*(.*?)\s*\}\}/g, (_, innerKey) => resolve(innerKey));
+        }
+        return temp;
+    });
+}
+
 
 async function setup() {
     try {
         const { Urls = [] } = await chrome.storage.local.get(['Urls']);
-        const currentUrl = window.location.href; // Added 'const' to define variable
-        patterns = Urls || [];      
-        const currentpattern = checkUrlPatterns(currentUrl);
+        var Localwebsites = ["html/warn.html"]
+        Localwebsites = await Promise.all(
+            Localwebsites.map(async (localwebsite) => {
+                const res = await fetch(chrome.runtime.getURL(localwebsite));
+                const html = await res.text();
+                return { url: localwebsite, html: html };
+            })
+        );
+        lang = await fetch(chrome.runtime.getURL('languages/' + lang));
+        lang = await lang.json();
+
+        const currentUrl = window.location.href;
+        patterns = Urls || [];
+        const currentpattern = patterns.find(pattern => currentUrl.startsWith(pattern.url)) || {};
         console.log(currentpattern, patterns, currentUrl);
+
         if (!currentpattern.url) return;
+        var usage = await checkUsage(currentpattern);
+
         if (currentpattern.limited) {
             console.log("Limited URL: ", currentpattern.url);
-        fetch(chrome.runtime.getURL("html/warn.html"))
-.then(res => res.text())
-.then(html => {
-    document.body.innerHTML = html
-        /*.replace(/ext_QuickPaste_form/g, QP_PREFIX + 'form')
-        .replace(/ext_QuickPaste_form_texts/g, QP_PREFIX + 'form_texts')
-        .replace(/ext_QuickPaste_ctrlv/g, QP_PREFIX + 'ctrlv')
-        .replace(/ext_QuickPaste_form_browse/g, QP_PREFIX + 'form_browse')
-        .replace(/dragover/g, QP_PREFIX + 'dragover')
-        .replace(/ext_QuickPaste_form_drop/g, QP_PREFIX + 'form_drop');*/
-});
+            document.title = lang.warn.title;
             
+            var data = ""+Localwebsites.find(website => website.url === "html/warn.html").html;
+            data = basicRegex(data,{
+                url: currentpattern.url.replace("https://", "").replace("http://", "").replace(/\/$/, ""),
+                totalTime: usage / 1000,
+            });
+            document.body.innerHTML = data;
             return;
         }
-        
-        var usage = await checkUsage(currentpattern);
+
+
         console.log("Usage: ", usage, "Current Pattern: ", currentpattern);
-        
+
         const intervalId = setInterval(async () => {
             try {
-                usage += 10000; // Add 10 seconds (10000ms) since the interval is 10000ms
-                if(usage > currentpattern.limit) {
+                usage += 10000; 
+                if (usage > currentpattern.limit) {
                     const { Urls = [] } = await chrome.storage.local.get(['Urls']);
                     const updatedUrls = Urls.map(url => {
                         if (url.url === currentpattern.url) {
@@ -57,14 +90,15 @@ async function setup() {
                     });
                     websitedata = document.body.innerHTML;
                     chrome.storage.local.set({ Urls: updatedUrls });
-                    chrome.storage.local.remove([currentpattern.url]);             
-                    document.body.innerHTML = `<iframe src="${chrome.runtime.getURL('html/warn.html')}" style="width:100%; height:100%; border:none;"></iframe>`;
+                    chrome.storage.local.remove([currentpattern.url]);
+                    document.body.innerHTML = chrome.runtime.getURL('html/warn.html')
                     setTimeout(() => {
                         document.body.innerHTML = websitedata;
                         chrome.storage.local.set({ [currentpattern.url]: 0 });
                     }, 5 * 1000);
                     clearInterval(intervalId);
                 } else {
+                    console.log(usage)
                     await chrome.storage.local.set({ [currentpattern.url]: usage });
                 }
             } catch (error) {

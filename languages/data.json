@@ -3,12 +3,12 @@
         "en": {
             "name": "English",
             "flag": "EN",
-            "file":"en.json"
+            "file": "en.json"
         },
         "tr": {
             "name": "Türkçe",
             "flag": "TR",
-            "file":"tr.json"
+            "file": "tr.json"
         }
     }
 }
