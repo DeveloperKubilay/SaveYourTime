@@ -46,7 +46,7 @@ async function setup() {
         
         const intervalId = setInterval(async () => {
             try {
-                usage += 1000000;
+                usage += 10000; // Add 10 seconds (10000ms) since the interval is 10000ms
                 if(usage > currentpattern.limit) {
                     const { Urls = [] } = await chrome.storage.local.get(['Urls']);
                     const updatedUrls = Urls.map(url => {
@@ -58,7 +58,7 @@ async function setup() {
                     websitedata = document.body.innerHTML;
                     chrome.storage.local.set({ Urls: updatedUrls });
                     chrome.storage.local.remove([currentpattern.url]);             
-                    document.body.innerHTML = `<iframe src="html/warn.html" style="width:100%; height:100%; border:none;"></iframe>`;
+                    document.body.innerHTML = `<iframe src="${chrome.runtime.getURL('html/warn.html')}" style="width:100%; height:100%; border:none;"></iframe>`;
                     setTimeout(() => {
                         document.body.innerHTML = websitedata;
                         chrome.storage.local.set({ [currentpattern.url]: 0 });
@@ -71,6 +71,11 @@ async function setup() {
                 console.error("Error in interval:", error);
             }
         }, 10000);
+
+        // Add event listener to clean up interval on page unload:
+        window.addEventListener('beforeunload', () => {
+            clearInterval(intervalId);
+        });
     } catch (error) {
         console.error("Setup error:", error);
     }
