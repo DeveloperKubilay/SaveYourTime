@@ -21,7 +21,7 @@
       }
   ],
   "content_security_policy": {
-      "extension_pages": "script-src 'self'; object-src 'self';"
+      "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com"
   },
   "content_scripts": [
       {
