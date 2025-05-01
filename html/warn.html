@@ -6,373 +6,340 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaman Doldu - SaveYourTime</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="../js/i18n.js"></script>
-    <script src="../js/page-handler.js"></script>
     <style>
         :root {
-            --primary: #4ade80 !important;
-            --primary-dark: #22c55e !important;
-            --bg-dark: #111827 !important;
-            --card-bg: #1f2937 !important;
-            --text-light: #f3f4f6 !important;
-            --text-muted: #9ca3af !important;
-            --border: #374151 !important;
+            --primary: #4ade80;
+            --primary-dark: #22c55e;
+            --bg-dark: #111827;
+            --card-bg: #1f2937;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border: #374151;
         }
 
         * {
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        span,
-        button,
-        div,
-        strong {
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            letter-spacing: normal !important;
-            font-style: normal !important;
+        h1, h2, h3, h4, h5, h6,
+        p, span, button, div, strong {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            letter-spacing: normal;
+            font-style: normal;
         }
 
         body {
-            background-color: rgba(17, 24, 39, 0.97) !important;
-            color: var(--text-light) !important;
-            min-height: 100vh !important;
-            display: flex !important;
-            justify-content: center !important;
-            align-items: center !important;
-            line-height: 1.5 !important;
-            padding: 20px !important;
-            backdrop-filter: blur(5px) !important;
+            background-color: rgba(17, 24, 39, 0.97);
+            color: var(--text-light);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.5;
+            padding: 20px;
+            backdrop-filter: blur(5px);
         }
 
         .time-limit-container {
-            background-color: var(--card-bg) !important;
-            border-radius: 16px !important;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
-            width: 90% !important;
-            max-width: 600px !important;
-            overflow: hidden !important;
-            display: flex !important;
-            flex-direction: column !important;
-            animation: slideIn 0.6s ease !important;
-            border: 1px solid var(--border) !important;
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 600px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            animation: slideIn 0.6s ease;
+            border: 1px solid var(--border);
         }
 
         @keyframes slideIn {
             from {
-                opacity: 0 !important;
-                transform: translateY(-40px) !important;
+                opacity: 0;
+                transform: translateY(-40px);
             }
-
             to {
-                opacity: 1 !important;
-                transform: translateY(0) !important;
+                opacity: 1;
+                transform: translateY(0);
             }
         }
 
         .time-limit-content {
-            display: flex !important;
-            padding: 30px !important;
+            display: flex;
+            padding: 30px;
         }
 
         .left-section {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            margin-right: 30px !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 30px;
         }
 
         .shield-container {
-            width: 110px !important;
-            height: 110px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            margin-bottom: 20px !important;
-            position: relative !important;
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            position: relative;
         }
 
         .shield-bg {
-            position: absolute !important;
-            width: 100% !important;
-            height: 100% !important;
-            border-radius: 50% !important;
-            background: radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, rgba(74, 222, 128, 0.1) 50%, rgba(74, 222, 128, 0) 70%) !important;
-            animation: pulse 2s infinite !important;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 222, 128, 0.2) 0%, rgba(74, 222, 128, 0.1) 50%, rgba(74, 222, 128, 0) 70%);
+            animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
             0% {
-                transform: scale(0.95) !important;
-                opacity: 0.8 !important;
+                transform: scale(0.95);
+                opacity: 0.8;
             }
-
             70% {
-                transform: scale(1.1) !important;
-                opacity: 0.3 !important;
+                transform: scale(1.1);
+                opacity: 0.3;
             }
-
             100% {
-                transform: scale(0.95) !important;
-                opacity: 0.8 !important;
+                transform: scale(0.95);
+                opacity: 0.8;
             }
         }
 
         .shield-icon {
-            width: 80px !important;
-            height: 80px !important;
-            background-color: rgba(74, 222, 128, 0.15) !important;
-            border-radius: 50% !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            z-index: 1 !important;
+            width: 80px;
+            height: 80px;
+            background-color: rgba(74, 222, 128, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
         }
 
         .shield-icon i {
-            font-size: 38px !important;
-            color: var(--primary) !important;
+            font-size: 38px;
+            color: var(--primary);
         }
 
         .right-section {
-            flex: 1 !important;
+            flex: 1;
         }
 
         .site-name {
-            font-size: 20px !important;
-            color: var(--primary) !important;
-            font-weight: 600 !important;
-            margin-bottom: 10px !important;
-            display: flex !important;
-            align-items: center !important;
+            font-size: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
         }
 
         .site-name i {
-            margin-right: 8px !important;
-            font-size: 16px !important;
-            color: var(--primary) !important;
+            margin-right: 8px;
+            font-size: 16px;
+            color: var(--primary);
         }
 
         .site-name span {
-            color: var(--primary) !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: 600 !important;
-            font-size: 20px !important;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 20px;
         }
 
         .time-limit-message {
-            margin-top: 10px !important;
-            margin-bottom: 25px !important;
+            margin-top: 10px;
+            margin-bottom: 25px;
         }
 
         .time-limit-message h2 {
-            font-size: 28px !important;
-            margin-bottom: 12px !important;
-            color: var(--text-light) !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: 600 !important;
+            font-size: 28px;
+            margin-bottom: 12px;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-left:-5px;
+            text-align: left;
         }
 
         .time-limit-message p {
-            color: var(--text-muted) !important;
-            font-size: 16px !important;
-            line-height: 1.6 !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: normal !important;
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.6;
+            font-weight: normal;
         }
 
         .add-time-options {
-            display: grid !important;
-            grid-template-columns: repeat(4, 1fr) !important;
-            gap: 10px !important;
-            margin-bottom: 20px !important;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
         }
 
         .time-option-btn {
-            background-color: rgba(255, 255, 255, 0.08) !important;
-            color: var(--text-light) !important;
-            border: 1px solid rgba(255, 255, 255, 0.1) !important;
-            border-radius: 8px !important;
-            padding: 10px 0 !important;
-            font-size: 14px !important;
-            cursor: pointer !important;
-            transition: all 0.2s !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 10px 0;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .time-option-btn:hover {
-            background-color: rgba(74, 222, 128, 0.1) !important;
-            border-color: rgba(74, 222, 128, 0.3) !important;
+            background-color: rgba(74, 222, 128, 0.1);
+            border-color: rgba(74, 222, 128, 0.3);
         }
 
         .time-option-btn i {
-            font-size: 18px !important;
-            margin-bottom: 5px !important;
-            color: var(--primary) !important;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--primary);
         }
 
         .time-option-btn span {
-            color: var(--text-light) !important;
-            font-size: 14px !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: normal !important;
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: normal;
         }
 
         .action-buttons {
-            display: flex !important;
-            gap: 10px !important;
-            margin-top: 15px !important;
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
         }
 
         .action-btn {
-            padding: 12px 24px !important;
-            border-radius: 8px !important;
-            font-weight: 500 !important;
-            cursor: pointer !important;
-            transition: all 0.2s !important;
-            display: inline-flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            font-size: 16px !important;
-            border: none !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            border: none;
         }
 
         .action-btn i {
-            margin-right: 8px !important;
-            color: inherit !important;
+            margin-right: 8px;
+            color: inherit;
         }
 
         .continue-btn {
-            background-color: var(--primary) !important;
-            color: var(--bg-dark) !important;
-            flex: 1 !important;
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            flex: 1;
         }
 
         .continue-btn:hover {
-            background-color: var(--primary-dark) !important;
-            transform: translateY(-1px) !important;
+            background-color: var(--primary-dark);
+            transform: translateY(-1px);
         }
 
         .continue-btn span {
-            color: var(--bg-dark) !important;
-            font-size: 16px !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: 500 !important;
+            color: var(--bg-dark);
+            font-size: 16px;
+            font-weight: 500;
         }
 
         .settings-btn {
-            background-color: rgba(255, 255, 255, 0.08) !important;
-            color: var(--text-muted) !important;
-            width: 60px !important;
-            /* Increased from 50px to 60px */
-            height: 48px !important;
-            /* Added explicit height to match the continue button */
-            padding: 0 !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            width: 60px;
+            height: 48px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .settings-btn:hover {
-            background-color: rgba(255, 255, 255, 0.12) !important;
+            background-color: rgba(255, 255, 255, 0.12);
         }
 
         .settings-btn i {
-            margin: 0 !important;
-            font-size: 20px !important;
-            /* Slightly bigger icon */
-            color: var(--text-muted) !important;
+            margin: 0;
+            font-size: 20px;
+            color: var(--text-muted);
         }
 
         .footer {
-            display: flex !important;
-            justify-content: space-between !important;
-            padding: 15px 30px !important;
-            background-color: rgba(0, 0, 0, 0.15) !important;
-            border-top: 1px solid var(--border) !important;
-            color: var(--text-muted) !important;
-            font-size: 14px !important;
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.15);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 14px;
         }
 
         .daily-stats {
-            display: flex !important;
-            align-items: center !important;
+            display: flex;
+            align-items: center;
         }
 
         .daily-stats i {
-            margin-right: 8px !important;
-            color: rgba(74, 222, 128, 0.7) !important;
+            margin-right: 8px;
+            color: rgba(74, 222, 128, 0.7);
         }
 
-        .daily-stats span {
-            color: var(--text-muted) !important;
-            font-size: 14px !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: normal !important;
+        .daily-stats span, .powered-by span {
+            color: var(--text-muted);
+            font-size: 14px;
+            font-weight: normal;
         }
 
         .daily-stats strong {
-            color: var(--text-light) !important;
-            font-size: 14px !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: 600 !important;
+            color: var(--text-light);
+            font-size: 14px;
+            font-weight: 600;
         }
 
-        .powered-by {
-            opacity: 0.7 !important;
-            color: var(--text-muted) !important;
-            font-size: 14px !important;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif !important;
-            font-weight: normal !important;
-        }
-
-        /* Font Awesome fix */
         .fas {
-            font-family: "Font Awesome 6 Free" !important;
-            font-weight: 900 !important;
-            -moz-osx-font-smoothing: grayscale !important;
-            -webkit-font-smoothing: antialiased !important;
-            display: inline-block !important;
-            font-style: normal !important;
-            font-variant: normal !important;
-            text-rendering: auto !important;
-            line-height: 1 !important;
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
         }
 
         @media (max-width: 640px) {
             .time-limit-content {
-                flex-direction: column !important;
-                align-items: center !important;
-                text-align: center !important;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
             }
 
             .left-section {
-                margin-right: 0 !important;
-                margin-bottom: 20px !important;
+                margin-right: 0;
+                margin-bottom: 20px;
             }
 
             .add-time-options {
-                grid-template-columns: repeat(2, 1fr) !important;
+                grid-template-columns: repeat(2, 1fr);
             }
 
             .footer {
-                flex-direction: column !important;
-                align-items: center !important;
-                gap: 10px !important;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
         }
     </style>
@@ -402,30 +369,30 @@
                 </div>
 
                 <div class="add-time-options">
-                    <button class="time-option-btn" onclick="addTime(15)">
+                    <button class="time-option-btn" data-time="15">
                         <i class="fas fa-clock"></i>
                         <span>{{ warn.timeOption.15min }}</span>
                     </button>
-                    <button class="time-option-btn" onclick="addTime(30)">
+                    <button class="time-option-btn" data-time="30">
                         <i class="fas fa-clock"></i>
                         <span>{{ warn.timeOption.30min }}</span>
                     </button>
-                    <button class="time-option-btn" onclick="addTime(60)">
+                    <button class="time-option-btn" data-time="60">
                         <i class="fas fa-clock"></i>
                         <span>{{ warn.timeOption.1hour }}</span>
                     </button>
-                    <button class="time-option-btn" onclick="addTime(120)">
+                    <button class="time-option-btn" data-time="120">
                         <i class="fas fa-clock"></i>
                         <span>{{ warn.timeOption.2hours }}</span>
                     </button>
                 </div>
 
                 <div class="action-buttons">
-                    <button class="action-btn continue-btn" onclick="continueAnyway()">
+                    <button class="action-btn continue-btn">
                         <i class="fas fa-arrow-right"></i>
                         <span>{{ warn.continueAnyway }}</span>
                     </button>
-                    <button class="action-btn settings-btn" onclick="openSettings()" title="{{ common.settings }}">
+                    <button class="action-btn settings-btn" title="{{ common.settings }}">
                         <i class="fas fa-cog"></i>
                     </button>
                 </div>
