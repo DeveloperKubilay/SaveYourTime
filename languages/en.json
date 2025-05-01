@@ -73,6 +73,7 @@
       "addNew": "Add New Site",
       "siteUrl": "Site URL (e.g. facebook.com)",
       "dailyLimit": "Daily limit (hours)",
+      "dailyLimitMinutes": "Daily limit (minutes)",
       "add": "Add",
       "restrictedSites": "Restricted Sites",
       "remaining": "Remaining time"
