@@ -16,7 +16,7 @@
   "options_page": "html/settings.html",
   "web_accessible_resources": [
       {
-          "resources": ["html/*.html","languages/*.json"],
+          "resources": ["html/*.html","languages/*.json","js/*.js"],
           "matches": ["<all_urls>"]
       }
   ],
