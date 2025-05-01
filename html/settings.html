@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaman Yönetimi</title>
+    <title data-i18n="common.settings">Zaman Yönetimi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="../js/chart.umd.min.js"></script>
+    <script src="../js/i18n.js"></script>
     <style>
         :root {
             --primary: #4ade80;
@@ -349,56 +350,85 @@
                 padding: 15px;
             }
         }
+        
+        /* Language dropdown styling to match thanks.html */
+        #languageSwitcher option {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: var(--text-light); /* White text for all options */
+            padding: 8px 12px;
+        }
+        
+        #languageSwitcher option:checked {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: #f59e0b; /* Yellow/orange text for selected option */
+            font-weight: 500;
+        }
+        
+        #languageSwitcher option:hover {
+            background-color: rgba(31, 41, 55, 0.8);
+            color: var(--primary); /* Green text for hovered option */
+        }
+        
+        /* Improve language nav item to be more clickable */
+        #language-nav-item {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
     <div class="sidebar">
         <div class="logo">
-            <h2>SaveYourTime</h2>
+            <h2 data-i18n="app.name">SaveYourTime</h2>
         </div>
         <div class="nav-item active" data-tab="dashboard">
             <i class="fas fa-chart-line"></i>
-            <span>Dashboard</span>
+            <span data-i18n="settings.tabs.dashboard">Dashboard</span>
         </div>
         <div class="nav-item" data-tab="sites">
             <i class="fas fa-globe"></i>
-            <span>Site Yönetimi</span>
+            <span data-i18n="settings.tabs.siteManagement">Site Yönetimi</span>
         </div>
         <div class="nav-item" data-tab="active-limits">
             <i class="fas fa-clock"></i>
-            <span>Aktif Limitler</span>
+            <span data-i18n="settings.tabs.activeLimits">Aktif Limitler</span>
         </div>
         <div class="nav-item" data-tab="settings">
             <i class="fas fa-cog"></i>
-            <span>Ayarlar</span>
+            <span data-i18n="common.settings">Ayarlar</span>
+        </div>
+        <div class="nav-item" style="padding: 15px 20px;" id="language-nav-item">
+            <i class="fas fa-language" style="margin-right: 10px;"></i>
+            <select id="languageSwitcher" style="background-color: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); width: 120px; font-size: 15px; padding: 5px 8px; border-radius: 6px;">
+                <!-- Options will be populated by JavaScript -->
+            </select>
         </div>
     </div>
     
     <div class="content">
         <!-- Dashboard Tab -->
         <div class="tab-content active" id="dashboard">
-            <h2><i class="fas fa-chart-line"></i> Dashboard</h2>
+            <h2><i class="fas fa-chart-line"></i> <span data-i18n="settings.tabs.dashboard">Dashboard</span></h2>
             
             <div class="stats-row">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-globe"></i></div>
                     <div class="stat-value">7</div>
-                    <div class="stat-label">Kısıtlanan Siteler</div>
+                    <div class="stat-label" data-i18n="settings.stats.restrictedSites">Kısıtlanan Siteler</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-ban"></i></div>
                     <div class="stat-value">23</div>
-                    <div class="stat-label">Toplam Engelleme</div>
+                    <div class="stat-label" data-i18n="settings.stats.totalBlocked">Toplam Engelleme</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
                     <div class="stat-value">5</div>
-                    <div class="stat-label">Bugün Engellenen</div>
+                    <div class="stat-label" data-i18n="settings.stats.todayBlocked">Bugün Engellenen</div>
                 </div>
             </div>
             
             <div class="card">
-                <h3>En Çok Ziyaret Edilen Siteler</h3>
+                <h3 data-i18n="settings.stats.mostVisited">En Çok Ziyaret Edilen Siteler</h3>
                 <div class="chart-container">
                     <canvas id="sitesChart"></canvas>
                 </div>
@@ -407,36 +437,36 @@
         
         <!-- Site Management Tab -->
         <div class="tab-content" id="sites">
-            <h2><i class="fas fa-globe"></i> Site Yönetimi</h2>
+            <h2><i class="fas fa-globe"></i> <span data-i18n="settings.tabs.siteManagement">Site Yönetimi</span></h2>
             
             <div class="card">
-                <h3>Yeni Site Ekle</h3>
+                <h3 data-i18n="settings.sites.addNew">Yeni Site Ekle</h3>
                 <div class="form-row">
-                    <input type="text" id="siteUrl" placeholder="Site URL (örn: facebook.com)" style="flex: 2">
-                    <input type="number" id="timeLimit" placeholder="Günlük limit (saat)" style="flex: 1">
+                    <input type="text" id="siteUrl" placeholder="Site URL (örn: facebook.com)" data-i18n-placeholder="settings.sites.siteUrl" style="flex: 2">
+                    <input type="number" id="timeLimit" placeholder="Günlük limit (saat)" data-i18n-placeholder="settings.sites.dailyLimit" style="flex: 1">
                 </div>
-                <button id="addSiteBtn"><i class="fas fa-plus"></i> Ekle</button>
+                <button id="addSiteBtn"><i class="fas fa-plus"></i> <span data-i18n="settings.sites.add">Ekle</span></button>
             </div>
             
             <div class="card">
-                <h3>Kısıtlı Siteler</h3>
+                <h3 data-i18n="settings.sites.restrictedSites">Kısıtlı Siteler</h3>
                 <div id="sitesList">
                     <!-- Örnek site listesi -->
                     <div class="site-item">
                         <div class="site-info">
                             <span class="site-url">facebook.com</span>
-                            <span class="site-limit">Günlük limit: 2 saat</span>
-                            <span class="site-remaining">Kalan süre: 1 saat 30 dakika</span>
+                            <span class="site-limit"><span data-i18n="popup.dailyLimit">Günlük limit</span>: 2 <span data-i18n="common.time.hours">saat</span></span>
+                            <span class="site-remaining"><span data-i18n="settings.sites.remaining">Kalan süre</span>: 1 <span data-i18n="common.time.hour">saat</span> 30 <span data-i18n="common.time.minutes">dakika</span></span>
                         </div>
-                        <button class="delete-btn" onclick="deleteSite('facebook.com')"><i class="fas fa-trash"></i></button>
+                        <button class="delete-btn" onclick="deleteSite('facebook.com')" data-i18n-title="common.delete"><i class="fas fa-trash"></i></button>
                     </div>
                     <div class="site-item">
                         <div class="site-info">
                             <span class="site-url">youtube.com</span>
-                            <span class="site-limit">Günlük limit: 3 saat</span>
-                            <span class="site-remaining">Kalan süre: 2 saat 15 dakika</span>
+                            <span class="site-limit"><span data-i18n="popup.dailyLimit">Günlük limit</span>: 3 <span data-i18n="common.time.hours">saat</span></span>
+                            <span class="site-remaining"><span data-i18n="settings.sites.remaining">Kalan süre</span>: 2 <span data-i18n="common.time.hours">saat</span> 15 <span data-i18n="common.time.minutes">dakika</span></span>
                         </div>
-                        <button class="delete-btn" onclick="deleteSite('youtube.com')"><i class="fas fa-trash"></i></button>
+                        <button class="delete-btn" onclick="deleteSite('youtube.com')" data-i18n-title="common.delete"><i class="fas fa-trash"></i></button>
                     </div>
                 </div>
             </div>
@@ -444,49 +474,49 @@
         
         <!-- Active Limits Tab -->
         <div class="tab-content" id="active-limits">
-            <h2><i class="fas fa-clock"></i> Aktif Limitler</h2>
+            <h2><i class="fas fa-clock"></i> <span data-i18n="settings.tabs.activeLimits">Aktif Limitler</span></h2>
             
             <div class="card">
-                <h3>Şu Anda Limitli Siteler</h3>
+                <h3 data-i18n="settings.activeLimits.title">Şu Anda Limitli Siteler</h3>
                 <div id="activeLimitsList">
                     <!-- Örnek aktif limit listesi -->
                     <div class="site-item">
                         <div class="site-info">
                             <span class="site-url">facebook.com</span>
-                            <span class="site-remaining">Kalan süre: 1 saat 30 dakika</span>
+                            <span class="site-remaining"><span data-i18n="settings.sites.remaining">Kalan süre</span>: 1 <span data-i18n="common.time.hour">saat</span> 30 <span data-i18n="common.time.minutes">dakika</span></span>
                         </div>
                         <div class="site-actions">
-                            <button class="time-btn" onclick="addTime('facebook.com', 15)">+15dk</button>
-                            <button class="time-btn" onclick="addTime('facebook.com', 30)">+30dk</button>
-                            <button class="time-btn" onclick="addTime('facebook.com', 60)">+1sa</button>
-                            <button class="time-btn" onclick="addTime('facebook.com', 120)">+2sa</button>
-                            <button class="delete-btn" onclick="removeLimit('facebook.com')"><i class="fas fa-times"></i></button>
+                            <button class="time-btn" onclick="addTime('facebook.com', 15)">+15<span data-i18n="common.time.minutesShort">dk</span></button>
+                            <button class="time-btn" onclick="addTime('facebook.com', 30)">+30<span data-i18n="common.time.minutesShort">dk</span></button>
+                            <button class="time-btn" onclick="addTime('facebook.com', 60)">+1<span data-i18n="common.time.hourShort">sa</span></button>
+                            <button class="time-btn" onclick="addTime('facebook.com', 120)">+2<span data-i18n="common.time.hoursShort">sa</span></button>
+                            <button class="delete-btn" onclick="removeLimit('facebook.com')" data-i18n-title="common.close"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
                     <div class="site-item">
                         <div class="site-info">
                             <span class="site-url">youtube.com</span>
-                            <span class="site-remaining">Kalan süre: 2 saat 15 dakika</span>
+                            <span class="site-remaining"><span data-i18n="settings.sites.remaining">Kalan süre</span>: 2 <span data-i18n="common.time.hours">saat</span> 15 <span data-i18n="common.time.minutes">dakika</span></span>
                         </div>
                         <div class="site-actions">
-                            <button class="time-btn" onclick="addTime('youtube.com', 15)">+15dk</button>
-                            <button class="time-btn" onclick="addTime('youtube.com', 30)">+30dk</button>
-                            <button class="time-btn" onclick="addTime('youtube.com', 60)">+1sa</button>
-                            <button class="time-btn" onclick="addTime('youtube.com', 120)">+2sa</button>
-                            <button class="delete-btn" onclick="removeLimit('youtube.com')"><i class="fas fa-times"></i></button>
+                            <button class="time-btn" onclick="addTime('youtube.com', 15)">+15<span data-i18n="common.time.minutesShort">dk</span></button>
+                            <button class="time-btn" onclick="addTime('youtube.com', 30)">+30<span data-i18n="common.time.minutesShort">dk</span></button>
+                            <button class="time-btn" onclick="addTime('youtube.com', 60)">+1<span data-i18n="common.time.hourShort">sa</span></button>
+                            <button class="time-btn" onclick="addTime('youtube.com', 120)">+2<span data-i18n="common.time.hoursShort">sa</span></button>
+                            <button class="delete-btn" onclick="removeLimit('youtube.com')" data-i18n-title="common.close"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
                     <div class="site-item">
                         <div class="site-info">
                             <span class="site-url">twitter.com</span>
-                            <span class="site-remaining">Kalan süre: 45 dakika</span>
+                            <span class="site-remaining"><span data-i18n="settings.sites.remaining">Kalan süre</span>: 45 <span data-i18n="common.time.minutes">dakika</span></span>
                         </div>
                         <div class="site-actions">
-                            <button class="time-btn" onclick="addTime('twitter.com', 15)">+15dk</button>
-                            <button class="time-btn" onclick="addTime('twitter.com', 30)">+30dk</button>
-                            <button class="time-btn" onclick="addTime('twitter.com', 60)">+1sa</button>
-                            <button class="time-btn" onclick="addTime('twitter.com', 120)">+2sa</button>
-                            <button class="delete-btn" onclick="removeLimit('twitter.com')"><i class="fas fa-times"></i></button>
+                            <button class="time-btn" onclick="addTime('twitter.com', 15)">+15<span data-i18n="common.time.minutesShort">dk</span></button>
+                            <button class="time-btn" onclick="addTime('twitter.com', 30)">+30<span data-i18n="common.time.minutesShort">dk</span></button>
+                            <button class="time-btn" onclick="addTime('twitter.com', 60)">+1<span data-i18n="common.time.hourShort">sa</span></button>
+                            <button class="time-btn" onclick="addTime('twitter.com', 120)">+2<span data-i18n="common.time.hoursShort">sa</span></button>
+                            <button class="delete-btn" onclick="removeLimit('twitter.com')" data-i18n-title="common.close"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
                 </div>
@@ -495,30 +525,36 @@
         
         <!-- Settings Tab -->
         <div class="tab-content" id="settings">
-            <h2><i class="fas fa-cog"></i> Ayarlar</h2>
+            <h2><i class="fas fa-cog"></i> <span data-i18n="common.settings">Ayarlar</span></h2>
             
             <div class="card">
-                <h3>Genel Ayarlar</h3>
+                <h3 data-i18n="settings.general.title">Genel Ayarlar</h3>
                 <div>
                     <div class="checkbox-row">
                         <input type="checkbox" id="enableNotifications" checked>
-                        <label for="enableNotifications">Bildirimleri Aktif Et</label>
+                        <label for="enableNotifications" data-i18n="settings.general.notifications">Bildirimleri Aktif Et</label>
                     </div>
                     <div class="checkbox-row">
                         <input type="checkbox" id="strictMode">
-                        <label for="strictMode">Katı Mod (Limiti aşınca siteleri tamamen engelle)</label>
+                        <label for="strictMode" data-i18n="settings.general.strictMode">Katı Mod (Limiti aşınca siteleri tamamen engelle)</label>
                     </div>
                     <div class="checkbox-row">
                         <input type="checkbox" id="startupLaunch">
-                        <label for="startupLaunch">Bilgisayar açılışında otomatik başlat</label>
+                        <label for="startupLaunch" data-i18n="settings.general.startup">Bilgisayar açılışında otomatik başlat</label>
                     </div>
-                    <button id="saveSettingsBtn"><i class="fas fa-save"></i> Ayarları Kaydet</button>
+                    <button id="saveSettingsBtn"><i class="fas fa-save"></i> <span data-i18n="settings.general.saveSettings">Ayarları Kaydet</span></button>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="footer-container" style="position: fixed; bottom: 0; left: 0; right: 0; background-color: var(--bg-dark); border-top: 1px solid var(--border); padding: 15px; text-align: center; font-size: 14px; color: var(--text-muted);">
+        <p>SaveYourTime | Made with <span style="color: #e25555;">❤️</span> by <a href="https://github.com/DeveloperKubilay" style="color: var(--primary); text-decoration: none;" target="_blank">DeveloperKubilay</a> | <a href="https://github.com/DeveloperKubilay/SaveYourTime" style="color: var(--primary); text-decoration: none;" target="_blank">Github</a></p>
+    </div>
+
+    <script src="../js/i18n.js"></script>
     <script src="../js/settings.js"></script>
+    <script src="../js/page-handler.js"></script>
 </body>
 </html>
 

@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaveYourTime</title>
+    <title data-i18n="app.name">SaveYourTime</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="../js/i18n.js"></script>
     <style>
         :root {
             --primary: #4ade80;
@@ -263,13 +264,31 @@
             stroke-linecap: round;
             transition: stroke-dashoffset 0.5s ease;
         }
+
+        /* Language dropdown styling */
+        #languageSwitcher option {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: var(--text-light); /* White text for all options */
+            padding: 8px 12px;
+        }
+        
+        #languageSwitcher option:checked {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: #f59e0b; /* Yellow text for selected option */
+            font-weight: 500;
+        }
+        
+        #languageSwitcher option:hover {
+            background-color: rgba(31, 41, 55, 0.8);
+            color: var(--primary); /* Green text for hovered option */
+        }
     </style>
 </head>
 <body>
     <div class="popup-container">
         <div class="header">
-            <h1><i class="fas fa-hourglass-half"></i> SaveYourTime</h1>
-            <i class="fas fa-cog settings-btn" id="settingsBtn"></i>
+            <h1><i class="fas fa-hourglass-half"></i> <span data-i18n="app.name">SaveYourTime</span></h1>
+            <i class="fas fa-cog settings-btn" id="settingsBtn" data-i18n-title="common.settings"></i>
         </div>
         
         <div class="current-site">
@@ -289,17 +308,17 @@
                     <i class="fas fa-globe"></i>
                     <span id="currentSiteName">youtube.com</span>
                 </div>
-                <div class="site-limit" id="siteLimit">Günlük Limit: 3 saat</div>
+                <div class="site-limit" id="siteLimit" data-i18n="popup.dailyLimit">Günlük Limit: 3 saat</div>
                 <div class="time-actions">
-                    <button class="time-btn" id="add15min">+15dk</button>
-                    <button class="time-btn" id="add30min">+30dk</button>
-                    <button class="time-btn" id="add60min">+1s</button>
+                    <button class="time-btn" id="add15min" data-i18n="popup.timeButtons.15min">+15dk</button>
+                    <button class="time-btn" id="add30min" data-i18n="popup.timeButtons.30min">+30dk</button>
+                    <button class="time-btn" id="add60min" data-i18n="popup.timeButtons.1hour">+1s</button>
                 </div>
             </div>
         </div>
         
         <div class="other-sites">
-            <div class="section-title">Diğer Kısıtlı Siteler</div>
+            <div class="section-title" data-i18n="popup.otherSites">Diğer Kısıtlı Siteler</div>
             <div class="site-list" id="siteList">
                 <div class="site-item">
                     <div class="site-item-name">facebook.com</div>
@@ -319,20 +338,25 @@
         <div class="footer">
             <div class="status">
                 <i class="fas fa-circle-check"></i>
-                <span>Aktif</span>
+                <span data-i18n="common.active">Aktif</span>
             </div>
-            <div class="footer-links">
-                <a href="#" class="footer-link" title="Ayarlar" id="openSettings">
-                    <i class="fas fa-sliders-h"></i>
-                </a>
-                <a href="#" class="footer-link" title="İstatistikler" id="openStats">
-                    <i class="fas fa-chart-bar"></i>
-                </a>
+            <div class="footer-links" style="display: flex; justify-content: flex-end; align-items: center; width: 100%; padding: 0 5px;">
+                <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 3px 8px; width: 100px; font-size: 14px; border-radius: 4px;">
+                    <!-- Options will be populated by JavaScript -->
+                </select>
             </div>
+        </div>
+
+        <!-- Add a small attribution at the bottom -->
+        <div style="text-align: center; padding: 5px; font-size: 10px; color: var(--text-muted); border-top: 1px solid var(--border);">
+            <a href="https://github.com/DeveloperKubilay/SaveYourTime" target="_blank" style="color: var(--text-muted); text-decoration: none;">
+                Made with ❤️ by DeveloperKubilay
+            </a>
         </div>
     </div>
 
-    <!-- JavaScript dosyasını dahil et -->
+    <script src="../js/i18n.js"></script>
     <script src="../js/popup.js"></script>
+    <script src="../js/page-handler.js"></script>
 </body>
 </html>

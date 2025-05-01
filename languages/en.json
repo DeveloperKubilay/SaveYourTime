@@ -1,0 +1,198 @@
+{
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "A time management extension that helps you use your digital time more efficiently"
+  },
+  "common": {
+    "settings": "Settings",
+    "dashboard": "Dashboard",
+    "statistics": "Statistics",
+    "active": "Active",
+    "save": "Save",
+    "cancel": "Cancel",
+    "add": "Add",
+    "delete": "Delete",
+    "close": "Close",
+    "continue": "Continue",
+    "back": "Back",
+    "time": {
+      "hour": "hour",
+      "hours": "hours",
+      "minute": "minute",
+      "minutes": "minutes",
+      "second": "second",
+      "seconds": "seconds",
+      "left": "left",
+      "used": "used",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m",
+      "secondsShort": "s"
+    }
+  },
+  "popup": {
+    "currentSite": "Current Site",
+    "dailyLimit": "Daily Limit",
+    "timeUsed": "Time Used",
+    "timeLeft": "Time Left",
+    "addTime": "Add Time",
+    "otherSites": "Other Restricted Sites",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "You've Run Out of Time!",
+    "message": "You've reached your daily time limit for this site. A great opportunity to redirect your attention to more important tasks!",
+    "addTime": "Add Time",
+    "continueAnyway": "Continue Anyway",
+    "dailyStats": "Today: {{siteCount}} sites with total usage of {{totalTime}}",
+    "timeOption": {
+      "15min": "+15 minutes",
+      "30min": "+30 minutes",
+      "1hour": "+1 hour",
+      "2hours": "+2 hours"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashboard",
+      "siteManagement": "Site Management",
+      "activeLimits": "Active Limits",
+      "settings": "Settings"
+    },
+    "stats": {
+      "restrictedSites": "Restricted Sites",
+      "totalBlocked": "Total Blocked",
+      "todayBlocked": "Blocked Today",
+      "mostVisited": "Most Visited Sites"
+    },
+    "sites": {
+      "addNew": "Add New Site",
+      "siteUrl": "Site URL (e.g. facebook.com)",
+      "dailyLimit": "Daily limit (hours)",
+      "add": "Add",
+      "restrictedSites": "Restricted Sites",
+      "remaining": "Remaining time"
+    },
+    "activeLimits": {
+      "title": "Currently Limited Sites"
+    },
+    "general": {
+      "title": "General Settings",
+      "notifications": "Enable Notifications",
+      "strictMode": "Strict Mode (Completely block sites when limit is exceeded)",
+      "startup": "Start automatically on computer startup",
+      "saveSettings": "Save Settings"
+    }
+  },
+  "thanks": {
+    "welcome": "Welcome to SaveYourTime!",
+    "thankYou": "Thanks for installing",
+    "features": {
+      "timeLimit": {
+        "title": "Time Limiting",
+        "description": "Set daily time limits for social media and other distracting sites. You'll be gently reminded when your limit is reached."
+      },
+      "statistics": {
+        "title": "Usage Statistics",
+        "description": "Track how much time you spend on different sites with visual graphs and manage your time better."
+      },
+      "blocking": {
+        "title": "Smart Blocking",
+        "description": "Choose between complete blocking or gentle reminders when time limits are exceeded. You can add extra time whenever needed."
+      }
+    },
+    "howItWorks": {
+      "title": "How SaveYourTime Works?",
+      "steps": [
+        {
+          "title": "Add Sites",
+          "description": "Add websites you want to limit time on and set a daily time limit for each."
+        },
+        {
+          "title": "Usage Tracking",
+          "description": "The extension quietly works in the background, monitoring the time you spend on specified sites."
+        },
+        {
+          "title": "Limit Notification",
+          "description": "When your set time runs out, you'll see a gentle reminder before continuing."
+        },
+        {
+          "title": "Flexible Control",
+          "description": "You can extend the time or remove all limits when needed. You're always in control."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy and Data Security",
+      "description": "SaveYourTime stores all your data only locally in your browser and doesn't send any information to external servers. Your site usage data and settings are securely stored in your browser's \"local storage\" area."
+    },
+    "actions": {
+      "configure": "Configure Settings",
+      "viewSource": "View Source on GitHub",
+      "virusTotal": "VirusTotal Results"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Privacy Policy",
+    "subtitle": "Information about how we protect your data privacy",
+    "commitment": {
+      "title": "Privacy Commitment",
+      "description": "At SaveYourTime, we value your privacy and data security. This extension does not send any data to external servers, and all your information is stored only in your own browser."
+    },
+    "collected": {
+      "title": "Information Collected",
+      "intro": "SaveYourTime collects and records only the following information:",
+      "timeSpent": "The time you spend on websites you've specified",
+      "dailyLimits": "The daily time limits you've set",
+      "settings": "Your extension settings and preferences",
+      "storage": "This information is stored only in your local browser and is necessary for the extension to function properly."
+    },
+    "storage": {
+      "title": "Data Storage and Transmission",
+      "intro": "SaveYourTime:",
+      "noSend": "Does not send any user data to external servers",
+      "localStorage": "Stores all data in your browser's local storage area",
+      "offline": "Can work even when you don't have an internet connection",
+      "noCookies": "Does not use cookies",
+      "noTracking": "Does not track any user identity or session information"
+    },
+    "security": {
+      "title": "Data Security",
+      "intro": "As your data is stored only in your browser:",
+      "browserClear": "It may be deleted if you clear your browser history or cache",
+      "uninstall": "You can clear all recorded data from your browser when you uninstall the extension",
+      "access": "Only your browser can access your data"
+    },
+    "permissions": {
+      "title": "Permissions",
+      "intro": "SaveYourTime requires the following browser permissions to function:",
+      "activeTab": "Active tab access (to monitor time spent on sites you've specified)",
+      "storage": "Local storage access (to save your settings and time information)",
+      "minimal": "These permissions are the minimum required for the extension's core functionality."
+    },
+    "openSource": {
+      "title": "Open Source Code",
+      "description": "SaveYourTime is a fully open-source project. Our codebase is available for anyone to review on GitHub.",
+      "transparency": "This transparency demonstrates our commitment to privacy. Anyone who wishes to review the code can verify that the extension truly doesn't send any data."
+    },
+    "rights": {
+      "title": "User Rights",
+      "intro": "As a SaveYourTime user, you can:",
+      "remove": "Remove the extension from your browser settings at any time",
+      "delete": "Delete all recorded data from the extension settings",
+      "modify": "Modify any data you want from the extension settings"
+    },
+    "questions": {
+      "title": "Questions",
+      "contact": "If you have any questions about our privacy policy, please contact us through our GitHub project."
+    },
+    "lastUpdated": "Last updated: {{date}}",
+    "actions": {
+      "home": "Home"
+    }
+  }
+}

@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaveYourTime - Hoş Geldiniz</title>
+    <title data-i18n="thanks.welcome">SaveYourTime - Hoş Geldiniz</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="../js/i18n.js"></script>
+    <script src="../js/page-handler.js"></script>
     <style>
         :root {
             --primary: #4ade80;
@@ -314,6 +316,24 @@
                 justify-content: center;
             }
         }
+
+        /* Language dropdown styling */
+        #languageSwitcher option {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: var(--text-light); /* White text for all options */
+            padding: 8px 12px;
+        }
+        
+        #languageSwitcher option:checked {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: #f59e0b; /* Yellow text for selected option */
+            font-weight: 500;
+        }
+        
+        #languageSwitcher option:hover {
+            background-color: rgba(31, 41, 55, 0.8);
+            color: var(--primary); /* Green text for hovered option */
+        }
     </style>
 </head>
 <body>
@@ -323,11 +343,11 @@
         <div class="logo">
             <i class="fas fa-hourglass-half"></i>
         </div>
-        <h1>SaveYourTime'a Hoş Geldiniz!</h1>
+        <h1 data-i18n="thanks.welcome">SaveYourTime'a Hoş Geldiniz!</h1>
         <div class="thank-you-badge">
-            <i class="fas fa-heart"></i> Kurulum için teşekkürler
+            <i class="fas fa-heart"></i> <span data-i18n="thanks.thankYou">Kurulum için teşekkürler</span>
         </div>
-        <p>SaveYourTime, dijital zamanınızı daha verimli kullanmanıza yardımcı olan bir zaman yönetimi uzantısıdır.</p>
+        <p data-i18n="app.tagline">SaveYourTime, dijital zamanınızı daha verimli kullanmanıza yardımcı olan bir zaman yönetimi uzantısıdır.</p>
     </header>
     
     <div class="container">
@@ -336,92 +356,98 @@
                 <div class="feature-icon">
                     <i class="fas fa-clock"></i>
                 </div>
-                <h3 class="feature-title">Zaman Sınırlaması</h3>
-                <p class="feature-description">Sosyal medya ve diğer dikkat dağıtıcı siteler için günlük zaman limitleri belirleyin. Limitiniz dolduğunda nazikçe hatırlatılırsınız.</p>
+                <h3 class="feature-title" data-i18n="thanks.features.timeLimit.title">Zaman Sınırlaması</h3>
+                <p class="feature-description" data-i18n="thanks.features.timeLimit.description">Sosyal medya ve diğer dikkat dağıtıcı siteler için günlük zaman limitleri belirleyin. Limitiniz dolduğunda nazikçe hatırlatılırsınız.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
-                <h3 class="feature-title">Kullanım İstatistikleri</h3>
-                <p class="feature-description">Hangi sitelerde ne kadar zaman harcadığınızı görsel grafiklerle takip edin ve zamanınızı daha iyi yönetin.</p>
+                <h3 class="feature-title" data-i18n="thanks.features.statistics.title">Kullanım İstatistikleri</h3>
+                <p class="feature-description" data-i18n="thanks.features.statistics.description">Hangi sitelerde ne kadar zaman harcadığınızı görsel grafiklerle takip edin ve zamanınızı daha iyi yönetin.</p>
             </div>
             
             <div class="feature-card">
                 <div class="feature-icon">
                     <i class="fas fa-ban"></i>
                 </div>
-                <h3 class="feature-title">Akıllı Engelleme</h3>
-                <p class="feature-description">Zaman limiti aşıldığında tam engelleme veya nazik hatırlatıcılar arasında seçim yapın. İstediğiniz zaman ek süre ekleyebilirsiniz.</p>
+                <h3 class="feature-title" data-i18n="thanks.features.blocking.title">Akıllı Engelleme</h3>
+                <p class="feature-description" data-i18n="thanks.features.blocking.description">Zaman limiti aşıldığında tam engelleme veya nazik hatırlatıcılar arasında seçim yapın. İstediğiniz zaman ek süre ekleyebilirsiniz.</p>
             </div>
         </div>
         
         <div class="how-it-works">
-            <h2><i class="fas fa-cogs"></i> SaveYourTime Nasıl Çalışır?</h2>
+            <h2><i class="fas fa-cogs"></i> <span data-i18n="thanks.howItWorks.title">SaveYourTime Nasıl Çalışır?</span></h2>
             
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
                     <div class="step-content">
-                        <div class="step-title">Siteleri Ekleyin</div>
-                        <div class="step-description">Zaman sınırlaması getirmek istediğiniz web sitelerini ekleyin ve her biri için günlük süre limiti belirleyin.</div>
+                        <div class="step-title" data-i18n="thanks.howItWorks.steps.0.title">Siteleri Ekleyin</div>
+                        <div class="step-description" data-i18n="thanks.howItWorks.steps.0.description">Zaman sınırlaması getirmek istediğiniz web sitelerini ekleyin ve her biri için günlük süre limiti belirleyin.</div>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">2</div>
                     <div class="step-content">
-                        <div class="step-title">Kullanım Takibi</div>
-                        <div class="step-description">Uzantı, arka planda sessizce çalışarak belirlediğiniz sitelerde harcadığınız zamanı izler.</div>
+                        <div class="step-title" data-i18n="thanks.howItWorks.steps.1.title">Kullanım Takibi</div>
+                        <div class="step-description" data-i18n="thanks.howItWorks.steps.1.description">Uzantı, arka planda sessizce çalışarak belirlediğiniz sitelerde harcadığınız zamanı izler.</div>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">3</div>
                     <div class="step-content">
-                        <div class="step-title">Limit Dolunca Uyarı</div>
-                        <div class="step-description">Belirlediğiniz süre dolduğunda, devam etmeden önce sizi bilgilendiren nazik bir hatırlatıcı görürsünüz.</div>
+                        <div class="step-title" data-i18n="thanks.howItWorks.steps.2.title">Limit Dolunca Uyarı</div>
+                        <div class="step-description" data-i18n="thanks.howItWorks.steps.2.description">Belirlediğiniz süre dolduğunda, devam etmeden önce sizi bilgilendiren nazik bir hatırlatıcı görürsünüz.</div>
                     </div>
                 </div>
                 
                 <div class="step">
                     <div class="step-number">4</div>
                     <div class="step-content">
-                        <div class="step-title">Esnek Kontrol</div>
-                        <div class="step-description">İhtiyacınız olduğunda süreyi uzatabilir veya tüm limitleri kaldırabilirsiniz. Kontrol tamamen sizdedir.</div>
+                        <div class="step-title" data-i18n="thanks.howItWorks.steps.3.title">Esnek Kontrol</div>
+                        <div class="step-description" data-i18n="thanks.howItWorks.steps.3.description">İhtiyacınız olduğunda süreyi uzatabilir veya tüm limitleri kaldırabilirsiniz. Kontrol tamamen sizdedir.</div>
                     </div>
                 </div>
             </div>
         </div>
         
         <div class="privacy-section">
-            <h2><i class="fas fa-shield-alt"></i> Gizlilik ve Veri Güvenliği</h2>
-            <p>SaveYourTime, <strong>tüm verilerinizi sadece kendi tarayıcınızda yerel olarak saklar</strong> ve hiçbir bilgiyi harici sunuculara göndermez. Site kullanım verileriniz ve ayarlarınız, tarayıcınızın "yerel depolama" alanında güvenle saklanır.</p>
-            <p>Uzantımız minimum izin gerektirir ve sadece belirlediğiniz sitelere erişir. Gizliliğiniz ve verilerinizin güvenliği en büyük önceliğimizdir.</p>
-            <p>Tüm kaynak kodu açık olup, GitHub sayfamızdan incelenebilir ve indirilip değiştirilebilir.</p>
+            <h2><i class="fas fa-shield-alt"></i> <span data-i18n="thanks.privacy.title">Gizlilik ve Veri Güvenliği</span></h2>
+            <p data-i18n="thanks.privacy.description">SaveYourTime, <strong>tüm verilerinizi sadece kendi tarayıcınızda yerel olarak saklar</strong> ve hiçbir bilgiyi harici sunuculara göndermez. Site kullanım verileriniz ve ayarlarınız, tarayıcınızın "yerel depolama" alanında güvenle saklanır.</p>
+            <p data-i18n="thanks.privacy.details">Uzantımız minimum izin gerektirir ve sadece belirlediğiniz sitelere erişir. Gizliliğiniz ve verilerinizin güvenliği en büyük önceliğimizdir.</p>
+            <p data-i18n="thanks.privacy.openSource">Tüm kaynak kodu açık olup, GitHub sayfamızdan incelenebilir ve indirilip değiştirilebilir.</p>
         </div>
         
         <div class="action-buttons">
             <a href="settings.html" class="btn btn-primary">
                 <i class="fas fa-cog"></i>
-                Ayarları Yapılandır
+                <span data-i18n="thanks.actions.configure">Ayarları Yapılandır</span>
             </a>
             
             <a href="https://github.com/username/saveyourtime" class="btn">
                 <i class="fab fa-github"></i>
-                GitHub'da Kaynak Kodu Gör
+                <span data-i18n="thanks.actions.viewSource">GitHub'da Kaynak Kodu Gör</span>
             </a>
             
             <a href="https://www.virustotal.com/gui/home/upload" class="btn">
                 <i class="fas fa-shield-virus"></i>
-                VirusTotal Sonuçları
+                <span data-i18n="thanks.actions.virusTotal">VirusTotal Sonuçları</span>
             </a>
         </div>
     </div>
     
     <footer>
-        <p>SaveYourTime &copy; 2025 | <a href="https://github.com/username/saveyourtime" target="_blank">GitHub</a> | <a href="privacy.html">Gizlilik Politikası</a></p>
+        <div class="language-switcher" style="margin-bottom: 15px;">
+            <i class="fas fa-language" style="color: var(--primary); font-size: 18px;"></i>
+            <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 5px 10px; font-size: 16px; border-radius: 6px; margin-left: 8px; min-width: 120px;">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+        <p>SaveYourTime | Made with <span style="color: #e25555;">❤️</span> by <a href="https://github.com/DeveloperKubilay" target="_blank">DeveloperKubilay</a> | <a href="https://github.com/DeveloperKubilay/SaveYourTime" target="_blank">Github</a></p>
     </footer>
 </body>
 </html>

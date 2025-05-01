@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaman Doldu - SaveYourTime</title>
+    <title data-i18n="warn.title">Zaman Doldu - SaveYourTime</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="../js/i18n.js"></script>
+    <script src="../js/page-handler.js"></script>
     <style>
         :root {
             --primary: #4ade80 !important;
@@ -395,36 +397,35 @@
                 </div>
 
                 <div class="time-limit-message">
-                    <h2>Zamanınızı Doldurdunuz!</h2>
-                    <p>Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere
-                        yönlendirmek için harika bir fırsat!</p>
+                    <h2 data-i18n="warn.title">Zamanınızı Doldurdunuz!</h2>
+                    <p data-i18n="warn.message">Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!</p>
                 </div>
 
                 <div class="add-time-options">
                     <button class="time-option-btn" onclick="addTime(15)">
                         <i class="fas fa-clock"></i>
-                        <span>+15 dakika</span>
+                        <span data-i18n="warn.timeOption.15min">+15 dakika</span>
                     </button>
                     <button class="time-option-btn" onclick="addTime(30)">
                         <i class="fas fa-clock"></i>
-                        <span>+30 dakika</span>
+                        <span data-i18n="warn.timeOption.30min">+30 dakika</span>
                     </button>
                     <button class="time-option-btn" onclick="addTime(60)">
                         <i class="fas fa-clock"></i>
-                        <span>+1 saat</span>
+                        <span data-i18n="warn.timeOption.1hour">+1 saat</span>
                     </button>
                     <button class="time-option-btn" onclick="addTime(120)">
                         <i class="fas fa-clock"></i>
-                        <span>+2 saat</span>
+                        <span data-i18n="warn.timeOption.2hours">+2 saat</span>
                     </button>
                 </div>
 
                 <div class="action-buttons">
                     <button class="action-btn continue-btn" onclick="continueAnyway()">
                         <i class="fas fa-arrow-right"></i>
-                        <span>Yine de Devam Et</span>
+                        <span data-i18n="warn.continueAnyway">Yine de Devam Et</span>
                     </button>
-                    <button class="action-btn settings-btn" onclick="openSettings()">
+                    <button class="action-btn settings-btn" onclick="openSettings()" data-i18n-title="common.settings">
                         <i class="fas fa-cog"></i>
                     </button>
                 </div>
@@ -434,48 +435,13 @@
         <div class="footer">
             <div class="daily-stats">
                 <i class="fas fa-chart-pie"></i>
-                <span>Bugün: <strong>5 site</strong> için toplam <strong>3 saat 20 dakika</strong> kullanım</span>
+                <span id="daily-stats-text" data-i18n="warn.dailyStats" data-i18n-params='{"siteCount": "5", "totalTime": "3 hours 20 minutes"}'>Bugün: <strong>5 site</strong> için toplam <strong>3 saat 20 dakika</strong> kullanım</span>
             </div>
-            <div class="powered-by">SaveYourTime</div>
+            <div class="powered-by">
+                <span data-i18n="app.name">SaveYourTime</span>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Site adını dinamik olarak ayarla
-        document.addEventListener('DOMContentLoaded', function () {
-            // Chrome extension'dan site adını alabiliriz
-            // Şimdilik varsayılan olarak ayarlıyoruz
-            const currentSite = "youtube.com"; // Bu değer extension'dan alınacak
-            document.getElementById('site-domain').textContent = currentSite;
-            document.title = currentSite + " - Zaman Doldu";
-        });
-
-        function addTime(minutes) {
-            // Extension'a zaman eklemek için mesaj gönder
-            console.log(`${minutes} dakika eklendi`);
-            // Gerçek implementasyon:
-            // chrome.runtime.sendMessage({action: "addTime", minutes: minutes, site: currentSite});
-            alert(`${minutes} dakika eklenmiştir. Sayfayı yeniliyorum...`);
-            // Sayfayı yenile veya kapat
-            setTimeout(() => window.close(), 1500);
-        }
-
-        function continueAnyway() {
-            // Kullanıcının engellemeyi görmezden gelmesine izin ver
-            console.log("Kullanıcı devam etmeyi seçti");
-            // Gerçek implementasyon:
-            // chrome.runtime.sendMessage({action: "continueAnyway", site: currentSite});
-            window.close();
-        }
-
-        function openSettings() {
-            // Ayarlar sayfasını aç
-            console.log("Ayarlar açılıyor");
-            // Gerçek implementasyon:
-            // chrome.runtime.sendMessage({action: "openSettings"});
-            window.open('settings.html', '_blank');
-        }
-    </script>
 </body>
 
 </html>
