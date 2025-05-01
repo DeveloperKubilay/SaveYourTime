@@ -16,7 +16,7 @@
   "options_page": "html/settings.html",
   "web_accessible_resources": [
       {
-          "resources": ["html/privacy.html", "html/thanks.html", "html/warn.html"],
+          "resources": ["html/*.html","languages/*.json"],
           "matches": ["<all_urls>"]
       }
   ],
