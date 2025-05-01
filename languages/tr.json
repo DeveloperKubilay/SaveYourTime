@@ -1,0 +1,198 @@
+{
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Dijital zamanınızı daha verimli kullanmanıza yardımcı olan bir zaman yönetimi uzantısı"
+  },
+  "common": {
+    "settings": "Ayarlar",
+    "dashboard": "Dashboard",
+    "statistics": "İstatistikler",
+    "active": "Aktif",
+    "save": "Kaydet",
+    "cancel": "İptal",
+    "add": "Ekle",
+    "delete": "Sil",
+    "close": "Kapat",
+    "continue": "Devam Et",
+    "back": "Geri",
+    "time": {
+      "hour": "saat",
+      "hours": "saat",
+      "minute": "dakika",
+      "minutes": "dakika",
+      "second": "saniye",
+      "seconds": "saniye",
+      "left": "kaldı",
+      "used": "kullanıldı",
+      "hourShort": "sa",
+      "hoursShort": "sa",
+      "minutesShort": "dk",
+      "secondsShort": "sn"
+    }
+  },
+  "popup": {
+    "currentSite": "Mevcut Site",
+    "dailyLimit": "Günlük Limit",
+    "timeUsed": "Kullanılan Süre",
+    "timeLeft": "Kalan Süre",
+    "addTime": "Süre Ekle",
+    "otherSites": "Diğer Kısıtlı Siteler",
+    "timeButtons": {
+      "15min": "+15dk",
+      "30min": "+30dk",
+      "1hour": "+1s"
+    }
+  },
+  "warn": {
+    "title": "Zamanınızı Doldurdunuz!",
+    "message": "Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!",
+    "addTime": "Süre Ekle",
+    "continueAnyway": "Yine de Devam Et",
+    "dailyStats": "Bugün: {{siteCount}} site için toplam {{totalTime}} kullanım",
+    "timeOption": {
+      "15min": "+15 dakika",
+      "30min": "+30 dakika",
+      "1hour": "+1 saat",
+      "2hours": "+2 saat"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashboard",
+      "siteManagement": "Site Yönetimi",
+      "activeLimits": "Aktif Limitler",
+      "settings": "Ayarlar"
+    },
+    "stats": {
+      "restrictedSites": "Kısıtlanan Siteler",
+      "totalBlocked": "Toplam Engelleme",
+      "todayBlocked": "Bugün Engellenen",
+      "mostVisited": "En Çok Ziyaret Edilen Siteler"
+    },
+    "sites": {
+      "addNew": "Yeni Site Ekle",
+      "siteUrl": "Site URL (örn: facebook.com)",
+      "dailyLimit": "Günlük limit (saat)",
+      "add": "Ekle",
+      "restrictedSites": "Kısıtlı Siteler",
+      "remaining": "Kalan süre"
+    },
+    "activeLimits": {
+      "title": "Şu Anda Limitli Siteler"
+    },
+    "general": {
+      "title": "Genel Ayarlar",
+      "notifications": "Bildirimleri Aktif Et",
+      "strictMode": "Katı Mod (Limiti aşınca siteleri tamamen engelle)",
+      "startup": "Bilgisayar açılışında otomatik başlat",
+      "saveSettings": "Ayarları Kaydet"
+    }
+  },
+  "thanks": {
+    "welcome": "SaveYourTime'a Hoş Geldiniz!",
+    "thankYou": "Kurulum için teşekkürler",
+    "features": {
+      "timeLimit": {
+        "title": "Zaman Sınırlaması",
+        "description": "Sosyal medya ve diğer dikkat dağıtıcı siteler için günlük zaman limitleri belirleyin. Limitiniz dolduğunda nazikçe hatırlatılırsınız."
+      },
+      "statistics": {
+        "title": "Kullanım İstatistikleri",
+        "description": "Hangi sitelerde ne kadar zaman harcadığınızı görsel grafiklerle takip edin ve zamanınızı daha iyi yönetin."
+      },
+      "blocking": {
+        "title": "Akıllı Engelleme",
+        "description": "Zaman limiti aşıldığında tam engelleme veya nazik hatırlatıcılar arasında seçim yapın. İstediğiniz zaman ek süre ekleyebilirsiniz."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime Nasıl Çalışır?",
+      "steps": [
+        {
+          "title": "Siteleri Ekleyin",
+          "description": "Zaman sınırlaması getirmek istediğiniz web sitelerini ekleyin ve her biri için günlük süre limiti belirleyin."
+        },
+        {
+          "title": "Kullanım Takibi",
+          "description": "Uzantı, arka planda sessizce çalışarak belirlediğiniz sitelerde harcadığınız zamanı izler."
+        },
+        {
+          "title": "Limit Dolunca Uyarı",
+          "description": "Belirlediğiniz süre dolduğunda, devam etmeden önce sizi bilgilendiren nazik bir hatırlatıcı görürsünüz."
+        },
+        {
+          "title": "Esnek Kontrol",
+          "description": "İhtiyacınız olduğunda süreyi uzatabilir veya tüm limitleri kaldırabilirsiniz. Kontrol tamamen sizdedir."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Gizlilik ve Veri Güvenliği",
+      "description": "SaveYourTime, tüm verilerinizi sadece kendi tarayıcınızda yerel olarak saklar ve hiçbir bilgiyi harici sunuculara göndermez. Site kullanım verileriniz ve ayarlarınız, tarayıcınızın \"yerel depolama\" alanında güvenle saklanır."
+    },
+    "actions": {
+      "configure": "Ayarları Yapılandır",
+      "viewSource": "GitHub'da Kaynak Kodu Gör",
+      "virusTotal": "VirusTotal Sonuçları"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Gizlilik Politikası",
+    "subtitle": "Veri gizliliğinizi nasıl koruduğumuza dair bilgiler",
+    "commitment": {
+      "title": "Gizlilik Taahhüdü",
+      "description": "SaveYourTime olarak, gizliliğinize ve veri güvenliğinize büyük önem veriyoruz. Bu uzantı, hiçbir veriyi dış sunuculara göndermez ve tüm bilgileriniz sadece sizin kendi tarayıcınızda saklanır."
+    },
+    "collected": {
+      "title": "Toplanan Bilgiler",
+      "intro": "SaveYourTime, yalnızca aşağıdaki bilgileri toplar ve kaydeder:",
+      "timeSpent": "Belirlediğiniz web sitelerinde geçirdiğiniz süre",
+      "dailyLimits": "Belirlediğiniz günlük süre limitleri",
+      "settings": "Uzantı ayarlarınız ve tercihleriniz",
+      "storage": "Bu bilgiler sadece sizin yerel tarayıcınızda saklanır ve uzantımızın düzgün çalışabilmesi için gereklidir."
+    },
+    "storage": {
+      "title": "Veri Depolama ve İletim",
+      "intro": "SaveYourTime:",
+      "noSend": "Hiçbir kullanıcı verisini harici sunuculara göndermez",
+      "localStorage": "Tüm verileri tarayıcınızın yerel depolama alanında (localStorage) saklar",
+      "offline": "İnternet bağlantınız olmadığında bile çalışabilir",
+      "noCookies": "Hiçbir çerez (cookie) kullanmaz",
+      "noTracking": "Hiçbir kullanıcı kimliği veya oturum bilgisi takibi yapmaz"
+    },
+    "security": {
+      "title": "Veri Güvenliği",
+      "intro": "Verileriniz yalnızca kendi tarayıcınızda saklandığı için:",
+      "browserClear": "Tarayıcı geçmişinizi veya önbelleğinizi temizlerseniz, bu veriler silinebilir",
+      "uninstall": "Uzantıyı kaldırdığınızda, tüm kayıtlı verileri tarayıcınızdan temizleyebilirsiniz",
+      "access": "Verilerinize sadece sizin tarayıcınız erişebilir"
+    },
+    "permissions": {
+      "title": "İzinler",
+      "intro": "SaveYourTime, çalışabilmek için aşağıdaki tarayıcı izinlerine ihtiyaç duyar:",
+      "activeTab": "Aktif sekme erişimi (belirttiğiniz sitelerde geçen süreyi izleyebilmek için)",
+      "storage": "Yerel depolama erişimi (ayarlarınızı ve süre bilgilerinizi saklayabilmek için)",
+      "minimal": "Bu izinler, uzantının temel işlevselliğini sağlamak için gerekli minimum izinlerdir."
+    },
+    "openSource": {
+      "title": "Açık Kaynak Kod",
+      "description": "SaveYourTime, tamamen açık kaynak kodlu bir projedir. Kod tabanımız GitHub üzerinde herkesin incelemesine açıktır.",
+      "transparency": "Bu şeffaflık, gizlilik taahhütlerimize ne kadar bağlı olduğumuzun bir göstergesidir. Kod incelemesi yapmak isteyen herkes, uzantının gerçekten hiçbir veri göndermediğini doğrulayabilir."
+    },
+    "rights": {
+      "title": "Kullanıcı Hakları",
+      "intro": "SaveYourTime kullanıcısı olarak:",
+      "remove": "İstediğiniz zaman tarayıcı ayarlarınızdan uzantıyı kaldırabilirsiniz",
+      "delete": "Uzantı ayarlarından tüm kayıtlı verileri silebilirsiniz",
+      "modify": "Uzantı ayarlarından istediğiniz verileri değiştirebilirsiniz"
+    },
+    "questions": {
+      "title": "Sorular",
+      "contact": "Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen GitHub projemiz üzerinden iletişime geçiniz."
+    },
+    "lastUpdated": "Son güncelleme tarihi: {{date}}",
+    "actions": {
+      "home": "Ana Sayfa"
+    }
+  }
+}

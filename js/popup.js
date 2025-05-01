@@ -3,27 +3,46 @@ let kullanılangünlükzaman = 8100000; // 2 saat 15 dakika (ms cinsinden)
 let toplamgünlükzaman = 10800000;   // 3 saat (ms cinsinden)
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Başlangıç değerleriyle progress dairesini güncelle
-    updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
+    // First, make sure i18n is loaded
+    if (!window.i18n) {
+        const script = document.createElement('script');
+        script.src = '../js/i18n.js';
+        document.head.appendChild(script);
+        
+        script.onload = initializePopup;
+    } else {
+        initializePopup();
+    }
     
-    // Butonlara event listener'lar ekle
-    document.getElementById('settingsBtn').addEventListener('click', openSettings);
-    document.getElementById('openSettings').addEventListener('click', openSettings);
-    document.getElementById('openStats').addEventListener('click', openStats);
-    
-    // Süre ekleme butonları için event listener'lar
-    document.getElementById('add15min').addEventListener('click', function() {
-        addTime(15);
-    });
-    document.getElementById('add30min').addEventListener('click', function() {
-        addTime(30);
-    });
-    document.getElementById('add60min').addEventListener('click', function() {
-        addTime(60);
-    });
-    
-    // Gerçek uygulamada aktif sekme bilgilerini al
-    getCurrentTabInfo();
+    function initializePopup() {
+        // Başlangıç değerleriyle progress dairesini güncelle
+        updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
+        
+        // Butonlara event listener'lar ekle
+        document.getElementById('settingsBtn').addEventListener('click', openSettings);
+        document.getElementById('openSettings').addEventListener('click', openSettings);
+        document.getElementById('openStats').addEventListener('click', openStats);
+        
+        // Süre ekleme butonları için event listener'lar
+        document.getElementById('add15min').addEventListener('click', function() {
+            addTime(15);
+        });
+        document.getElementById('add30min').addEventListener('click', function() {
+            addTime(30);
+        });
+        document.getElementById('add60min').addEventListener('click', function() {
+            addTime(60);
+        });
+        
+        // Gerçek uygulamada aktif sekme bilgilerini al
+        getCurrentTabInfo();
+        
+        // Title translation
+        document.title = i18n.t('app.name');
+        
+        // Translate static elements
+        i18n.translatePage();
+    }
 });
 
 // Progress çemberini güncelleme fonksiyonu
@@ -47,16 +66,23 @@ function updateProgressCircle(usedTime, totalTime) {
         progressCircle.style.stroke = 'var(--primary)';
     }
     
-    // Kullanılan süre ve kalan süre metinlerini güncelle
-    const timeUsedText = msToTimeString(usedTime);
-    const timeLeftText = msToTimeString(totalTime - usedTime);
+    // Use i18n to format time strings
+    const timeUsedText = i18n ? i18n.formatTime(usedTime) : msToTimeString(usedTime);
+    const timeLeftText = i18n ? 
+        `${i18n.formatTime(totalTime - usedTime)} ${i18n.t('common.time.left')}` : 
+        `${msToTimeString(totalTime - usedTime)} kaldı`;
     
     document.getElementById('timeUsed').textContent = timeUsedText;
-    document.getElementById('timeLeft').textContent = timeLeftText + ' kaldı';
-    document.getElementById('siteLimit').textContent = 'Günlük Limit: ' + msToTimeString(totalTime);
+    document.getElementById('timeLeft').textContent = timeLeftText;
+    
+    const limitText = i18n ? 
+        `${i18n.t('popup.dailyLimit')}: ${i18n.formatTime(totalTime)}` : 
+        `Günlük Limit: ${msToTimeString(totalTime)}`;
+        
+    document.getElementById('siteLimit').textContent = limitText;
 }
 
-// Milisaniyeyi okunabilir saat/dakika formatına çevir
+// Legacy time formatter for fallback
 function msToTimeString(ms) {
     const hours = Math.floor(ms / (1000 * 60 * 60));
     const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
@@ -77,7 +103,7 @@ function addTime(minutes) {
     updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
     
     // Gerçek uygulamada burada backend'e kayıt yapılacak
-    console.log(`${minutes} dakika eklendi.`);
+    console.log(`${minutes} ${i18n ? i18n.t('common.time.minutes') : 'dakika'} eklendi.`);
 }
 
 // Aktif sekme bilgilerini al

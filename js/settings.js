@@ -1,35 +1,99 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab switching
-    document.querySelectorAll('.nav-item').forEach(item => {
-        item.addEventListener('click', function() {
-            // Remove active class from all tabs and contents
-            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-            
-            // Add active class to clicked tab
-            this.classList.add('active');
-            
-            // Show corresponding content
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
+    console.log('Settings.js: DOM loaded');
     
-    // Initialize charts when page loads
-    // Most visited sites chart
-    const sitesCtx = document.getElementById('sitesChart').getContext('2d');
+    // Safely initialize the settings page
+    initializeSettings();
+    
+    function initializeSettings() {
+        console.log('Initializing settings page');
+        
+        // Tab switching
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                if (this.querySelector('select')) {
+                    // Skip if this is the language switcher
+                    return;
+                }
+                
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Initialize language dropdown behavior
+        initializeLanguageDropdown();
+        
+        // Initialize charts when page loads
+        if (window.Chart) {
+            initializeCharts();
+        } else {
+            console.warn('Chart.js not loaded, cannot initialize charts');
+        }
+        
+        // Listen for language change events to update chart labels
+        document.addEventListener('languageChanged', function() {
+            console.log('Language changed, reinitializing charts');
+            if (window.Chart) {
+                initializeCharts();
+            }
+        });
+    }
+    
+    // Function to handle language dropdown behavior
+    function initializeLanguageDropdown() {
+        const languageNavItem = document.getElementById('language-nav-item');
+        
+        if (languageNavItem) {
+            languageNavItem.addEventListener('click', function(e) {
+                // Only trigger if the click wasn't directly on the select element
+                if (e.target.tagName !== 'SELECT') {
+                    const languageSelect = document.getElementById('languageSwitcher');
+                    languageSelect.focus();
+                    
+                    // Simulate a click to open the dropdown
+                    const event = new MouseEvent('mousedown', {
+                        bubbles: true,
+                        cancelable: true,
+                        view: window
+                    });
+                    languageSelect.dispatchEvent(event);
+                }
+            });
+        }
+    }
+});
+
+function initializeCharts() {
+    const sitesCtx = document.getElementById('sitesChart')?.getContext('2d');
+    if (!sitesCtx) {
+        console.warn('sitesChart canvas not found');
+        return;
+    }
+    
+    // Check if chart already exists and destroy it
+    if (window.sitesChart instanceof Chart) {
+        window.sitesChart.destroy();
+    }
     
     // Define gradient for chart
     const gradient = sitesCtx.createLinearGradient(0, 0, 0, 240);
     gradient.addColorStop(0, 'rgba(74, 222, 128, 0.6)');
     gradient.addColorStop(1, 'rgba(74, 222, 128, 0.1)');
     
-    const sitesChart = new Chart(sitesCtx, {
+    window.sitesChart = new Chart(sitesCtx, {
         type: 'bar',
         data: {
             labels: ['Facebook', 'YouTube', 'Twitter', 'Instagram', 'Reddit'],
             datasets: [{
-                label: 'Saatlik Kullanım',
+                label: window.i18n?.t('popup.timeUsed') || 'Time Used',
                 data: [5.2, 8.5, 3.1, 4.7, 2.3],
                 backgroundColor: [
                     'rgba(66, 103, 178, 0.8)',   // Facebook blue
@@ -92,92 +156,72 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
-});
+}
 
-function addSite() {
-    // Site ekleme fonksiyonu
+// Add site button click handler should be defined globally
+window.addSite = function() {
     const url = document.getElementById('siteUrl').value;
     const timeLimit = document.getElementById('timeLimit').value;
     
     if (url && timeLimit) {
-        // Burada veritabanına kaydetme işlemi olacak
+        // Add to database (would be implemented)
         
-        // UI'a ekle
+        // Update UI
         const sitesList = document.getElementById('sitesList');
         const newSite = document.createElement('div');
         newSite.className = 'site-item';
+        
+        const hourText = window.i18n?.t('common.time.hours') || 'hours';
+        const dailyLimitText = window.i18n?.t('popup.dailyLimit') || 'Daily Limit';
+        const remainingText = window.i18n?.t('settings.sites.remaining') || 'Remaining time';
+        
         newSite.innerHTML = `
             <div class="site-info">
                 <span class="site-url">${url}</span>
-                <span class="site-limit">Günlük limit: ${timeLimit} saat</span>
-                <span class="site-remaining">Kalan süre: ${timeLimit} saat</span>
+                <span class="site-limit">${dailyLimitText}: ${timeLimit} ${hourText}</span>
+                <span class="site-remaining">${remainingText}: ${timeLimit} ${hourText}</span>
             </div>
             <button class="delete-btn" onclick="deleteSite('${url}')"><i class="fas fa-trash"></i></button>
         `;
         sitesList.prepend(newSite);
         
-        // Aktif limitlere de ekle
-        const activeLimitsList = document.getElementById('activeLimitsList');
-        const newActiveLimit = document.createElement('div');
-        newActiveLimit.className = 'site-item';
-        newActiveLimit.innerHTML = `
-            <div class="site-info">
-                <span class="site-url">${url}</span>
-                <span class="site-remaining">Kalan süre: ${timeLimit} saat</span>
-            </div>
-            <div class="site-actions">
-                <button class="time-btn" onclick="addTime('${url}', 15)">+15dk</button>
-                <button class="time-btn" onclick="addTime('${url}', 30)">+30dk</button>
-                <button class="time-btn" onclick="addTime('${url}', 60)">+1sa</button>
-                <button class="time-btn" onclick="addTime('${url}', 120)">+2sa</button>
-                <button class="delete-btn" onclick="removeLimit('${url}')"><i class="fas fa-times"></i></button>
-            </div>
-        `;
-        activeLimitsList.prepend(newActiveLimit);
-        
-        // Formu temizle
+        // Reset form
         document.getElementById('siteUrl').value = '';
         document.getElementById('timeLimit').value = '';
     }
-}
+};
 
-function deleteSite(url) {
-    // Site silme fonksiyonu
-    // Burada veritabanından silme işlemi olacak
+window.deleteSite = function(url) {
+    // Delete site function
     
-    // UI'dan kaldır
+    // Remove from UI
     const siteItems = document.querySelectorAll('.site-item');
     siteItems.forEach(item => {
         if (item.querySelector('.site-url').textContent === url) {
             item.remove();
         }
     });
-}
+};
 
-function addTime(url, minutes) {
-    // Siteye ek süre ekleme fonksiyonu
-    console.log(`${url} sitesine ${minutes} dakika eklendi`);
-    // Burada veritabanında süre güncelleme işlemi olacak
+window.addTime = function(url, minutes) {
+    // Add time function
+    console.log(`${url} adding ${minutes} minutes`);
     
-    // UI güncelleme işlemleri burada yapılacak
-    alert(`${url} sitesine ${minutes} dakika eklendi!`);
-}
+    // Show notification
+    const addTimeMsg = window.i18n?.t('warn.addTime') || 'added';
+    const minutesText = window.i18n?.t('common.time.minutes') || 'minutes';
+    alert(`${url} ${addTimeMsg}: ${minutes} ${minutesText}!`);
+};
 
-function removeLimit(url) {
-    // Siteyi limitlerden kaldırma fonksiyonu
-    console.log(`${url} sitesi limitlerden kaldırıldı`);
-    // Burada veritabanından limitten kaldırma işlemi olacak
+window.removeLimit = function(url) {
+    // Remove limit function
+    console.log(`${url} removed from limits`);
     
-    // UI'dan kaldır (sadece aktif limitler listesinden)
+    // Remove from UI (active limits only)
     const limitItems = document.querySelectorAll('#activeLimitsList .site-item');
     limitItems.forEach(item => {
         if (item.querySelector('.site-url').textContent === url) {
             item.remove();
         }
     });
-}
-
-// Add site button click handler - add this after DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('addSiteBtn').addEventListener('click', addSite);
-});
+};

@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SaveYourTime - Gizlilik Politikası</title>
+    <title data-i18n="privacy.title">SaveYourTime Gizlilik Politikası</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="../js/i18n.js"></script>
+    <script src="../js/page-handler.js"></script>
     <style>
         :root {
             --primary: #4ade80;
@@ -190,100 +192,124 @@
                 flex-direction: column;
             }
         }
+
+        /* Language dropdown styling */
+        #languageSwitcher option {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: var(--text-light); /* White text for all options */
+            padding: 8px 12px;
+        }
+        
+        #languageSwitcher option:checked {
+            background-color: rgba(31, 41, 55, 0.95);
+            color: #f59e0b; /* Yellow text for selected option */
+            font-weight: 500;
+        }
+        
+        #languageSwitcher option:hover {
+            background-color: rgba(31, 41, 55, 0.8);
+            color: var(--primary); /* Green text for hovered option */
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>SaveYourTime Gizlilik Politikası</h1>
-            <p>Veri gizliliğinizi nasıl koruduğumuza dair bilgiler</p>
+            <h1 data-i18n="privacy.title">SaveYourTime Gizlilik Politikası</h1>
+            <p data-i18n="privacy.subtitle">Veri gizliliğinizi nasıl koruduğumuza dair bilgiler</p>
         </header>
 
         <section class="policy-section">
-            <h2><i class="fas fa-shield-alt"></i> Gizlilik Taahhüdü</h2>
-            <p>SaveYourTime olarak, gizliliğinize ve veri güvenliğinize büyük önem veriyoruz. Bu uzantı, <span class="highlight">hiçbir veriyi dış sunuculara göndermez</span> ve tüm bilgileriniz sadece sizin kendi tarayıcınızda saklanır.</p>
+            <h2><i class="fas fa-shield-alt"></i> <span data-i18n="privacy.commitment.title">Gizlilik Taahhüdü</span></h2>
+            <p data-i18n="privacy.commitment.description">SaveYourTime olarak, gizliliğinize ve veri güvenliğinize büyük önem veriyoruz. Bu uzantı, <span class="highlight">hiçbir veriyi dış sunuculara göndermez</span> ve tüm bilgileriniz sadece sizin kendi tarayıcınızda saklanır.</p>
         </section>
 
         <section class="policy-section">
-            <h2><i class="fas fa-database"></i> Toplanan Bilgiler</h2>
-            <p>SaveYourTime, yalnızca aşağıdaki bilgileri toplar ve kaydeder:</p>
+            <h2><i class="fas fa-database"></i> <span data-i18n="privacy.collected.title">Toplanan Bilgiler</span></h2>
+            <p data-i18n="privacy.collected.intro">SaveYourTime, yalnızca aşağıdaki bilgileri toplar ve kaydeder:</p>
             <ul>
-                <li>Belirlediğiniz web sitelerinde geçirdiğiniz süre</li>
-                <li>Belirlediğiniz günlük süre limitleri</li>
-                <li>Uzantı ayarlarınız ve tercihleriniz</li>
+                <li data-i18n="privacy.collected.timeSpent">Belirlediğiniz web sitelerinde geçirdiğiniz süre</li>
+                <li data-i18n="privacy.collected.dailyLimits">Belirlediğiniz günlük süre limitleri</li>
+                <li data-i18n="privacy.collected.settings">Uzantı ayarlarınız ve tercihleriniz</li>
             </ul>
-            <p>Bu bilgiler <span class="highlight">sadece sizin yerel tarayıcınızda saklanır</span> ve uzantımızın düzgün çalışabilmesi için gereklidir.</p>
+            <p data-i18n="privacy.collected.storage">Bu bilgiler <span class="highlight">sadece sizin yerel tarayıcınızda saklanır</span> ve uzantımızın düzgün çalışabilmesi için gereklidir.</p>
         </section>
 
         <section class="policy-section">
-            <h2><i class="fas fa-server"></i> Veri Depolama ve İletim</h2>
-            <p>SaveYourTime:</p>
+            <h2><i class="fas fa-server"></i> <span data-i18n="privacy.storage.title">Veri Depolama ve İletim</span></h2>
+            <p data-i18n="privacy.storage.intro">SaveYourTime:</p>
             <ul>
-                <li><span class="highlight">Hiçbir kullanıcı verisini harici sunuculara göndermez</span></li>
-                <li>Tüm verileri tarayıcınızın yerel depolama alanında (localStorage) saklar</li>
-                <li>İnternet bağlantınız olmadığında bile çalışabilir</li>
-                <li>Hiçbir çerez (cookie) kullanmaz</li>
-                <li>Hiçbir kullanıcı kimliği veya oturum bilgisi takibi yapmaz</li>
-            </ul>
-        </section>
-
-        <section class="policy-section">
-            <h2><i class="fas fa-lock"></i> Veri Güvenliği</h2>
-            <p>Verileriniz yalnızca kendi tarayıcınızda saklandığı için:</p>
-            <ul>
-                <li>Tarayıcı geçmişinizi veya önbelleğinizi temizlerseniz, bu veriler silinebilir</li>
-                <li>Uzantıyı kaldırdığınızda, tüm kayıtlı verileri tarayıcınızdan temizleyebilirsiniz</li>
-                <li>Verilerinize sadece sizin tarayıcınız erişebilir</li>
+                <li data-i18n="privacy.storage.noSend"><span class="highlight">Hiçbir kullanıcı verisini harici sunuculara göndermez</span></li>
+                <li data-i18n="privacy.storage.localStorage">Tüm verileri tarayıcınızın yerel depolama alanında (localStorage) saklar</li>
+                <li data-i18n="privacy.storage.offline">İnternet bağlantınız olmadığında bile çalışabilir</li>
+                <li data-i18n="privacy.storage.noCookies">Hiçbir çerez (cookie) kullanmaz</li>
+                <li data-i18n="privacy.storage.noTracking">Hiçbir kullanıcı kimliği veya oturum bilgisi takibi yapmaz</li>
             </ul>
         </section>
 
         <section class="policy-section">
-            <h2><i class="fas fa-hand-paper"></i> İzinler</h2>
-            <p>SaveYourTime, çalışabilmek için aşağıdaki tarayıcı izinlerine ihtiyaç duyar:</p>
+            <h2><i class="fas fa-lock"></i> <span data-i18n="privacy.security.title">Veri Güvenliği</span></h2>
+            <p data-i18n="privacy.security.intro">Verileriniz yalnızca kendi tarayıcınızda saklandığı için:</p>
             <ul>
-                <li>Aktif sekme erişimi (belirttiğiniz sitelerde geçen süreyi izleyebilmek için)</li>
-                <li>Yerel depolama erişimi (ayarlarınızı ve süre bilgilerinizi saklayabilmek için)</li>
-            </ul>
-            <p>Bu izinler, uzantının temel işlevselliğini sağlamak için gerekli minimum izinlerdir.</p>
-        </section>
-
-        <section class="policy-section">
-            <h2><i class="fas fa-code"></i> Açık Kaynak Kod</h2>
-            <p>SaveYourTime, tamamen açık kaynak kodlu bir projedir. Kod tabanımız GitHub üzerinde herkesin incelemesine açıktır.</p>
-            <p>Bu şeffaflık, gizlilik taahhütlerimize ne kadar bağlı olduğumuzun bir göstergesidir. Kod incelemesi yapmak isteyen herkes, uzantının gerçekten hiçbir veri göndermediğini doğrulayabilir.</p>
-        </section>
-
-        <section class="policy-section">
-            <h2><i class="fas fa-user-shield"></i> Kullanıcı Hakları</h2>
-            <p>SaveYourTime kullanıcısı olarak:</p>
-            <ul>
-                <li>İstediğiniz zaman tarayıcı ayarlarınızdan uzantıyı kaldırabilirsiniz</li>
-                <li>Uzantı ayarlarından tüm kayıtlı verileri silebilirsiniz</li>
-                <li>Uzantı ayarlarından istediğiniz verileri değiştirebilirsiniz</li>
+                <li data-i18n="privacy.security.browserClear">Tarayıcı geçmişinizi veya önbelleğinizi temizlerseniz, bu veriler silinebilir</li>
+                <li data-i18n="privacy.security.uninstall">Uzantıyı kaldırdığınızda, tüm kayıtlı verileri tarayıcınızdan temizleyebilirsiniz</li>
+                <li data-i18n="privacy.security.access">Verilerinize sadece sizin tarayıcınız erişebilir</li>
             </ul>
         </section>
 
         <section class="policy-section">
-            <h2><i class="fas fa-question-circle"></i> Sorular</h2>
-            <p>Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen GitHub projemiz üzerinden iletişime geçiniz.</p>
+            <h2><i class="fas fa-hand-paper"></i> <span data-i18n="privacy.permissions.title">İzinler</span></h2>
+            <p data-i18n="privacy.permissions.intro">SaveYourTime, çalışabilmek için aşağıdaki tarayıcı izinlerine ihtiyaç duyar:</p>
+            <ul>
+                <li data-i18n="privacy.permissions.activeTab">Aktif sekme erişimi (belirttiğiniz sitelerde geçen süreyi izleyebilmek için)</li>
+                <li data-i18n="privacy.permissions.storage">Yerel depolama erişimi (ayarlarınızı ve süre bilgilerinizi saklayabilmek için)</li>
+            </ul>
+            <p data-i18n="privacy.permissions.minimal">Bu izinler, uzantının temel işlevselliğini sağlamak için gerekli minimum izinlerdir.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-code"></i> <span data-i18n="privacy.openSource.title">Açık Kaynak Kod</span></h2>
+            <p data-i18n="privacy.openSource.description">SaveYourTime, tamamen açık kaynak kodlu bir projedir. Kod tabanımız GitHub üzerinde herkesin incelemesine açıktır.</p>
+            <p data-i18n="privacy.openSource.transparency">Bu şeffaflık, gizlilik taahhütlerimize ne kadar bağlı olduğumuzun bir göstergesidir. Kod incelemesi yapmak isteyen herkes, uzantının gerçekten hiçbir veri göndermediğini doğrulayabilir.</p>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-user-shield"></i> <span data-i18n="privacy.rights.title">Kullanıcı Hakları</span></h2>
+            <p data-i18n="privacy.rights.intro">SaveYourTime kullanıcısı olarak:</p>
+            <ul>
+                <li data-i18n="privacy.rights.remove">İstediğiniz zaman tarayıcı ayarlarınızdan uzantıyı kaldırabilirsiniz</li>
+                <li data-i18n="privacy.rights.delete">Uzantı ayarlarından tüm kayıtlı verileri silebilirsiniz</li>
+                <li data-i18n="privacy.rights.modify">Uzantı ayarlarından istediğiniz verileri değiştirebilirsiniz</li>
+            </ul>
+        </section>
+
+        <section class="policy-section">
+            <h2><i class="fas fa-question-circle"></i> <span data-i18n="privacy.questions.title">Sorular</span></h2>
+            <p data-i18n="privacy.questions.contact">Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen GitHub projemiz üzerinden iletişime geçiniz.</p>
         </section>
 
         <div class="last-updated">
-            <p>Son güncelleme tarihi: 24 Nisan 2025</p>
+            <p data-i18n="privacy.lastUpdated" data-i18n-params='{"date": "24 Nisan 2025"}'>Son güncelleme tarihi: 24 Nisan 2025</p>
         </div>
 
         <div class="buttons">
             <a href="settings.html" class="button primary">
-                <i class="fas fa-cog"></i> Ayarlara Dön
+                <i class="fas fa-cog"></i> <span data-i18n="common.settings">Ayarlara Dön</span>
             </a>
             <a href="welcome.html" class="button">
-                <i class="fas fa-home"></i> Ana Sayfa
+                <i class="fas fa-home"></i> <span data-i18n="privacy.actions.home">Ana Sayfa</span>
             </a>
         </div>
     </div>
 
     <footer>
-        <p>SaveYourTime &copy; 2025 | <a href="https://github.com/username/saveyourtime" target="_blank">GitHub</a></p>
+        <div class="language-switcher" style="margin-bottom: 15px;">
+            <i class="fas fa-language" style="color: var(--primary); font-size: 18px;"></i>
+            <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 5px 10px; font-size: 16px; border-radius: 6px; margin-left: 8px; min-width: 120px;">
+                <!-- Options will be populated by JavaScript -->
+            </select>
+        </div>
+        <p>SaveYourTime | Made with <span style="color: #e25555;">❤️</span> by <a href="https://github.com/DeveloperKubilay" target="_blank">DeveloperKubilay</a> | <a href="https://github.com/DeveloperKubilay/SaveYourTime" target="_blank">Github</a></p>
     </footer>
 </body>
 </html>

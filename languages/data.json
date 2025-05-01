@@ -1,0 +1,14 @@
+{
+    "languages": {
+        "en": {
+            "name": "English",
+            "flag": "EN",
+            "file":"en.json"
+        },
+        "tr": {
+            "name": "Türkçe",
+            "flag": "TR",
+            "file":"tr.json"
+        }
+    }
+}
