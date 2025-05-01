@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zaman Yönetimi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+    <script src="../js/chart.umd.min.js"></script>
     <style>
         :root {
             --primary: #4ade80;
@@ -48,12 +48,16 @@
             padding: 20px 0;
             border-bottom: 1px solid var(--border);
             margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .logo h2 {
             color: var(--primary);
             font-weight: 600;
             letter-spacing: 0.5px;
+            font-size: 24px;
         }
         
         .nav-item {
@@ -65,6 +69,7 @@
             color: var(--text-muted);
             border-left: 3px solid transparent;
             margin-bottom: 5px;
+            font-size: 16px;
         }
         
         .nav-item:hover {
@@ -82,6 +87,7 @@
             margin-right: 12px;
             width: 20px;
             text-align: center;
+            font-size: 18px !important;
         }
         
         .content {
@@ -120,15 +126,17 @@
             font-weight: 600;
             display: flex;
             align-items: center;
+            font-size: 24px;
         }
         
         h2 i {
             margin-right: 12px;
             color: var(--primary);
+            font-size: 24px !important;
         }
         
         h3 {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 15px;
             color: var(--text-light);
         }
@@ -180,7 +188,7 @@
             align-items: center;
             padding: 16px;
             border-bottom: 1px solid var(--border);
-            background-color: rgba(255, 255, 255, 0.02);
+            background-color: rgba(255, 255, 255, 0.06);
             margin-bottom: 12px;
             border-radius: 8px;
             transition: all 0.2s;
@@ -200,11 +208,11 @@
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 5px;
-            font-size: 16px;
+            font-size: 18px;
         }
         
         .site-limit, .site-remaining {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-muted);
             margin-bottom: 2px;
         }
@@ -213,6 +221,10 @@
             display: flex;
             gap: 8px;
             flex-wrap: wrap;
+        }
+        
+        .site-actions i {
+            font-size: 16px !important;
         }
         
         .time-btn {
@@ -229,11 +241,23 @@
         .delete-btn {
             background-color: rgba(239, 68, 68, 0.2);
             color: #ef4444;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 14px;
         }
         
         .delete-btn:hover {
             background-color: rgba(239, 68, 68, 0.3);
             box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+        }
+        
+        .delete-btn i {
+            margin-right: 0;
+            font-size: 16px;
         }
         
         .chart-container {
@@ -264,7 +288,7 @@
         }
         
         .stat-icon {
-            font-size: 24px;
+            font-size: 28px !important;
             color: var(--primary);
             margin-bottom: 10px;
         }
@@ -294,11 +318,13 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
+            font-size: 16px;
         }
         
         .checkbox-row input[type="checkbox"] {
             width: auto;
             margin-right: 10px;
+            transform: scale(1.2);
         }
         
         @media (max-width: 768px) {
@@ -316,7 +342,7 @@
             
             .nav-item i {
                 margin-right: 0;
-                font-size: 18px;
+                font-size: 22px !important;
             }
             
             .content {
@@ -492,188 +518,7 @@
         </div>
     </div>
 
-    <script>
-        // Tab switching
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
-                // Remove active class from all tabs and contents
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Initialize charts when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Most visited sites chart
-            const sitesCtx = document.getElementById('sitesChart').getContext('2d');
-            
-            // Define gradient for chart
-            const gradient = sitesCtx.createLinearGradient(0, 0, 0, 240);
-            gradient.addColorStop(0, 'rgba(74, 222, 128, 0.6)');
-            gradient.addColorStop(1, 'rgba(74, 222, 128, 0.1)');
-            
-            const sitesChart = new Chart(sitesCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Facebook', 'YouTube', 'Twitter', 'Instagram', 'Reddit'],
-                    datasets: [{
-                        label: 'Saatlik Kullanım',
-                        data: [5.2, 8.5, 3.1, 4.7, 2.3],
-                        backgroundColor: [
-                            'rgba(66, 103, 178, 0.8)',   // Facebook blue
-                            'rgba(255, 0, 0, 0.8)',      // YouTube red
-                            'rgba(29, 161, 242, 0.8)',   // Twitter blue
-                            'rgba(225, 48, 108, 0.8)',   // Instagram pink
-                            'rgba(255, 69, 0, 0.8)'      // Reddit orange
-                        ],
-                        borderWidth: 0,
-                        borderRadius: 4
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: {
-                            beginAtZero: true,
-                            grid: {
-                                color: 'rgba(255, 255, 255, 0.05)'
-                            },
-                            ticks: {
-                                color: '#9ca3af'
-                            }
-                        },
-                        x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#9ca3af'
-                            }
-                        }
-                    },
-                    plugins: {
-                        legend: {
-                            display: false
-                        },
-                        tooltip: {
-                            backgroundColor: 'rgba(17, 24, 39, 0.9)',
-                            titleColor: '#f3f4f6',
-                            bodyColor: '#9ca3af',
-                            borderColor: 'rgba(74, 222, 128, 0.5)',
-                            borderWidth: 1,
-                            displayColors: false,
-                            padding: 10
-                        }
-                    },
-                    animation: {
-                        duration: 1500,
-                        easing: 'easeOutQuart'
-                    },
-                    layout: {
-                        padding: {
-                            top: 5,
-                            right: 15,
-                            bottom: 5,
-                            left: 15
-                        }
-                    }
-                }
-            });
-        });
-        
-        function addSite() {
-            // Site ekleme fonksiyonu
-            const url = document.getElementById('siteUrl').value;
-            const timeLimit = document.getElementById('timeLimit').value;
-            
-            if (url && timeLimit) {
-                // Burada veritabanına kaydetme işlemi olacak
-                
-                // UI'a ekle
-                const sitesList = document.getElementById('sitesList');
-                const newSite = document.createElement('div');
-                newSite.className = 'site-item';
-                newSite.innerHTML = `
-                    <div class="site-info">
-                        <span class="site-url">${url}</span>
-                        <span class="site-limit">Günlük limit: ${timeLimit} saat</span>
-                        <span class="site-remaining">Kalan süre: ${timeLimit} saat</span>
-                    </div>
-                    <button class="delete-btn" onclick="deleteSite('${url}')"><i class="fas fa-trash"></i></button>
-                `;
-                sitesList.prepend(newSite);
-                
-                // Aktif limitlere de ekle
-                const activeLimitsList = document.getElementById('activeLimitsList');
-                const newActiveLimit = document.createElement('div');
-                newActiveLimit.className = 'site-item';
-                newActiveLimit.innerHTML = `
-                    <div class="site-info">
-                        <span class="site-url">${url}</span>
-                        <span class="site-remaining">Kalan süre: ${timeLimit} saat</span>
-                    </div>
-                    <div class="site-actions">
-                        <button class="time-btn" onclick="addTime('${url}', 15)">+15dk</button>
-                        <button class="time-btn" onclick="addTime('${url}', 30)">+30dk</button>
-                        <button class="time-btn" onclick="addTime('${url}', 60)">+1sa</button>
-                        <button class="time-btn" onclick="addTime('${url}', 120)">+2sa</button>
-                        <button class="delete-btn" onclick="removeLimit('${url}')"><i class="fas fa-times"></i></button>
-                    </div>
-                `;
-                activeLimitsList.prepend(newActiveLimit);
-                
-                // Formu temizle
-                document.getElementById('siteUrl').value = '';
-                document.getElementById('timeLimit').value = '';
-            }
-        }
-        
-        function deleteSite(url) {
-            // Site silme fonksiyonu
-            // Burada veritabanından silme işlemi olacak
-            
-            // UI'dan kaldır
-            const siteItems = document.querySelectorAll('.site-item');
-            siteItems.forEach(item => {
-                if (item.querySelector('.site-url').textContent === url) {
-                    item.remove();
-                }
-            });
-        }
-        
-        function addTime(url, minutes) {
-            // Siteye ek süre ekleme fonksiyonu
-            console.log(`${url} sitesine ${minutes} dakika eklendi`);
-            // Burada veritabanında süre güncelleme işlemi olacak
-            
-            // UI güncelleme işlemleri burada yapılacak
-            alert(`${url} sitesine ${minutes} dakika eklendi!`);
-        }
-        
-        function removeLimit(url) {
-            // Siteyi limitlerden kaldırma fonksiyonu
-            console.log(`${url} sitesi limitlerden kaldırıldı`);
-            // Burada veritabanından limitten kaldırma işlemi olacak
-            
-            // UI'dan kaldır (sadece aktif limitler listesinden)
-            const limitItems = document.querySelectorAll('#activeLimitsList .site-item');
-            limitItems.forEach(item => {
-                if (item.querySelector('.site-url').textContent === url) {
-                    item.remove();
-                }
-            });
-        }
-        
-        // Add site button click handler
-        document.getElementById('addSiteBtn').addEventListener('click', addSite);
-    </script>
+    <script src="../js/app.js"></script>
 </body>
 </html>
+

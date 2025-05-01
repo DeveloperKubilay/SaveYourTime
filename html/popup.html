@@ -81,8 +81,8 @@
         
         .progress-container {
             position: relative;
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             margin-right: 16px;
         }
         
@@ -98,12 +98,14 @@
             align-items: center;
             text-align: center;
             font-size: 12px;
+            padding: 5px;
         }
         
         .time-used {
             font-weight: 600;
             color: var(--text-light);
-            margin-bottom: 2px;
+            margin-bottom: 4px;
+            font-size: 14px;
         }
         
         .time-left {
@@ -241,21 +243,21 @@
         
         /* SVG Circle Progress */
         .progress-circle {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             transform: rotate(-90deg);
         }
         
         .progress-circle__background {
             fill: none;
             stroke: rgba(74, 222, 128, 0.1);
-            stroke-width: 8;
+            stroke-width: 7;
         }
         
         .progress-circle__progress {
             fill: none;
             stroke: var(--primary);
-            stroke-width: 8;
+            stroke-width: 7;
             stroke-dasharray: 251.2;
             stroke-dashoffset: 251.2;
             stroke-linecap: round;
@@ -355,7 +357,7 @@
             
             // SVG progress dairesini güncelle
             const progressCircle = document.getElementById('progressCircle');
-            const circumference = 2 * Math.PI * 35; // r=35 olarak değiştirin
+            const circumference = 2 * Math.PI * 40; // r=40 için düzeltildi
             const offset = circumference - (percentage / 100) * circumference;
             progressCircle.style.strokeDasharray = `${circumference}`;
             progressCircle.style.strokeDashoffset = offset;
