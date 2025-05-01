@@ -73,6 +73,7 @@
       "addNew": "Yeni Site Ekle",
       "siteUrl": "Site URL (örn: facebook.com)",
       "dailyLimit": "Günlük limit (saat)",
+      "dailyLimitMinutes": "Günlük limit (dakika)",
       "add": "Ekle",
       "restrictedSites": "Kısıtlı Siteler",
       "remaining": "Kalan süre"

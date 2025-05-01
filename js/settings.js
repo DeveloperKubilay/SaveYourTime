@@ -161,9 +161,12 @@ function initializeCharts() {
 // Add site button click handler should be defined globally
 window.addSite = function() {
     const url = document.getElementById('siteUrl').value;
-    const timeLimit = document.getElementById('timeLimit').value;
+    const timeLimitMinutes = document.getElementById('timeLimit').value;
     
-    if (url && timeLimit) {
+    if (url && timeLimitMinutes) {
+        // Convert minutes to hours for display
+        const timeLimitHours = (timeLimitMinutes / 60).toFixed(2);
+        
         // Add to database (would be implemented)
         
         // Update UI
@@ -178,8 +181,8 @@ window.addSite = function() {
         newSite.innerHTML = `
             <div class="site-info">
                 <span class="site-url">${url}</span>
-                <span class="site-limit">${dailyLimitText}: ${timeLimit} ${hourText}</span>
-                <span class="site-remaining">${remainingText}: ${timeLimit} ${hourText}</span>
+                <span class="site-limit">${dailyLimitText}: ${timeLimitHours} ${hourText}</span>
+                <span class="site-remaining">${remainingText}: ${timeLimitHours} ${hourText}</span>
             </div>
             <button class="delete-btn" onclick="deleteSite('${url}')"><i class="fas fa-trash"></i></button>
         `;
