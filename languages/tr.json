@@ -129,7 +129,9 @@
     },
     "privacy": {
       "title": "Gizlilik ve Veri Güvenliği",
-      "description": "SaveYourTime, tüm verilerinizi sadece kendi tarayıcınızda yerel olarak saklar ve hiçbir bilgiyi harici sunuculara göndermez. Site kullanım verileriniz ve ayarlarınız, tarayıcınızın \"yerel depolama\" alanında güvenle saklanır."
+      "description": "SaveYourTime, <strong>tüm verilerinizi sadece kendi tarayıcınızda yerel olarak saklar</strong> ve hiçbir bilgiyi harici sunuculara göndermez. Site kullanım verileriniz ve ayarlarınız, tarayıcınızın \"yerel depolama\" alanında güvenle saklanır.",
+      "learnMore": "Gizlilik politikamız hakkında daha fazla bilgi için",
+      "learnMoreLink": "buraya tıklayın"
     },
     "actions": {
       "configure": "Ayarları Yapılandır",
@@ -142,7 +144,7 @@
     "subtitle": "Veri gizliliğinizi nasıl koruduğumuza dair bilgiler",
     "commitment": {
       "title": "Gizlilik Taahhüdü",
-      "description": "SaveYourTime olarak, gizliliğinize ve veri güvenliğinize büyük önem veriyoruz. Bu uzantı, hiçbir veriyi dış sunuculara göndermez ve tüm bilgileriniz sadece sizin kendi tarayıcınızda saklanır."
+      "description": "SaveYourTime olarak, gizliliğinize ve veri güvenliğinize büyük önem veriyoruz. Bu uzantı, [hl]hiçbir veriyi dış sunuculara göndermez[/hl] ve tüm bilgileriniz sadece sizin kendi tarayıcınızda saklanır."
     },
     "collected": {
       "title": "Toplanan Bilgiler",
@@ -150,12 +152,12 @@
       "timeSpent": "Belirlediğiniz web sitelerinde geçirdiğiniz süre",
       "dailyLimits": "Belirlediğiniz günlük süre limitleri",
       "settings": "Uzantı ayarlarınız ve tercihleriniz",
-      "storage": "Bu bilgiler sadece sizin yerel tarayıcınızda saklanır ve uzantımızın düzgün çalışabilmesi için gereklidir."
+      "storage": "Bu bilgiler [hl]sadece sizin yerel tarayıcınızda saklanır[/hl] ve uzantımızın düzgün çalışabilmesi için gereklidir."
     },
     "storage": {
       "title": "Veri Depolama ve İletim",
       "intro": "SaveYourTime:",
-      "noSend": "Hiçbir kullanıcı verisini harici sunuculara göndermez",
+      "noSend": "[hl]Hiçbir kullanıcı verisini harici sunuculara göndermez[/hl]",
       "localStorage": "Tüm verileri tarayıcınızın yerel depolama alanında (localStorage) saklar",
       "offline": "İnternet bağlantınız olmadığında bile çalışabilir",
       "noCookies": "Hiçbir çerez (cookie) kullanmaz",

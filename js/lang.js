@@ -46,10 +46,28 @@ function applyTranslations(translations) {
         const translation = getNestedTranslation(translations, key);
         
         if (translation) {
-            element.textContent = translation;
+            // Check if translation contains special markers
+            const hasSpecialFormatting = translation.includes('[hl]') || 
+                                         translation.includes('[strong]') || 
+                                         translation.includes('<strong>');
+            
+            if (hasSpecialFormatting) {
+                // Process translation text with formatting markers
+                let processedHTML = translation;
+                // Convert [hl]...[/hl] to <span class="highlight">...</span>
+                processedHTML = processedHTML.replace(/\[hl\](.*?)\[\/hl\]/g, '<span class="highlight">$1</span>');
+                // Convert [strong]...[/strong] to <strong>...</strong>
+                processedHTML = processedHTML.replace(/\[strong\](.*?)\[\/strong\]/g, '<strong>$1</strong>');
+                // Set HTML content
+                element.innerHTML = processedHTML;
+            } else {
+                // No special formatting, use innerText to avoid XSS
+                element.innerText = translation;
+            }
         }
     });
     
+    // Rest of the function remains unchanged
     // Handle placeholder translations
     const placeholderElements = document.querySelectorAll('[data-lang-placeholder]');
     placeholderElements.forEach(element => {

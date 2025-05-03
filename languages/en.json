@@ -129,7 +129,9 @@
     },
     "privacy": {
       "title": "Privacy and Data Security",
-      "description": "SaveYourTime stores all your data only locally in your browser and doesn't send any information to external servers. Your site usage data and settings are securely stored in your browser's \"local storage\" area."
+      "description": "SaveYourTime <strong>stores all your data only locally in your browser</strong> and doesn't send any information to external servers. Your site usage data and settings are securely stored in your browser's \"local storage\" area.",
+      "learnMore": "To learn more about our privacy policy",
+      "learnMoreLink": "click here"
     },
     "actions": {
       "configure": "Configure Settings",
@@ -142,7 +144,7 @@
     "subtitle": "Information about how we protect your data privacy",
     "commitment": {
       "title": "Privacy Commitment",
-      "description": "At SaveYourTime, we value your privacy and data security. This extension does not send any data to external servers, and all your information is stored only in your own browser."
+      "description": "At SaveYourTime, we value your privacy and data security. This extension [hl]does not send any data to external servers[/hl], and all your information is stored only in your own browser."
     },
     "collected": {
       "title": "Information Collected",
@@ -150,12 +152,12 @@
       "timeSpent": "The time you spend on websites you've specified",
       "dailyLimits": "The daily time limits you've set",
       "settings": "Your extension settings and preferences",
-      "storage": "This information is stored only in your local browser and is necessary for the extension to function properly."
+      "storage": "This information is [hl]stored only in your local browser[/hl] and is necessary for the extension to function properly."
     },
     "storage": {
       "title": "Data Storage and Transmission",
       "intro": "SaveYourTime:",
-      "noSend": "Does not send any user data to external servers",
+      "noSend": "[hl]Does not send any user data to external servers[/hl]",
       "localStorage": "Stores all data in your browser's local storage area",
       "offline": "Can work even when you don't have an internet connection",
       "noCookies": "Does not use cookies",
