@@ -6,7 +6,7 @@ var Localwebsites = ["html/warn.html"]
 
 async function setup() {
     try {
-        const { Urls = [],lang = "en.json" } = await chrome.storage.local.get(['Urls', 'lang']);
+        var { Urls = [],lang = "en" } = await chrome.storage.local.get(['Urls', 'lang']);
         Localwebsites = await Promise.all(
             Localwebsites.map(async (localwebsite) => {
                 const res = await fetch(chrome.runtime.getURL(localwebsite));
@@ -14,13 +14,13 @@ async function setup() {
                 return { url: localwebsite, html: html };
             })
         );
-        lang = await fetch(chrome.runtime.getURL('languages/' + lang));
+        lang = await fetch(chrome.runtime.getURL('languages/' + lang +".json"));
         lang = await lang.json();
 
         const currentUrl = window.location.href;
         patterns = Urls || [];
         const currentpattern = patterns.find(pattern => currentUrl.startsWith(pattern.url)) || {};
-        console.log(currentpattern, patterns, currentUrl);
+       // console.log(currentpattern, patterns, currentUrl);
 
         if (!currentpattern.url) return;
         var usage = await window.checkUsage(currentpattern);
@@ -31,7 +31,7 @@ async function setup() {
         }
 
 
-        console.log("Usage: ", usage, "Current Pattern: ", currentpattern);
+        //console.log("Usage: ", usage, "Current Pattern: ", currentpattern);
 
 
         window.startTimer(currentpattern, usage, lang, Localwebsites);
