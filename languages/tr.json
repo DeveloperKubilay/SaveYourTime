@@ -48,7 +48,7 @@
     "message": "Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!",
     "addTime": "Süre Ekle",
     "continueAnyway": "Yine de Devam Et",
-    "dailyStats": "Bugün: {{siteCount}} site için toplam {{totalTime}} kullanım",
+    "dailyStats": "Bugün bu site için toplam <strong>{{totalTime}}</strong> kullanım",
     "timeOption": {
       "15min": "+15 dakika",
       "30min": "+30 dakika",
