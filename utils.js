@@ -104,6 +104,7 @@ async function limitWebsite(currentpattern,x){
 async function startTimer(currentpattern, usage, lang, Localwebsites) {
     const intervalId = setInterval(async () => {
         try {
+            console.log("Interval running: ", currentpattern.url, usage);
             usage += 10000; 
             if (usage > currentpattern.limit) {
                 limitWebsite(currentpattern.url,true);

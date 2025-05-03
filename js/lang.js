@@ -39,14 +39,36 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 // Apply translations to all elements with data-lang attributes
 function applyTranslations(translations) {
+    // Handle text content translations
     const elements = document.querySelectorAll('[data-lang]');
-    
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
         const translation = getNestedTranslation(translations, key);
         
         if (translation) {
             element.textContent = translation;
+        }
+    });
+    
+    // Handle placeholder translations
+    const placeholderElements = document.querySelectorAll('[data-lang-placeholder]');
+    placeholderElements.forEach(element => {
+        const key = element.getAttribute('data-lang-placeholder');
+        const translation = getNestedTranslation(translations, key);
+        
+        if (translation) {
+            element.setAttribute('placeholder', translation);
+        }
+    });
+    
+    // Handle title (tooltip) translations
+    const titleElements = document.querySelectorAll('[data-lang-title]');
+    titleElements.forEach(element => {
+        const key = element.getAttribute('data-lang-title');
+        const translation = getNestedTranslation(translations, key);
+        
+        if (translation) {
+            element.setAttribute('title', translation);
         }
     });
 }
