@@ -16,6 +16,46 @@
             --text-light: #f3f4f6;
             --text-muted: #9ca3af;
             --border: #374151;
+            
+            /* Define theme colors for different button types */
+            --danger: #ef4444;
+            --danger-glow: rgba(239, 68, 68, 0.4);
+            --github: #6e7681;
+            --github-glow: rgba(110, 118, 129, 0.4);
+            --virus: #ff9800;
+            --virus-glow: rgba(255, 152, 0, 0.4);
+            --issue: #3b82f6;
+            --issue-glow: rgba(59, 130, 246, 0.4);
+            --privacy: #8b5cf6;
+            --privacy-glow: rgba(139, 92, 246, 0.4);
+            --docs: #14b8a6;
+            --docs-glow: rgba(20, 184, 166, 0.4);
+        }
+        
+        /* Custom scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            background: transparent; /* Transparent background */
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgba(255, 255, 255, 0.2); /* Slightly more visible thumb */
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: rgba(255, 255, 255, 0.4); /* More visible on hover */
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent; /* Transparent track */
+        }
+
+        /* For Firefox */
+        * {
+            scrollbar-width: auto;
+            scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
         }
         
         * {
@@ -158,6 +198,17 @@
             outline: none;
             box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.2);
         }
+
+        /* Hide number input spinners */
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
         
         button {
             background-color: var(--primary);
@@ -259,6 +310,28 @@
         .delete-btn i {
             margin-right: 0;
             font-size: 16px;
+        }
+        
+        .edit-btn {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            min-width: 40px;
+            height: 40px;
+            padding: 0 14px;
+        }
+
+        .edit-btn:hover {
+            background-color: rgba(59, 130, 246, 0.3);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        .edit-btn i {
+            margin-right: 0;
+            font-size: 14px !important;
         }
         
         .chart-container {
@@ -373,6 +446,239 @@
         #language-nav-item {
             cursor: pointer;
         }
+
+        .time-templates {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border: 1px solid var(--border);
+        }
+
+        .template-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .template-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            padding: 10px 15px;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 90px;
+        }
+
+        .template-btn:hover {
+            background-color: rgba(59, 130, 246, 0.15);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+        }
+
+        .template-btn.selected {
+            background-color: rgba(74, 222, 128, 0.2);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .add-btn {
+            background-color: var(--primary);
+        }
+
+        .action-btn {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .action-btn i {
+            margin-right: 8px;
+        }
+
+        .cancel-btn:hover {
+            background-color: #64748b !important;
+            box-shadow: 0 4px 12px rgba(100, 116, 139, 0.2) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Enhanced settings action buttons styling */
+        .settings-buttons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .settings-action-btn {
+            background-color: rgba(30, 41, 59, 0.7);
+            color: var(--text-light);
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            height: 110px;
+            justify-content: center;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .settings-action-btn i {
+            font-size: 28px;
+            margin-bottom: 12px;
+            transition: transform 0.3s ease;
+        }
+        
+        .settings-action-btn span {
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s ease;
+        }
+        
+        /* Default hover effect */
+        .settings-action-btn:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px -10px var(--primary-glow);
+        }
+        
+        .settings-action-btn:hover i {
+            transform: scale(1.15);
+        }
+        
+        /* Reset button specific styles */
+        .reset-btn {
+            background: linear-gradient(45deg, rgba(239, 68, 68, 0.2), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: var(--danger);
+        }
+        
+        .reset-btn i {
+            color: var(--danger);
+        }
+        
+        .reset-btn:hover {
+            background: linear-gradient(45deg, rgba(239, 68, 68, 0.3), rgba(30, 41, 59, 0.8));
+            border-color: var(--danger);
+            box-shadow: 0 10px 20px -10px var(--danger-glow);
+        }
+        
+        /* GitHub button specific styles */
+        .github-btn {
+            background: linear-gradient(45deg, rgba(110, 118, 129, 0.2), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(110, 118, 129, 0.3);
+        }
+        
+        .github-btn i {
+            color: var(--github);
+        }
+        
+        .github-btn:hover {
+            background: linear-gradient(45deg, rgba(110, 118, 129, 0.3), rgba(30, 41, 59, 0.8));
+            border-color: var(--github);
+            box-shadow: 0 10px 20px -10px var(--github-glow);
+        }
+        
+        /* Virus total button specific styles */
+        .virus-btn {
+            background: linear-gradient(45deg, rgba(255, 152, 0, 0.2), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(255, 152, 0, 0.3);
+        }
+        
+        .virus-btn i {
+            color: var(--virus);
+        }
+        
+        .virus-btn:hover {
+            background: linear-gradient(45deg, rgba(255, 152, 0, 0.3), rgba(30, 41, 59, 0.8));
+            border-color: var(--virus);
+            box-shadow: 0 10px 20px -10px var(--virus-glow);
+        }
+        
+        /* Issue button specific styles */
+        .issue-btn {
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.2), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .issue-btn i {
+            color: var(--issue);
+        }
+        
+        .issue-btn:hover {
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.3), rgba(30, 41, 59, 0.8));
+            border-color: var(--issue);
+            box-shadow: 0 10px 20px -10px var(--issue-glow);
+        }
+        
+        /* Privacy button specific styles */
+        .privacy-btn {
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.2), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+        
+        .privacy-btn i {
+            color: var(--privacy);
+        }
+        
+        .privacy-btn:hover {
+            background: linear-gradient(45deg, rgba(139, 92, 246, 0.3), rgba(30, 41, 59, 0.8));
+            border-color: var(--privacy);
+            box-shadow: 0 10px 20px -10px var(--privacy-glow);
+        }
+        
+        /* Docs button specific styles */
+        .docs-btn {
+            background: linear-gradient(45deg, rgba(20, 184, 166, 0.2), rgba(30, 41, 59, 0.7));
+            border: 1px solid rgba(20, 184, 166, 0.3);
+        }
+        
+        .docs-btn i {
+            color: var(--docs);
+        }
+        
+        .docs-btn:hover {
+            background: linear-gradient(45deg, rgba(20, 184, 166, 0.3), rgba(30, 41, 59, 0.8));
+            border-color: var(--docs);
+            box-shadow: 0 10px 20px -10px var(--docs-glow);
+        }
+        
+        /* Button shine effect */
+        .settings-action-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 20%;
+            height: 200%;
+            opacity: 0;
+            transform: rotate(30deg);
+            background: rgba(255, 255, 255, 0.13);
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0.05) 0%,
+                rgba(255, 255, 255, 0.15) 77%,
+                rgba(255, 255, 255, 0.05) 92%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transition: all 0.5s;
+        }
+        
+        .settings-action-btn:hover::after {
+            opacity: 1;
+            left: 130%;
+        }
     </style>
 </head>
 <body>
@@ -439,34 +745,67 @@
         <div class="tab-content" id="sites">
             <h2><i class="fas fa-globe"></i> <span data-lang="settings.tabs.siteManagement">Site Yönetimi</span></h2>
             
-            <div class="card">
-                <h3 data-lang="settings.sites.addNew">Yeni Site Ekle</h3>
+            <div class="card" id="siteFormCard">
+                <h3 id="siteFormTitle"><i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span></h3>
                 <div class="form-row">
-                    <input type="text" id="siteUrl" placeholder="Site URL (örn: facebook.com)" data-lang-placeholder="settings.sites.siteUrl" style="flex: 2">
-                    <input type="number" id="timeLimit" placeholder="Günlük limit (dakika)" data-lang-placeholder="settings.sites.dailyLimitMinutes" style="flex: 1">
+                    <input type="text" id="siteUrl" placeholder="Site URL (örn: facebook.com)" data-lang-placeholder="settings.sites.siteUrl" style="flex: 1">
                 </div>
-                <button id="addSiteBtn"><i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span></button>
+                <div class="time-templates">
+                    <h4 style="margin: 10px 0; color: var(--text-muted);" data-lang="settings.sites.timeTemplates">Zaman Şablonları</h4>
+                    <div class="template-buttons">
+                        <button class="template-btn" data-hours="0.5"><i class="fas fa-clock"></i> 30 <span data-lang="common.time.minutes">dakika</span></button>
+                        <button class="template-btn" data-hours="1"><i class="fas fa-clock"></i> 1 <span data-lang="common.time.hour">saat</span></button>
+                        <button class="template-btn" data-hours="2"><i class="fas fa-clock"></i> 2 <span data-lang="common.time.hours">saat</span></button>
+                        <button class="template-btn" data-hours="3"><i class="fas fa-clock"></i> 3 <span data-lang="common.time.hours">saat</span></button>
+                    </div>
+                    <div class="form-row" style="margin-top: 15px;">
+                        <div style="flex: 1;">
+                            <label style="display: block; margin-bottom: 5px; color: var(--text-muted);" data-lang="settings.sites.customTime">Özel Süre</label>
+                            <div style="display: flex; gap: 10px;">
+                                <div style="flex: 1; position: relative;">
+                                    <input type="number" id="timeHours" min="0" max="23" step="1" placeholder="0" style="padding-right: 45px;" oninput="this.value = Math.min(23, Math.max(0, parseInt(this.value) || 0))">
+                                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.hour">sa</span>
+                                </div>
+                                <div style="flex: 1; position: relative;">
+                                    <input type="number" id="timeMinutes" min="0" max="59" step="1" placeholder="0" style="padding-right: 45px;" oninput="this.value = Math.min(59, Math.max(0, parseInt(this.value) || 0))">
+                                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.minutes">dk</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <button id="addSiteBtn" class="action-btn add-btn"><i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span></button>
+                    <button id="cancelEditBtn" style="display: none; background-color: #475569; color: white;" class="action-btn cancel-btn"><i class="fas fa-times"></i> <span data-lang="common.cancel">İptal</span></button>
+                    <input type="hidden" id="editingSiteId" value="">
+                </div>
             </div>
             
             <div class="card">
                 <h3 data-lang="settings.sites.restrictedSites">Kısıtlı Siteler</h3>
                 <div id="sitesList">
                     <!-- Örnek site listesi -->
-                    <div class="site-item">
+                    <div class="site-item" data-site-id="facebook">
                         <div class="site-info">
                             <span class="site-url">facebook.com</span>
                             <span class="site-limit"><span data-lang="popup.dailyLimit">Günlük limit</span>: 2 <span data-lang="common.time.hours">saat</span></span>
                             <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 1 <span data-lang="common.time.hour">saat</span> 30 <span data-lang="common.time.minutes">dakika</span></span>
                         </div>
-                        <button class="delete-btn" onclick="deleteSite('facebook.com')" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
+                        <div class="site-actions">
+                            <button class="edit-btn" onclick="editSite('facebook')"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn" onclick="deleteSite('facebook.com')" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
+                        </div>
                     </div>
-                    <div class="site-item">
+                    <div class="site-item" data-site-id="youtube">
                         <div class="site-info">
                             <span class="site-url">youtube.com</span>
                             <span class="site-limit"><span data-lang="popup.dailyLimit">Günlük limit</span>: 3 <span data-lang="common.time.hours">saat</span></span>
                             <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 2 <span data-lang="common.time.hours">saat</span> 15 <span data-lang="common.time.minutes">dakika</span></span>
                         </div>
-                        <button class="delete-btn" onclick="deleteSite('youtube.com')" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
+                        <div class="site-actions">
+                            <button class="edit-btn" onclick="editSite('youtube')"><i class="fas fa-edit"></i></button>
+                            <button class="delete-btn" onclick="deleteSite('youtube.com')" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -529,20 +868,37 @@
             
             <div class="card">
                 <h3 data-lang="settings.general.title">Genel Ayarlar</h3>
-                <div>
-                    <div class="checkbox-row">
-                        <input type="checkbox" id="enableNotifications" checked>
-                        <label for="enableNotifications" data-lang="settings.general.notifications">Bildirimleri Aktif Et</label>
-                    </div>
-                    <div class="checkbox-row">
-                        <input type="checkbox" id="strictMode">
-                        <label for="strictMode" data-lang="settings.general.strictMode">Katı Mod (Limiti aşınca siteleri tamamen engelle)</label>
-                    </div>
-                    <div class="checkbox-row">
-                        <input type="checkbox" id="startupLaunch">
-                        <label for="startupLaunch" data-lang="settings.general.startup">Bilgisayar açılışında otomatik başlat</label>
-                    </div>
-                    <button id="saveSettingsBtn"><i class="fas fa-save"></i> <span data-lang="settings.general.saveSettings">Ayarları Kaydet</span></button>
+                
+                <div class="settings-buttons-grid">
+                    <button id="resetDataBtn" class="settings-action-btn reset-btn">
+                        <i class="fas fa-trash-alt"></i>
+                        <span data-lang="settings.general.resetData">Tüm Verileri Sıfırla</span>
+                    </button>
+                    
+                    <a href="https://github.com/DeveloperKubilay/SaveYourTime" target="_blank" class="settings-action-btn github-btn">
+                        <i class="fab fa-github"></i>
+                        <span data-lang="settings.general.github">GitHub Repo</span>
+                    </a>
+                    
+                    <a href="https://www.virustotal.com/gui/home/upload" target="_blank" class="settings-action-btn virus-btn">
+                        <i class="fas fa-shield-virus"></i>
+                        <span data-lang="settings.general.virusTotal">VirusTotal Sonuçları</span>
+                    </a>
+                    
+                    <a href="https://github.com/DeveloperKubilay/SaveYourTime/issues/new" target="_blank" class="settings-action-btn issue-btn">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span data-lang="settings.general.reportIssue">Sorun Bildir</span>
+                    </a>
+                    
+                    <a href="privacy.html" class="settings-action-btn privacy-btn">
+                        <i class="fas fa-user-shield"></i>
+                        <span data-lang="settings.general.privacy">Gizlilik Politikası</span>
+                    </a>
+                    
+                    <a href="https://github.com/DeveloperKubilay/SaveYourTime#readme" target="_blank" class="settings-action-btn docs-btn">
+                        <i class="fas fa-book"></i>
+                        <span data-lang="settings.general.documentation">Dokümantasyon</span>
+                    </a>
                 </div>
             </div>
         </div>
