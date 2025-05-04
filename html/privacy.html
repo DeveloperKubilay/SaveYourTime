@@ -33,12 +33,16 @@
             padding: 0;
             margin: 0;
             font-size: 16px !important;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 40px 20px;
+            flex-grow: 1;
         }
         
         header {
@@ -160,12 +164,10 @@
         }
 
         footer {
-            text-align: center;
+            background-color: rgba(0, 0, 0, 0.2);
             padding: 20px;
-            margin-top: 40px;
-            border-top: 1px solid var(--border);
-            color: var(--text-muted);
-            font-size: 15px !important;
+            text-align: center;
+            margin-top: auto;
         }
 
         footer a {
@@ -176,6 +178,11 @@
 
         footer a:hover {
             text-decoration: underline;
+        }
+        
+        footer p {
+            color: var(--text-muted);
+            font-size: 14px;
         }
         
         @media (max-width: 768px) {
@@ -300,7 +307,7 @@
             <a href="settings.html" class="button primary">
                 <i class="fas fa-cog"></i> <span data-lang="common.settings">Ayarlar</span>
             </a>
-            <a href="welcome.html" class="button">
+            <a href="thanks.html" class="button">
                 <i class="fas fa-home"></i> <span data-lang="privacy.actions.home">Ana Sayfa</span>
             </a>
         </div>

@@ -71,9 +71,12 @@
     },
     "sites": {
       "addNew": "Add New Site",
+      "editSite": "Edit Site",
       "siteUrl": "Site URL (e.g. facebook.com)",
       "dailyLimit": "Daily limit (hours)",
       "dailyLimitMinutes": "Daily limit (minutes)",
+      "timeTemplates": "Time Templates",
+      "customTime": "Custom Time",
       "add": "Add",
       "restrictedSites": "Restricted Sites",
       "remaining": "Remaining time"
@@ -83,10 +86,14 @@
     },
     "general": {
       "title": "General Settings",
-      "notifications": "Enable Notifications",
-      "strictMode": "Strict Mode (Completely block sites when limit is exceeded)",
-      "startup": "Start automatically on computer startup",
-      "saveSettings": "Save Settings"
+      "resetData": "Reset All Data",
+      "resetDataConfirm": "All saved data will be deleted. This action cannot be undone. Do you want to continue?",
+      "dataResetSuccess": "All data has been successfully reset. Click OK to refresh the page.",
+      "github": "GitHub Repo",
+      "virusTotal": "VirusTotal Results",
+      "reportIssue": "Report Issue",
+      "privacy": "Privacy Policy",
+      "documentation": "Documentation"
     }
   },
   "thanks": {
