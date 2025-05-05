@@ -39,6 +39,25 @@ document.addEventListener('DOMContentLoaded', async function() {
                 s: window.translations.common.time.secondsShort || 's'
             };
         }
+/*
+        formatTime(ms, lang, shortFormat = false) {
+            const absMs = Math.abs(ms);
+            const seconds = Math.floor((absMs / 1000) % 60);
+            const minutes = Math.floor((absMs / (1000 * 60)) % 60);
+            const hours = Math.floor(absMs / (1000 * 60 * 60));
+        
+            const sign = ms < 0 ? '-' : '';
+            
+            const hUnit = lang.common.time.hoursShort
+            const mUnit = lang.common.time.minutesShort
+            const sUnit = lang.common.time.secondsShort 
+            
+            if (shortFormat) {
+                return `${sign}${hours}${hUnit}, ${minutes}${mUnit}`;
+            }
+            
+            return `${sign}${hours}${hUnit}, ${minutes}${mUnit}, ${seconds}${sUnit}`;
+        }*/
 
         window.formatTime = function(ms, format = 'long') {
             const hours = Math.floor(ms / (1000 * 60 * 60));

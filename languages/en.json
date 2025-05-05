@@ -54,7 +54,7 @@
     "message": "You've reached your daily time limit for this site. A great opportunity to redirect your attention to more important tasks!",
     "addTime": "Add Time",
     "continueAnyway": "Continue Anyway",
-    "dailyStats": "Today This site with total usage of {{totalTime}}",
+    "dailyStats": "Today This site with total usage of <strong>{{totalTime}}</strong>",
     "timeOption": {
       "15min": "+15 minutes",
       "30min": "+30 minutes",
