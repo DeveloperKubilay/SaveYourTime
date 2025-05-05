@@ -1,4 +1,3 @@
-// Global object to track active timers
 window.activeTimers = {};
 
 async function checkUsage(data) {
@@ -38,12 +37,7 @@ function basicRegex(text, data, lang) {
     });
 }
 
-// Make formatTime with optional parameters for better display options
 function formatTime(ms, lang, shortFormat = false) {
-    if (!lang && window.translations) {
-        lang = window.translations;
-    }
-    
     const absMs = Math.abs(ms);
     const seconds = Math.floor((absMs / 1000) % 60);
     const minutes = Math.floor((absMs / (1000 * 60)) % 60);
@@ -51,26 +45,15 @@ function formatTime(ms, lang, shortFormat = false) {
 
     const sign = ms < 0 ? '-' : '';
     
-    // If we have translations
-    if (lang && lang.common && lang.common.time) {
-        // Always use short forms for time units
-        const hUnit = lang.common.time.hoursShort || 'h';
-        const mUnit = lang.common.time.minutesShort || 'm';
-        const sUnit = lang.common.time.secondsShort || 's';
-        
-        // If shortFormat is true, only return hours and minutes
-        if (shortFormat) {
-            return `${sign}${hours}${hUnit}, ${minutes}${mUnit}`;
-        }
-        
-        // Full format with seconds
-        return `${sign}${hours}${hUnit}, ${minutes}${mUnit}, ${seconds}${sUnit}`;
+    const hUnit = lang.common.time.hoursShort
+    const mUnit = lang.common.time.minutesShort
+    const sUnit = lang.common.time.secondsShort 
+    
+    if (shortFormat) {
+        return `${sign}${hours}${hUnit}, ${minutes}${mUnit}`;
     }
     
-    // Fallback format
-    return shortFormat ? 
-        `${sign}${hours}h, ${minutes}m` :
-        `${sign}${hours}h, ${minutes}m, ${seconds}s`;
+    return `${sign}${hours}${hUnit}, ${minutes}${mUnit}, ${seconds}${sUnit}`;
 }
 
 function useTemplate(template, lang, Localwebsites, ...args) {
@@ -93,13 +76,10 @@ function useTemplate(template, lang, Localwebsites, ...args) {
                 usage -= minutes * 60 * 1000;
                 chrome.storage.local.set({ [args[0].url]: usage });
                 
-                // Remove limited flag
                 await limitWebsite(args[0].url, false);
                 
-                // Restore original page content
                 document.body.innerHTML = window.websitedata;
                 
-                // Restart timer
                 startTimer(args[0], usage, lang, Localwebsites);
             });
         });
@@ -131,7 +111,6 @@ async function limitWebsite(currentpattern, x) {
     });
     await chrome.storage.local.set({ Urls: updatedUrls });
     
-    // If we're unlimiting a site, clear its timer if it exists
     if (x === false && window.activeTimers[currentpattern]) {
         clearInterval(window.activeTimers[currentpattern]);
         delete window.activeTimers[currentpattern];
@@ -139,7 +118,6 @@ async function limitWebsite(currentpattern, x) {
 }
 
 async function startTimer(currentpattern, usage, lang, Localwebsites) {
-    // Clear any existing timer for this site
     if (window.activeTimers[currentpattern.url]) {
         clearInterval(window.activeTimers[currentpattern.url]);
         delete window.activeTimers[currentpattern.url];
@@ -155,7 +133,6 @@ async function startTimer(currentpattern, usage, lang, Localwebsites) {
 
                 useTemplate("warn", lang, Localwebsites, currentpattern, usage);
 
-                // Clear the timer once limit is reached
                 clearInterval(intervalId);
                 delete window.activeTimers[currentpattern.url];
             } else {
@@ -166,7 +143,6 @@ async function startTimer(currentpattern, usage, lang, Localwebsites) {
         }
     }, 10000);
     
-    // Store the timer ID
     window.activeTimers[currentpattern.url] = intervalId;
     
     window.addEventListener('beforeunload', () => {
@@ -174,7 +150,6 @@ async function startTimer(currentpattern, usage, lang, Localwebsites) {
     });
 }
 
-// Add compatibility method for checking if a site is blocked/limited
 async function isSiteLimited(url) {
     try {
         const { Urls = [] } = await chrome.storage.local.get(['Urls']);
@@ -186,7 +161,6 @@ async function isSiteLimited(url) {
     }
 }
 
-// Export the new function
 window.isSiteLimited = isSiteLimited;
 
 window.checkUsage = checkUsage;
