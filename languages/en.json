@@ -65,9 +65,9 @@
     },
     "stats": {
       "restrictedSites": "Restricted Sites",
-      "totalBlocked": "Total Blocked",
-      "todayBlocked": "Blocked Today",
-      "mostVisited": "Most Visited Sites"
+      "Blocked": "Blocked Sites",
+      "notBlocked": "Allowed Sites",
+      "mostVisited": "Sites You Spend Most Time On"
     },
     "sites": {
       "addNew": "Add New Site",

@@ -3,25 +3,24 @@ let kullanılangünlükzaman = 8100000; // 2 saat 15 dakika (ms cinsinden)
 let toplamgünlükzaman = 10800000;   // 3 saat (ms cinsinden)
 
 document.addEventListener('DOMContentLoaded', function() {
-    // First, make sure i18n is loaded
-    if (!window.i18n) {
-        const script = document.createElement('script');
-        script.src = '../js/i18n.js';
-        document.head.appendChild(script);
-        
-        script.onload = initializePopup;
-    } else {
-        initializePopup();
-    }
-    
+    initializePopup() 
     function initializePopup() {
         // Başlangıç değerleriyle progress dairesini güncelle
         updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
         
         // Butonlara event listener'lar ekle
         document.getElementById('settingsBtn').addEventListener('click', openSettings);
-        document.getElementById('openSettings').addEventListener('click', openSettings);
-        document.getElementById('openStats').addEventListener('click', openStats);
+        
+        // Check if elements exist before adding event listeners
+        const openSettingsBtn = document.getElementById('openSettings');
+        if (openSettingsBtn) {
+            openSettingsBtn.addEventListener('click', openSettings);
+        }
+        
+        const openStatsBtn = document.getElementById('openStats');
+        if (openStatsBtn) {
+            openStatsBtn.addEventListener('click', openStats);
+        }
         
         // Süre ekleme butonları için event listener'lar
         document.getElementById('add15min').addEventListener('click', function() {
@@ -38,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
         getCurrentTabInfo();
         
         // Title translation
-        document.title = i18n.t('app.name');
+        document.title = window.t ? window.t('app.name') : 'SaveYourTime';
         
         // Translate static elements
-        i18n.translatePage();
+        if (window.translatePage) {
+            window.translatePage();
+        }
     }
 });
 
@@ -66,17 +67,17 @@ function updateProgressCircle(usedTime, totalTime) {
         progressCircle.style.stroke = 'var(--primary)';
     }
     
-    // Use i18n to format time strings
-    const timeUsedText = i18n ? i18n.formatTime(usedTime) : msToTimeString(usedTime);
-    const timeLeftText = i18n ? 
-        `${i18n.formatTime(totalTime - usedTime)} ${i18n.t('common.time.left')}` : 
+    // Use formatTime function for time strings
+    const timeUsedText = window.formatTime ? window.formatTime(usedTime) : msToTimeString(usedTime);
+    const timeLeftText = window.formatTime ? 
+        `${window.formatTime(totalTime - usedTime)} ${window.t('common.time.left')}` : 
         `${msToTimeString(totalTime - usedTime)} kaldı`;
     
     document.getElementById('timeUsed').textContent = timeUsedText;
     document.getElementById('timeLeft').textContent = timeLeftText;
     
-    const limitText = i18n ? 
-        `${i18n.t('popup.dailyLimit')}: ${i18n.formatTime(totalTime)}` : 
+    const limitText = window.t ? 
+        `${window.t('popup.dailyLimit')}: ${window.formatTime(totalTime)}` : 
         `Günlük Limit: ${msToTimeString(totalTime)}`;
         
     document.getElementById('siteLimit').textContent = limitText;
@@ -103,7 +104,7 @@ function addTime(minutes) {
     updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman);
     
     // Gerçek uygulamada burada backend'e kayıt yapılacak
-    console.log(`${minutes} ${i18n ? i18n.t('common.time.minutes') : 'dakika'} eklendi.`);
+    console.log(`${minutes} ${window.t ? window.t('common.time.minutes') : 'dakika'} eklendi.`);
 }
 
 // Aktif sekme bilgilerini al
@@ -140,9 +141,8 @@ function fetchSiteUsageData(domain) {
 // Ayarlar sayfasını aç
 function openSettings(e) {
     if (e) e.preventDefault();
-    // Chrome uzantısı için:
-    // chrome.runtime.openOptionsPage();
-    window.open('settings.html', '_blank');
+    // Use Chrome extension API to open options page
+    chrome.runtime.openOptionsPage();
 }
 
 // İstatistikler sayfasını aç

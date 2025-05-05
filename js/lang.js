@@ -20,10 +20,31 @@ document.addEventListener('DOMContentLoaded', async function() {
         // Load the appropriate language file
         const selectedLanguageFile = availableLanguages[selectedLang]?.file || "en.json";
         const langResponse = await fetch(`../languages/${selectedLanguageFile}`);
-        const translations = await langResponse.json();
+        window.translations = await langResponse.json();
+
+        // Create global translation functions to replace i18n
+        window.t = function(key) {
+            return getNestedTranslation(window.translations, key) || key;
+        };
+
+        window.formatTime = function(ms) {
+            const hours = Math.floor(ms / (1000 * 60 * 60));
+            const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+            
+            if (hours > 0) {
+                return hours + ' ' + (hours === 1 ? t('common.time.hour') : t('common.time.hours')) + 
+                       (minutes > 0 ? ' ' + minutes + ' ' + t('common.time.minutes') : '');
+            } else {
+                return minutes + ' ' + (minutes === 1 ? t('common.time.minute') : t('common.time.minutes'));
+            }
+        };
+
+        window.translatePage = function() {
+            applyTranslations(window.translations);
+        };
 
         // Apply translations to elements with data-lang attributes
-        applyTranslations(translations);
+        applyTranslations(window.translations);
         
         // Populate language switcher dropdown
         populateLanguageSwitcher(availableLanguages, selectedLang);
