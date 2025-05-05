@@ -65,9 +65,9 @@
     },
     "stats": {
       "restrictedSites": "Kısıtlanan Siteler",
-      "totalBlocked": "Toplam Engelleme",
-      "todayBlocked": "Bugün Engellenen",
-      "mostVisited": "En Çok Ziyaret Edilen Siteler"
+      "Blocked": "Engellenmiş Siteler",
+      "notBlocked": "İzin verilen Siteler",
+      "mostVisited": "En çok zaman geçirdiğiniz siteler"
     },
     "sites": {
       "addNew": "Yeni Site Ekle",

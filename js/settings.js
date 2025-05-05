@@ -180,16 +180,20 @@ function initializeCharts() {
     }
     
     // Define gradient for chart
-    const gradient = sitesCtx.createLinearGradient(0, 0, 0, 240);
+    const gradient = sitesCtx.createLinearGradient(0, 0, 240, 0); // Changed gradient direction for horizontal
     gradient.addColorStop(0, 'rgba(74, 222, 128, 0.6)');
     gradient.addColorStop(1, 'rgba(74, 222, 128, 0.1)');
+    
+    // Get translated text for time used label
+    const timeUsedElement = document.querySelector('[data-lang="popup.timeUsed"]');
+    const timeUsedLabel = timeUsedElement ? timeUsedElement.textContent : 'Kullanılan Süre';
     
     window.sitesChart = new Chart(sitesCtx, {
         type: 'bar',
         data: {
             labels: ['Facebook', 'YouTube', 'Twitter', 'Instagram', 'Reddit'],
             datasets: [{
-                label: window.i18n?.t('popup.timeUsed') || 'Time Used',
+                label: timeUsedLabel,
                 data: [5.2, 8.5, 3.1, 4.7, 2.3],
                 backgroundColor: [
                     'rgba(66, 103, 178, 0.8)',   // Facebook blue
@@ -203,10 +207,11 @@ function initializeCharts() {
             }]
         },
         options: {
+            indexAxis: 'y', // This makes the bars horizontal
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                y: {
+                x: { // Changed from y to x for horizontal chart
                     beginAtZero: true,
                     grid: {
                         color: 'rgba(255, 255, 255, 0.05)'
@@ -215,7 +220,7 @@ function initializeCharts() {
                         color: '#9ca3af'
                     }
                 },
-                x: {
+                y: { // Changed from x to y for horizontal chart
                     grid: {
                         display: false
                     },
@@ -235,7 +240,15 @@ function initializeCharts() {
                     borderColor: 'rgba(74, 222, 128, 0.5)',
                     borderWidth: 1,
                     displayColors: false,
-                    padding: 10
+                    padding: 10,
+                    callbacks: {
+                        // Translate the tooltip label
+                        label: function(context) {
+                            const value = context.raw;
+                            const hourText = document.querySelector('[data-lang="common.time.hours"]')?.textContent || 'saat';
+                            return `${value} ${hourText}`;
+                        }
+                    }
                 }
             },
             animation: {
