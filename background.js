@@ -8,9 +8,15 @@ chrome.runtime.onInstalled.addListener(function(details) {
                 url: "https://ifconfig.me",
                 limit: 10000,
                 limited: false
+            },
+            {
+                url: "https://duckduckgo.com",
+                limit: 3600000,
+                limited: false
             }
         ],
-        "https://ifconfig.me":0
+        "https://ifconfig.me":0,
+        "https://duckduckgo.com":3600000/2
 
         }, function() {
             // Open thanks.html in a new tab after installation

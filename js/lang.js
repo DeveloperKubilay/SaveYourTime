@@ -27,9 +27,30 @@ document.addEventListener('DOMContentLoaded', async function() {
             return getNestedTranslation(window.translations, key) || key;
         };
 
-        window.formatTime = function(ms) {
+        // Add this function to ensure we use language-specific time units
+        function getLanguageTimeUnits() {
+            if (!window.translations || !window.translations.common || !window.translations.common.time) {
+                return { h: 'h', m: 'm', s: 's' };
+            }
+            
+            return {
+                h: window.translations.common.time.hoursShort || 'h',
+                m: window.translations.common.time.minutesShort || 'm',
+                s: window.translations.common.time.secondsShort || 's'
+            };
+        }
+
+        window.formatTime = function(ms, format = 'long') {
             const hours = Math.floor(ms / (1000 * 60 * 60));
             const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+            
+            // Get language-specific time units
+            const units = getLanguageTimeUnits();
+            
+            if (format === 'short') {
+                return `${hours}${units.h}, ${minutes}${units.m}`;
+            }
             
             if (hours > 0) {
                 return hours + ' ' + (hours === 1 ? t('common.time.hour') : t('common.time.hours')) + 

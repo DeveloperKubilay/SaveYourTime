@@ -27,8 +27,11 @@
       "hourShort": "h",
       "hoursShort": "h",
       "minutesShort": "m",
-      "secondsShort": "s"
-    }
+      "secondsShort": "s",
+      "noTimeLeft": "No time left"
+    },
+    "noActiveTab": "No active tab",
+    "timeAdded": "Time added"
   },
   "popup": {
     "currentSite": "Current Site",
@@ -41,7 +44,10 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
-    }
+    },
+    "notTracked": "Not tracked",
+    "noOtherSites": "No other tracked sites",
+    "noLimitSet": "No limit set for this site"
   },
   "warn": {
     "title": "You've Run Out of Time!",

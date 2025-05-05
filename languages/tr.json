@@ -27,8 +27,11 @@
       "hourShort": "sa",
       "hoursShort": "sa",
       "minutesShort": "dk",
-      "secondsShort": "sn"
-    }
+      "secondsShort": "sn",
+      "noTimeLeft": "Süre kalmadı"
+    },
+    "noActiveTab": "Aktif sekme yok",
+    "timeAdded": "Süre eklendi"
   },
   "popup": {
     "currentSite": "Mevcut Site",
@@ -41,7 +44,10 @@
       "15min": "+15dk",
       "30min": "+30dk",
       "1hour": "+1s"
-    }
+    },
+    "notTracked": "Takip edilmiyor",
+    "noOtherSites": "Takip edilen başka site yok",
+    "noLimitSet": "Bu site için limit ayarlanmadı"
   },
   "warn": {
     "title": "Zamanınızı Doldurdunuz!",
