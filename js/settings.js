@@ -1,172 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Settings.js: DOM loaded');
-    
-    // Safely initialize the settings page
-    initializeSettings();
-    
-    function initializeSettings() {
-        console.log('Initializing settings page');
-        
-        // Tab switching
-        document.querySelectorAll('.nav-item').forEach(item => {
-            item.addEventListener('click', function() {
-                if (this.querySelector('select')) {
-                    // Skip if this is the language switcher
-                    return;
-                }
-                
-                // Remove active class from all tabs and contents
-                document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
-                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                this.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = this.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-            });
-        });
-        
-        // Initialize language dropdown behavior
-        initializeLanguageDropdown();
-        
-        // Initialize charts when page loads
-        if (window.Chart) {
-            initializeCharts();
-        } else {
-            console.warn('Chart.js not loaded, cannot initialize charts');
-        }
-        
-        // Listen for language change events to update chart labels
-        document.addEventListener('languageChanged', function() {
-            console.log('Language changed, reinitializing charts');
-            if (window.Chart) {
-                initializeCharts();
-            }
-        });
-
-        // Initialize time template buttons
-        initializeTimeTemplates();
-
-        // Add site button click handler
-        document.getElementById('addSiteBtn').addEventListener('click', function() {
-            const isEditing = document.getElementById('editingSiteId').value !== '';
-            if (isEditing) {
-                updateSite();
-            } else {
-                addSite();
-            }
-        });
-
-        // Cancel edit button click handler
-        document.getElementById('cancelEditBtn').addEventListener('click', function() {
-            cancelEdit();
-        });
-        
-        // Initialize edit buttons
-        initializeEditButtons();
-        
-        // Initialize delete buttons
-        initializeDeleteButtons();
-        
-        // Initialize reset data button
-        initializeResetDataButton();
-    }
-    
-    // Function to handle language dropdown behavior
-    function initializeLanguageDropdown() {
-        const languageNavItem = document.getElementById('language-nav-item');
-        
-        if (languageNavItem) {
-            languageNavItem.addEventListener('click', function(e) {
-                // Only trigger if the click wasn't directly on the select element
-                if (e.target.tagName !== 'SELECT') {
-                    const languageSelect = document.getElementById('languageSwitcher');
-                    languageSelect.focus();
-                    
-                    // Simulate a click to open the dropdown
-                    const event = new MouseEvent('mousedown', {
-                        bubbles: true,
-                        cancelable: true,
-                        view: window
-                    });
-                    languageSelect.dispatchEvent(event);
-                }
-            });
-        }
-    }
-
-    // Function to initialize time template buttons
-    function initializeTimeTemplates() {
-        document.querySelectorAll('.template-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                // Remove selected class from all template buttons
-                document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('selected'));
-                
-                // Add selected class to clicked button
-                this.classList.add('selected');
-                
-                // Get hours value from data attribute
-                const hours = parseFloat(this.getAttribute('data-hours'));
-                
-                // Calculate hours and minutes
-                const wholeHours = Math.floor(hours);
-                const minutes = Math.round((hours - wholeHours) * 60);
-                
-                // Set values in the input fields
-                document.getElementById('timeHours').value = wholeHours;
-                document.getElementById('timeMinutes').value = minutes;
-            });
-        });
-    }
-    
-    // Function to initialize edit buttons
-    function initializeEditButtons() {
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const siteId = this.closest('.site-item').getAttribute('data-site-id');
-                editSite(siteId);
-            });
-        });
-    }
-    
-    // Function to initialize delete buttons
-    function initializeDeleteButtons() {
-        document.querySelectorAll('.delete-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default action
-                
-                const siteItem = this.closest('.site-item');
-                const url = siteItem.querySelector('.site-url').textContent;
-                deleteSite(url);
-            });
-        });
-    }
-    
-    // Function to initialize reset data button
-    function initializeResetDataButton() {
-        const resetDataBtn = document.getElementById('resetDataBtn');
-        if (resetDataBtn) {
-            resetDataBtn.addEventListener('click', function() {
-                if (confirm(window.i18n?.t('settings.general.resetDataConfirm') || 
-                           'Tüm kayıtlı veriler silinecektir. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?')) {
-                    
-                    // Clear local storage data
-                    localStorage.clear();
-                    
-                    // Show confirmation
-                    alert(window.i18n?.t('settings.general.dataResetSuccess') || 
-                          'Tüm veriler başarıyla sıfırlandı. Sayfayı yenilemek için tamam\'a tıklayın.');
-                    
-                    // Reload page
-                    location.reload();
-                }
-            });
-        }
-    }
-});
-
+//Chart'ları hazırlar
 function initializeCharts() {
     const sitesCtx = document.getElementById('sitesChart')?.getContext('2d');
     if (!sitesCtx) {
@@ -174,17 +6,14 @@ function initializeCharts() {
         return;
     }
     
-    // Check if chart already exists and destroy it
     if (window.sitesChart instanceof Chart) {
         window.sitesChart.destroy();
     }
     
-    // Define gradient for chart
-    const gradient = sitesCtx.createLinearGradient(0, 0, 240, 0); // Changed gradient direction for horizontal
+    const gradient = sitesCtx.createLinearGradient(0, 0, 240, 0);
     gradient.addColorStop(0, 'rgba(74, 222, 128, 0.6)');
     gradient.addColorStop(1, 'rgba(74, 222, 128, 0.1)');
     
-    // Get translated text for time used label
     const timeUsedElement = document.querySelector('[data-lang="popup.timeUsed"]');
     const timeUsedLabel = timeUsedElement ? timeUsedElement.textContent : 'Kullanılan Süre';
     
@@ -196,22 +25,22 @@ function initializeCharts() {
                 label: timeUsedLabel,
                 data: [5.2, 8.5, 3.1, 4.7, 2.3],
                 backgroundColor: [
-                    'rgba(66, 103, 178, 0.8)',   // Facebook blue
-                    'rgba(255, 0, 0, 0.8)',      // YouTube red
-                    'rgba(29, 161, 242, 0.8)',   // Twitter blue
-                    'rgba(225, 48, 108, 0.8)',   // Instagram pink
-                    'rgba(255, 69, 0, 0.8)'      // Reddit orange
+                    'rgba(66, 103, 178, 0.8)',
+                    'rgba(255, 0, 0, 0.8)',
+                    'rgba(29, 161, 242, 0.8)',
+                    'rgba(225, 48, 108, 0.8)',
+                    'rgba(255, 69, 0, 0.8)'
                 ],
                 borderWidth: 0,
                 borderRadius: 4
             }]
         },
         options: {
-            indexAxis: 'y', // This makes the bars horizontal
+            indexAxis: 'y',
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-                x: { // Changed from y to x for horizontal chart
+                x: {
                     beginAtZero: true,
                     grid: {
                         color: 'rgba(255, 255, 255, 0.05)'
@@ -220,7 +49,7 @@ function initializeCharts() {
                         color: '#9ca3af'
                     }
                 },
-                y: { // Changed from x to y for horizontal chart
+                y: {
                     grid: {
                         display: false
                     },
@@ -242,7 +71,6 @@ function initializeCharts() {
                     displayColors: false,
                     padding: 10,
                     callbacks: {
-                        // Translate the tooltip label
                         label: function(context) {
                             const value = context.raw;
                             const hourText = document.querySelector('[data-lang="common.time.hours"]')?.textContent || 'saat';
@@ -267,24 +95,152 @@ function initializeCharts() {
     });
 }
 
-// Add site function
+function resetSiteForm() {
+    document.getElementById('siteUrl').value = '';
+    document.getElementById('timeHours').value = '';
+    document.getElementById('timeMinutes').value = '';
+    document.getElementById('editingSiteId').value = '';
+    document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span>';
+    document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span>';
+    document.getElementById('cancelEditBtn').style.display = 'none';
+    
+    document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+//Global
+
+    //Menüler arası geçişi sağlar
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            if (this.querySelector('select')) {
+                return;
+            }
+            
+            document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            
+            this.classList.add('active');
+            
+            const tabId = this.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });  
+
+//Dashboard
+    initializeCharts();
+
+
+  
+
+
+//Site managment
+    document.getElementById('cancelEditBtn').addEventListener('click', resetSiteForm);
+    document.getElementById('addSiteBtn').addEventListener('click', function() { //ADD SİTE BUTTON
+        const isEditing = document.getElementById('editingSiteId').value !== '';
+        if (isEditing) {
+            updateSite();
+        } else {
+            addSite();
+        }
+    });
+    document.querySelectorAll('.template-btn').forEach(btn => {  // TIME SELECTION BUTTONS
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('selected'));
+            
+            this.classList.add('selected');
+            
+            const hours = parseFloat(this.getAttribute('data-hours'));
+            
+            const wholeHours = Math.floor(hours);
+            const minutes = Math.round((hours - wholeHours) * 60);
+            
+            document.getElementById('timeHours').value = wholeHours;
+            document.getElementById('timeMinutes').value = minutes;
+        });
+    });
+
+
+    initializeEditButtons();
+  //  initializeResetDataButton();
+
+  document.querySelectorAll('.delete-btn').forEach(btn => {
+    btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const siteItem = this.closest('.site-item');
+        const url = siteItem.querySelector('.site-url').textContent;
+        deleteSite(url);
+    });
+});
+
+
+
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    function initializeEditButtons() {
+        document.querySelectorAll('.edit-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const siteId = this.closest('.site-item').getAttribute('data-site-id');
+                editSite(siteId);
+            });
+        });
+    }
+    
+
+    
+    function initializeResetDataButton() {
+        const resetDataBtn = document.getElementById('resetDataBtn');
+        if (resetDataBtn) {
+            resetDataBtn.addEventListener('click', function() {
+                if (confirm(window.i18n?.t('settings.general.resetDataConfirm') || 
+                           'Tüm kayıtlı veriler silinecektir. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?')) {
+                    
+                    localStorage.clear();
+                    
+                    alert(window.i18n?.t('settings.general.dataResetSuccess') || 
+                          'Tüm veriler başarıyla sıfırlandı. Sayfayı yenilemek için tamam\'a tıklayın.');
+                    
+                    location.reload();
+                }
+            });
+        }
+    }
+
+
+
+
 function addSite() {
     const url = document.getElementById('siteUrl').value.trim().toLowerCase();
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
     
-    // Ensure time values are within valid ranges
     const validHours = Math.min(23, Math.max(0, timeHours));
     const validMinutes = Math.min(59, Math.max(0, timeMinutes));
     
-    // Convert hours and minutes to total minutes
     const timeLimitMinutes = (validHours * 60) + validMinutes;
     
     if (url && timeLimitMinutes > 0) {
-        // Generate a unique ID for the site
         const siteId = url.replace(/[^a-zA-Z0-9]/g, '');
         
-        // Check if site already exists - improved check that compares URLs directly
         let siteExists = false;
         const siteItems = document.querySelectorAll('.site-item');
         
@@ -292,23 +248,20 @@ function addSite() {
             const existingUrl = item.querySelector('.site-url').textContent.trim().toLowerCase();
             if (existingUrl === url) {
                 siteExists = true;
-                // Set this site for editing instead
                 document.getElementById('editingSiteId').value = item.getAttribute('data-site-id');
                 updateSite();
             }
         });
         
         if (siteExists) {
-            return; // Exit the function if we're editing an existing site
+            return;
         }
         
-        // Rest of the function remains the same
         const sitesList = document.getElementById('sitesList');
         const newSite = document.createElement('div');
         newSite.className = 'site-item';
         newSite.setAttribute('data-site-id', siteId);
         
-        // Get proper translations directly from DOM elements to ensure we use the displayed language
         const dailyLimitEl = document.querySelector('[data-lang="popup.dailyLimit"]');
         const remainingEl = document.querySelector('[data-lang="settings.sites.remaining"]');
         const hourEl = document.querySelector('[data-lang="common.time.hour"]');
@@ -316,7 +269,6 @@ function addSite() {
         const minuteEl = document.querySelector('[data-lang="common.time.minute"]');
         const minutesEl = document.querySelector('[data-lang="common.time.minutes"]');
         
-        // Use text content from elements, or fall back to i18n or default values
         const dailyLimitText = dailyLimitEl?.textContent || window.i18n?.t('popup.dailyLimit') || 'Günlük Limit';
         const remainingText = remainingEl?.textContent || window.i18n?.t('settings.sites.remaining') || 'Kalan süre';
         const hourText = hourEl?.textContent || window.i18n?.t('common.time.hour') || 'saat';
@@ -324,7 +276,6 @@ function addSite() {
         const minuteText = minuteEl?.textContent || window.i18n?.t('common.time.minute') || 'dakika';
         const minutesText = minutesEl?.textContent || window.i18n?.t('common.time.minutes') || 'dakika';
         
-        // Format the time string properly
         const timeString = formatTimeString(validHours, validMinutes, hourText, hoursText, minuteText, minutesText);
         
         newSite.innerHTML = `
@@ -340,18 +291,15 @@ function addSite() {
         `;
         sitesList.prepend(newSite);
         
-        // Initialize the edit button for this new site
         const newEditBtn = newSite.querySelector('.edit-btn');
         newEditBtn.addEventListener('click', function() {
             editSite(siteId);
         });
         
-        // Reset form
         resetSiteForm();
     }
 }
 
-// Helper function to format time string
 function formatTimeString(hours, minutes, hourText, hoursText, minuteText, minutesText) {
     let timeString = '';
     
@@ -367,60 +315,47 @@ function formatTimeString(hours, minutes, hourText, hoursText, minuteText, minut
     return timeString;
 }
 
-// Edit site function
 window.editSite = function(siteId) {
-    console.log('Editing site:', siteId);  // Debug log
-    // Find the site item
+    console.log('Editing site:', siteId);
     const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
     if (siteItem) {
-        // Extract data from the site item
         const url = siteItem.querySelector('.site-url').textContent;
         const limitText = siteItem.querySelector('.site-limit').textContent;
         
-        // Parse the time limit
         const limitMatch = limitText.match(/[\d\.]+/);
         const timeLimit = limitMatch ? parseFloat(limitMatch[0]) : 0;
         
-        // Calculate hours and minutes
         const hours = Math.floor(timeLimit);
         const minutes = Math.round((timeLimit - hours) * 60);
         
-        // Set form to edit mode
         document.getElementById('siteUrl').value = url;
         document.getElementById('timeHours').value = hours;
         document.getElementById('timeMinutes').value = minutes;
         document.getElementById('editingSiteId').value = siteId;
         
-        // Update UI
         document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-edit" style="color: #3b82f6; margin-right: 8px;"></i> <span data-lang="settings.sites.editSite">Siteyi Düzenle</span>';
         document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">Kaydet</span>';
         document.getElementById('cancelEditBtn').style.display = 'inline-flex';
         document.getElementById('siteFormCard').scrollIntoView({ behavior: 'smooth' });
         
-        // Remove any selected template
         document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
     }
 };
 
-// Update site function
 function updateSite() {
     const siteId = document.getElementById('editingSiteId').value;
     const url = document.getElementById('siteUrl').value;
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
     
-    // Ensure time values are within valid ranges
     const validHours = Math.min(23, Math.max(0, timeHours));
     const validMinutes = Math.min(59, Math.max(0, timeMinutes));
     
-    // Convert hours and minutes to total minutes
     const timeLimitMinutes = (validHours * 60) + validMinutes;
     
     if (url && timeLimitMinutes > 0) {
-        // Find the site item
         const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
         if (siteItem) {
-            // Get proper translations directly from DOM elements to ensure we use the displayed language
             const dailyLimitEl = document.querySelector('[data-lang="popup.dailyLimit"]');
             const remainingEl = document.querySelector('[data-lang="settings.sites.remaining"]');
             const hourEl = document.querySelector('[data-lang="common.time.hour"]');
@@ -428,7 +363,6 @@ function updateSite() {
             const minuteEl = document.querySelector('[data-lang="common.time.minute"]');
             const minutesEl = document.querySelector('[data-lang="common.time.minutes"]');
             
-            // Use text content from elements, or fall back to i18n or default values
             const dailyLimitText = dailyLimitEl?.textContent || window.i18n?.t('popup.dailyLimit') || 'Günlük Limit';
             const remainingText = remainingEl?.textContent || window.i18n?.t('settings.sites.remaining') || 'Kalan süre';
             const hourText = hourEl?.textContent || window.i18n?.t('common.time.hour') || 'saat';
@@ -436,46 +370,24 @@ function updateSite() {
             const minuteText = minuteEl?.textContent || window.i18n?.t('common.time.minute') || 'dakika';
             const minutesText = minutesEl?.textContent || window.i18n?.t('common.time.minutes') || 'dakika';
             
-            // Format the time string properly
             const timeString = formatTimeString(validHours, validMinutes, hourText, hoursText, minuteText, minutesText);
             
-            // Update site information
             siteItem.querySelector('.site-url').textContent = url;
             siteItem.querySelector('.site-limit').innerHTML = `${dailyLimitText}: ${timeString}`;
             siteItem.querySelector('.site-remaining').innerHTML = `${remainingText}: ${timeString}`;
             
-            // Update delete button onclick 
             siteItem.querySelector('.delete-btn').setAttribute('onclick', `deleteSite('${url}')`);
             
-            // Reset form
             resetSiteForm();
         }
     }
 }
 
-// Cancel edit function
-function cancelEdit() {
-    resetSiteForm();
-}
 
-// Reset site form
-function resetSiteForm() {
-    document.getElementById('siteUrl').value = '';
-    document.getElementById('timeHours').value = '';
-    document.getElementById('timeMinutes').value = '';
-    document.getElementById('editingSiteId').value = '';
-    document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span>';
-    document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span>';
-    document.getElementById('cancelEditBtn').style.display = 'none';
-    
-    // Remove any selected template
-    document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
-}
 
 window.deleteSite = function(url) {
-    console.log('Deleting site:', url); // Debug log
+    console.log('Deleting site:', url);
     
-    // Remove from UI immediately without confirmation
     const siteItems = document.querySelectorAll('.site-item');
     let deleted = false;
     
@@ -489,25 +401,20 @@ window.deleteSite = function(url) {
     
     if (deleted) {
         console.log(`Site ${url} successfully deleted`);
-        // Here you would also remove from storage/database
     }
 };
 
 window.addTime = function(url, minutes) {
-    // Add time function
     console.log(`${url} adding ${minutes} minutes`);
     
-    // Show notification
     const addTimeMsg = window.i18n?.t('warn.addTime') || 'added';
     const minutesText = window.i18n?.t('common.time.minutes') || 'minutes';
     alert(`${url} ${addTimeMsg}: ${minutes} ${minutesText}!`);
 };
 
 window.removeLimit = function(url) {
-    // Remove limit function
     console.log(`${url} removed from limits`);
     
-    // Remove from UI (active limits only)
     const limitItems = document.querySelectorAll('#activeLimitsList .site-item');
     limitItems.forEach(item => {
         if (item.querySelector('.site-url').textContent === url) {

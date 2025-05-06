@@ -1,135 +1,64 @@
 document.addEventListener('DOMContentLoaded', async function() {
-    try {
-        // First, load available languages
-        const languagesResponse = await fetch('../languages/data.json');
-        const languagesData = await languagesResponse.json();
-        const availableLanguages = languagesData.languages;
+    const availableLanguages = (await (await fetch('../languages/data.json')).json()).languages;
+    
+    const { lang = "en" } = await chrome.storage.local.get(['lang']);
+    
+    const langResponse = await fetch(`../languages/${availableLanguages[lang]?.file || "en.json"}`);
+    window.translations = await langResponse.json();
+    window.formatTime = function (ms,minimum){
+        const hours = Math.floor(ms / (1000 * 60 * 60));
+        var minutes = Math.max(Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)), minimum || 0);
         
-        // Get saved language or use default (en)
-        let selectedLang = "en";
-        
-        try {
-            const { lang } = await chrome.storage.local.get(['lang']);
-            selectedLang = lang || "en";
-        } catch (chromeError) {
-            // Fallback to localStorage if not in extension context
-            selectedLang = localStorage.getItem('lang') || "en";
-            console.info('Using localStorage for language settings');
+        if (hours > 0) {
+            return hours + window.translations.common.time.hourShort +' ' + (minutes > 0 ? minutes + window.translations.common.time.minutesShort : '');
+        } else {
+            return minutes + window.translations.common.time.minutesShort;
         }
-        
-        // Load the appropriate language file
-        const selectedLanguageFile = availableLanguages[selectedLang]?.file || "en.json";
-        const langResponse = await fetch(`../languages/${selectedLanguageFile}`);
-        window.translations = await langResponse.json();
-
-        // Create global translation functions to replace i18n
-        window.t = function(key) {
-            return getNestedTranslation(window.translations, key) || key;
-        };
-
-        // Add this function to ensure we use language-specific time units
-        function getLanguageTimeUnits() {
-            if (!window.translations || !window.translations.common || !window.translations.common.time) {
-                return { h: 'h', m: 'm', s: 's' };
-            }
-            
-            return {
-                h: window.translations.common.time.hoursShort || 'h',
-                m: window.translations.common.time.minutesShort || 'm',
-                s: window.translations.common.time.secondsShort || 's'
-            };
-        }
-/*
-        formatTime(ms, lang, shortFormat = false) {
-            const absMs = Math.abs(ms);
-            const seconds = Math.floor((absMs / 1000) % 60);
-            const minutes = Math.floor((absMs / (1000 * 60)) % 60);
-            const hours = Math.floor(absMs / (1000 * 60 * 60));
-        
-            const sign = ms < 0 ? '-' : '';
-            
-            const hUnit = lang.common.time.hoursShort
-            const mUnit = lang.common.time.minutesShort
-            const sUnit = lang.common.time.secondsShort 
-            
-            if (shortFormat) {
-                return `${sign}${hours}${hUnit}, ${minutes}${mUnit}`;
-            }
-            
-            return `${sign}${hours}${hUnit}, ${minutes}${mUnit}, ${seconds}${sUnit}`;
-        }*/
-
-        window.formatTime = function(ms, format = 'long') {
-            const hours = Math.floor(ms / (1000 * 60 * 60));
-            const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((ms % (1000 * 60)) / 1000);
-            
-            // Get language-specific time units
-            const units = getLanguageTimeUnits();
-            
-            if (format === 'short') {
-                return `${hours}${units.h}, ${minutes}${units.m}`;
-            }
-            
-            if (hours > 0) {
-                return hours + ' ' + (hours === 1 ? t('common.time.hour') : t('common.time.hours')) + 
-                       (minutes > 0 ? ' ' + minutes + ' ' + t('common.time.minutes') : '');
-            } else {
-                return minutes + ' ' + (minutes === 1 ? t('common.time.minute') : t('common.time.minutes'));
-            }
-        };
-
-        window.translatePage = function() {
-            applyTranslations(window.translations);
-        };
-
-        // Apply translations to elements with data-lang attributes
-        applyTranslations(window.translations);
-        
-        // Populate language switcher dropdown
-        populateLanguageSwitcher(availableLanguages, selectedLang);
-        
-        // Set up language switching
-        setupLanguageSwitcher(availableLanguages);
-        
-    } catch (error) {
-        console.error('Error loading language data:', error);
-        fallbackToEnglish();
     }
+
+    window.SendMSG = function(DATA) {
+        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+            const port = chrome.tabs.connect(tabs[0].id, {name: "SaveYourTime"});
+            port.postMessage(DATA);
+        });
+    }
+
+    applyTranslations(window.translations);
+    populateLanguageSwitcher(availableLanguages, lang);
+    setupLanguageSwitcher(availableLanguages);
+    try{
+        window.SAVE_YOUR_TIME_RUN()
+    }catch{}
 });
 
-// Apply translations to all elements with data-lang attributes
+
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+});
+
 function applyTranslations(translations) {
-    // Handle text content translations
     const elements = document.querySelectorAll('[data-lang]');
     elements.forEach(element => {
         const key = element.getAttribute('data-lang');
         const translation = getNestedTranslation(translations, key);
         
         if (translation) {
-            // Check if translation contains special markers
             const hasSpecialFormatting = translation.includes('[hl]') || 
                                          translation.includes('[strong]') || 
                                          translation.includes('<strong>');
             
             if (hasSpecialFormatting) {
-                // Process translation text with formatting markers
                 let processedHTML = translation;
-                // Convert [hl]...[/hl] to <span class="highlight">...</span>
                 processedHTML = processedHTML.replace(/\[hl\](.*?)\[\/hl\]/g, '<span class="highlight">$1</span>');
-                // Convert [strong]...[/strong] to <strong>...</strong>
                 processedHTML = processedHTML.replace(/\[strong\](.*?)\[\/strong\]/g, '<strong>$1</strong>');
-                // Set HTML content
                 element.innerHTML = processedHTML;
             } else {
-                // No special formatting, use innerText to avoid XSS
                 element.innerText = translation;
             }
         }
     });
     
-    // Rest of the function remains unchanged
-    // Handle placeholder translations
+    // input'a ne tür yazı yazılcağını belirtir
     const placeholderElements = document.querySelectorAll('[data-lang-placeholder]');
     placeholderElements.forEach(element => {
         const key = element.getAttribute('data-lang-placeholder');
@@ -140,7 +69,7 @@ function applyTranslations(translations) {
         }
     });
     
-    // Handle title (tooltip) translations
+    // title değiştirme yapar mouse ile hover yaptığınızda görünür
     const titleElements = document.querySelectorAll('[data-lang-title]');
     titleElements.forEach(element => {
         const key = element.getAttribute('data-lang-title');
@@ -152,7 +81,7 @@ function applyTranslations(translations) {
     });
 }
 
-// Get nested translation using dot notation (e.g., "app.name")
+// common.test yapmaya yarar
 function getNestedTranslation(translations, key) {
     const keys = key.split('.');
     let result = translations;
@@ -168,7 +97,7 @@ function getNestedTranslation(translations, key) {
     return result;
 }
 
-// Populate the language switcher dropdown
+// Dil seçme menüsüsüne dilleri ekler
 function populateLanguageSwitcher(availableLanguages, currentLang) {
     const languageSwitcher = document.getElementById('languageSwitcher');
     if (!languageSwitcher) return;
@@ -185,8 +114,8 @@ function populateLanguageSwitcher(availableLanguages, currentLang) {
     });
 }
 
-// Handle language switching
-function setupLanguageSwitcher(availableLanguages) {
+// Dil seçildiği zaman dili değiştirir
+function setupLanguageSwitcher() {
     const languageSwitcher = document.getElementById('languageSwitcher');
     if (!languageSwitcher) return;
     
@@ -195,6 +124,10 @@ function setupLanguageSwitcher(availableLanguages) {
         
         try {
             await chrome.storage.local.set({ lang: selectedLang });
+
+            window.SendMSG({
+                checkLanguage: true
+            })
         } catch (chromeError) {
             localStorage.setItem('lang', selectedLang);
         }
@@ -203,13 +136,3 @@ function setupLanguageSwitcher(availableLanguages) {
     });
 }
 
-// Fallback function when language loading fails
-async function fallbackToEnglish() {
-    try {
-        const langResponse = await fetch('../languages/en.json');
-        const translations = await langResponse.json();
-        applyTranslations(translations);
-    } catch (err) {
-        console.error('Failed to load fallback language:', err);
-    }
-}

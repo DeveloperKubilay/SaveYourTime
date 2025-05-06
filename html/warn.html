@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaman Doldu - SaveYourTime</title>
+    <script src="../js/lang.js" defer></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
@@ -21,6 +21,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            user-select: none;
         }
 
         body,
@@ -360,39 +361,39 @@
             <div class="right-section">
                 <div class="site-name">
                     <i class="fas fa-globe"></i>
-                    <span id="site-domain">{{ url }}</span>
+                    <span id="site-domain"></span>
                 </div>
 
                 <div class="time-limit-message">
-                    <h2>{{ warn.title }}</h2>
-                    <p>{{ warn.message }}</p>
+                    <h2 data-lang="warn.title"></h2>
+                    <p data-lang="warn.message"></p>
                 </div>
 
                 <div class="add-time-options">
                     <button class="time-option-btn" data-time="15">
                         <i class="fas fa-clock"></i>
-                        <span>{{ warn.timeOption.15min }}</span>
+                        <span data-lang="warn.timeOption.15min"></span>
                     </button>
                     <button class="time-option-btn" data-time="30">
                         <i class="fas fa-clock"></i>
-                        <span>{{ warn.timeOption.30min }}</span>
+                        <span data-lang="warn.timeOption.30min"></span>
                     </button>
                     <button class="time-option-btn" data-time="60">
                         <i class="fas fa-clock"></i>
-                        <span>{{ warn.timeOption.1hour }}</span>
+                        <span data-lang="warn.timeOption.1hour"></span>
                     </button>
                     <button class="time-option-btn" data-time="120">
                         <i class="fas fa-clock"></i>
-                        <span>{{ warn.timeOption.2hours }}</span>
+                        <span data-lang="warn.timeOption.2hours"></span>
                     </button>
                 </div>
 
                 <div class="action-buttons">
                     <button class="action-btn continue-btn">
-                        <i class="fas fa-arrow-right"></i>
-                        <span>{{ warn.continueAnyway }}</span>
+                        <i class="fas fa-arrow-right" style="position:relative; top:1px;"></i>
+                        <span data-lang="warn.continueAnyway"></span>
                     </button>
-                    <button class="action-btn settings-btn" title="{{ common.settings }}">
+                    <button class="action-btn settings-btn" data-lang-title="common.settings">
                         <i class="fas fa-cog"></i>
                     </button>
                 </div>
@@ -402,13 +403,13 @@
         <div class="footer">
             <div class="daily-stats">
                 <i class="fas fa-chart-pie"></i>
-                <span id="daily-stats-text">{{ warn.dailyStats }}</span>
+                <span id="daily-stats-text"></span>
             </div>
             <div class="powered-by">
-                <span>{{ app.name }}</span>
+                <span data-lang="app.name"></span>
             </div>
         </div>
     </div>
+    <script src="../js/warn.js"></script>
 </body>
-
 </html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang="app.name">SaveYourTime</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="../utils.js" defer></script>
     <script src="../js/lang.js" defer></script>
     <style>
         :root {
@@ -26,6 +25,7 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', system-ui, sans-serif;
+            user-select: none;
         }
         
         body {
@@ -198,6 +198,10 @@
             font-size: 13px;
             font-weight: 500;
             color: var(--text-light);
+            max-width: 150px; 
+            overflow: hidden; 
+            text-overflow: ellipsis; 
+            white-space: nowrap;
         }
         
         .site-item-time {
@@ -307,9 +311,11 @@
             <div class="site-info">
                 <div class="site-name">
                     <i class="fas fa-globe"></i>
-                    <span id="currentSiteName">youtube.com</span>
+                    <span id="currentSiteName" style="max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom;">
+                        
+                    </span>
                 </div>
-                <div class="site-limit" id="siteLimit" data-lang="popup.dailyLimit">Günlük Limit: 3 saat</div>
+                <div class="site-limit" id="siteLimit" data-lang="popup.timeLeft">Günlük Limit:</div>
                 <div class="time-actions">
                     <button class="time-btn" id="add15min" data-lang="popup.timeButtons.15min">+15dk</button>
                     <button class="time-btn" id="add30min" data-lang="popup.timeButtons.30min">+30dk</button>
@@ -320,35 +326,20 @@
         
         <div class="other-sites">
             <div class="section-title" data-lang="popup.otherSites">Diğer Kısıtlı Siteler</div>
-            <div class="site-list" id="siteList">
-                <div class="site-item">
-                    <div class="site-item-name">facebook.com</div>
-                    <div class="site-item-time">1s / 2s</div>
-                </div>
-                <div class="site-item">
-                    <div class="site-item-name">twitter.com</div>
-                    <div class="site-item-time">25dk / 1s</div>
-                </div>
-                <div class="site-item">
-                    <div class="site-item-name">instagram.com</div>
-                    <div class="site-item-time">45dk / 1.5s</div>
-                </div>
-            </div>
+            <div class="site-list" id="siteList"></div>
         </div>
         
         <div class="footer">
             <div class="status">
                 <i class="fas fa-circle-check"></i>
-                <span data-lang="common.active">Aktif</span>
+                <span data-lang="common.active" style="font-size: 14px;">Aktif</span>
             </div>
             <div class="footer-links" style="display: flex; justify-content: flex-end; align-items: center; width: 100%; padding: 0 5px;">
-                <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 3px 8px; width: 100px; font-size: 14px; border-radius: 4px; margin-bottom: 10px;" title="Change language">
-                    <!-- Options will be populated by JavaScript -->
+                <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 3px 8px; width: 130px; font-size: 14px; border-radius: 4px; margin-bottom: 10px;">
                 </select>
             </div>
         </div>
 
-        <!-- Add a small attribution at the bottom -->
         <div style="text-align: center; padding: 5px; font-size: 10px; color: var(--text-muted); border-top: 1px solid var(--border);">
             <a href="https://github.com/DeveloperKubilay/SaveYourTime" target="_blank" style="color: var(--text-muted); text-decoration: none;">
                 Made with ❤️ by DeveloperKubilay
@@ -356,6 +347,7 @@
         </div>
     </div>
 
+    <script src="../js/utils.js"></script>
     <script src="../js/popup.js"></script>
 </body>
 </html>
