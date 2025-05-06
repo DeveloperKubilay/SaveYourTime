@@ -2,7 +2,6 @@ chrome.runtime.onInstalled.addListener(function(details) {
     if (details.reason === 'install') {
         chrome.storage.local.clear();
 
-        // Set initial storage data
         chrome.storage.local.set({ Urls: [
             {
                 url: "https://ifconfig.me",
@@ -11,15 +10,20 @@ chrome.runtime.onInstalled.addListener(function(details) {
             },
             {
                 url: "https://duckduckgo.com",
-                limit: 3600000,
+                limit: 10000,
+                limited: false
+            },
+            {
+                url: "https://www.youtube.com",
+                limit: 10000,
                 limited: false
             }
         ],
         "https://ifconfig.me":0,
-        "https://duckduckgo.com":3600000/2
+        "https://duckduckgo.com":0,
+        "https://www.youtube.com":0,
 
         }, function() {
-            // Open thanks.html in a new tab after installation
             chrome.tabs.create({
                 url: chrome.runtime.getURL('html/thanks.html')
             });

@@ -1,4 +1,5 @@
 {
+  "lang": "tr",
   "app": {
     "name": "SaveYourTime",
     "tagline": "Dijital zamanınızı daha verimli kullanmanıza yardımcı olan bir zaman yönetimi uzantısı"
@@ -27,11 +28,8 @@
       "hourShort": "sa",
       "hoursShort": "sa",
       "minutesShort": "dk",
-      "secondsShort": "sn",
-      "noTimeLeft": "Süre kalmadı"
-    },
-    "noActiveTab": "Aktif sekme yok",
-    "timeAdded": "Süre eklendi"
+      "secondsShort": "sn"
+    }
   },
   "popup": {
     "currentSite": "Mevcut Site",
@@ -39,22 +37,21 @@
     "timeUsed": "Kullanılan Süre",
     "timeLeft": "Kalan Süre",
     "addTime": "Süre Ekle",
+    "timeEnd": "Zaman Doldu",
+    "noLimits": "Belirlenmiş Limit Yok",
     "otherSites": "Diğer Kısıtlı Siteler",
     "timeButtons": {
       "15min": "+15dk",
       "30min": "+30dk",
       "1hour": "+1s"
-    },
-    "notTracked": "Takip edilmiyor",
-    "noOtherSites": "Takip edilen başka site yok",
-    "noLimitSet": "Bu site için limit ayarlanmadı"
+    }
   },
   "warn": {
     "title": "Zamanınızı Doldurdunuz!",
     "message": "Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!",
     "addTime": "Süre Ekle",
     "continueAnyway": "Yine de Devam Et",
-    "dailyStats": "Bugün bu site için toplam <strong>{{totalTime}}</strong> kullanım",
+    "dailyStats": "Bugün bu site için toplam <strong>{{ totalTime }}</strong> kullanım",
     "timeOption": {
       "15min": "+15 dakika",
       "30min": "+30 dakika",
@@ -210,7 +207,6 @@
       "title": "Sorular",
       "contact": "Gizlilik politikamız hakkında herhangi bir sorunuz varsa, lütfen GitHub projemiz üzerinden iletişime geçiniz."
     },
-    "lastUpdated": "Son güncelleme tarihi: {{date}}",
     "actions": {
       "home": "Ana Sayfa"
     }

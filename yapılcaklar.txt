@@ -1,1 +1,8 @@
-dil desteği ekle
+zaman eklio ama kontol etmesi lazım son halini
+settings
+
+ilerde
+hatalar için catch
+gereksiz languagesden datalar silincek ve toplu dil desteği
+
+virüs total eklemek saçmamı?

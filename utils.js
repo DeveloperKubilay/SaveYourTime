@@ -1,5 +1,3 @@
-window.activeTimers = {};
-
 async function checkUsage(data) {
     try {
         const key = typeof data === 'object' && data.url ? data.url : String(data);
@@ -11,161 +9,176 @@ async function checkUsage(data) {
     }
 }
 
-function basicRegex(text, data, lang) {
-    function resolve(key) {
-        const keys = key.split('.');
-        let value = lang;
-        for (let k of keys) {
-            value = value?.[k];
-            if (value === undefined) break;
-        }
-        if (value !== undefined) return value;
-        value = data;
-        for (let k of keys) {
-            value = value?.[k];
-            if (value === undefined) break;
-        }
-        return value !== undefined ? value : '';
-    }
-
-    return text.replace(/\{\{\s*(.*?)\s*\}\}/g, (_, key) => {
-        let temp = resolve(key);
-        if (typeof temp === 'string') {
-            return temp.replace(/\{\{\s*(.*?)\s*\}\}/g, (_, innerKey) => resolve(innerKey));
-        }
-        return temp;
-    });
-}
-
-function formatTime(ms, lang, shortFormat = false) {
+function formatTime(ms) {
     const absMs = Math.abs(ms);
     const seconds = Math.floor((absMs / 1000) % 60);
     const minutes = Math.floor((absMs / (1000 * 60)) % 60);
     const hours = Math.floor(absMs / (1000 * 60 * 60));
 
     const sign = ms < 0 ? '-' : '';
-    
-    const hUnit = lang.common.time.hoursShort
-    const mUnit = lang.common.time.minutesShort
-    const sUnit = lang.common.time.secondsShort 
-    
-    if (shortFormat) {
-        return `${sign}${hours}${hUnit}, ${minutes}${mUnit}`;
-    }
-    
-    return `${sign}${hours}${hUnit}, ${minutes}${mUnit}, ${seconds}${sUnit}`;
+
+    return `${sign}${hours} ${lang.common.time.hoursShort}, ${minutes} ${lang.common.time.minutesShort}, ${seconds} ${lang.common.time.secondsShort}`;
 }
 
-function useTemplate(template, lang, Localwebsites, ...args) {
+var Lastsitedata;
+function useTemplate(template, ...args) {
     if(template === "warn") {
+        const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
+        if (existingFavicons.length > 0) {
+            Lastsitedata = {
+                icon: existingFavicons[0].href,
+                title: document.title
+            }
+        }
         document.title = lang.warn.title;
-            
-        var data = ""+Localwebsites.find(website => website.url === "html/warn.html").html;
-        data = basicRegex(data, {
-            url: args[0].url.replace("https://", "").replace("http://", "").replace(/\/$/, ""),
-            totalTime: formatTime(args[1], lang),
-        }, lang);
-        window.websitedata = document.body.innerHTML;
-        document.body.innerHTML = data;
-        
-        document.querySelectorAll('.time-option-btn').forEach(button => {
-            button.addEventListener('click', async function() {
-                const minutes = parseInt(this.getAttribute('data-time') || this.innerText.match(/\d+/)[0]);
-                var usage = await window.checkUsage(args[0]);
-                if (usage < 0) return;
-                usage -= minutes * 60 * 1000;
-                chrome.storage.local.set({ [args[0].url]: usage });
-                
-                await limitWebsite(args[0].url, false);
-                
-                document.body.innerHTML = window.websitedata;
-                
-                startTimer(args[0], usage, lang, Localwebsites);
-            });
+
+
+        let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/x-icon';
+        link.rel = 'shortcut icon';
+        link.href = chrome.runtime.getURL('icons/icon128.png'); 
+
+
+        document.getElementsByTagName('head')[0].appendChild(link);
+
+
+        let iframe = document.createElement('iframe');
+        iframe.src = chrome.runtime.getURL('html/warn.html');
+        iframe.style.position = 'fixed';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.zIndex = '2147483647';
+        iframe.style.border = 'none';
+        iframe.id = 'site-SAVE_YOUR_TIME_iframe';
+        document.body.appendChild(iframe);
+
+
+        const videoElement = document.querySelector('video');
+        if (videoElement && !videoElement.paused) {
+            videoElement.pause();
+        }
+
+        const audioElement = document.querySelector('audio');
+        if (audioElement && !audioElement.paused) {
+            audioElement.pause();
+        }
+
+
+        window.addEventListener('message', async function(event) {
+            if (event.data.type === 'addTime') {
+                await addTime(event.data.minutes, args[0]);
+            } else if (event.data.type === 'continue') {
+                youAreFree();
+            } else if (event.data.type === 'settings') {
+                window.open(chrome.runtime.getURL('html/settings.html'));
+            }
         });
         
-        const continueButton = document.querySelector('.continue-btn');
-        if (continueButton) {
-            continueButton.addEventListener('click', function() {
-                document.body.innerHTML = window.websitedata;
-
-            });
-        }
-        
-        const settingsButton = document.querySelector('.settings-btn');
-        if (settingsButton) {
-            settingsButton.addEventListener('click', function() {
-                window.open(chrome.runtime.getURL('html/settings.html'));
-            });
-        }
+        iframe.onload = function() {
+            iframe.contentWindow.postMessage({
+                type: 'initialize',
+                domain: args[0].url.replace("https://", "").replace("http://", "").replace("www.", "").split("/")[0],
+                dailyStats: lang.warn.dailyStats.replace("{{ totalTime }}",formatTime(args[1]))
+            }, '*');
+        };
     }
 }
 
-async function limitWebsite(currentpattern, x) {
+function youAreFree() {
+    const iframe = document.getElementById("site-SAVE_YOUR_TIME_iframe");
+    if (iframe) iframe.remove();
+    
+    document.title = Lastsitedata?.title || document.title;
+    let favicon = document.querySelector('link[rel="icon"]');
+    if (favicon && Lastsitedata?.icon) {
+        favicon.href = Lastsitedata.icon;
+    } else if (Lastsitedata?.icon) {
+        favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.href = Lastsitedata.icon;
+        document.head.appendChild(favicon);
+    }
+}
+
+async function addTime(minutes, currentpattern) {
+    var usage = await checkUsage(currentpattern);
+
+    usage -= minutes * 60 * 1000;
+    chrome.storage.local.set({ [currentpattern.url]: usage });
+
+    editWebsite(currentpattern.url, false);
+    startTimer(currentpattern, usage);
+
+    youAreFree();
+}
+
+async function editWebsite(currentpattern, x){
     const { Urls = [] } = await chrome.storage.local.get(['Urls']);
     const updatedUrls = Urls.map(url => {
         if (url.url === currentpattern) {
-            return { ...url, limited: x };
+            if(typeof x === "boolean") return { ...url,limited: x };
+            else return { ...url, x };
         }
         return url;
     });
-    await chrome.storage.local.set({ Urls: updatedUrls });
-    
-    if (x === false && window.activeTimers[currentpattern]) {
-        clearInterval(window.activeTimers[currentpattern]);
-        delete window.activeTimers[currentpattern];
-    }
+    chrome.storage.local.set({ Urls: updatedUrls });
 }
 
-async function startTimer(currentpattern, usage, lang, Localwebsites) {
-    if (window.activeTimers[currentpattern.url]) {
-        clearInterval(window.activeTimers[currentpattern.url]);
-        delete window.activeTimers[currentpattern.url];
-    }
-    
-    const intervalId = setInterval(async () => {
+
+var intervalId = null;
+async function startTimer(currentpattern, usage) {
+    if(intervalId) clearInterval(intervalId);
+    intervalId = setInterval(async () => {
         try {
-            console.log("Interval running: ", currentpattern.url, usage);
             usage += 10000; 
             if (usage > currentpattern.limit) {
-                await limitWebsite(currentpattern.url, true);
+                editWebsite(currentpattern.url, true);
                 await chrome.storage.local.set({ [currentpattern.url]: usage });
 
-                useTemplate("warn", lang, Localwebsites, currentpattern, usage);
+                useTemplate("warn", currentpattern, usage);
 
                 clearInterval(intervalId);
-                delete window.activeTimers[currentpattern.url];
             } else {
                 await chrome.storage.local.set({ [currentpattern.url]: usage });
             }
-        } catch (error) {
-            console.error("Timer error:", error);
-        }
+        } catch {}
     }, 10000);
-    
-    window.activeTimers[currentpattern.url] = intervalId;
-    
     window.addEventListener('beforeunload', () => {
         clearInterval(intervalId);
     });
 }
 
-async function isSiteLimited(url) {
-    try {
-        const { Urls = [] } = await chrome.storage.local.get(['Urls']);
-        const site = Urls.find(site => url.startsWith(site.url));
-        return site ? site.limited : false;
-    } catch (error) {
-        console.error("Error checking if site is limited:", error);
-        return false;
-    }
+async function checkLanguage() {
+    var { lang = "en" } = await chrome.storage.local.get(['lang']);
+    if(window.lang?.lang === lang) return;
+    let langData = await fetch(chrome.runtime.getURL('languages/' + lang +".json"));
+    window.lang = await langData.json();
 }
 
-window.isSiteLimited = isSiteLimited;
+async function getCurrentpattern() {
+    const currentUrl = window.location.href;
+    const patterns = await chrome.storage.local.get(['Urls']);
+    const currentpattern = patterns.Urls.filter(pattern => currentUrl.startsWith(pattern.url)).sort((a, b) => b.length - a.length)[0] || {};
 
-window.checkUsage = checkUsage;
-window.basicRegex = basicRegex;
-window.formatTime = formatTime;
-window.useTemplate = useTemplate;
-window.limitWebsite = limitWebsite;
-window.startTimer = startTimer;
+    if (!currentpattern.url) return;
+    return currentpattern;
+}
+
+chrome.runtime.onConnect.addListener(function(port) {
+    if (port.name === "SaveYourTime") {
+      port.onMessage.addListener(async function(msg) {
+        if(msg.checkLanguage) checkLanguage();
+        else if(msg.addTime){
+            const url = msg.url;
+            const time = msg.time;
+
+            const currentpattern = await getCurrentpattern();
+            console.log(currentpattern, url, url.startsWith(currentpattern.url));
+            if(!url.startsWith(currentpattern?.url)) return;
+            addTime(time, currentpattern);
+        }else console.log("SaveYourTime Debug\n",msg)
+      });
+    }
+});
