@@ -6,6 +6,7 @@
     <title data-lang="common.settings">SaveYourTime</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <script src="../js/chart.umd.min.js"></script>
+    <script src="../js/utils.js" defer></script>
     <script src="../js/lang.js" defer></script>
     <style>
         :root {
@@ -720,17 +721,17 @@
             <div class="stats-row">
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-globe"></i></div>
-                    <div class="stat-value">7</div>
+                    <div class="stat-value" id="restrictedSites" ></div>
                     <div class="stat-label" data-lang="settings.stats.restrictedSites">Kısıtlanan Siteler</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-ban"></i></div>
-                    <div class="stat-value">23</div>
+                    <div class="stat-value" id="blockedSites"></div>
                     <div class="stat-label" data-lang="settings.stats.Blocked">Engellenmiş Siteler</div>
                 </div>
                 <div class="stat-card">
                     <div class="stat-icon"><i class="fas fa-calendar-check"></i></div>
-                    <div class="stat-value">5</div>
+                    <div class="stat-value" id="notBlockedSites"></div>
                     <div class="stat-label" data-lang="settings.stats.notBlocked">İzin verilen Siteler</div>
                 </div>
             </div>
@@ -809,6 +810,7 @@
                             <button class="delete-btn" onclick="deleteSite('youtube.com')" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
                         </div>
                     </div>
+                     <!-- Örnek site listesi -->
                 </div>
             </div>
         </div>
@@ -831,35 +833,13 @@
                             <button class="time-btn" onclick="addTime('facebook.com', 30)">+30<span data-lang="common.time.minutesShort">dk</span></button>
                             <button class="time-btn" onclick="addTime('facebook.com', 60)">+1<span data-lang="common.time.hourShort">sa</span></button>
                             <button class="time-btn" onclick="addTime('facebook.com', 120)">+2<span data-lang="common.time.hoursShort">sa</span></button>
+                            <button class="time-btn" onclick="addTime('facebook.com', 120)">-1<span data-lang="common.time.hoursShort">sa</span></button>
                             <button class="delete-btn" onclick="removeLimit('facebook.com')" data-lang-title="common.close"><i class="fas fa-times"></i></button>
                         </div>
                     </div>
-                    <div class="site-item">
-                        <div class="site-info">
-                            <span class="site-url">youtube.com</span>
-                            <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 2 <span data-lang="common.time.hours">saat</span> 15 <span data-lang="common.time.minutes">dakika</span></span>
-                        </div>
-                        <div class="site-actions">
-                            <button class="time-btn" onclick="addTime('youtube.com', 15)">+15<span data-lang="common.time.minutesShort">dk</span></button>
-                            <button class="time-btn" onclick="addTime('youtube.com', 30)">+30<span data-lang="common.time.minutesShort">dk</span></button>
-                            <button class="time-btn" onclick="addTime('youtube.com', 60)">+1<span data-lang="common.time.hourShort">sa</span></button>
-                            <button class="time-btn" onclick="addTime('youtube.com', 120)">+2<span data-lang="common.time.hoursShort">sa</span></button>
-                            <button class="delete-btn" onclick="removeLimit('youtube.com')" data-lang-title="common.close"><i class="fas fa-times"></i></button>
-                        </div>
-                    </div>
-                    <div class="site-item">
-                        <div class="site-info">
-                            <span class="site-url">twitter.com</span>
-                            <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 45 <span data-lang="common.time.minutes">dakika</span></span>
-                        </div>
-                        <div class="site-actions">
-                            <button class="time-btn" onclick="addTime('twitter.com', 15)">+15<span data-lang="common.time.minutesShort">dk</span></button>
-                            <button class="time-btn" onclick="addTime('twitter.com', 30)">+30<span data-lang="common.time.minutesShort">dk</span></button>
-                            <button class="time-btn" onclick="addTime('twitter.com', 60)">+1<span data-lang="common.time.hourShort">sa</span></button>
-                            <button class="time-btn" onclick="addTime('twitter.com', 120)">+2<span data-lang="common.time.hoursShort">sa</span></button>
-                            <button class="delete-btn" onclick="removeLimit('twitter.com')" data-lang-title="common.close"><i class="fas fa-times"></i></button>
-                        </div>
-                    </div>
+                    <!-- Örnek aktif limit listesi -->
+
+
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ window.getUrlData = async function(url,list) {
     return new Promise((resolve) => {
         chrome.storage.local.get(["Urls"], async function(data) {
             const urls = data.Urls || [];
-            const foundUrl = urls.filter(item => url.startsWith(item.url)).sort((a, b) => b.length - a.length)[0];
+            const foundUrl = !url ? {} : urls.filter(item => url.startsWith(item.url)).sort((a, b) => b.length - a.length)[0];
             const newUrls = [];
           
             if(list) {
@@ -14,6 +14,7 @@ window.getUrlData = async function(url,list) {
                         newUrls.push({
                             url:item.url,
                             limit:item.limit,
+                            limited:item.limited,
                             usage:usages[i] || 0
                         });
                     }

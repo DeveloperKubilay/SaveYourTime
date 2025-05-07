@@ -22,6 +22,8 @@ async function setup() {
         }
 
         startTimer(currentpattern, usage);
+
+
     } catch (error) {
         console.error("Setup error:", error);
     }

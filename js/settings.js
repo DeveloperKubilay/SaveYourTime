@@ -1,38 +1,20 @@
 //Chart'ları hazırlar
-function initializeCharts() {
+function initializeCharts(labelArray, usageArray, backgroundColor) {
     const sitesCtx = document.getElementById('sitesChart')?.getContext('2d');
-    if (!sitesCtx) {
-        console.warn('sitesChart canvas not found');
-        return;
-    }
+
+    if (!sitesCtx) return;
+    if (window.sitesChart instanceof Chart)  window.sitesChart.destroy();
     
-    if (window.sitesChart instanceof Chart) {
-        window.sitesChart.destroy();
-    }
-    
-    const gradient = sitesCtx.createLinearGradient(0, 0, 240, 0);
-    gradient.addColorStop(0, 'rgba(74, 222, 128, 0.6)');
-    gradient.addColorStop(1, 'rgba(74, 222, 128, 0.1)');
-    
-    const timeUsedElement = document.querySelector('[data-lang="popup.timeUsed"]');
-    const timeUsedLabel = timeUsedElement ? timeUsedElement.textContent : 'Kullanılan Süre';
-    
+    const maxValue = Math.max(...usageArray);
+
     window.sitesChart = new Chart(sitesCtx, {
         type: 'bar',
         data: {
-            labels: ['Facebook', 'YouTube', 'Twitter', 'Instagram', 'Reddit'],
+            labels: labelArray,
             datasets: [{
-                label: timeUsedLabel,
-                data: [5.2, 8.5, 3.1, 4.7, 2.3],
-                backgroundColor: [
-                    'rgba(66, 103, 178, 0.8)',
-                    'rgba(255, 0, 0, 0.8)',
-                    'rgba(29, 161, 242, 0.8)',
-                    'rgba(225, 48, 108, 0.8)',
-                    'rgba(255, 69, 0, 0.8)'
-                ],
-                borderWidth: 0,
-                borderRadius: 4
+                data: usageArray,
+                backgroundColor: backgroundColor,
+                borderRadius: 20
             }]
         },
         options: {
@@ -41,13 +23,13 @@ function initializeCharts() {
             maintainAspectRatio: false,
             scales: {
                 x: {
-                    beginAtZero: true,
                     grid: {
                         color: 'rgba(255, 255, 255, 0.05)'
                     },
                     ticks: {
                         color: '#9ca3af'
-                    }
+                    },
+                    suggestedMax: maxValue < 1 ? 1 : undefined
                 },
                 y: {
                     grid: {
@@ -72,9 +54,7 @@ function initializeCharts() {
                     padding: 10,
                     callbacks: {
                         label: function(context) {
-                            const value = context.raw;
-                            const hourText = document.querySelector('[data-lang="common.time.hours"]')?.textContent || 'saat';
-                            return `${value} ${hourText}`;
+                            return `${context.raw} ${window.translations.common.time.hours}`;
                         }
                     }
                 }
@@ -129,23 +109,78 @@ document.addEventListener('DOMContentLoaded', function() {
     });  
 
 //Dashboard
-    initializeCharts();
+    window.getUrlData(null, true).then(data => {
+        data = data.urls
+        var labelArray = [];
+        var usageArray = [];
+        var backgroundColor = [];
 
+        const limitedSites = data.filter(item => item.limited).length;
+        const totalSites = data.length; 
+
+        document.getElementById('restrictedSites').textContent = totalSites;
+        document.getElementById('blockedSites').textContent = limitedSites;
+        document.getElementById('notBlockedSites').textContent = totalSites-limitedSites;
+
+        data.forEach((item, index) => {
+            var url,
+            bg = "hsl("+Math.floor(Math.random() * 360)+", 70%, 50%)",
+            usage = item.usage / 3600000;
+
+            try {
+                var url = (new URL(item.url)).hostname.replace(/^www\./, '').split(".")[0];
+                url = url.charAt(0).toUpperCase() + url.slice(1);
+
+                if(url === "Youtube") url = "YouTube";
+                else if(url === "Tiktok") url = "TikTok";
+                else if(url === "Whatsapp") url = "WhatsApp";
+                else if(url == "Pornhub") url = "PornHub";
+
+            } catch (error) {
+                url = item.url.replace("https://","").replace("http://").replace("www.","")
+            }
+
+
+            if(url == "YouTube") bg = "rgba(255, 0, 0, 1)";
+            else if(url == "Facebook") bg = "rgba(66, 103, 178, 1)";
+            else if(url == "X" || url == "TikTok") bg = "rgba(0, 0, 0, 1)";
+            else if(url == "Instagram") bg = "rgba(131, 58, 180, 1)";
+            else if(url == "WhatsApp") bg = "rgba(37, 211, 102, 1)";
+            else if(url == "Reddit") bg = "rgba(255, 69, 0, 1)";
+            else if(url == "Snapchat") bg = "rgba(255, 252, 0, 1)";
+            else if(url == "Pinterest") bg = "rgba(189, 8, 28, 1)";
+            else if(url == "Vimeo") bg = "rgba(26, 183, 234, 1)";
+            else if(url == "Odysee") bg = "rgba(252, 66, 123, 1)";
+            else if(url == "Linkedin") bg = "rgba(0, 119, 181, 1)";
+            else if(url == "Discord") bg = "rgba(88, 101, 242, 1)";
+            else if(url == "Telegram") bg = "rgba(0, 122, 255, 1)";
+            else if(url == "Twitch") bg = "rgba(100, 65, 164, 1)";
+            else if(url == "Spotify") bg = "rgba(30, 215, 96, 1)";
+            else if(url == "Netflix") bg = "rgba(229, 9, 20, 1)";
+            else if(url == "Steam") bg = "rgba(0, 0, 0, 1)";
+            else if(url == "Amazon") bg = "rgba(255, 153, 0, 1)";
+            else if(url == "Ebay") bg = "rgba(255, 0, 0, 1)";
+            else if(url == "Kick") bg = "rgba(0, 255, 0, 1)";
+            else if(url == "Google") bg = "rgba(219, 68, 55, 1)";
+            else if(url == "Pornhub") bg = "rgba(255, 153, 0, 1)";
+
+           
+            labelArray.push(url);
+            usageArray.push(usage < 0 ? 0 : +usage.toFixed(2));
+            backgroundColor.push(bg);
+        });
+        initializeCharts(labelArray, usageArray, backgroundColor);
+    })
 
   
 
-
 //Site managment
-    document.getElementById('cancelEditBtn').addEventListener('click', resetSiteForm);
-    document.getElementById('addSiteBtn').addEventListener('click', function() { //ADD SİTE BUTTON
+    document.getElementById('cancelEditBtn').addEventListener('click', resetSiteForm);//iptal butonu
+    document.getElementById('addSiteBtn').addEventListener('click', function() { //site ekleme veya editleme buttonu
         const isEditing = document.getElementById('editingSiteId').value !== '';
-        if (isEditing) {
-            updateSite();
-        } else {
-            addSite();
-        }
+        isEditing ? updateSite() : addSite();
     });
-    document.querySelectorAll('.template-btn').forEach(btn => {  // TIME SELECTION BUTTONS
+    document.querySelectorAll('.template-btn').forEach(btn => {  //template süre seç
         btn.addEventListener('click', function() {
             document.querySelectorAll('.template-btn').forEach(b => b.classList.remove('selected'));
             
@@ -161,19 +196,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    //site Editleme buttonları
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const siteId = this.closest('.site-item').getAttribute('data-site-id');
+            editSite(siteId);
+        });
+    });
 
-    initializeEditButtons();
-  //  initializeResetDataButton();
-
-  document.querySelectorAll('.delete-btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
+    //site Silme buttonları
+   document.querySelectorAll('.delete-btn').forEach(btn => {
+     btn.addEventListener('click', function(e) {
         e.preventDefault();
         
         const siteItem = this.closest('.site-item');
         const url = siteItem.querySelector('.site-url').textContent;
-        deleteSite(url);
+        const siteItems = document.querySelectorAll('.site-item');
+        siteItems.forEach(item => {
+            const siteUrl = item.querySelector('.site-url');
+            if (siteUrl && siteUrl.textContent === url) {
+                item.remove();
+                }
+            });
+        });
     });
-});
+
+
+//Settings
+const resetDataBtn = document.getElementById('resetDataBtn');
+if (resetDataBtn) {
+    resetDataBtn.addEventListener('click', function() {
+        const confirmReset = confirm(window.translations.settings.general.resetDataConfirm);
+        if (confirmReset) {
+            window.SendMSGA({
+                resetAllData: true
+            })
+           // window.location.reload();
+        }
+    })
+}
+
 
 
 
@@ -190,40 +252,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
-
-
-
-    
-    function initializeEditButtons() {
-        document.querySelectorAll('.edit-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const siteId = this.closest('.site-item').getAttribute('data-site-id');
-                editSite(siteId);
-            });
-        });
-    }
-    
-
-    
-    function initializeResetDataButton() {
-        const resetDataBtn = document.getElementById('resetDataBtn');
-        if (resetDataBtn) {
-            resetDataBtn.addEventListener('click', function() {
-                if (confirm(window.i18n?.t('settings.general.resetDataConfirm') || 
-                           'Tüm kayıtlı veriler silinecektir. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?')) {
-                    
-                    localStorage.clear();
-                    
-                    alert(window.i18n?.t('settings.general.dataResetSuccess') || 
-                          'Tüm veriler başarıyla sıfırlandı. Sayfayı yenilemek için tamam\'a tıklayın.');
-                    
-                    location.reload();
-                }
-            });
-        }
-    }
 
 
 
@@ -253,9 +281,7 @@ function addSite() {
             }
         });
         
-        if (siteExists) {
-            return;
-        }
+        if (siteExists) return;
         
         const sitesList = document.getElementById('sitesList');
         const newSite = document.createElement('div');
@@ -385,24 +411,7 @@ function updateSite() {
 
 
 
-window.deleteSite = function(url) {
-    console.log('Deleting site:', url);
-    
-    const siteItems = document.querySelectorAll('.site-item');
-    let deleted = false;
-    
-    siteItems.forEach(item => {
-        const siteUrl = item.querySelector('.site-url');
-        if (siteUrl && siteUrl.textContent === url) {
-            item.remove();
-            deleted = true;
-        }
-    });
-    
-    if (deleted) {
-        console.log(`Site ${url} successfully deleted`);
-    }
-};
+
 
 window.addTime = function(url, minutes) {
     console.log(`${url} adding ${minutes} minutes`);
