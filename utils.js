@@ -167,9 +167,15 @@ async function getCurrentpattern() {
 }
 
 chrome.runtime.onConnect.addListener(function(port) {
+    console.log("Connected to SaveYourTime", port.name);
     if (port.name === "SaveYourTime") {
       port.onMessage.addListener(async function(msg) {
+
         if(msg.checkLanguage) checkLanguage();
+        else if(msg.resetAllData) {
+            await chrome.storage.local.clear();
+            await chrome.storage.local.set({ lang: "en", Urls: [] });
+        }
         else if(msg.addTime){
             const url = msg.url;
             const time = msg.time;
@@ -179,6 +185,18 @@ chrome.runtime.onConnect.addListener(function(port) {
             if(!url.startsWith(currentpattern?.url)) return;
             addTime(time, currentpattern);
         }else console.log("SaveYourTime Debug\n",msg)
+
       });
     }
+});
+
+
+console.log("SaveYourTime content script yüklendi");
+
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.target === "content") {
+        console.log("Mesaj alındı:", request.data);
+        sendResponse({ success: true, received: request.data });
+    }
+    return true; // Asenkron işlem için
 });

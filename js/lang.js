@@ -22,6 +22,18 @@ document.addEventListener('DOMContentLoaded', async function() {
             port.postMessage(DATA);
         });
     }
+    window.SendMSGA = function(DATA) {
+        chrome.runtime.sendMessage({
+            action: "relayToContent",
+            data: DATA
+        }, response => {
+            if (chrome.runtime.lastError) {
+                console.warn("Mesaj gönderme hatası:", chrome.runtime.lastError.message);
+            } else if (response) {
+                console.log("Mesaj cevabı:", response);
+            }
+        });
+    }
 
     applyTranslations(window.translations);
     populateLanguageSwitcher(availableLanguages, lang);

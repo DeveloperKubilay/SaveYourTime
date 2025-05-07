@@ -91,7 +91,6 @@
       "title": "General Settings",
       "resetData": "Reset All Data",
       "resetDataConfirm": "All saved data will be deleted. This action cannot be undone. Do you want to continue?",
-      "dataResetSuccess": "All data has been successfully reset. Click OK to refresh the page.",
       "github": "GitHub Repo",
       "virusTotal": "VirusTotal Results",
       "reportIssue": "Report Issue",

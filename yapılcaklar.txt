@@ -1,8 +1,8 @@
-zaman eklio ama kontol etmesi lazım son halini
+zaman eklenince tüm siteler açılsın interval düzelt
 settings
+    -onclickleri kaldır
+    -iletişim kur
 
-ilerde
+ileride
 hatalar için catch
 gereksiz languagesden datalar silincek ve toplu dil desteği
-
-virüs total eklemek saçmamı?
