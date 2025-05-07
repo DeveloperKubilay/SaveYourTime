@@ -1,7 +1,13 @@
-zaman eklenince tüm siteler açılsın interval düzelt
+siteye girer girmez engel yapmıo
+
 settings
     -onclickleri kaldır
     -iletişim kur
+
+popup
+warn
+dil desteği
+
 
 ileride
 hatalar için catch

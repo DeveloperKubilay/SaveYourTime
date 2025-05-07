@@ -10,8 +10,9 @@
     "128": "icons/icon128.png"
   },
   "permissions": [
-      "activeTab",
-      "storage"
+      "tabs",
+      "storage",
+      "alarms"
   ],
   "background": {
       "service_worker": "background.js"
@@ -32,7 +33,7 @@
   "content_scripts": [
       {
           "matches": ["<all_urls>"],
-          "js": ["utils.js", "script.js"]
+          "js": ["script.js"]
       }
   ]
 }
