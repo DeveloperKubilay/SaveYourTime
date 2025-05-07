@@ -239,6 +239,18 @@ if (resetDataBtn) {
 
 
 
+chrome.runtime.sendMessage({
+    action: "relayToContent",
+    data: {
+        "test":true
+    }
+}, response => {
+    console.log(response)
+});
+
+
+
+
     })
 
 

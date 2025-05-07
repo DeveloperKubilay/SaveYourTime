@@ -137,9 +137,9 @@ function setupLanguageSwitcher() {
         try {
             await chrome.storage.local.set({ lang: selectedLang });
 
-            window.SendMSG({
-                checkLanguage: true
-            })
+            chrome.runtime.sendMessage({ 
+                target: "checkLanguage"
+            });
         } catch (chromeError) {
             localStorage.setItem('lang', selectedLang);
         }
