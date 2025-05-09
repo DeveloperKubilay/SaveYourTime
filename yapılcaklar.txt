@@ -1,14 +1,16 @@
-siteye girer girmez engel yapmıo
-
 settings
+    -editleme
+    -ekleme
+    -addtime
+    -delete
     -onclickleri kaldır
-    -iletişim kur
-
-popup
-warn
-dil desteği
+    -title için dil desteği ekle
 
 
 ileride
+-dil
+    dillerde fazla olup eklenmemişleri ekle
+    dillerde gereksizleri kaldır
+    toplu dil desteği
+önerilere bak
 hatalar için catch
-gereksiz languagesden datalar silincek ve toplu dil desteği
