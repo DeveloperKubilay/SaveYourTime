@@ -16,22 +16,17 @@ document.addEventListener('DOMContentLoaded', async function() {
         }
     }
 
-    window.SendMSG = function(DATA) {
-        chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
-            const port = chrome.tabs.connect(tabs[0].id, {name: "SaveYourTime"});
-            port.postMessage(DATA);
-        });
-    }
-    window.SendMSGA = function(DATA) {
+    window.SendMSG = function(target, data, debug) {
         chrome.runtime.sendMessage({
-            action: "relayToContent",
-            data: DATA
+            target: target,
+            ...data
         }, response => {
+            if (debug) {
             if (chrome.runtime.lastError) {
                 console.warn("Mesaj gönderme hatası:", chrome.runtime.lastError.message);
             } else if (response) {
                 console.log("Mesaj cevabı:", response);
-            }
+            }}
         });
     }
 
@@ -136,10 +131,6 @@ function setupLanguageSwitcher() {
         
         try {
             await chrome.storage.local.set({ lang: selectedLang });
-
-            chrome.runtime.sendMessage({ 
-                target: "checkLanguage"
-            });
         } catch (chromeError) {
             localStorage.setItem('lang', selectedLang);
         }

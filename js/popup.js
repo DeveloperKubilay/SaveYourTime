@@ -11,6 +11,8 @@ window.SAVE_YOUR_TIME_RUN = async function() {
 
         const data = await window.getUrlData(url.fullurl, true);
 
+        url.pattern = data.Limit?.url;
+
         const sites = document.getElementById("siteList")
         data.urls.forEach((item) => {
             sites.innerHTML+=`<div class="site-item">
@@ -46,15 +48,8 @@ window.SAVE_YOUR_TIME_RUN = async function() {
                 addTime(60);
             });
             if(kullanılangünlükzaman < 0){
-
-                SendMSG({
-                    data
-                })
-
-
                 circleLimited = data.Limit.limit || 0;
                 toplamgünlükzaman = Math.abs(kullanılangünlükzaman)
-                //toplamgünlükzaman += Math.abs(kullanılangünlükzaman);
                 kullanılangünlükzaman = 0;
             }
         }
@@ -68,11 +63,20 @@ async function addTime(minutes) {
 
     timeaddlimit = true;
     
-    SendMSG({
-        addTime: true,
-        time: minutes,
-        url: url.fullurl
+    SendMSG("addTime", {
+        minutes: minutes,
+        currentpattern: url.pattern
     });
+
+    chrome.tabs.query({active: true, currentWindow: true}, async function(tabs) {
+        const curtab = tabs[0];
+        const tab = await chrome.tabs.get(curtab.id);
+        chrome.tabs.sendMessage(tab.id, {
+            target: "addIframe",
+            limited: false
+        })
+    })
+
     toplamgünlükzaman += minutes * 60 * 1000;
     
     updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman, circleLimited);
