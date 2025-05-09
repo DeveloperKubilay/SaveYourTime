@@ -156,6 +156,15 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             .then(() => sendResponse({ success: true }))
             .catch(error => sendResponse({ success: false, error: error.message }));
         return true;
+    } else if (message.target == "removeAurl") {
+        chrome.storage.local.get('Urls')
+            .then(({ Urls }) => {
+                const updatedUrls = Urls.filter(url => url.url !== message.url);
+                return chrome.storage.local.set({ Urls: updatedUrls, [message.url]: 0 });
+            })
+            .then(() => sendResponse({ success: true }))
+            .catch(error => sendResponse({ success: false, error: error.message }));
+        return true; 
     } else {
         console.log(message);
         sendResponse({ success: false });
