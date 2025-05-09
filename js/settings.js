@@ -115,6 +115,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var usageArray = [];
         var backgroundColor = [];
 
+        console.log(data)
+
         const limitedSites = data.filter(item => item.limited).length;
         const totalSites = data.length; 
 
@@ -208,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
    document.querySelectorAll('.delete-btn').forEach(btn => {
      btn.addEventListener('click', function(e) {
         e.preventDefault();
-        
+        console.log("delete site");
         const siteItem = this.closest('.site-item');
         const url = siteItem.querySelector('.site-url').textContent;
         const siteItems = document.querySelectorAll('.site-item');
@@ -228,25 +230,12 @@ if (resetDataBtn) {
     resetDataBtn.addEventListener('click', function() {
         const confirmReset = confirm(window.translations.settings.general.resetDataConfirm);
         if (confirmReset) {
-            window.SendMSGA({
-                resetAllData: true
-            })
+            window.SendMSG("resetAllData")
            // window.location.reload();
         }
     })
 }
 
-
-
-
-chrome.runtime.sendMessage({
-    action: "relayToContent",
-    data: {
-        "test":true
-    }
-}, response => {
-    console.log(response)
-});
 
 
 
@@ -323,8 +312,8 @@ function addSite() {
                 <span class="site-remaining">${remainingText}: ${timeString}</span>
             </div>
             <div class="site-actions">
-                <button class="edit-btn" onclick="editSite('${siteId}')"><i class="fas fa-edit"></i></button>
-                <button class="delete-btn" onclick="deleteSite('${url}')"><i class="fas fa-trash"></i></button>
+                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                <button class="delete-btn"><i class="fas fa-trash"></i></button>
             </div>
         `;
         sitesList.prepend(newSite);
@@ -414,7 +403,7 @@ function updateSite() {
             siteItem.querySelector('.site-limit').innerHTML = `${dailyLimitText}: ${timeString}`;
             siteItem.querySelector('.site-remaining').innerHTML = `${remainingText}: ${timeString}`;
             
-            siteItem.querySelector('.delete-btn').setAttribute('onclick', `deleteSite('${url}')`);
+            //siteItem.querySelector('.delete-btn').setAttribute('onclick', `deleteSite('${url}')`);
             
             resetSiteForm();
         }

@@ -23,7 +23,7 @@ chrome.runtime.onInstalled.addListener(async function (details) {
             "ifconfig.me": 0,
             "duckduckgo.com": 0,
             "www.youtube.com": 0,
-            "lastResetTime":Date.now(),
+            "lastResetTime": Date.now(),
 
         }, function () {
             chrome.tabs.create({
@@ -33,11 +33,11 @@ chrome.runtime.onInstalled.addListener(async function (details) {
     }
     await chrome.storage.local.set({ Tabignores: [] });
 });
-chrome.runtime.onStartup.addListener(async () => 
+chrome.runtime.onStartup.addListener(async () =>
     await chrome.storage.local.set({ Tabignores: [] })
 );
 
-chrome.alarms.create("myTimer", { periodInMinutes: 0.5 });
+chrome.alarms.create("myTimer", { periodInMinutes: 1 });
 chrome.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name === "myTimer") {
         const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
@@ -54,14 +54,14 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 });
 
 async function run(tabId, itsint) {
-    var { 
+    var {
         Urls = [],
-        lang: langCode = "en", 
-        Tabignores = [], 
-        lastResetTime = 0 
-    } = await chrome.storage.local.get(['Urls', 'lang', 'Tabignores','lastResetTime']);
+        lang: langCode = "en",
+        Tabignores = [],
+        lastResetTime = 0
+    } = await chrome.storage.local.get(['Urls', 'lang', 'Tabignores', 'lastResetTime']);
 
-    if (Date.now()-lastResetTime > 24 * 60 * 60 * 1000) {
+    if (Date.now() - lastResetTime > 24 * 60 * 60 * 1000) {
         var temp = {}
         Urls = Urls.map(url => {
             if (url.limited) {
@@ -70,9 +70,10 @@ async function run(tabId, itsint) {
             }
             return url;
         });
-        await chrome.storage.local.set({  ...temp, Urls: Urls, lastResetTime: Date.now() });
+        await chrome.storage.local.set({ ...temp, Urls: Urls, lastResetTime: Date.now() });
     }
 
+    console.log("startedint")
 
     const isTabIgnored = Tabignores.some(tab => tab.id === tabId);
     if (isTabIgnored) return;
@@ -83,12 +84,13 @@ async function run(tabId, itsint) {
 
     const tab = await chrome.tabs.get(tabId);
     const urlItem = Urls.filter(pattern =>
-        tab.url.replace("https://", "").replace("http://","").startsWith(pattern.url)
+        tab.url.replace("https://", "").replace("http://", "").startsWith(pattern.url)
     ).sort((a, b) => b.length - a.length)[0] || {};
 
     if (urlItem) {
         try {
             const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0
+            console.log(usage , urlItem.limit)
             if (usage > urlItem.limit) {
                 chrome.tabs.sendMessage(tab.id, {
                     target: "addIframe",
@@ -98,17 +100,25 @@ async function run(tabId, itsint) {
                     tabId: tabId,
                     limited: true
                 }, function (response) { });
+                if (itsint) {
+                    Urls = Urls.map(url => {
+                        if (url.url === urlItem.url) url.limited = true;
+                        return url;
+                    });
+                    await chrome.storage.local.set({ Urls: Urls });
+                }
 
-            }else if (itsint) await chrome.storage.local.set({
-                [urlItem.url]: usage+30000
+            } else if (itsint) await chrome.storage.local.set({
+                [urlItem.url]: usage + 60000
             });
+
         } catch (error) {
 
             console.error("Error in run function:", error);
-         }
+        }
     }
 
-   
+
 }
 
 
@@ -123,30 +133,30 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                 const newUsage = currentUsage - (message.minutes * 60 * 1000);
                 return chrome.storage.local.set({ [message.currentpattern]: newUsage });
             })
-            .then(() =>  sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }) );
-        return true; 
-    } 
+            .then(() => sendResponse({ success: true }))
+            .catch(error => sendResponse({ success: false, error: error.message }));
+        return true;
+    }
     else if (message.target == "resetAllData") {
         chrome.storage.local.clear()
             .then(() => {
-                return chrome.storage.local.set({ lang: "en", Urls: [], Tabignores: [] });
+                return chrome.storage.local.set({ lang: "en", Urls: [], Tabignores: [], lastResetTime: Date.now() });
             })
-            .then(() =>  sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }) );
+            .then(() => sendResponse({ success: true }))
+            .catch(error => sendResponse({ success: false, error: error.message }));
         return true;
     }
-    else if(message.target == "Iframe_Continue") {
+    else if (message.target == "Iframe_Continue") {
         chrome.storage.local.get(['Tabignores'])
             .then(({ Tabignores = [] }) => {
                 const updatedTabignores = Tabignores.filter(tab => tab.id !== message.tabId);
                 updatedTabignores.push({ id: message.tabId });
                 return chrome.storage.local.set({ Tabignores: updatedTabignores });
             })
-            .then(() =>  sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }) );
+            .then(() => sendResponse({ success: true }))
+            .catch(error => sendResponse({ success: false, error: error.message }));
         return true;
-    }else {
+    } else {
         console.log(message);
         sendResponse({ success: false });
         return true;
