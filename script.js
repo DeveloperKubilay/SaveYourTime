@@ -9,12 +9,15 @@ function formatTime(lang,ms) {
     return `${sign}${hours} ${lang.common.time.hoursShort}, ${minutes} ${lang.common.time.minutesShort}, ${seconds} ${lang.common.time.secondsShort}`;
 }
 
-var Lastsitedata;
+let Lastsitedata;
 let limited;
+let Tabignore = false;
 function addIframe(data) {
+    if(Tabignore) return;
 
     if(data.limited){
         if(limited) return;
+        console.log("m",limited)
         limited = true;
         const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
         if (existingFavicons.length > 0) {
@@ -65,10 +68,17 @@ function addIframe(data) {
                     target: "addTime", 
                     minutes:event.data.minutes,
                     currentpattern: data.currentpattern
-                });
+                }),
+                addIframe({ limited: false })
 
              else if (event.data.type === 'continue') 
-                addIframe({ limited: false });
+                chrome.runtime.sendMessage({ 
+                    target: "Iframe_Continue",
+                    tabId: data.tabId
+                }),
+                addIframe({ limited: false }),
+                Tabignore = true;
+
              else if (event.data.type === 'settings') 
                 window.open(chrome.runtime.getURL('html/settings.html'));
             
@@ -107,9 +117,8 @@ function addIframe(data) {
 
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    console.log(request)
     if (request.target === "addIframe") addIframe(request); 
-    return true; 
+    sendResponse({success: true});
 });
 
 
