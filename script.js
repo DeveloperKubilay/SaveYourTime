@@ -1,4 +1,4 @@
-function formatTime(lang,ms) {
+function formatTime(lang, ms) {
     const absMs = Math.abs(ms);
     const seconds = Math.floor((absMs / 1000) % 60);
     const minutes = Math.floor((absMs / (1000 * 60)) % 60);
@@ -13,11 +13,11 @@ let Lastsitedata;
 let limited;
 let Tabignore = false;
 function addIframe(data) {
-    if(Tabignore) return;
+    if (Tabignore) return;
 
-    if(data.limited){
-        if(limited) return;
-        console.log("m",limited)
+    if (data.limited) {
+        if (limited) return;
+        console.log("m", limited)
         limited = true;
         const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
         if (existingFavicons.length > 0) {
@@ -32,7 +32,7 @@ function addIframe(data) {
         let link = document.querySelector("link[rel*='icon']") || document.createElement('link');
         link.type = 'image/x-icon';
         link.rel = 'shortcut icon';
-        link.href = chrome.runtime.getURL('icons/icon128.png'); 
+        link.href = chrome.runtime.getURL('icons/icon128.png');
 
 
         document.getElementsByTagName('head')[0].appendChild(link);
@@ -62,42 +62,44 @@ function addIframe(data) {
         }
 
 
-        window.addEventListener('message', async function(event) {
-            if (event.data.type === 'addTime') 
-                chrome.runtime.sendMessage({ 
-                    target: "addTime", 
-                    minutes:event.data.minutes,
-                    currentpattern: data.currentpattern
-                }),
-                addIframe({ limited: false })
+        window.addEventListener('message', async function (event) {
+            try {
+                if (event.data.type === 'addTime')
+                    chrome.runtime.sendMessage({
+                        target: "addTime",
+                        minutes: event.data.minutes,
+                        currentpattern: data.currentpattern
+                    }),
+                        addIframe({ limited: false })
 
-             else if (event.data.type === 'continue') 
-                chrome.runtime.sendMessage({ 
-                    target: "Iframe_Continue",
-                    tabId: data.tabId
-                }),
-                addIframe({ limited: false }),
-                Tabignore = true;
+                else if (event.data.type === 'continue')
+                    chrome.runtime.sendMessage({
+                        target: "Iframe_Continue",
+                        tabId: data.tabId
+                    }),
+                        addIframe({ limited: false }),
+                        Tabignore = true;
 
-             else if (event.data.type === 'settings') 
-                window.open(chrome.runtime.getURL('html/settings.html'));
-            
+                else if (event.data.type === 'settings')
+                    window.open(chrome.runtime.getURL('html/settings.html'));
+
+            } catch { }
         });
-        
-        iframe.onload = function() {
+
+        iframe.onload = function () {
             iframe.contentWindow.postMessage({
                 type: 'initialize',
                 domain: data.currentpattern,
-                dailyStats: data.lang.warn.dailyStats.replace("{{ totalTime }}",formatTime(data.lang,data.usage))
+                dailyStats: data.lang.warn.dailyStats.replace("{{ totalTime }}", formatTime(data.lang, data.usage))
             }, '*');
         };
-    }else{
-        if(!limited) return;
+    } else {
+        if (!limited) return;
         limited = false;
 
         const iframe = document.getElementById("site-SAVE_YOUR_TIME_iframe");
         if (iframe) iframe.remove();
-        
+
         document.title = Lastsitedata?.title || document.title;
         let favicon = document.querySelector('link[rel="icon"]');
         if (favicon && Lastsitedata?.icon) {
@@ -110,15 +112,15 @@ function addIframe(data) {
         }
 
     }
-       
+
 }
 
 
 
 
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-    if (request.target === "addIframe") addIframe(request); 
-    sendResponse({success: true});
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    if (request.target === "addIframe") addIframe(request);
+    sendResponse({ success: true });
 });
 
 
