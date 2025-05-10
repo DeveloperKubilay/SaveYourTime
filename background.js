@@ -72,9 +72,7 @@ async function run(tabId, itsint) {
         });
         await chrome.storage.local.set({ ...temp, Urls: Urls, lastResetTime: Date.now() });
     }
-
-    console.log("startedint")
-
+    
     const isTabIgnored = Tabignores.some(tab => tab.id === tabId);
     if (isTabIgnored) return;
 
@@ -87,10 +85,9 @@ async function run(tabId, itsint) {
         tab.url.replace("https://", "").replace("http://", "").startsWith(pattern.url)
     ).sort((a, b) => b.length - a.length)[0] || {};
 
-    if (urlItem) {
+    if (urlItem.url) {
         try {
-            const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0
-            console.log(usage , urlItem.limit)
+            const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0;
             if (usage > urlItem.limit) {
                 chrome.tabs.sendMessage(tab.id, {
                     target: "addIframe",
@@ -156,7 +153,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             .then(() => sendResponse({ success: true }))
             .catch(error => sendResponse({ success: false, error: error.message }));
         return true;
-    } else if (message.target == "removeAurl") {
+    } else if (message.target == "deleteSite") {
         chrome.storage.local.get('Urls')
             .then(({ Urls }) => {
                 const updatedUrls = Urls.filter(url => url.url !== message.url);
@@ -165,6 +162,20 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             .then(() => sendResponse({ success: true }))
             .catch(error => sendResponse({ success: false, error: error.message }));
         return true; 
+    } else if (message.target == "addSite") { 
+        chrome.storage.local.get('Urls')
+            .then(({ Urls }) => {
+                const updatedUrls = Urls.filter(url => 
+                    message.oldurl ? 
+                          url.url !== message.oldurl && url.url !== message.url
+                        : url.url !== message.url
+                );
+                updatedUrls.push({ url: message.url, limit: message.limit, limited: false });
+                return chrome.storage.local.set({ Urls: updatedUrls, [message.url]: 0 });
+            })
+            .then(() => sendResponse({ success: true }))
+            .catch(error => sendResponse({ success: false, error: error.message }));
+        return true;
     } else {
         console.log(message);
         sendResponse({ success: false });
