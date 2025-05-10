@@ -1,15 +1,13 @@
 settings
-    -editleme
+    -kendisi otomatik ekiyecek 0/2
     -ekleme
+    -editleme
     -addtime
-    -delete
-    -onclickleri kaldır
-    -title için dil desteği ekle
-
+    -delete ✓ not tested
 
 ileride
 -dil
-    dillerde fazla olup eklenmemişleri ekle
+    dillerde fazla olup eklenmemişleri ekle title fln içinde olabilir bunlar
     dillerde gereksizleri kaldır
     toplu dil desteği
 önerilere bak
