@@ -239,7 +239,6 @@ window.SAVE_YOUR_TIME_RUN = async function () {
             addSite(item.url, item.limit / 60000, item.usage / 60000)
         });
         initializeCharts(labelArray, usageArray, backgroundColor);
-
         //Active limits
         data.filter(item => item.limited).forEach(item => {
             activeLimitsList.innerHTML += `<div class="site-item">
@@ -267,25 +266,14 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 const timeChange = parseInt(this.getAttribute('data-time'));
                 const remainingTime = siteItem.querySelector('.site-remaining');
                 
-
                 const time = Number(remainingTime.getAttribute("data-time")) + (timeChange* 60000)
-                let dk = time / 60000;
-                remainingTime.setAttribute('data-time', 
-                    remainingTime.getAttribute("data-time") > 0 && time < 0 ? -((60+dk)*60000) : 
-                    remainingTime.getAttribute("data-time") < 0 && time > 0 ? 
-                    (3600000-(dk*60000)) : time
-                );
-
-
-                console.log(time,dk,remainingTime.getAttribute("data-time") > 0,(60+dk))
-
+                remainingTime.setAttribute('data-time',time);
 
                 remainingTime.innerHTML = 
                     `${window.translations.settings.sites.remaining}: ${window.formatTime( 
                         Number(remainingTime.getAttribute("data-time"))
                     , -9999999999999999999,true)}`
-                return;
-
+        
 
                 window.SendMSG("addTime", {
                     currentpattern: url,

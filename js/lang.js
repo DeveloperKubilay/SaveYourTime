@@ -5,12 +5,13 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     const langResponse = await fetch(`../languages/${availableLanguages[lang]?.file || "en.json"}`);
     window.translations = await langResponse.json();
-    window.formatTime = function (ms,minimum,Hoursw){
+    window.formatTime = function (ms,minimum,forHourselectmenu){
         const hours = Math.floor(ms / (1000 * 60 * 60));
         var minutes = Math.max(Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)), minimum || 0);
 
-       if (Hoursw || hours > 0) {
-            return hours + window.translations.common.time.hourShort +' ' + ((Hoursw ? Math.abs(minutes) : (minutes > 0 ? minutes : '')) + window.translations.common.time.minutesShort);
+       if (forHourselectmenu || hours > 0) {
+            return (forHourselectmenu ? hours == -1 ? `-${hours+1}` : hours < 0 ? hours+1 :hours : hours) 
+            + window.translations.common.time.hourShort +' ' + ((forHourselectmenu ? Math.abs(minutes) : (minutes > 0 ? minutes : '')) + window.translations.common.time.minutesShort);
         } else {
             return minutes + window.translations.common.time.minutesShort;
         }

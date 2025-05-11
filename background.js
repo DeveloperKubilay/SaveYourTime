@@ -76,19 +76,18 @@ async function run(tabId, itsint) {
     const isTabIgnored = Tabignores.some(tab => tab.id === tabId);
     if (isTabIgnored) return;
 
-
     const langResponse = await fetch(chrome.runtime.getURL('languages/' + langCode + ".json"));
     lang = await langResponse.json();
 
     const tab = await chrome.tabs.get(tabId);
     const urlItem = Urls.filter(pattern =>
         tab.url.replace("https://", "").replace("http://", "").toLowerCase().startsWith(pattern.url)
-    ).sort((a, b) => b.url.length - a.url.length)[0] || {};
+    ).sort((a, b) => b.url.length - a.url.length)[0] || {}
 
     if (urlItem.url) {
         try {
             const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0;
-            if (usage > urlItem.limit) {
+            if (usage >= urlItem.limit) {
                 chrome.tabs.sendMessage(tab.id, {
                     target: "addIframe",
                     lang: lang,
@@ -98,6 +97,7 @@ async function run(tabId, itsint) {
                     limited: true
                 }, function (response) { });
                 if (itsint) {
+                    if(urlItem.limited) return;
                     Urls = Urls.map(url => {
                         if (url.url === urlItem.url) url.limited = true;
                         return url;
@@ -177,7 +177,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             .catch(error => sendResponse({ success: false, error: error.message }));
         return true;
     } else {
-        console.log(message);
         sendResponse({ success: false });
         return true;
     }

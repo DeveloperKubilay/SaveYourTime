@@ -1,6 +1,3 @@
-add time yapılcak
-tabloda dakika göster
-
 -dil
     dillerde fazla olup eklenmemişleri ekle title fln içinde olabilir bunlar
     dillerde gereksizleri kaldır
