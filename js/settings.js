@@ -88,7 +88,7 @@ function resetSiteForm() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
+window.SAVE_YOUR_TIME_RUN = async function () {
     //Global
 
     //Menüler arası geçişi sağlar
@@ -108,7 +108,72 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //Dashboard
+
+    //site Editleme buttonları
+    const siteList = document.getElementById('sitesList')
+    const activeLimitsList = document.getElementById('activeLimitsList')
+
+    siteList.addEventListener('click', function (event) {
+        const editBtn = event.target.closest('.edit-btn');
+        if (editBtn) {
+            const siteId = editBtn.closest('.site-item').getAttribute('data-site-id');
+            const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
+            if (siteItem) {
+                const url = siteItem.querySelector('.site-url').textContent;
+                const limitText = siteItem.querySelector('.site-limit').textContent;
+
+                const limitMatch = limitText.match(/[\d\.]+/);
+                const timeLimit = limitMatch ? parseFloat(limitMatch[0]) : 0;
+
+                const hours = Math.floor(timeLimit);
+                const minutes = Math.round((timeLimit - hours) * 60);
+
+                document.getElementById('siteUrl').value = url;
+                document.getElementById('timeHours').value = hours;
+                document.getElementById('timeMinutes').value = minutes;
+                document.getElementById('editingSiteId').value = siteId;
+
+                document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-edit" style="color: #3b82f6; margin-right: 8px;"></i>' +
+                    '<span data-lang="settings.sites.editSite">' + window.translations.settings.sites.editSite + '</span>';
+
+                document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">Kaydet</span>';
+                document.getElementById('cancelEditBtn').style.display = 'inline-flex';
+                document.getElementById('siteFormCard').scrollIntoView({ behavior: 'smooth' });
+
+                document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
+            }
+        }
+    });
+
+
+    //Delete buttonları
+    function addDeleteButtonListener(listElement) {
+        if (listElement) {
+            listElement.addEventListener('click', function (e) {
+                const deleteBtn = e.target.closest('.delete-btn');
+                if (deleteBtn) {
+                    const siteItem = deleteBtn.closest('.site-item');
+                    const url = siteItem.querySelector('.site-url').textContent;
+                    if (listElement.id === 'sitesList') {
+                        document.querySelectorAll('.site-item').forEach(item => {
+                            const siteUrl = item.querySelector('.site-url');
+                            if (siteUrl && siteUrl.textContent === url) {
+                                item.remove();
+                            }
+                        });
+                    } else
+                        siteItem.remove();
+
+                    window.SendMSG("deleteSite", { url: url });
+                }
+            });
+        }
+    }
+
+    addDeleteButtonListener(siteList);
+    addDeleteButtonListener(activeLimitsList);
+
+
     window.getUrlData(null, true).then(data => {
         data = data.urls
         var labelArray = [];
@@ -123,6 +188,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('notBlockedSites').textContent = totalSites - limitedSites;
 
         data.forEach((item, index) => {
+            //Dashboard
             var url,
                 bg = "hsl(" + Math.floor(Math.random() * 360) + ", 70%, 50%)",
                 usage = item.usage / 3600000;
@@ -168,8 +234,65 @@ document.addEventListener('DOMContentLoaded', function () {
             labelArray.push(url);
             usageArray.push(usage < 0 ? 0 : +usage.toFixed(2));
             backgroundColor.push(bg);
+
+            //Site management
+            addSite(item.url, item.limit / 60000, item.usage / 60000)
         });
         initializeCharts(labelArray, usageArray, backgroundColor);
+
+        //Active limits
+        data.filter(item => item.limited).forEach(item => {
+            activeLimitsList.innerHTML += `<div class="site-item">
+                    <div class="site-info">
+                        <span class="site-url">${item.url}</span>
+                        <span class="site-remaining" data-time="${-item.usage}">${window.translations.settings.sites.remaining}: ${
+                            window.formatTime(-item.usage,-9999999999999999999,true)
+                        }</span>
+                    </div>
+                    <div class="site-actions">
+                        <button class="time-btn" data-time="15">+15${window.translations.common.time.minutesShort}</button>
+                        <button class="time-btn" data-time="30">+30${window.translations.common.time.minutesShort}</button>
+                        <button class="time-btn" data-time="60">+1${window.translations.common.time.hourShort}</button>
+                        <button class="time-btn" data-time="120">+2${window.translations.common.time.hoursShort}</button>
+                        <button class="time-btn" data-time="-60">-1${window.translations.common.time.hoursShort}</button>
+                        <button class="delete-btn" data-lang-title="common.close"><i class="fas fa-times"></i></button>
+                    </div>
+                </div>`
+        })
+        const timeButtons = document.querySelectorAll('.time-btn');
+        timeButtons.forEach(button => {
+            button.addEventListener('click', function (btn) {
+                const siteItem = btn.target.closest('.site-item');
+                const url = siteItem.querySelector('.site-url').textContent;
+                const timeChange = parseInt(this.getAttribute('data-time'));
+                const remainingTime = siteItem.querySelector('.site-remaining');
+                
+
+                const time = Number(remainingTime.getAttribute("data-time")) + (timeChange* 60000)
+                let dk = time / 60000;
+                remainingTime.setAttribute('data-time', 
+                    remainingTime.getAttribute("data-time") > 0 && time < 0 ? -((60+dk)*60000) : 
+                    remainingTime.getAttribute("data-time") < 0 && time > 0 ? 
+                    (3600000-(dk*60000)) : time
+                );
+
+
+                console.log(time,dk,remainingTime.getAttribute("data-time") > 0,(60+dk))
+
+
+                remainingTime.innerHTML = 
+                    `${window.translations.settings.sites.remaining}: ${window.formatTime( 
+                        Number(remainingTime.getAttribute("data-time"))
+                    , -9999999999999999999,true)}`
+                return;
+
+
+                window.SendMSG("addTime", {
+                    currentpattern: url,
+                    minutes: timeChange
+                });
+            })
+        })
     })
 
 
@@ -196,41 +319,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    //site Editleme buttonları
-    document.querySelectorAll('.edit-btn').forEach(btn => {
-        btn.addEventListener('click', function () {
-            const siteId = this.closest('.site-item').getAttribute('data-site-id');
-            editSite(siteId);
-        });
-    });
-
-
-    //Delete buttonları
-    function addDeleteButtonListener(listElement) {
-        if (listElement) {
-            listElement.addEventListener('click', function (e) {
-                const deleteBtn = e.target.closest('.delete-btn');
-                if (deleteBtn) {
-                    const siteItem = deleteBtn.closest('.site-item');
-                    const url = siteItem.querySelector('.site-url').textContent;
-                    if (listElement.id === 'sitesList') {
-                        document.querySelectorAll('.site-item').forEach(item => {
-                            const siteUrl = item.querySelector('.site-url');
-                            if (siteUrl && siteUrl.textContent === url) {
-                                item.remove();
-                            }
-                        });
-                    } else
-                        siteItem.remove();
-
-                    window.SendMSG("deleteSite", { url: url });
-                }
-            });
-        }
-    }
-
-    addDeleteButtonListener(document.getElementById('sitesList'));
-    addDeleteButtonListener(document.getElementById('activeLimitsList'));
 
 
     //Settings
@@ -247,18 +335,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-})
-
+}
 
 
 
 
-
-
-function addSite() {
-    const url = document.getElementById('siteUrl').value.trim().toLowerCase();
+function updateSite() {
+    const siteId = document.getElementById('editingSiteId').value;
+    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "");
+    if (!url.includes(".")) return;
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
 
@@ -267,7 +352,40 @@ function addSite() {
 
     const timeLimitMinutes = (validHours * 60) + validMinutes;
 
-    if (!url || timeLimitMinutes < 1) return;
+    if (url && timeLimitMinutes > 0) {
+        const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
+        if (siteItem) {
+            const oldUrl = siteItem.querySelector('.site-url').textContent;
+            const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
+
+            siteItem.querySelector('.site-url').textContent = url;
+            siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
+            siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
+
+            window.SendMSG("addSite", {
+                oldurl: oldUrl,
+                url: url,
+                limit: timeLimitMinutes * 60 * 1000
+            });
+
+            resetSiteForm();
+        }
+    }
+}
+
+
+
+function addSite(murl, timeLimit, usage) {
+    const url = murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "");
+    if (!url.includes(".")) return;
+    const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
+    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
+
+    const validHours = Math.min(23, Math.max(0, timeHours));
+    const validMinutes = Math.min(59, Math.max(0, timeMinutes));
+
+    const timeLimitMinutes = timeLimit ?? (validHours * 60) + validMinutes;
+    if (!url || timeLimitMinutes < 0.000000000000001) return;
     const siteId = url.replace(/[^a-zA-Z0-9]/g, '');//URL ama arındırılmış hali
 
     let siteExists = false;
@@ -289,13 +407,13 @@ function addSite() {
     newSite.className = 'site-item';
     newSite.setAttribute('data-site-id', siteId);
 
-    const timeString = window.formatTime(timeLimitMinutes* 60*1000);
+    const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
 
     newSite.innerHTML = `
             <div class="site-info">
                 <span class="site-url">${url}</span>
                 <span class="site-limit">${window.translations.popup.dailyLimit}: ${timeString}</span>
-                <span class="site-remaining">${window.translations.settings.sites.remaining}: ${timeString}</span>
+                <span class="site-remaining">${window.translations.settings.sites.remaining}: ${usage ? window.formatTime(usage) : timeString}</span>
             </div>
             <div class="site-actions">
                 <button class="edit-btn"><i class="fas fa-edit"></i></button>
@@ -304,96 +422,14 @@ function addSite() {
         `;
     newSite.querySelector(".edit-btn").setAttribute('title', window.translations.common.edit);
     newSite.querySelector(".delete-btn").setAttribute('title', window.translations.common.delete);
+
+    if (typeof usage === "undefined") {
+        window.SendMSG("addSite", {
+            url: url,
+            limit: timeLimitMinutes * 60 * 1000
+        });
+    }
+
     sitesList.prepend(newSite);
-
-    const newEditBtn = newSite.querySelector('.edit-btn');
-    newEditBtn.addEventListener('click', function () {
-        editSite(siteId);
-    });
-
     resetSiteForm();
-
-}
-
-function formatTimeString(hours, minutes, hourText, hoursText, minuteText, minutesText) {
-    let timeString = '';
-
-    if (hours > 0) {
-        timeString += `${hours} ${hours === 1 ? hourText : hoursText}`;
-        if (minutes > 0) {
-            timeString += ` ${minutes} ${minutes === 1 ? minuteText : minutesText}`;
-        }
-    } else if (minutes > 0) {
-        timeString += `${minutes} ${minutes === 1 ? minuteText : minutesText}`;
-    }
-
-    return timeString;
-}
-
-window.editSite = function (siteId) {
-    console.log('Editing site:', siteId);
-    const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
-    if (siteItem) {
-        const url = siteItem.querySelector('.site-url').textContent;
-        const limitText = siteItem.querySelector('.site-limit').textContent;
-
-        const limitMatch = limitText.match(/[\d\.]+/);
-        const timeLimit = limitMatch ? parseFloat(limitMatch[0]) : 0;
-
-        const hours = Math.floor(timeLimit);
-        const minutes = Math.round((timeLimit - hours) * 60);
-
-        document.getElementById('siteUrl').value = url;
-        document.getElementById('timeHours').value = hours;
-        document.getElementById('timeMinutes').value = minutes;
-        document.getElementById('editingSiteId').value = siteId;
-
-        document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-edit" style="color: #3b82f6; margin-right: 8px;"></i> <span data-lang="settings.sites.editSite">Siteyi Düzenle</span>';
-        document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">Kaydet</span>';
-        document.getElementById('cancelEditBtn').style.display = 'inline-flex';
-        document.getElementById('siteFormCard').scrollIntoView({ behavior: 'smooth' });
-
-        document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
-    }
-};
-
-function updateSite() {
-    const siteId = document.getElementById('editingSiteId').value;
-    const url = document.getElementById('siteUrl').value;
-    const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
-    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
-
-    const validHours = Math.min(23, Math.max(0, timeHours));
-    const validMinutes = Math.min(59, Math.max(0, timeMinutes));
-
-    const timeLimitMinutes = (validHours * 60) + validMinutes;
-
-    if (url && timeLimitMinutes > 0) {
-        const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
-        if (siteItem) {
-            const dailyLimitEl = document.querySelector('[data-lang="popup.dailyLimit"]');
-            const remainingEl = document.querySelector('[data-lang="settings.sites.remaining"]');
-            const hourEl = document.querySelector('[data-lang="common.time.hour"]');
-            const hoursEl = document.querySelector('[data-lang="common.time.hours"]');
-            const minuteEl = document.querySelector('[data-lang="common.time.minute"]');
-            const minutesEl = document.querySelector('[data-lang="common.time.minutes"]');
-
-            const dailyLimitText = dailyLimitEl?.textContent || window.i18n?.t('popup.dailyLimit') || 'Günlük Limit';
-            const remainingText = remainingEl?.textContent || window.i18n?.t('settings.sites.remaining') || 'Kalan süre';
-            const hourText = hourEl?.textContent || window.i18n?.t('common.time.hour') || 'saat';
-            const hoursText = hoursEl?.textContent || window.i18n?.t('common.time.hours') || 'saat';
-            const minuteText = minuteEl?.textContent || window.i18n?.t('common.time.minute') || 'dakika';
-            const minutesText = minutesEl?.textContent || window.i18n?.t('common.time.minutes') || 'dakika';
-
-            const timeString = formatTimeString(validHours, validMinutes, hourText, hoursText, minuteText, minutesText);
-
-            siteItem.querySelector('.site-url').textContent = url;
-            siteItem.querySelector('.site-limit').innerHTML = `${dailyLimitText}: ${timeString}`;
-            siteItem.querySelector('.site-remaining').innerHTML = `${remainingText}: ${timeString}`;
-
-            //siteItem.querySelector('.delete-btn').setAttribute('onclick', `deleteSite('${url}')`);
-
-            resetSiteForm();
-        }
-    }
 }
