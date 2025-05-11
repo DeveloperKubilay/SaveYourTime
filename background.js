@@ -72,7 +72,7 @@ async function run(tabId, itsint) {
         });
         await chrome.storage.local.set({ ...temp, Urls: Urls, lastResetTime: Date.now() });
     }
-    
+
     const isTabIgnored = Tabignores.some(tab => tab.id === tabId);
     if (isTabIgnored) return;
 
@@ -82,8 +82,8 @@ async function run(tabId, itsint) {
 
     const tab = await chrome.tabs.get(tabId);
     const urlItem = Urls.filter(pattern =>
-        tab.url.replace("https://", "").replace("http://", "").startsWith(pattern.url)
-    ).sort((a, b) => b.length - a.length)[0] || {};
+        tab.url.replace("https://", "").replace("http://", "").toLowerCase().startsWith(pattern.url)
+    ).sort((a, b) => b.url.length - a.url.length)[0] || {};
 
     if (urlItem.url) {
         try {
@@ -161,13 +161,13 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
             })
             .then(() => sendResponse({ success: true }))
             .catch(error => sendResponse({ success: false, error: error.message }));
-        return true; 
-    } else if (message.target == "addSite") { 
+        return true;
+    } else if (message.target == "addSite") {
         chrome.storage.local.get('Urls')
             .then(({ Urls }) => {
-                const updatedUrls = Urls.filter(url => 
-                    message.oldurl ? 
-                          url.url !== message.oldurl && url.url !== message.url
+                const updatedUrls = Urls.filter(url =>
+                    message.oldurl ?
+                        url.url !== message.oldurl && url.url !== message.url
                         : url.url !== message.url
                 );
                 updatedUrls.push({ url: message.url, limit: message.limit, limited: false });

@@ -5,28 +5,24 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     const langResponse = await fetch(`../languages/${availableLanguages[lang]?.file || "en.json"}`);
     window.translations = await langResponse.json();
-    window.formatTime = function (ms,minimum){
+    window.formatTime = function (ms,minimum,Hoursw){
         const hours = Math.floor(ms / (1000 * 60 * 60));
         var minutes = Math.max(Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)), minimum || 0);
-        
-        if (hours > 0) {
-            return hours + window.translations.common.time.hourShort +' ' + (minutes > 0 ? minutes + window.translations.common.time.minutesShort : '');
+
+       if (Hoursw || hours > 0) {
+            return hours + window.translations.common.time.hourShort +' ' + ((Hoursw ? Math.abs(minutes) : (minutes > 0 ? minutes : '')) + window.translations.common.time.minutesShort);
         } else {
             return minutes + window.translations.common.time.minutesShort;
         }
     }
 
-    window.SendMSG = function(target, data, debug) {
+    window.SendMSG = function(target, data) {
         chrome.runtime.sendMessage({
             target: target,
             ...data
         }, response => {
-            if (debug) {
-            if (chrome.runtime.lastError) {
-                console.warn("Mesaj gönderme hatası:", chrome.runtime.lastError.message);
-            } else if (response) {
-                console.log("Mesaj cevabı:", response);
-            }}
+            if (chrome.runtime.lastError) return null;
+            else if (response) return response;
         });
     }
 

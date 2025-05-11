@@ -751,7 +751,7 @@
             <div class="card" id="siteFormCard">
                 <h3 id="siteFormTitle"><i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span></h3>
                 <div class="form-row">
-                    <input type="text" id="siteUrl" placeholder="Site URL (örn: facebook.com)" data-lang-placeholder="settings.sites.siteUrl" style="flex: 1">
+                    <input type="text" id="siteUrl" data-lang-placeholder="settings.sites.siteUrl" style="flex: 1">
                 </div>
                 <div class="time-templates">
                     <h4 style="margin: 10px 0; color: var(--text-muted);" data-lang="settings.sites.timeTemplates">Zaman Şablonları</h4>
@@ -766,11 +766,11 @@
                             <label style="display: block; margin-bottom: 5px; color: var(--text-muted);" data-lang="settings.sites.customTime">Özel Süre</label>
                             <div style="display: flex; gap: 10px;">
                                 <div style="flex: 1; position: relative;">
-                                    <input type="number" id="timeHours" min="0" max="23" step="1" placeholder="0" style="padding-right: 45px;" oninput="this.value = Math.min(23, Math.max(0, parseInt(this.value) || 0))">
+                                    <input type="number" id="timeHours" min="0" max="23" step="1" placeholder="0" style="padding-right: 45px;">
                                     <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.hour">sa</span>
                                 </div>
                                 <div style="flex: 1; position: relative;">
-                                    <input type="number" id="timeMinutes" min="0" max="59" step="1" placeholder="0" style="padding-right: 45px;" oninput="this.value = Math.min(59, Math.max(0, parseInt(this.value) || 0))">
+                                    <input type="number" id="timeMinutes" min="0" max="59" step="1" placeholder="0" style="padding-right: 45px;">
                                     <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.minutes">dk</span>
                                 </div>
                             </div>
@@ -787,31 +787,6 @@
             <div class="card">
                 <h3 data-lang="settings.sites.restrictedSites">Kısıtlı Siteler</h3>
                 <div id="sitesList">
-                    <!-- Örnek site listesi -->
-                    <div class="site-item" data-site-id="facebook">
-                        <div class="site-info">
-                            <span class="site-url">facebook.com</span>
-                            <span class="site-limit"><span data-lang="popup.dailyLimit">Günlük limit</span>: 2 <span data-lang="common.time.hours">saat</span></span>
-                            <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 1 <span data-lang="common.time.hour">saat</span> 30 <span data-lang="common.time.minutes">dakika</span></span>
-                        </div>
-                        <div class="site-actions">
-                            <button class="edit-btn" data-lang-title="common.edit"><i class="fas fa-edit"></i></button>
-                            <button class="delete-btn" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="site-item" data-site-id="youtube">
-                        <div class="site-info">
-                            <span class="site-url">youtube.com</span>
-                            <span class="site-limit"><span data-lang="popup.dailyLimit">Günlük limit</span>: 3 <span data-lang="common.time.hours">saat</span></span>
-                            <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 2 <span data-lang="common.time.hours">saat</span> 15 <span data-lang="common.time.minutes">dakika</span></span>
-                        </div>
-                        <div class="site-actions">
-                            <button class="edit-btn" ><i class="fas fa-edit"></i></button>
-                            <button class="delete-btn" data-lang-title="common.delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-                     <!-- Örnek site listesi -->
                 </div>
             </div>
         </div>
@@ -822,26 +797,7 @@
             
             <div class="card">
                 <h3 data-lang="settings.activeLimits.title">Şu Anda Limitli Siteler</h3>
-                <div id="activeLimitsList">
-                    <!-- Örnek aktif limit listesi -->
-                    <div class="site-item">
-                        <div class="site-info">
-                            <span class="site-url">facebook.com</span>
-                            <span class="site-remaining"><span data-lang="settings.sites.remaining">Kalan süre</span>: 1 <span data-lang="common.time.hour">saat</span> 30 <span data-lang="common.time.minutes">dakika</span></span>
-                        </div>
-                        <div class="site-actions">
-                            <button class="time-btn" >+15<span data-lang="common.time.minutesShort">dk</span></button>
-                            <button class="time-btn" >+30<span data-lang="common.time.minutesShort">dk</span></button>
-                            <button class="time-btn" >+1<span data-lang="common.time.hourShort">sa</span></button>
-                            <button class="time-btn" >+2<span data-lang="common.time.hoursShort">sa</span></button>
-                            <button class="time-btn" >-1<span data-lang="common.time.hoursShort">sa</span></button>
-                            <button class="delete-btn" data-lang-title="common.close"><i class="fas fa-times"></i></button>
-                        </div>
-                    </div>
-                    <!-- Örnek aktif limit listesi -->
-
-
-                </div>
+                <div id="activeLimitsList"></div>
             </div>
         </div>
         
