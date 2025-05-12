@@ -90,10 +90,6 @@
     },
     "general": {
       "title": "Genel Ayarlar",
-      "notifications": "Bildirimleri Aktif Et",
-      "strictMode": "Katı Mod (Limiti aşınca siteleri tamamen engelle)",
-      "startup": "Bilgisayar açılışında otomatik başlat",
-      "saveSettings": "Ayarları Kaydet",
       "resetData": "Tüm Verileri Sıfırla",
       "resetDataConfirm": "Tüm kayıtlı veriler silinecektir. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?",
       "github": "GitHub Repo",

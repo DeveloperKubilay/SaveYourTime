@@ -80,8 +80,9 @@ function resetSiteForm() {
     document.getElementById('timeHours').value = '';
     document.getElementById('timeMinutes').value = '';
     document.getElementById('editingSiteId').value = '';
-    document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span>';
-    document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span>';
+    document.getElementById('siteFormTitle').innerHTML = 
+        '<i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span>'+window.translations.settings.sites.addNew+'</span>';
+    document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-plus"></i> <span>'+window.translations.settings.sites.add+'</span>';
     document.getElementById('cancelEditBtn').style.display = 'none';
 
     document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
@@ -136,7 +137,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-edit" style="color: #3b82f6; margin-right: 8px;"></i>' +
                     '<span data-lang="settings.sites.editSite">' + window.translations.settings.sites.editSite + '</span>';
 
-                document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">Kaydet</span>';
+                document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">'+window.translations.common.save+'</span>';
                 document.getElementById('cancelEditBtn').style.display = 'inline-flex';
                 document.getElementById('siteFormCard').scrollIntoView({ behavior: 'smooth' });
 
@@ -236,12 +237,14 @@ window.SAVE_YOUR_TIME_RUN = async function () {
             backgroundColor.push(bg);
 
             //Site management
-            addSite(item.url, item.limit / 60000, item.usage / 60000)
+            addSite(item.url, item.limit / 60000, item.usage / 60000, item.limited)
         });
         initializeCharts(labelArray, usageArray, backgroundColor);
         //Active limits
-        data.filter(item => item.limited).forEach(item => {
-            activeLimitsList.innerHTML += `<div class="site-item">
+        data.filter(item => item.limited).forEach(item => {    
+            const siteItem = document.createElement('div');
+            siteItem.className = 'site-item';
+            siteItem.innerHTML = `
                     <div class="site-info">
                         <span class="site-url">${item.url}</span>
                         <span class="site-remaining" data-time="${-item.usage}">${window.translations.settings.sites.remaining}: ${
@@ -255,8 +258,9 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                         <button class="time-btn" data-time="120">+2${window.translations.common.time.hoursShort}</button>
                         <button class="time-btn" data-time="-60">-1${window.translations.common.time.hoursShort}</button>
                         <button class="delete-btn" data-lang-title="common.close"><i class="fas fa-times"></i></button>
-                    </div>
-                </div>`
+                    </div>` 
+             siteItem.querySelector(".delete-btn").setAttribute('title', window.translations.common.delete);
+             activeLimitsList.innerHTML += siteItem.outerHTML;
         })
         const timeButtons = document.querySelectorAll('.time-btn');
         timeButtons.forEach(button => {
@@ -330,7 +334,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
 
 function updateSite() {
     const siteId = document.getElementById('editingSiteId').value;
-    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "");
+    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "").replace(/\/+$/, "");
     if (!url.includes(".")) return;
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
@@ -339,7 +343,7 @@ function updateSite() {
     const validMinutes = Math.min(59, Math.max(0, timeMinutes));
 
     const timeLimitMinutes = (validHours * 60) + validMinutes;
-
+ 
     if (url && timeLimitMinutes > 0) {
         const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
         if (siteItem) {
@@ -363,8 +367,8 @@ function updateSite() {
 
 
 
-function addSite(murl, timeLimit, usage) {
-    const url = murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "");
+function addSite(murl, timeLimit, usage,itsLimited) {
+    const url = (murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "")).replace(/\/+$/, "");
     if (!url.includes(".")) return;
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
@@ -396,12 +400,14 @@ function addSite(murl, timeLimit, usage) {
     newSite.setAttribute('data-site-id', siteId);
 
     const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
-
+    
     newSite.innerHTML = `
             <div class="site-info">
                 <span class="site-url">${url}</span>
                 <span class="site-limit">${window.translations.popup.dailyLimit}: ${timeString}</span>
-                <span class="site-remaining">${window.translations.settings.sites.remaining}: ${usage ? window.formatTime(usage) : timeString}</span>
+                <span class="site-remaining">${window.translations.settings.sites.remaining}: ${
+                    typeof usage !== "undefined" ? window.formatTime(!itsLimited ? (timeLimit-usage)*60000 : usage*60000) : timeString
+                }</span>
             </div>
             <div class="site-actions">
                 <button class="edit-btn"><i class="fas fa-edit"></i></button>

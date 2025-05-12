@@ -1,6 +1,9 @@
--dil
-    dillerde fazla olup eklenmemişleri ekle title fln içinde olabilir bunlar
-    dillerde gereksizleri kaldır
-    toplu dil desteği
-önerilere bak
-hatalar için catch
+site yönetimi editleme
+    -editle bastığımda DAKİKA GELMİYOR SADECE SAAT GELİO
+    -EDİTLE ÇALIŞMIO +15 VERDİKTEN SONRA
+
+
+
+db de gereksiz şeyler var dil için dailylimit dakika lfln
+toplu dil desteği
+olabiliecek hatalar için catch
