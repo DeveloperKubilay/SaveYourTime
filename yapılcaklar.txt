@@ -3,7 +3,5 @@ site yönetimi editleme
     -EDİTLE ÇALIŞMIO +15 VERDİKTEN SONRA
 
 
-
-db de gereksiz şeyler var dil için dailylimit dakika lfln
 toplu dil desteği
 olabiliecek hatalar için catch

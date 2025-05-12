@@ -1,12 +1,11 @@
 function formatTime(lang, ms) {
     const absMs = Math.abs(ms);
-    const seconds = Math.floor((absMs / 1000) % 60);
     const minutes = Math.floor((absMs / (1000 * 60)) % 60);
     const hours = Math.floor(absMs / (1000 * 60 * 60));
 
     const sign = ms < 0 ? '-' : '';
 
-    return `${sign}${hours} ${lang.common.time.hoursShort}, ${minutes} ${lang.common.time.minutesShort}, ${seconds} ${lang.common.time.secondsShort}`;
+    return `${sign}${hours} ${lang.common.time.hoursShort}, ${minutes} ${lang.common.time.minutesShort}`;
 }
 
 let Lastsitedata;
