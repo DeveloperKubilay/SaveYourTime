@@ -16,7 +16,6 @@ function addIframe(data) {
 
     if (data.limited) {
         if (limited) return;
-        console.log("m", limited)
         limited = true;
         const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
         if (existingFavicons.length > 0) {

@@ -48,8 +48,8 @@ window.SAVE_YOUR_TIME_RUN = async function() {
                 addTime(60);
             });
             if(kullanılangünlükzaman < 0){
-                 circleLimited = true;
                 if(data.Limit.limited){
+                    circleLimited = true;
                     toplamgünlükzaman = Math.abs(kullanılangünlükzaman)
                     kullanılangünlükzaman = 0;
                 }else {

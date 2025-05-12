@@ -1,7 +1,4 @@
-site yönetimi editleme
-    -editle bastığımda DAKİKA GELMİYOR SADECE SAAT GELİO
-    -EDİTLE ÇALIŞMIO +15 VERDİKTEN SONRA
-
-
+//basitler
 toplu dil desteği
 olabiliecek hatalar için catch
+readme.md
