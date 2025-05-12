@@ -95,10 +95,8 @@ window.SAVE_YOUR_TIME_RUN = async function () {
     //Menüler arası geçişi sağlar
     document.querySelectorAll('.nav-item').forEach(item => {
         item.addEventListener('click', function () {
-            if (this.querySelector('select')) {
-                return;
-            }
-
+            if (this.querySelector('select')) return;
+            
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
@@ -121,13 +119,12 @@ window.SAVE_YOUR_TIME_RUN = async function () {
             const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
             if (siteItem) {
                 const url = siteItem.querySelector('.site-url').textContent;
-                const limitText = siteItem.querySelector('.site-limit').textContent;
+                const remainingText = siteItem.querySelector('.site-remaining').getAttribute('data-remaining');
 
-                const limitMatch = limitText.match(/[\d\.]+/);
-                const timeLimit = limitMatch ? parseFloat(limitMatch[0]) : 0;
+                const limitMatch = remainingText.split('.');
 
-                const hours = Math.floor(timeLimit);
-                const minutes = Math.round((timeLimit - hours) * 60);
+                const hours = Math.floor(limitMatch[0]);
+                const minutes = Math.floor(limitMatch[1])
 
                 document.getElementById('siteUrl').value = url;
                 document.getElementById('timeHours').value = hours;
@@ -135,7 +132,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 document.getElementById('editingSiteId').value = siteId;
 
                 document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-edit" style="color: #3b82f6; margin-right: 8px;"></i>' +
-                    '<span data-lang="settings.sites.editSite">' + window.translations.settings.sites.editSite + '</span>';
+                    '<span>' + window.translations.settings.sites.editSite + '</span>';
 
                 document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">'+window.translations.common.save+'</span>';
                 document.getElementById('cancelEditBtn').style.display = 'inline-flex';
@@ -224,7 +221,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
             else if (url == "Twitch") bg = "rgba(100, 65, 164, 1)";
             else if (url == "Spotify") bg = "rgba(30, 215, 96, 1)";
             else if (url == "Netflix") bg = "rgba(229, 9, 20, 1)";
-            else if (url == "Steam") bg = "rgba(0, 0, 0, 1)";
+            else if (url == "Steam") bg = "rgba(0, 120, 180, 1)";
             else if (url == "Amazon") bg = "rgba(255, 153, 0, 1)";
             else if (url == "Ebay") bg = "rgba(255, 0, 0, 1)";
             else if (url == "Kick") bg = "rgba(0, 255, 0, 1)";
@@ -353,6 +350,7 @@ function updateSite() {
             siteItem.querySelector('.site-url').textContent = url;
             siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
             siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
+            siteItem.querySelector('.site-remaining').setAttribute('data-remaining', validHours + '.' + validMinutes);
 
             window.SendMSG("addSite", {
                 oldurl: oldUrl,
@@ -373,10 +371,17 @@ function addSite(murl, timeLimit, usage,itsLimited) {
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
 
-    const validHours = Math.min(23, Math.max(0, timeHours));
-    const validMinutes = Math.min(59, Math.max(0, timeMinutes));
-
-    const timeLimitMinutes = timeLimit ?? (validHours * 60) + validMinutes;
+    let validHours, validMinutes;
+    
+    if (timeLimit !== undefined) {
+        validHours = Math.floor(timeLimit / 60);
+        validMinutes = timeLimit % 60;
+    } else {
+        validHours = Math.min(23, Math.max(0, timeHours));
+        validMinutes = Math.min(59, Math.max(0, timeMinutes));
+    }
+    
+    const timeLimitMinutes = validHours * 60 + validMinutes;
     if (!url || timeLimitMinutes < 0.000000000000001) return;
     const siteId = url.replace(/[^a-zA-Z0-9]/g, '');//URL ama arındırılmış hali
 
@@ -400,12 +405,11 @@ function addSite(murl, timeLimit, usage,itsLimited) {
     newSite.setAttribute('data-site-id', siteId);
 
     const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
-    
     newSite.innerHTML = `
             <div class="site-info">
                 <span class="site-url">${url}</span>
                 <span class="site-limit">${window.translations.popup.dailyLimit}: ${timeString}</span>
-                <span class="site-remaining">${window.translations.settings.sites.remaining}: ${
+                <span class="site-remaining" data-remaining="${validHours}.${validMinutes}">${window.translations.settings.sites.remaining}: ${
                     typeof usage !== "undefined" ? window.formatTime(!itsLimited ? (timeLimit-usage)*60000 : usage*60000) : timeString
                 }</span>
             </div>

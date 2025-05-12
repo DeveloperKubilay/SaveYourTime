@@ -120,10 +120,7 @@ async function run(tabId, itsint) {
                 [urlItem.url]: usage + 60000
             });
 
-        } catch (error) {
-
-            console.error("Error in run function:", error);
-        }
+        } catch (error) {}
     }
 
 
@@ -182,7 +179,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                         : url.url !== message.url
                 );
                 updatedUrls.push({ url: message.url, limit: message.limit, limited: false });
-                return chrome.storage.local.set({ Urls: updatedUrls, [message.url]: 1800000 });
+                return chrome.storage.local.set({ Urls: updatedUrls, [message.url]: 0 });
             })
             .then(() => sendResponse({ success: true }))
             .catch(error => sendResponse({ success: false, error: error.message }));
