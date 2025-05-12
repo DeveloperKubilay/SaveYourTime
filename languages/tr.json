@@ -7,37 +7,26 @@
   "common": {
     "settings": "Ayarlar",
     "dashboard": "Dashboard",
-    "statistics": "İstatistikler",
     "active": "Aktif",
     "save": "Kaydet",
     "cancel": "İptal",
-    "add": "Ekle",
     "delete": "Sil",
     "edit": "Düzenle",
     "close": "Kapat",
-    "continue": "Devam Et",
-    "back": "Geri",
     "time": {
       "hour": "saat",
       "hours": "saat",
       "minute": "dakika",
       "minutes": "dakika",
-      "second": "saniye",
-      "seconds": "saniye",
       "left": "kaldı",
-      "used": "kullanıldı",
       "hourShort": "sa",
       "hoursShort": "sa",
-      "minutesShort": "dk",
-      "secondsShort": "sn"
+      "minutesShort": "dk"
     }
   },
   "popup": {
-    "currentSite": "Mevcut Site",
     "dailyLimit": "Günlük Limit",
-    "timeUsed": "Kullanılan Süre",
     "timeLeft": "Kalan Süre",
-    "addTime": "Süre Ekle",
     "timeEnd": "Zaman Doldu",
     "noLimits": "Belirlenmiş Limit Yok",
     "otherSites": "Diğer Kısıtlı Siteler",
@@ -50,7 +39,6 @@
   "warn": {
     "title": "Zamanınızı Doldurdunuz!",
     "message": "Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!",
-    "addTime": "Süre Ekle",
     "continueAnyway": "Yine de Devam Et",
     "dailyStats": "Bugün bu site için toplam <strong>{{ totalTime }}</strong> kullanım",
     "timeOption": {
@@ -64,8 +52,7 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Yönetimi",
-      "activeLimits": "Aktif Limitler",
-      "settings": "Ayarlar"
+      "activeLimits": "Aktif Limitler"
     },
     "stats": {
       "restrictedSites": "Kısıtlanan Siteler",
@@ -77,8 +64,6 @@
       "addNew": "Yeni Site Ekle",
       "editSite": "Siteyi Düzenle",
       "siteUrl": "Site URL (örn: facebook.com)",
-      "dailyLimit": "Günlük limit (saat)",
-      "dailyLimitMinutes": "Günlük limit (dakika)",
       "timeTemplates": "Zaman Şablonları",
       "customTime": "Özel Süre",
       "add": "Ekle",
@@ -140,6 +125,8 @@
     "privacy": {
       "title": "Gizlilik ve Veri Güvenliği",
       "description": "SaveYourTime, <strong>tüm verilerinizi sadece kendi tarayıcınızda yerel olarak saklar</strong> ve hiçbir bilgiyi harici sunuculara göndermez. Site kullanım verileriniz ve ayarlarınız, tarayıcınızın \"yerel depolama\" alanında güvenle saklanır.",
+      "details": "Uzantımız minimum izin gerektirir ve sadece belirlediğiniz sitelere erişir. Gizliliğiniz ve verilerinizin güvenliği en büyük önceliğimizdir.",
+      "openSource": "Tüm kaynak kodu açık olup, GitHub sayfamızdan incelenebilir ve indirilip değiştirilebilir.",
       "learnMore": "Gizlilik politikamız hakkında daha fazla bilgi için",
       "learnMoreLink": "buraya tıklayın"
     },

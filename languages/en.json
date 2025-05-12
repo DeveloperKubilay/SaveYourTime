@@ -7,7 +7,6 @@
   "common": {
     "settings": "Settings",
     "dashboard": "Dashboard",
-    "statistics": "Statistics",
     "active": "Active",
     "save": "Save",
     "cancel": "Cancel",
@@ -15,29 +14,20 @@
     "edit": "Edit",
     "delete": "Delete",
     "close": "Close",
-    "continue": "Continue",
-    "back": "Back",
     "time": {
       "hour": "hour",
       "hours": "hours",
       "minute": "minute",
       "minutes": "minutes",
-      "second": "second",
-      "seconds": "seconds",
       "left": "left",
-      "used": "used",
       "hourShort": "h",
       "hoursShort": "h",
-      "minutesShort": "m",
-      "secondsShort": "s"
+      "minutesShort": "m"
     }
   },
   "popup": {
-    "currentSite": "Current Site",
     "dailyLimit": "Daily Limit",
-    "timeUsed": "Time Used",
     "timeLeft": "Time Left",
-    "addTime": "Add Time",
     "timeEnd": "Time's up",
     "noLimits": "No Limits Set",
     "otherSites": "Other Restricted Sites",
@@ -50,7 +40,6 @@
   "warn": {
     "title": "You've Run Out of Time!",
     "message": "You've reached your daily time limit for this site. A great opportunity to redirect your attention to more important tasks!",
-    "addTime": "Add Time",
     "continueAnyway": "Continue Anyway",
     "dailyStats": "Today This site with total usage of <strong>{{ totalTime }}</strong>",
     "timeOption": {
@@ -64,8 +53,7 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Management",
-      "activeLimits": "Active Limits",
-      "settings": "Settings"
+      "activeLimits": "Active Limits"
     },
     "stats": {
       "restrictedSites": "Restricted Sites",
@@ -77,8 +65,6 @@
       "addNew": "Add New Site",
       "editSite": "Edit Site",
       "siteUrl": "Site URL (e.g. facebook.com)",
-      "dailyLimit": "Daily limit (hours)",
-      "dailyLimitMinutes": "Daily limit (minutes)",
       "timeTemplates": "Time Templates",
       "customTime": "Custom Time",
       "add": "Add",
@@ -140,6 +126,8 @@
     "privacy": {
       "title": "Privacy and Data Security",
       "description": "SaveYourTime <strong>stores all your data only locally in your browser</strong> and doesn't send any information to external servers. Your site usage data and settings are securely stored in your browser's \"local storage\" area.",
+      "details": "Our extension requires minimal permissions and only accesses the sites you specify. Your privacy and data security are our top priorities.",
+      "openSource": "All the source code is open and can be reviewed and modified from our GitHub page.",
       "learnMore": "To learn more about our privacy policy",
       "learnMoreLink": "click here"
     },
