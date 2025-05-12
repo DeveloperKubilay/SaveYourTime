@@ -1,9 +1,8 @@
 chrome.runtime.onInstalled.addListener(async function (details) {
     if (details.reason === 'install') {
         chrome.storage.local.clear();
-
-        chrome.storage.local.set({
-            Urls: [
+        /*
+                    Urls: [
                 {
                     url: "ifconfig.me",
                     limit: 10000,
@@ -24,7 +23,19 @@ chrome.runtime.onInstalled.addListener(async function (details) {
             "duckduckgo.com": 0,
             "www.youtube.com": 0,
             "lastResetTime": Date.now(),
+        
+        */
 
+        var lang = "en";
+        try{
+           lang = navigator.language.substring(0, 2).toLowerCase()
+           await fetch(chrome.runtime.getURL('languages/' + lang + ".json"));
+        }catch{ lang = "en" }
+
+        chrome.storage.local.set({
+            Urls: [],
+            lang: lang,
+            lastResetTime: Date.now(),
         }, function () {
             chrome.tabs.create({
                 url: chrome.runtime.getURL('html/thanks.html')
@@ -171,7 +182,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                         : url.url !== message.url
                 );
                 updatedUrls.push({ url: message.url, limit: message.limit, limited: false });
-                return chrome.storage.local.set({ Urls: updatedUrls, [message.url]: 0 });
+                return chrome.storage.local.set({ Urls: updatedUrls, [message.url]: 1800000 });
             })
             .then(() => sendResponse({ success: true }))
             .catch(error => sendResponse({ success: false, error: error.message }));

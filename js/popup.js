@@ -1,6 +1,6 @@
 let kullanılangünlükzaman = 0; 
 let toplamgünlükzaman = 0; 
-let circleLimited = 0;
+let circleLimited = false;
 var url;
 
 
@@ -48,11 +48,17 @@ window.SAVE_YOUR_TIME_RUN = async function() {
                 addTime(60);
             });
             if(kullanılangünlükzaman < 0){
-                circleLimited = data.Limit.limit || 0;
-                toplamgünlükzaman = Math.abs(kullanılangünlükzaman)
-                kullanılangünlükzaman = 0;
+                 circleLimited = true;
+                if(data.Limit.limited){
+                    toplamgünlükzaman = Math.abs(kullanılangünlükzaman)
+                    kullanılangünlükzaman = 0;
+                }else {
+                    toplamgünlükzaman += Math.abs(kullanılangünlükzaman)
+                    kullanılangünlükzaman = 0;
+                }
             }
         }
+        document.getElementById('siteLimit').textContent = window.translations.popup.dailyLimit +": " +window.formatTime(data.Limit.limit, 1);
 
         updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman, circleLimited);
 }
@@ -80,6 +86,9 @@ async function addTime(minutes) {
     toplamgünlükzaman += minutes * 60 * 1000;
     
     updateProgressCircle(kullanılangünlükzaman, toplamgünlükzaman, circleLimited);
+
+
+    
 
     setTimeout(()=>timeaddlimit = false, 200);
 }
@@ -113,6 +122,4 @@ function updateProgressCircle(usedTime, totalTime, circleLimitedParam) {
         document.getElementById('timeLeft').style.color = 'var(--text)';
     }
     
-    const finalLimit = circleLimitedParam || totalTime;
-    document.getElementById('siteLimit').textContent = window.translations.popup.dailyLimit +": " +window.formatTime(finalLimit, 1);
 }
