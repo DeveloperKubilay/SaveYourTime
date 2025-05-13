@@ -1,0 +1,197 @@
+{
+  "lang": "ha",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Ƙarin sarrafa lokaci wanda ke taimaka maka wajen amfani da lokacin dijital ɗinka cikin inganci"
+  },
+  "common": {
+    "settings": "Saituna",
+    "dashboard": "Dashbod",
+    "active": "Aiki",
+    "save": "Ajiye",
+    "cancel": "Soke",
+    "delete": "Share",
+    "edit": "Gyara",
+    "close": "Rufe",
+    "time": {
+      "hour": "awa",
+      "hours": "awowi",
+      "minute": "minti",
+      "minutes": "mintoci",
+      "left": "ya rage",
+      "hourShort": "a",
+      "hoursShort": "a",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Iyakar Rana",
+    "timeLeft": "Lokacin da Ya Rage",
+    "timeEnd": "Lokaci ya ƙare",
+    "noLimits": "Ba'a Saita Iyaka Ba",
+    "otherSites": "Sauran Gidajen Yanar Gizo da aka Iyakance",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1a"
+    }
+  },
+  "warn": {
+    "title": "Lokacinka Ya Ƙare!",
+    "message": "Ka cika iyakar lokacin rana don wannan gidan yanar gizo. Wannan babbar dama ce don maimaita hankalinka ga ayyuka masu muhimmanci!",
+    "continueAnyway": "Ci Gaba Duk Da Haka",
+    "dailyStats": "Yau wannan gidan yanar gizo da amfani na gaba ɗaya na <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+mintoci 15",
+      "30min": "+mintoci 30",
+      "1hour": "+awa 1",
+      "2hours": "+awowi 2"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashbod",
+      "siteManagement": "Gudanar da Gidajen Yanar Gizo",
+      "activeLimits": "Iyakoki Masu Aiki"
+    },
+    "stats": {
+      "restrictedSites": "Gidajen Yanar Gizo da aka Iyakance",
+      "blocked": "Gidajen Yanar Gizo da aka Toshe",
+      "notBlocked": "Gidajen Yanar Gizo da aka Yarda",
+      "mostVisited": "Gidajen Yanar Gizo da Kake Ɗaukar Lokaci Mai Yawa"
+    },
+    "sites": {
+      "addNew": "Ƙara Sabon Yanar Gizo",
+      "editSite": "Gyara Gidan Yanar Gizo",
+      "siteUrl": "URL na Yanar Gizo (misali: facebook.com)",
+      "timeTemplates": "Shigarori na Lokaci",
+      "customTime": "Keɓaɓɓen Lokaci",
+      "add": "Ƙara",
+      "restrictedSites": "Gidajen Yanar Gizo da aka Iyakance",
+      "remaining": "Lokacin da ya rage"
+    },
+    "activeLimits": {
+      "title": "Gidajen Yanar Gizo da aka Iyakance a Halin Yanzu"
+    },
+    "general": {
+      "title": "Saituna na Gaba Ɗaya",
+      "resetData": "Sake Duk Bayanan",
+      "resetDataConfirm": "Za a share duk bayanan da aka ajiye. Ba za a iya juya wannan aiki ba. Kana son ci gaba?",
+      "github": "Ma'ajiyar GitHub",
+      "virusTotal": "Sakamakon VirusTotal",
+      "reportIssue": "Ba da Rahoton Matsala",
+      "privacy": "Manufar Sirri",
+      "documentation": "Takaddun Bayani"
+    }
+  },
+  "thanks": {
+    "welcome": "Barka da zuwa SaveYourTime!",
+    "thankYou": "Mun gode da shigarwa",
+    "features": {
+      "timeLimit": {
+        "title": "Iyakance Lokaci",
+        "description": "Saita iyakar lokacin rana don kafofin sadarwa da sauran gidajen yanar gizo masu ɓata hankali. Za a yi maka tunatarwa a hankali lokacin da ka kai ga iyakarka."
+      },
+      "statistics": {
+        "title": "Ba da Bayanai kan Amfani",
+        "description": "Bi yawan lokacin da kake kashewa a gidajen yanar gizo daban-daban tare da zane mai gani kuma sarrafa lokacinka da kyau."
+      },
+      "blocking": {
+        "title": "Toshe na Dabara",
+        "description": "Zaɓi tsakanin toshe cikakke ko tunatarwa da sauri lokacin da aka zarce iyakokin lokaci. Za ka iya ƙara ƙarin lokaci duk lokacin da kake bukata."
+      }
+    },
+    "howItWorks": {
+      "title": "Yaya SaveYourTime Ke Aiki?",
+      "steps": [
+        {
+          "title": "Ƙara Gidajen Yanar Gizo",
+          "description": "Ƙara gidajen yanar gizo da kake son iyakance lokaci a kansu kuma saita iyakar lokacin rana ga kowanne."
+        },
+        {
+          "title": "Bi Amfani",
+          "description": "Ƙarin yana aiki a sirri a baya, yana lura da lokacin da kake kashewa a gidajen yanar gizo da aka keɓance."
+        },
+        {
+          "title": "Sanarwar Iyaka",
+          "description": "Lokacin da lokacin da aka saita ya ƙare, za ka ga tunatarwa a hankali kafin ci gaba."
+        },
+        {
+          "title": "Sarrafa Sauƙi",
+          "description": "Za ka iya ƙara lokaci ko cire duk iyakokin lokacin da ake bukata. Kana da iko a koyaushe."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Sirri da Tsaron Bayanai",
+      "description": "SaveYourTime <strong>yana adana duk bayananku ne kawai a cikin mai kallo na ku</strong> kuma ba ya aika wata bayani zuwa waje. Ana adana bayanin amfani da gidan yanar gizo da saitunanku a amintacce a yankin \"ajiyar gida\" na mai kallonku.",
+      "details": "Ƙarinmu yana buƙatar izini mai iyaka kawai kuma yana samun damar shiga kawai zuwa gidajen yanar gizo da kuka bayyana. Sirrinka da tsaron bayananku suna cikin abubuwan da muka fi ba da muhimmanci.",
+      "openSource": "Duk lambar tushe tana buɗe kuma ana iya duba ta da gyara daga shafin GitHub namu.",
+      "learnMore": "Don ƙarin bayani game da manufar sirrinka",
+      "learnMoreLink": "danna nan"
+    },
+    "actions": {
+      "configure": "Shirya Saituna",
+      "viewSource": "Duba Tushe a GitHub",
+      "virusTotal": "Sakamakon VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Manufar Sirri na SaveYourTime",
+    "subtitle": "Bayanai game da yadda muke kare sirrin bayananku",
+    "commitment": {
+      "title": "Alƙawarin Sirri",
+      "description": "A SaveYourTime, muna ɗaukar sirri da tsaron bayananku tamkar abu mai muhimmanci. Wannan ƙarin [hl]ba ya aika wata bayani zuwa waje ba[/hl], kuma duk bayananku ana adana su ne kawai a cikin mai kallonku."
+    },
+    "collected": {
+      "title": "Bayanan da Aka Tattaro",
+      "intro": "SaveYourTime yana tattara kuma yana adana waɗannan bayanai kawai:",
+      "timeSpent": "Lokacin da kuke kashewa a gidajen yanar gizo da kuka keɓance",
+      "dailyLimits": "Iyakokin lokacin rana da kuka saita",
+      "settings": "Saituna da zaɓinku na ƙarin",
+      "storage": "Ana adana waɗannan bayanan [hl]kawai a cikin mai kallonku na gida[/hl] kuma yana da muhimmanci don ƙarin ya yi aiki yadda ya kamata."
+    },
+    "storage": {
+      "title": "Adana da Isar da Bayanai",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Ba ya aika wata bayanin mai amfani zuwa waje ba[/hl]",
+      "localStorage": "Yana adana duk bayanai a yankin ajiyar gida na mai kallonku",
+      "offline": "Yana iya aiki har ma lokacin da ba ku da haɗin intanet",
+      "noCookies": "Ba ya amfani da cookies",
+      "noTracking": "Ba ya bi wata bayanan kama mai amfani ko bayanan zama"
+    },
+    "security": {
+      "title": "Tsaron Bayanai",
+      "intro": "Tunda ana adana bayananku a cikin mai kallonku kawai:",
+      "browserClear": "Ana iya share su idan kun share tarihin mai kallonku ko kasin",
+      "uninstall": "Za ku iya share duk bayanan da aka rubuta daga mai kallonku lokacin da kuka cire ƙarin",
+      "access": "Mai kallonku kawai zai iya samun damar ganin bayananku"
+    },
+    "permissions": {
+      "title": "Izini",
+      "intro": "SaveYourTime yana buƙatar izinin mai kallo masu zuwa don aiki:",
+      "activeTab": "Damar shiga tab mai aiki (don lura da lokacin da aka kashe a gidajen yanar gizo da kuka keɓance)",
+      "storage": "Damar shiga ajiyar gida (don ajiye saitunanku da bayanan lokaci)",
+      "minimal": "Waɗannan izini ne mafi ƙanƙanta da ake buƙata don ayyukan manyan ƙarin."
+    },
+    "openSource": {
+      "title": "Lambar Tushe Mai Buɗewa",
+      "description": "SaveYourTime shiri ne mai buɗe ido gaba ɗaya. Lambarmu tana samuwa ga duk wanda ya so duba ta a GitHub.",
+      "transparency": "Wannan buɗewa tana nuna alƙawarinmu na sirri. Duk wanda ya so duba lambar zai iya tabbatar da cewa ƙarin ba ya aika wata bayani ba gaske."
+    },
+    "rights": {
+      "title": "Hakkin Mai Amfani",
+      "intro": "A matsayin mai amfani da SaveYourTime, za ku iya:",
+      "remove": "Cire ƙarin daga saitunan mai kallonku a duk lokaci",
+      "delete": "Share duk bayanan da aka rubuta daga saitunan ƙarin",
+      "modify": "Gyara duk wata bayani da kuke so daga saitunan ƙarin"
+    },
+    "questions": {
+      "title": "Tambayoyi",
+      "contact": "Idan kuna da wata tambaya game da manufar sirinmu, don Allah a tuntubi mu ta hanyar shirin GitHub ɗinmu."
+    },
+    "actions": {
+      "home": "Gida"
+    }
+  }
+}

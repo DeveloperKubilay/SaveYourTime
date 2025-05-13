@@ -9,6 +9,271 @@
             "name": "Türkçe",
             "flag": "TR",
             "file": "tr.json"
+        },
+        "zh": {
+            "name": "简体中文",
+            "flag": "CN",
+            "file": "zh.json"
+        },
+        "hi": {
+            "name": "हिन्दी",
+            "flag": "IN",
+            "file": "hi.json"
+        },
+        "es": {
+            "name": "Español",
+            "flag": "ES",
+            "file": "es.json"
+        },
+        "fr": {
+            "name": "Français",
+            "flag": "FR",
+            "file": "fr.json"
+        },
+        "ar": {
+            "name": "العربية",
+            "flag": "AR",
+            "file": "ar.json"
+        },
+        "bn": {
+            "name": "বাংলা",
+            "flag": "BD",
+            "file": "bn.json"
+        },
+        "pt": {
+            "name": "Português",
+            "flag": "PT",
+            "file": "pt.json"
+        },
+        "ru": {
+            "name": "Русский",
+            "flag": "RU",
+            "file": "ru.json"
+        },
+        "ur": {
+            "name": "اردو",
+            "flag": "PK",
+            "file": "ur.json"
+        },
+        "id": {
+            "name": "Bahasa Indonesia",
+            "flag": "ID",
+            "file": "id.json"
+        },
+        "de": {
+            "name": "Deutsch",
+            "flag": "DE",
+            "file": "de.json"
+        },
+        "ja": {
+            "name": "日本語",
+            "flag": "JP",
+            "file": "ja.json"
+        },
+        "sw": {
+            "name": "Kiswahili",
+            "flag": "KE",
+            "file": "sw.json"
+        },
+        "mr": {
+            "name": "मराठी",
+            "flag": "IN",
+            "file": "mr.json"
+        },
+        "te": {
+            "name": "తెలుగు",
+            "flag": "IN",
+            "file": "te.json"
+        },
+        "ta": {
+            "name": "தமிழ்",
+            "flag": "IN",
+            "file": "ta.json"
+        },
+        "vi": {
+            "name": "Tiếng Việt",
+            "flag": "VN",
+            "file": "vi.json"
+        },
+        "ko": {
+            "name": "한국어",
+            "flag": "KR",
+            "file": "ko.json"
+        },
+        "fa": {
+            "name": "فارسی",
+            "flag": "IR",
+            "file": "fa.json"
+        },
+        "ha": {
+            "name": "Hausa",
+            "flag": "NG",
+            "file": "ha.json"
+        },
+        "th": {
+            "name": "ไทย",
+            "flag": "TH",
+            "file": "th.json"
+        },
+        "pa": {
+            "name": "ਪੰਜਾਬੀ",
+            "flag": "IN",
+            "file": "pa.json"
+        },
+        "it": {
+            "name": "Italiano",
+            "flag": "IT",
+            "file": "it.json"
+        },
+        "fi": {
+            "name": "Suomi",
+            "flag": "FI",
+            "file": "fi.json"
+        },
+        "ms": {
+            "name": "Bahasa Melayu",
+            "flag": "MY",
+            "file": "ms.json"
+        },
+        "my": {
+            "name": "မြန်မာဘာသာ",
+            "flag": "MM",
+            "file": "my.json"
+        },
+        "uk": {
+            "name": "Українська",
+            "flag": "UA",
+            "file": "uk.json"
+        },
+        "sv": {
+            "name": "Svenska",
+            "flag": "SE",
+            "file": "sv.json"
+        },
+        "no": {
+            "name": "Norsk",
+            "flag": "NO",
+            "file": "no.json"
+        },
+        "cs": {
+            "name": "Čeština", 
+            "flag": "CZ",
+            "file": "cs.json"
+        },
+        "el": {
+            "name": "Ελληνικά",
+            "flag": "GR",
+            "file": "el.json"
+        },
+        "hu": {
+            "name": "Magyar",
+            "flag": "HU",
+            "file": "hu.json"
+        },
+        "nl": {
+            "name": "Nederlands",
+            "flag": "NL",
+            "file": "nl.json"
+        },
+        "ro": {
+            "name": "Română",
+            "flag": "RO", 
+            "file": "ro.json"
+        },
+        "sr": {
+            "name": "Српски",
+            "flag": "RS",
+            "file": "sr.json"
+        },
+        "sk": {
+            "name": "Slovenčina",
+            "flag": "SK",
+            "file": "sk.json"
+        },
+        "sl": {
+            "name": "Slovenščina",
+            "flag": "SI",
+            "file": "sl.json"
+        },
+        "he": {
+            "name": "עברית",
+            "flag": "IL",
+            "file": "he.json"
+        },
+        "az": {
+            "name": "Azərbaycan",
+            "flag": "AZ",
+            "file": "az.json"
+        },
+        "uz": {
+            "name": "O'zbek",
+            "flag": "UZ",
+            "file": "uz.json"
+        },
+        "zu": {
+            "name": "isiZulu",
+            "flag": "ZA",
+            "file": "zu.json"
+        },
+        "ig": {
+            "name": "Igbo",
+            "flag": "NG",
+            "file": "ig.json"
+        },
+        "kk": {
+            "name": "Қазақша",
+            "flag": "KZ",
+            "file": "kk.json"
+        },
+        "yo": {
+            "name": "Yorùbá",
+            "flag": "NG",
+            "file": "yo.json"
+        },
+        "hy": {
+            "name": "Հայերեն",
+            "flag": "AM",
+            "file": "hy.json"
+        },
+        "tk": {
+            "name": "Türkmençe",
+            "flag": "TM",
+            "file": "tk.json"
+        },
+        "ka": {
+            "name": "ქართული",
+            "flag": "GE",
+            "file": "ka.json"
+        },
+        "tt": {
+            "name": "Татарча",
+            "flag": "RU",
+            "file": "tt.json"
+        },
+        "xh": {
+            "name": "isiXhosa",
+            "flag": "ZA",
+            "file": "xh.json"
+        },
+        "ky": {
+            "name": "Кыргызча",
+            "flag": "KG",
+            "file": "ky.json"
+        },
+        "tg": {
+            "name": "Тоҷикӣ",
+            "flag": "TJ",
+            "file": "tg.json"
+        },
+        "sq": {
+            "name": "Shqip",
+            "flag": "AL",
+            "file": "sq.json"
+        },
+        "bs": {
+            "name": "Bosanski",
+            "flag": "BA",
+            "file": "bs.json"
         }
     }
 }

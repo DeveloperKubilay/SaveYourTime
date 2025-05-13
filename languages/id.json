@@ -1,0 +1,197 @@
+{
+  "lang": "id",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Ekstensi manajemen waktu yang membantu Anda menggunakan waktu digital lebih efisien"
+  },
+  "common": {
+    "settings": "Pengaturan",
+    "dashboard": "Dasbor",
+    "active": "Aktif",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Hapus",
+    "edit": "Edit",
+    "close": "Tutup",
+    "time": {
+      "hour": "jam",
+      "hours": "jam",
+      "minute": "menit",
+      "minutes": "menit",
+      "left": "tersisa",
+      "hourShort": "j",
+      "hoursShort": "j",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Batas Harian",
+    "timeLeft": "Waktu Tersisa",
+    "timeEnd": "Waktu habis",
+    "noLimits": "Tidak Ada Batas",
+    "otherSites": "Situs Terbatas Lainnya",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1j"
+    }
+  },
+  "warn": {
+    "title": "Waktu Anda Habis!",
+    "message": "Anda telah mencapai batas waktu harian untuk situs ini. Kesempatan bagus untuk mengarahkan perhatian Anda ke tugas yang lebih penting!",
+    "continueAnyway": "Lanjutkan Saja",
+    "dailyStats": "Hari ini Situs ini dengan total penggunaan <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 menit",
+      "30min": "+30 menit",
+      "1hour": "+1 jam",
+      "2hours": "+2 jam"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dasbor",
+      "siteManagement": "Manajemen Situs",
+      "activeLimits": "Batas Aktif"
+    },
+    "stats": {
+      "restrictedSites": "Situs Terbatas",
+      "blocked": "Situs Terblokir",
+      "notBlocked": "Situs Diizinkan",
+      "mostVisited": "Situs yang Paling Banyak Dikunjungi"
+    },
+    "sites": {
+      "addNew": "Tambah Situs Baru",
+      "editSite": "Edit Situs",
+      "siteUrl": "URL Situs (mis. facebook.com)",
+      "timeTemplates": "Template Waktu",
+      "customTime": "Waktu Kustom",
+      "add": "Tambah",
+      "restrictedSites": "Situs Terbatas",
+      "remaining": "Waktu tersisa"
+    },
+    "activeLimits": {
+      "title": "Situs yang Sedang Dibatasi"
+    },
+    "general": {
+      "title": "Pengaturan Umum",
+      "resetData": "Reset Semua Data",
+      "resetDataConfirm": "Semua data tersimpan akan dihapus. Tindakan ini tidak dapat dibatalkan. Apakah Anda ingin melanjutkan?",
+      "github": "Repo GitHub",
+      "virusTotal": "Hasil VirusTotal",
+      "reportIssue": "Laporkan Masalah",
+      "privacy": "Kebijakan Privasi",
+      "documentation": "Dokumentasi"
+    }
+  },
+  "thanks": {
+    "welcome": "Selamat Datang di SaveYourTime!",
+    "thankYou": "Terima kasih telah menginstal",
+    "features": {
+      "timeLimit": {
+        "title": "Pembatasan Waktu",
+        "description": "Tetapkan batas waktu harian untuk media sosial dan situs yang mengganggu lainnya. Anda akan diingatkan dengan lembut ketika batas Anda tercapai."
+      },
+      "statistics": {
+        "title": "Statistik Penggunaan",
+        "description": "Lacak berapa banyak waktu yang Anda habiskan di situs yang berbeda dengan grafik visual dan kelola waktu Anda dengan lebih baik."
+      },
+      "blocking": {
+        "title": "Pemblokiran Cerdas",
+        "description": "Pilih antara pemblokiran lengkap atau pengingat lembut ketika batas waktu terlampaui. Anda dapat menambahkan waktu tambahan jika diperlukan."
+      }
+    },
+    "howItWorks": {
+      "title": "Bagaimana SaveYourTime Bekerja?",
+      "steps": [
+        {
+          "title": "Tambahkan Situs",
+          "description": "Tambahkan situs web yang ingin Anda batasi waktunya dan tetapkan batas waktu harian untuk masing-masing."
+        },
+        {
+          "title": "Pelacakan Penggunaan",
+          "description": "Ekstensi ini bekerja diam-diam di latar belakang, memantau waktu yang Anda habiskan di situs yang ditentukan."
+        },
+        {
+          "title": "Notifikasi Batas",
+          "description": "Ketika waktu yang Anda tetapkan habis, Anda akan melihat pengingat lembut sebelum melanjutkan."
+        },
+        {
+          "title": "Kontrol Fleksibel",
+          "description": "Anda dapat memperpanjang waktu atau menghapus semua batas jika diperlukan. Anda selalu memiliki kendali."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privasi dan Keamanan Data",
+      "description": "SaveYourTime <strong>menyimpan semua data Anda hanya secara lokal di browser Anda</strong> dan tidak mengirim informasi apa pun ke server eksternal. Data penggunaan situs dan pengaturan Anda disimpan dengan aman di area \"penyimpanan lokal\" browser Anda.",
+      "details": "Ekstensi kami memerlukan izin minimal dan hanya mengakses situs yang Anda tentukan. Privasi dan keamanan data Anda adalah prioritas utama kami.",
+      "openSource": "Semua kode sumber bersifat terbuka dan dapat ditinjau serta dimodifikasi dari halaman GitHub kami.",
+      "learnMore": "Untuk mempelajari lebih lanjut tentang kebijakan privasi kami,",
+      "learnMoreLink": "klik di sini"
+    },
+    "actions": {
+      "configure": "Konfigurasi Pengaturan",
+      "viewSource": "Lihat Sumber di GitHub",
+      "virusTotal": "Hasil VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Kebijakan Privasi SaveYourTime",
+    "subtitle": "Informasi tentang bagaimana kami melindungi privasi data Anda",
+    "commitment": {
+      "title": "Komitmen Privasi",
+      "description": "Di SaveYourTime, kami menghargai privasi dan keamanan data Anda. Ekstensi ini [hl]tidak mengirimkan data apapun ke server eksternal[/hl], dan semua informasi Anda disimpan hanya di browser Anda sendiri."
+    },
+    "collected": {
+      "title": "Informasi yang Dikumpulkan",
+      "intro": "SaveYourTime hanya mengumpulkan dan mencatat informasi berikut:",
+      "timeSpent": "Waktu yang Anda habiskan di situs web yang telah Anda tentukan",
+      "dailyLimits": "Batas waktu harian yang telah Anda tetapkan",
+      "settings": "Pengaturan dan preferensi ekstensi Anda",
+      "storage": "Informasi ini [hl]disimpan hanya di browser lokal Anda[/hl] dan diperlukan agar ekstensi berfungsi dengan baik."
+    },
+    "storage": {
+      "title": "Penyimpanan dan Transmisi Data",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Tidak mengirimkan data pengguna ke server eksternal[/hl]",
+      "localStorage": "Menyimpan semua data di area penyimpanan lokal browser Anda",
+      "offline": "Dapat bekerja bahkan ketika Anda tidak memiliki koneksi internet",
+      "noCookies": "Tidak menggunakan cookie",
+      "noTracking": "Tidak melacak identitas pengguna atau informasi sesi apapun"
+    },
+    "security": {
+      "title": "Keamanan Data",
+      "intro": "Karena data Anda hanya disimpan di browser Anda:",
+      "browserClear": "Data tersebut mungkin dihapus jika Anda menghapus riwayat atau cache browser",
+      "uninstall": "Anda dapat menghapus semua data yang terekam dari browser Anda ketika Anda mencopot ekstensi",
+      "access": "Hanya browser Anda yang dapat mengakses data Anda"
+    },
+    "permissions": {
+      "title": "Izin",
+      "intro": "SaveYourTime memerlukan izin browser berikut untuk berfungsi:",
+      "activeTab": "Akses tab aktif (untuk memantau waktu yang dihabiskan di situs yang Anda tentukan)",
+      "storage": "Akses penyimpanan lokal (untuk menyimpan pengaturan dan informasi waktu Anda)",
+      "minimal": "Izin ini adalah minimum yang diperlukan untuk fungsi inti ekstensi."
+    },
+    "openSource": {
+      "title": "Kode Sumber Terbuka",
+      "description": "SaveYourTime adalah proyek open source sepenuhnya. Basis kode kami tersedia untuk ditinjau oleh siapa saja di GitHub.",
+      "transparency": "Transparansi ini menunjukkan komitmen kami terhadap privasi. Siapa pun yang ingin meninjau kode dapat memverifikasi bahwa ekstensi ini benar-benar tidak mengirimkan data apa pun."
+    },
+    "rights": {
+      "title": "Hak Pengguna",
+      "intro": "Sebagai pengguna SaveYourTime, Anda dapat:",
+      "remove": "Menghapus ekstensi dari pengaturan browser Anda kapan saja",
+      "delete": "Menghapus semua data yang direkam dari pengaturan ekstensi",
+      "modify": "Memodifikasi data apa pun yang Anda inginkan dari pengaturan ekstensi"
+    },
+    "questions": {
+      "title": "Pertanyaan",
+      "contact": "Jika Anda memiliki pertanyaan tentang kebijakan privasi kami, silakan hubungi kami melalui proyek GitHub kami."
+    },
+    "actions": {
+      "home": "Beranda"
+    }
+  }
+}

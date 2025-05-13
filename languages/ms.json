@@ -1,0 +1,197 @@
+{
+  "lang": "ms",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Sambungan pengurusan masa yang membantu anda menggunakan masa digital anda dengan lebih cekap"
+  },
+  "common": {
+    "settings": "Tetapan",
+    "dashboard": "Papan Pemuka",
+    "active": "Aktif",
+    "save": "Simpan",
+    "cancel": "Batal",
+    "delete": "Padam",
+    "edit": "Edit",
+    "close": "Tutup",
+    "time": {
+      "hour": "jam",
+      "hours": "jam",
+      "minute": "minit",
+      "minutes": "minit",
+      "left": "baki",
+      "hourShort": "j",
+      "hoursShort": "j",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Had Harian",
+    "timeLeft": "Masa Berbaki",
+    "timeEnd": "Masa tamat",
+    "noLimits": "Tiada Had Ditetapkan",
+    "otherSites": "Laman Web Terhad Lain",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1j"
+    }
+  },
+  "warn": {
+    "title": "Anda Kehabisan Masa!",
+    "message": "Anda telah mencapai had masa harian untuk laman web ini. Peluang yang baik untuk mengalihkan perhatian anda kepada tugas yang lebih penting!",
+    "continueAnyway": "Teruskan Juga",
+    "dailyStats": "Hari Ini Laman web ini dengan penggunaan keseluruhan <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minit",
+      "30min": "+30 minit",
+      "1hour": "+1 jam",
+      "2hours": "+2 jam"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Papan Pemuka",
+      "siteManagement": "Pengurusan Laman",
+      "activeLimits": "Had Aktif"
+    },
+    "stats": {
+      "restrictedSites": "Laman Terhad",
+      "blocked": "Laman Disekat",
+      "notBlocked": "Laman Dibenarkan",
+      "mostVisited": "Laman Yang Anda Habiskan Paling Banyak Masa"
+    },
+    "sites": {
+      "addNew": "Tambah Laman Baru",
+      "editSite": "Edit Laman",
+      "siteUrl": "URL Laman (contoh: facebook.com)",
+      "timeTemplates": "Templat Masa",
+      "customTime": "Masa Tersuai",
+      "add": "Tambah",
+      "restrictedSites": "Laman Terhad",
+      "remaining": "Masa berbaki"
+    },
+    "activeLimits": {
+      "title": "Laman yang Dihadkan Semasa"
+    },
+    "general": {
+      "title": "Tetapan Umum",
+      "resetData": "Set Semula Semua Data",
+      "resetDataConfirm": "Semua data tersimpan akan dipadam. Tindakan ini tidak dapat diurungkan. Adakah anda ingin meneruskan?",
+      "github": "Repo GitHub",
+      "virusTotal": "Keputusan VirusTotal",
+      "reportIssue": "Laporkan Masalah",
+      "privacy": "Dasar Privasi",
+      "documentation": "Dokumentasi"
+    }
+  },
+  "thanks": {
+    "welcome": "Selamat Datang ke SaveYourTime!",
+    "thankYou": "Terima kasih kerana memasang",
+    "features": {
+      "timeLimit": {
+        "title": "Had Masa",
+        "description": "Tetapkan had masa harian untuk media sosial dan laman web yang mengganggu. Anda akan diingatkan dengan lembut apabila had anda tercapai."
+      },
+      "statistics": {
+        "title": "Statistik Penggunaan",
+        "description": "Jejaki berapa banyak masa yang anda habiskan di laman web berbeza dengan graf visual dan urus masa anda dengan lebih baik."
+      },
+      "blocking": {
+        "title": "Sekatan Pintar",
+        "description": "Pilih antara sekatan lengkap atau peringatan lembut apabila had masa terlampaui. Anda boleh menambah masa tambahan bila-bila masa diperlukan."
+      }
+    },
+    "howItWorks": {
+      "title": "Bagaimana SaveYourTime Berfungsi?",
+      "steps": [
+        {
+          "title": "Tambah Laman",
+          "description": "Tambahkan laman web yang anda ingin hadkan masa dan tetapkan had masa harian untuk setiap satu."
+        },
+        {
+          "title": "Penjejakan Penggunaan",
+          "description": "Sambungan berfungsi secara senyap di latar belakang, memantau masa yang anda habiskan di laman yang ditentukan."
+        },
+        {
+          "title": "Pemberitahuan Had",
+          "description": "Apabila masa yang ditetapkan habis, anda akan melihat peringatan lembut sebelum meneruskan."
+        },
+        {
+          "title": "Kawalan Fleksibel",
+          "description": "Anda boleh melanjutkan masa atau mengeluarkan semua had apabila diperlukan. Anda sentiasa mengawal."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privasi dan Keselamatan Data",
+      "description": "SaveYourTime <strong>menyimpan semua data anda hanya secara tempatan dalam pelayar anda</strong> dan tidak menghantar sebarang maklumat ke pelayan luar. Data penggunaan laman web dan tetapan anda disimpan dengan selamat di kawasan \"storan tempatan\" pelayar anda.",
+      "details": "Sambungan kami memerlukan kebenaran minimum dan hanya mengakses laman yang anda tentukan. Privasi dan keselamatan data anda adalah keutamaan kami.",
+      "openSource": "Semua kod sumber adalah terbuka dan boleh disemak dan diubah suai dari halaman GitHub kami.",
+      "learnMore": "Untuk mengetahui lebih lanjut tentang dasar privasi kami",
+      "learnMoreLink": "klik di sini"
+    },
+    "actions": {
+      "configure": "Konfigurasikan Tetapan",
+      "viewSource": "Lihat Sumber di GitHub",
+      "virusTotal": "Keputusan VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Dasar Privasi SaveYourTime",
+    "subtitle": "Maklumat tentang bagaimana kami melindungi privasi data anda",
+    "commitment": {
+      "title": "Komitmen Privasi",
+      "description": "Di SaveYourTime, kami menghargai privasi dan keselamatan data anda. Sambungan ini [hl]tidak menghantar sebarang data ke pelayan luar[/hl], dan semua maklumat anda disimpan hanya dalam pelayar anda sendiri."
+    },
+    "collected": {
+      "title": "Maklumat yang Dikumpul",
+      "intro": "SaveYourTime mengumpul dan merekodkan hanya maklumat berikut:",
+      "timeSpent": "Masa yang anda habiskan di laman web yang anda tentukan",
+      "dailyLimits": "Had masa harian yang anda tetapkan",
+      "settings": "Tetapan sambungan dan keutamaan anda",
+      "storage": "Maklumat ini [hl]disimpan hanya dalam pelayar tempatan anda[/hl] dan diperlukan untuk sambungan berfungsi dengan betul."
+    },
+    "storage": {
+      "title": "Penyimpanan dan Penghantaran Data",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Tidak menghantar sebarang data pengguna ke pelayan luar[/hl]",
+      "localStorage": "Menyimpan semua data di kawasan storan tempatan pelayar anda",
+      "offline": "Boleh berfungsi walaupun anda tidak mempunyai sambungan internet",
+      "noCookies": "Tidak menggunakan kuki",
+      "noTracking": "Tidak menjejaki sebarang identiti pengguna atau maklumat sesi"
+    },
+    "security": {
+      "title": "Keselamatan Data",
+      "intro": "Kerana data anda disimpan hanya dalam pelayar anda:",
+      "browserClear": "Ia mungkin dipadam jika anda mengosongkan sejarah atau cache pelayar anda",
+      "uninstall": "Anda boleh mengosongkan semua data yang direkodkan dari pelayar anda apabila anda menyahpasang sambungan",
+      "access": "Hanya pelayar anda boleh mengakses data anda"
+    },
+    "permissions": {
+      "title": "Kebenaran",
+      "intro": "SaveYourTime memerlukan kebenaran pelayar berikut untuk berfungsi:",
+      "activeTab": "Akses tab aktif (untuk memantau masa yang dihabiskan di laman yang anda tentukan)",
+      "storage": "Akses storan tempatan (untuk menyimpan tetapan anda dan maklumat masa)",
+      "minimal": "Kebenaran ini adalah minimum yang diperlukan untuk fungsi teras sambungan."
+    },
+    "openSource": {
+      "title": "Kod Sumber Terbuka",
+      "description": "SaveYourTime adalah projek sumber terbuka sepenuhnya. Kod kami tersedia untuk sesiapa sahaja untuk disemak di GitHub.",
+      "transparency": "Ketelusan ini menunjukkan komitmen kami terhadap privasi. Sesiapa yang ingin menyemak kod boleh mengesahkan bahawa sambungan ini benar-benar tidak menghantar sebarang data."
+    },
+    "rights": {
+      "title": "Hak Pengguna",
+      "intro": "Sebagai pengguna SaveYourTime, anda boleh:",
+      "remove": "Keluarkan sambungan dari tetapan pelayar anda pada bila-bila masa",
+      "delete": "Padamkan semua data yang direkodkan dari tetapan sambungan",
+      "modify": "Ubah sebarang data yang anda mahu dari tetapan sambungan"
+    },
+    "questions": {
+      "title": "Soalan",
+      "contact": "Jika anda mempunyai sebarang soalan tentang dasar privasi kami, sila hubungi kami melalui projek GitHub kami."
+    },
+    "actions": {
+      "home": "Laman Utama"
+    }
+  }
+}

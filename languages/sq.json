@@ -1,0 +1,197 @@
+{
+  "lang": "sq",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Një zgjerim për menaxhimin e kohës që ju ndihmon të përdorni kohën tuaj digjitale më me efikasitet"
+  },
+  "common": {
+    "settings": "Cilësimet",
+    "dashboard": "Paneli",
+    "active": "Aktiv",
+    "save": "Ruaj",
+    "cancel": "Anulo",
+    "delete": "Fshi",
+    "edit": "Ndrysho",
+    "close": "Mbyll",
+    "time": {
+      "hour": "orë",
+      "hours": "orë",
+      "minute": "minutë",
+      "minutes": "minuta",
+      "left": "mbetur",
+      "hourShort": "o",
+      "hoursShort": "o",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Kufiri Ditor",
+    "timeLeft": "Koha e Mbetur",
+    "timeEnd": "Koha mbaroi",
+    "noLimits": "Nuk ka Kufizime",
+    "otherSites": "Faqet e tjera të Kufizuara",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1o"
+    }
+  },
+  "warn": {
+    "title": "Ju ka mbaruar Koha!",
+    "message": "Keni arritur kufirin tuaj ditor të kohës për këtë faqe. Një mundësi e shkëlqyer për të drejtuar vëmendjen tuaj në detyra më të rëndësishme!",
+    "continueAnyway": "Vazhdo Gjithsesi",
+    "dailyStats": "Sot Kjo faqe me përdorim total prej <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minuta",
+      "30min": "+30 minuta",
+      "1hour": "+1 orë",
+      "2hours": "+2 orë"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Paneli",
+      "siteManagement": "Menaxhimi i Faqeve",
+      "activeLimits": "Kufizimet Aktive"
+    },
+    "stats": {
+      "restrictedSites": "Faqet e Kufizuara",
+      "blocked": "Faqet e Bllokuara",
+      "notBlocked": "Faqet e Lejuara",
+      "mostVisited": "Faqet ku Kaloni më Shumë Kohë"
+    },
+    "sites": {
+      "addNew": "Shto Faqe të Re",
+      "editSite": "Ndrysho Faqen",
+      "siteUrl": "URL e faqes (p.sh. facebook.com)",
+      "timeTemplates": "Shabllone Kohe",
+      "customTime": "Kohë Personalizuar",
+      "add": "Shto",
+      "restrictedSites": "Faqet e Kufizuara",
+      "remaining": "Koha e mbetur"
+    },
+    "activeLimits": {
+      "title": "Faqet Aktualisht të Kufizuara"
+    },
+    "general": {
+      "title": "Cilësimet e Përgjithshme",
+      "resetData": "Rivendos të Gjitha të Dhënat",
+      "resetDataConfirm": "Të gjitha të dhënat e ruajtura do të fshihen. Ky veprim nuk mund të kthehet. Dëshironi të vazhdoni?",
+      "github": "Depozita GitHub",
+      "virusTotal": "Rezultatet e VirusTotal",
+      "reportIssue": "Raporto Problem",
+      "privacy": "Politika e Privatësisë",
+      "documentation": "Dokumentacioni"
+    }
+  },
+  "thanks": {
+    "welcome": "Mirë se vini në SaveYourTime!",
+    "thankYou": "Faleminderit për instalimin",
+    "features": {
+      "timeLimit": {
+        "title": "Kufizimi i Kohës",
+        "description": "Vendosni kufizime ditore të kohës për mediat sociale dhe faqet e tjera shpërqendruese. Do të merrni një kujtesë të butë kur arrihet kufiri juaj."
+      },
+      "statistics": {
+        "title": "Statistika Përdorimi",
+        "description": "Gjurmoni sa kohë kaloni në faqe të ndryshme me grafikë vizualë dhe menaxhoni kohën tuaj më mirë."
+      },
+      "blocking": {
+        "title": "Bllokimi Inteligjent",
+        "description": "Zgjidhni ndërmjet bllokimit të plotë ose kujtesave të buta kur tejkalohen kufijtë e kohës. Mund të shtoni kohë shtesë sa herë që keni nevojë."
+      }
+    },
+    "howItWorks": {
+      "title": "Si Funksionon SaveYourTime?",
+      "steps": [
+        {
+          "title": "Shtoni Faqet",
+          "description": "Shtoni faqet në të cilat dëshironi të kufizoni kohën dhe caktoni një kufi ditor kohor për secilën."
+        },
+        {
+          "title": "Gjurmimi i Përdorimit",
+          "description": "Zgjerimi punon qetësisht në sfond, duke monitoruar kohën që kaloni në faqet e specifikuara."
+        },
+        {
+          "title": "Njoftimi i Kufirit",
+          "description": "Kur koha juaj e caktuar mbaron, do të shihni një kujtesë të butë përpara se të vazhdoni."
+        },
+        {
+          "title": "Kontroll Fleksibël",
+          "description": "Mund të zgjatni kohën ose të hiqni të gjitha kufizimet kur është e nevojshme. Ju jeni gjithmonë në kontroll."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privatësia dhe Siguria e të Dhënave",
+      "description": "SaveYourTime <strong>ruan të gjitha të dhënat tuaja vetëm lokalisht në shfletuesin tuaj</strong> dhe nuk dërgon asnjë informacion në serverë të jashtëm. Të dhënat e përdorimit të faqes dhe cilësimet tuaja ruhen në mënyrë të sigurt në zonën e \"ruajtjes lokale\" të shfletuesit tuaj.",
+      "details": "Zgjerimi ynë kërkon leje minimale dhe akseson vetëm faqet që ju specifikoni. Privatësia dhe siguria e të dhënave tuaja janë prioritetet tona kryesore.",
+      "openSource": "I gjithë kodi burimor është i hapur dhe mund të rishikohet dhe modifikohet nga faqja jonë e GitHub.",
+      "learnMore": "Për të mësuar më shumë rreth politikës sonë të privatësisë",
+      "learnMoreLink": "klikoni këtu"
+    },
+    "actions": {
+      "configure": "Konfiguro Cilësimet",
+      "viewSource": "Shiko Burimin në GitHub",
+      "virusTotal": "Rezultatet e VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Politika e Privatësisë së SaveYourTime",
+    "subtitle": "Informacion mbi mënyrën se si mbrojmë privatësinë e të dhënave tuaja",
+    "commitment": {
+      "title": "Angazhimi për Privatësi",
+      "description": "Në SaveYourTime, ne vlerësojmë privatësinë dhe sigurinë e të dhënave tuaja. Ky zgjerim [hl]nuk dërgon asnjë të dhënë në serverë të jashtëm[/hl], dhe të gjitha informacionet tuaja ruhen vetëm në shfletuesin tuaj."
+    },
+    "collected": {
+      "title": "Informacioni i Mbledhur",
+      "intro": "SaveYourTime mbledh dhe regjistron vetëm informacionet e mëposhtme:",
+      "timeSpent": "Koha që kaloni në faqet e internetit që keni specifikuar",
+      "dailyLimits": "Kufizimet ditore të kohës që keni vendosur",
+      "settings": "Cilësimet dhe preferencat tuaja të zgjerimit",
+      "storage": "Ky informacion [hl]ruhet vetëm në shfletuesin tuaj lokal[/hl] dhe është i nevojshëm që zgjerimi të funksionojë siç duhet."
+    },
+    "storage": {
+      "title": "Ruajtja dhe Transmetimi i të Dhënave",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Nuk dërgon asnjë të dhënë përdoruesi në serverë të jashtëm[/hl]",
+      "localStorage": "Ruan të gjitha të dhënat në zonën e ruajtjes lokale të shfletuesit tuaj",
+      "offline": "Mund të punojë edhe kur nuk keni lidhje interneti",
+      "noCookies": "Nuk përdor cookies",
+      "noTracking": "Nuk gjurmon asnjë identitet përdoruesi ose informacion sesioni"
+    },
+    "security": {
+      "title": "Siguria e të Dhënave",
+      "intro": "Duke qenë se të dhënat tuaja ruhen vetëm në shfletuesin tuaj:",
+      "browserClear": "Ato mund të fshihen nëse pastroni historinë ose cache e shfletuesit tuaj",
+      "uninstall": "Mund të pastroni të gjitha të dhënat e regjistruara nga shfletuesi juaj kur çinstaloni zgjerimin",
+      "access": "Vetëm shfletuesi juaj mund të ketë akses në të dhënat tuaja"
+    },
+    "permissions": {
+      "title": "Lejet",
+      "intro": "SaveYourTime kërkon lejet e mëposhtme të shfletuesit për të funksionuar:",
+      "activeTab": "Akses në skedën aktive (për të monitoruar kohën e kaluar në faqet që keni specifikuar)",
+      "storage": "Akses në ruajtjen lokale (për të ruajtur cilësimet dhe informacionin e kohës)",
+      "minimal": "Këto leje janë minimumi i kërkuar për funksionalitetin bazë të zgjerimit."
+    },
+    "openSource": {
+      "title": "Kodi Burimor i Hapur",
+      "description": "SaveYourTime është një projekt plotësisht me burim të hapur. Kodi ynë është i disponueshëm për këdo ta rishikojë në GitHub.",
+      "transparency": "Kjo transparencë tregon angazhimin tonë ndaj privatësisë. Kushdo që dëshiron të rishikojë kodin mund të verifikojë se zgjerimi vërtet nuk dërgon asnjë të dhënë."
+    },
+    "rights": {
+      "title": "Të Drejtat e Përdoruesit",
+      "intro": "Si përdorues i SaveYourTime, ju mund:",
+      "remove": "Të hiqni zgjerimin nga cilësimet e shfletuesit tuaj në çdo kohë",
+      "delete": "Të fshini të gjitha të dhënat e regjistruara nga cilësimet e zgjerimit",
+      "modify": "Të modifikoni çdo të dhënë që dëshironi nga cilësimet e zgjerimit"
+    },
+    "questions": {
+      "title": "Pyetje",
+      "contact": "Nëse keni ndonjë pyetje rreth politikës sonë të privatësisë, ju lutemi na kontaktoni përmes projektit tonë në GitHub."
+    },
+    "actions": {
+      "home": "Kryefaqja"
+    }
+  }
+}

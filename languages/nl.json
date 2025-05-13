@@ -1,0 +1,197 @@
+{
+  "lang": "nl",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Een tijdsbeheerextensie die je helpt om je digitale tijd efficiënter te gebruiken"
+  },
+  "common": {
+    "settings": "Instellingen",
+    "dashboard": "Dashboard",
+    "active": "Actief",
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "edit": "Bewerken",
+    "close": "Sluiten",
+    "time": {
+      "hour": "uur",
+      "hours": "uren",
+      "minute": "minuut",
+      "minutes": "minuten",
+      "left": "resterend",
+      "hourShort": "u",
+      "hoursShort": "u",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Dagelijkse Limiet",
+    "timeLeft": "Resterende Tijd",
+    "timeEnd": "Tijd Verstreken",
+    "noLimits": "Geen Limieten Ingesteld",
+    "otherSites": "Andere Beperkte Sites",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1u"
+    }
+  },
+  "warn": {
+    "title": "Je tijd is op!",
+    "message": "Je hebt je dagelijkse tijdslimiet voor deze site bereikt. Een mooie kans om je aandacht te verleggen naar belangrijkere taken!",
+    "continueAnyway": "Toch doorgaan",
+    "dailyStats": "Vandaag deze site met een totaal gebruik van <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minuten",
+      "30min": "+30 minuten",
+      "1hour": "+1 uur",
+      "2hours": "+2 uren"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashboard",
+      "siteManagement": "Sitebeheer",
+      "activeLimits": "Actieve Limieten"
+    },
+    "stats": {
+      "restrictedSites": "Beperkte Sites",
+      "blocked": "Geblokkeerde Sites",
+      "notBlocked": "Toegestane Sites",
+      "mostVisited": "Sites Waar Je De Meeste Tijd Doorbrengt"
+    },
+    "sites": {
+      "addNew": "Nieuwe Site Toevoegen",
+      "editSite": "Site Bewerken",
+      "siteUrl": "Site URL (bijv. facebook.com)",
+      "timeTemplates": "Tijdsjablonen",
+      "customTime": "Aangepaste Tijd",
+      "add": "Toevoegen",
+      "restrictedSites": "Beperkte Sites",
+      "remaining": "Resterende tijd"
+    },
+    "activeLimits": {
+      "title": "Momenteel Beperkte Sites"
+    },
+    "general": {
+      "title": "Algemene Instellingen",
+      "resetData": "Alle Gegevens Resetten",
+      "resetDataConfirm": "Alle opgeslagen gegevens zullen worden verwijderd. Deze actie kan niet ongedaan worden gemaakt. Wil je doorgaan?",
+      "github": "GitHub Repository",
+      "virusTotal": "VirusTotal Resultaten",
+      "reportIssue": "Probleem Melden",
+      "privacy": "Privacybeleid",
+      "documentation": "Documentatie"
+    }
+  },
+  "thanks": {
+    "welcome": "Welkom bij SaveYourTime!",
+    "thankYou": "Bedankt voor het installeren",
+    "features": {
+      "timeLimit": {
+        "title": "Tijdslimieten",
+        "description": "Stel dagelijkse tijdslimieten in voor sociale media en andere afleidende websites. Je krijgt een vriendelijke herinnering wanneer je je limiet bereikt."
+      },
+      "statistics": {
+        "title": "Gebruiksstatistieken",
+        "description": "Houd de tijd bij die je op verschillende websites doorbrengt met visuele grafieken en beheer je tijd beter."
+      },
+      "blocking": {
+        "title": "Slimme Blokkering",
+        "description": "Kies tussen volledige blokkering of vriendelijke herinneringen wanneer tijdslimieten worden overschreden. Je kunt extra tijd toevoegen wanneer nodig."
+      }
+    },
+    "howItWorks": {
+      "title": "Hoe werkt SaveYourTime?",
+      "steps": [
+        {
+          "title": "Websites Toevoegen",
+          "description": "Voeg de websites toe waarop je de tijd wilt beperken en stel voor elk een dagelijkse limiet in."
+        },
+        {
+          "title": "Gebruiksmonitoring",
+          "description": "De extensie werkt stilletjes op de achtergrond en houdt de tijd bij die je op de gespecificeerde sites doorbrengt."
+        },
+        {
+          "title": "Limietmelding",
+          "description": "Wanneer je ingestelde tijd op is, krijg je een vriendelijke herinnering voordat je verder gaat."
+        },
+        {
+          "title": "Flexibele Controle",
+          "description": "Je kunt de tijd verlengen of alle limieten verwijderen wanneer je dat nodig hebt. Jij houdt altijd de controle."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Gegevensprivacy en -beveiliging",
+      "description": "SaveYourTime <strong>slaat al je gegevens alleen lokaal op in je browser</strong> en verzendt geen informatie naar externe servers. Je websitegebruiksgegevens en instellingen worden veilig opgeslagen in het 'lokale opslag'-gebied van je browser.",
+      "details": "Onze extensie vereist minimale machtigingen en heeft alleen toegang tot de websites die jij opgeeft. Jouw privacy en gegevensbeveiliging zijn onze belangrijkste prioriteiten.",
+      "openSource": "Alle broncode is open source en kan worden beoordeeld en gewijzigd vanaf onze GitHub-pagina.",
+      "learnMore": "Voor meer informatie over ons privacybeleid",
+      "learnMoreLink": "klik hier"
+    },
+    "actions": {
+      "configure": "Instellingen Configureren",
+      "viewSource": "Bekijk Code op GitHub",
+      "virusTotal": "VirusTotal Resultaten"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Privacybeleid",
+    "subtitle": "Informatie over hoe we de privacy van je gegevens beschermen",
+    "commitment": {
+      "title": "Privacytoezegging",
+      "description": "Bij SaveYourTime waarderen we je privacy en gegevensbeveiliging. Deze extensie [hl]verzendt geen gegevens naar externe servers[/hl], en al je informatie wordt alleen opgeslagen in je eigen browser."
+    },
+    "collected": {
+      "title": "Verzamelde Informatie",
+      "intro": "SaveYourTime verzamelt en registreert alleen de volgende informatie:",
+      "timeSpent": "De tijd die je doorbrengt op de websites die je hebt opgegeven",
+      "dailyLimits": "De dagelijkse tijdslimieten die je hebt ingesteld",
+      "settings": "Je extensie-instellingen en voorkeuren",
+      "storage": "Deze informatie wordt [hl]alleen opgeslagen in je lokale browser[/hl] en is nodig voor de juiste werking van de extensie."
+    },
+    "storage": {
+      "title": "Gegevensopslag en -overdracht",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Verzendt geen gebruikersgegevens naar externe servers[/hl]",
+      "localStorage": "Slaat alle gegevens op in het lokale opslaggebied van je browser",
+      "offline": "Kan zelfs werken wanneer je geen internetverbinding hebt",
+      "noCookies": "Gebruikt geen cookies",
+      "noTracking": "Houdt geen identiteits- of sessie-informatie van gebruikers bij"
+    },
+    "security": {
+      "title": "Gegevensbeveiliging",
+      "intro": "Omdat je gegevens alleen in je browser worden opgeslagen:",
+      "browserClear": "Kunnen ze worden verwijderd als je je browsergeschiedenis of cache wist",
+      "uninstall": "Kun je alle geregistreerde gegevens uit je browser verwijderen wanneer je de extensie verwijdert",
+      "access": "Kan alleen je browser toegang krijgen tot je gegevens"
+    },
+    "permissions": {
+      "title": "Machtigingen",
+      "intro": "SaveYourTime heeft de volgende browsermachtigingen nodig om te werken:",
+      "activeTab": "Toegang tot het actieve tabblad (om de tijd bij te houden die je doorbrengt op de sites die je hebt opgegeven)",
+      "storage": "Toegang tot lokale opslag (om je instellingen en tijdsinformatie op te slaan)",
+      "minimal": "Deze machtigingen zijn het minimum dat vereist is voor de basisfunctionaliteit van de extensie."
+    },
+    "openSource": {
+      "title": "Open Source",
+      "description": "SaveYourTime is een volledig open source project. Onze code is beschikbaar voor iedereen om te bekijken op GitHub.",
+      "transparency": "Deze transparantie toont onze toewijding aan privacy. Iedereen die de code wil bekijken, kan verifiëren dat de extensie inderdaad geen gegevens verzendt."
+    },
+    "rights": {
+      "title": "Gebruikersrechten",
+      "intro": "Als gebruiker van SaveYourTime kun je:",
+      "remove": "De extensie op elk moment verwijderen uit je browserinstellingen",
+      "delete": "Alle geregistreerde gegevens verwijderen via de extensie-instellingen",
+      "modify": "Alle gegevens die je wilt wijzigen via de extensie-instellingen"
+    },
+    "questions": {
+      "title": "Vragen",
+      "contact": "Als je vragen hebt over ons privacybeleid, neem dan contact met ons op via ons GitHub-project."
+    },
+    "actions": {
+      "home": "Startpagina"
+    }
+  }
+}

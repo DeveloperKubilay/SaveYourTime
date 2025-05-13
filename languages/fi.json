@@ -1,0 +1,197 @@
+{
+  "lang": "fi",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Ajanhallintalisäosa, joka auttaa sinua käyttämään digitaalista aikaasi tehokkaammin"
+  },
+  "common": {
+    "settings": "Asetukset",
+    "dashboard": "Kojelauta",
+    "active": "Aktiivinen",
+    "save": "Tallenna",
+    "cancel": "Peruuta",
+    "delete": "Poista",
+    "edit": "Muokkaa",
+    "close": "Sulje",
+    "time": {
+      "hour": "tunti",
+      "hours": "tuntia",
+      "minute": "minuutti",
+      "minutes": "minuuttia",
+      "left": "jäljellä",
+      "hourShort": "t",
+      "hoursShort": "t",
+      "minutesShort": "min"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Päivittäinen raja",
+    "timeLeft": "Aikaa jäljellä",
+    "timeEnd": "Aika loppui",
+    "noLimits": "Ei rajoituksia",
+    "otherSites": "Muut rajoitetut sivustot",
+    "timeButtons": {
+      "15min": "+15min",
+      "30min": "+30min",
+      "1hour": "+1t"
+    }
+  },
+  "warn": {
+    "title": "Aika on loppunut!",
+    "message": "Olet saavuttanut päivittäisen aikarajasi tälle sivustolle. Tämä on loistava tilaisuus kohdistaa huomiosi tärkeämpiin tehtäviin!",
+    "continueAnyway": "Jatka silti",
+    "dailyStats": "Tänään tällä sivustolla yhteensä käytetty aika <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minuuttia",
+      "30min": "+30 minuuttia",
+      "1hour": "+1 tunti",
+      "2hours": "+2 tuntia"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Kojelauta",
+      "siteManagement": "Sivustojen hallinta",
+      "activeLimits": "Aktiiviset rajat"
+    },
+    "stats": {
+      "restrictedSites": "Rajoitetut sivustot",
+      "blocked": "Estetyt sivustot",
+      "notBlocked": "Sallitut sivustot",
+      "mostVisited": "Sivustot, joihin käytät eniten aikaa"
+    },
+    "sites": {
+      "addNew": "Lisää uusi sivusto",
+      "editSite": "Muokkaa sivustoa",
+      "siteUrl": "Sivuston URL (esim. facebook.com)",
+      "timeTemplates": "Aikamallit",
+      "customTime": "Mukautettu aika",
+      "add": "Lisää",
+      "restrictedSites": "Rajoitetut sivustot",
+      "remaining": "Jäljellä oleva aika"
+    },
+    "activeLimits": {
+      "title": "Tällä hetkellä rajoitetut sivustot"
+    },
+    "general": {
+      "title": "Yleiset asetukset",
+      "resetData": "Nollaa kaikki data",
+      "resetDataConfirm": "Kaikki tallennetut tiedot poistetaan. Tätä toimintoa ei voi kumota. Haluatko jatkaa?",
+      "github": "GitHub-repo",
+      "virusTotal": "VirusTotal-tulokset",
+      "reportIssue": "Ilmoita ongelmasta",
+      "privacy": "Tietosuojakäytäntö",
+      "documentation": "Dokumentaatio"
+    }
+  },
+  "thanks": {
+    "welcome": "Tervetuloa SaveYourTimeen!",
+    "thankYou": "Kiitos asentamisesta",
+    "features": {
+      "timeLimit": {
+        "title": "Ajan rajoittaminen",
+        "description": "Aseta päivittäiset aikarajat sosiaalisen median ja muiden häiritsevien sivustojen käytölle. Saat lempeän muistutuksen, kun rajasi on saavutettu."
+      },
+      "statistics": {
+        "title": "Käyttötilastot",
+        "description": "Seuraa, kuinka paljon aikaa käytät eri sivustoilla visuaalisten kaavioiden avulla ja hallitse aikaasi paremmin."
+      },
+      "blocking": {
+        "title": "Älykäs estäminen",
+        "description": "Valitse täydellisen estämisen ja lempeän muistutuksen välillä, kun aikarajat ylittyvät. Voit lisätä ylimääräistä aikaa tarvittaessa."
+      }
+    },
+    "howItWorks": {
+      "title": "Miten SaveYourTime toimii?",
+      "steps": [
+        {
+          "title": "Lisää sivustoja",
+          "description": "Lisää verkkosivustot, joiden käyttöaikaa haluat rajoittaa, ja aseta päivittäinen aikaraja kullekin."
+        },
+        {
+          "title": "Käytön seuranta",
+          "description": "Lisäosa toimii hiljaisesti taustalla seuraten aikaasi määritetyillä sivustoilla."
+        },
+        {
+          "title": "Raja-ilmoitus",
+          "description": "Kun asettamasi aika loppuu, näet lempeän muistutuksen ennen jatkamista."
+        },
+        {
+          "title": "Joustava hallinta",
+          "description": "Voit pidentää aikaa tai poistaa kaikki rajoitukset tarvittaessa. Olet aina hallinnassa."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Yksityisyys ja tietoturva",
+      "description": "SaveYourTime <strong>tallentaa kaikki tietosi vain paikallisesti selaimeesi</strong> eikä lähetä mitään tietoja ulkoisille palvelimille. Sivustojen käyttötietosi ja asetuksesi tallennetaan turvallisesti selaimesi \"paikalliseen tallennustilaan\".",
+      "details": "Lisäosamme tarvitsee minimaaliset käyttöoikeudet ja käyttää vain määrittämiäsi sivustoja. Yksityisyytesi ja tietoturvasi ovat meille ensisijaisen tärkeitä.",
+      "openSource": "Kaikki lähdekoodi on avoin ja sitä voi tarkastella ja muokata GitHub-sivultamme.",
+      "learnMore": "Lisätietoja tietosuojakäytännöstämme",
+      "learnMoreLink": "klikkaa tästä"
+    },
+    "actions": {
+      "configure": "Määritä asetukset",
+      "viewSource": "Katso lähdekoodi GitHubissa",
+      "virusTotal": "VirusTotal-tulokset"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime-tietosuojakäytäntö",
+    "subtitle": "Tietoa siitä, miten suojaamme tietojesi yksityisyyttä",
+    "commitment": {
+      "title": "Sitoutuminen yksityisyyteen",
+      "description": "SaveYourTimessa arvostamme yksityisyyttäsi ja tietoturvaasi. Tämä lisäosa [hl]ei lähetä mitään tietoja ulkoisille palvelimille[/hl], ja kaikki tietosi tallennetaan vain omaan selaimeesi."
+    },
+    "collected": {
+      "title": "Kerätyt tiedot",
+      "intro": "SaveYourTime kerää ja tallentaa vain seuraavat tiedot:",
+      "timeSpent": "Määrittämilläsi verkkosivustoilla käyttämäsi aika",
+      "dailyLimits": "Asettamasi päivittäiset aikarajat",
+      "settings": "Lisäosasi asetukset ja mieltymykset",
+      "storage": "Nämä tiedot [hl]tallennetaan vain paikalliseen selaimeesi[/hl] ja ne ovat välttämättömiä lisäosan asianmukaisen toiminnan kannalta."
+    },
+    "storage": {
+      "title": "Tietojen tallentaminen ja siirto",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Ei lähetä mitään käyttäjätietoja ulkoisille palvelimille[/hl]",
+      "localStorage": "Tallentaa kaikki tiedot selaimesi paikalliseen tallennustilaan",
+      "offline": "Voi toimia myös ilman internet-yhteyttä",
+      "noCookies": "Ei käytä evästeitä",
+      "noTracking": "Ei seuraa mitään käyttäjätunnuksia tai istuntotietoja"
+    },
+    "security": {
+      "title": "Tietoturva",
+      "intro": "Koska tietosi tallennetaan vain selaimeesi:",
+      "browserClear": "Ne voidaan poistaa, jos tyhjennät selaimesi historian tai välimuistin",
+      "uninstall": "Voit tyhjentää kaikki tallennetut tiedot selaimestasi, kun poistat lisäosan",
+      "access": "Vain selaimesi voi käyttää tietojasi"
+    },
+    "permissions": {
+      "title": "Käyttöoikeudet",
+      "intro": "SaveYourTime tarvitsee seuraavat selaimen käyttöoikeudet toimiakseen:",
+      "activeTab": "Aktiivisen välilehden käyttö (seuratakseen määrittämilläsi sivustoilla käytettyä aikaa)",
+      "storage": "Paikallisen tallennustilan käyttö (tallentaakseen asetuksesi ja aikatietosi)",
+      "minimal": "Nämä käyttöoikeudet ovat vähimmäisvaatimus lisäosan ydintoiminnoille."
+    },
+    "openSource": {
+      "title": "Avoin lähdekoodi",
+      "description": "SaveYourTime on täysin avoimen lähdekoodin projekti. Lähdekoodimme on kenen tahansa tarkasteltavissa GitHubissa.",
+      "transparency": "Tämä läpinäkyvyys osoittaa sitoutumisemme yksityisyyteen. Kuka tahansa, joka haluaa tarkastella koodia, voi varmistaa, että lisäosa ei todellakaan lähetä mitään tietoja."
+    },
+    "rights": {
+      "title": "Käyttäjän oikeudet",
+      "intro": "SaveYourTimen käyttäjänä voit:",
+      "remove": "Poistaa lisäosan selaimesi asetuksista milloin tahansa",
+      "delete": "Poistaa kaikki tallennetut tiedot lisäosan asetuksista",
+      "modify": "Muokata mitä tahansa tietoja lisäosan asetuksista"
+    },
+    "questions": {
+      "title": "Kysymykset",
+      "contact": "Jos sinulla on kysyttävää tietosuojakäytännöstämme, ota yhteyttä GitHub-projektimme kautta."
+    },
+    "actions": {
+      "home": "Etusivu"
+    }
+  }
+}

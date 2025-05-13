@@ -1,0 +1,197 @@
+{
+  "lang": "es",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Una extensión de gestión de tiempo que te ayuda a utilizar tu tiempo digital de manera más eficiente"
+  },
+  "common": {
+    "settings": "Ajustes",
+    "dashboard": "Panel de Control",
+    "active": "Activo",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "time": {
+      "hour": "hora",
+      "hours": "horas",
+      "minute": "minuto",
+      "minutes": "minutos",
+      "left": "restante",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Límite Diario",
+    "timeLeft": "Tiempo Restante",
+    "timeEnd": "Tiempo agotado",
+    "noLimits": "Sin Límites Establecidos",
+    "otherSites": "Otros Sitios Restringidos",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "¡Te has quedado sin tiempo!",
+    "message": "Has alcanzado tu límite diario de tiempo para este sitio. ¡Una gran oportunidad para redirigir tu atención a tareas más importantes!",
+    "continueAnyway": "Continuar de todos modos",
+    "dailyStats": "Hoy este sitio con un uso total de <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minutos",
+      "30min": "+30 minutos",
+      "1hour": "+1 hora",
+      "2hours": "+2 horas"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Panel de Control",
+      "siteManagement": "Gestión de Sitios",
+      "activeLimits": "Límites Activos"
+    },
+    "stats": {
+      "restrictedSites": "Sitios Restringidos",
+      "blocked": "Sitios Bloqueados",
+      "notBlocked": "Sitios Permitidos",
+      "mostVisited": "Sitios en los que Pasas Más Tiempo"
+    },
+    "sites": {
+      "addNew": "Añadir Nuevo Sitio",
+      "editSite": "Editar Sitio",
+      "siteUrl": "URL del Sitio (ej. facebook.com)",
+      "timeTemplates": "Plantillas de Tiempo",
+      "customTime": "Tiempo Personalizado",
+      "add": "Añadir",
+      "restrictedSites": "Sitios Restringidos",
+      "remaining": "Tiempo restante"
+    },
+    "activeLimits": {
+      "title": "Sitios Actualmente Limitados"
+    },
+    "general": {
+      "title": "Ajustes Generales",
+      "resetData": "Restablecer Todos los Datos",
+      "resetDataConfirm": "Todos los datos guardados serán eliminados. Esta acción no se puede deshacer. ¿Deseas continuar?",
+      "github": "Repositorio GitHub",
+      "virusTotal": "Resultados de VirusTotal",
+      "reportIssue": "Reportar Problema",
+      "privacy": "Política de Privacidad",
+      "documentation": "Documentación"
+    }
+  },
+  "thanks": {
+    "welcome": "¡Bienvenido a SaveYourTime!",
+    "thankYou": "Gracias por instalar",
+    "features": {
+      "timeLimit": {
+        "title": "Límite de Tiempo",
+        "description": "Establece límites diarios de tiempo para redes sociales y otros sitios distractores. Se te recordará amablemente cuando alcances tu límite."
+      },
+      "statistics": {
+        "title": "Estadísticas de Uso",
+        "description": "Haz seguimiento del tiempo que pasas en diferentes sitios con gráficos visuales y gestiona mejor tu tiempo."
+      },
+      "blocking": {
+        "title": "Bloqueo Inteligente",
+        "description": "Elige entre bloqueo completo o recordatorios amables cuando se excedan los límites de tiempo. Puedes añadir tiempo extra cuando lo necesites."
+      }
+    },
+    "howItWorks": {
+      "title": "¿Cómo funciona SaveYourTime?",
+      "steps": [
+        {
+          "title": "Añadir Sitios",
+          "description": "Añade los sitios web en los que quieres limitar el tiempo y establece un límite diario para cada uno."
+        },
+        {
+          "title": "Seguimiento de Uso",
+          "description": "La extensión trabaja silenciosamente en segundo plano, monitoreando el tiempo que pasas en los sitios especificados."
+        },
+        {
+          "title": "Notificación de Límite",
+          "description": "Cuando se agote el tiempo establecido, verás un gentil recordatorio antes de continuar."
+        },
+        {
+          "title": "Control Flexible",
+          "description": "Puedes extender el tiempo o eliminar todos los límites cuando lo necesites. Siempre estás en control."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacidad y Seguridad de Datos",
+      "description": "SaveYourTime <strong>almacena todos tus datos solo localmente en tu navegador</strong> y no envía ninguna información a servidores externos. Los datos de uso de tus sitios y configuraciones se almacenan de forma segura en el área de \"almacenamiento local\" de tu navegador.",
+      "details": "Nuestra extensión requiere permisos mínimos y solo accede a los sitios que especificas. Tu privacidad y seguridad de datos son nuestras principales prioridades.",
+      "openSource": "Todo el código fuente es abierto y puede ser revisado y modificado desde nuestra página de GitHub.",
+      "learnMore": "Para saber más sobre nuestra política de privacidad",
+      "learnMoreLink": "haz clic aquí"
+    },
+    "actions": {
+      "configure": "Configurar Ajustes",
+      "viewSource": "Ver Código en GitHub",
+      "virusTotal": "Resultados de VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidad de SaveYourTime",
+    "subtitle": "Información sobre cómo protegemos la privacidad de tus datos",
+    "commitment": {
+      "title": "Compromiso de Privacidad",
+      "description": "En SaveYourTime, valoramos tu privacidad y seguridad de datos. Esta extensión [hl]no envía ningún dato a servidores externos[/hl], y toda tu información se almacena solo en tu propio navegador."
+    },
+    "collected": {
+      "title": "Información Recopilada",
+      "intro": "SaveYourTime solo recopila y registra la siguiente información:",
+      "timeSpent": "El tiempo que pasas en los sitios web que has especificado",
+      "dailyLimits": "Los límites diarios de tiempo que has establecido",
+      "settings": "Tus configuraciones y preferencias de la extensión",
+      "storage": "Esta información se [hl]almacena solo en tu navegador local[/hl] y es necesaria para que la extensión funcione correctamente."
+    },
+    "storage": {
+      "title": "Almacenamiento y Transmisión de Datos",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]No envía ningún dato de usuario a servidores externos[/hl]",
+      "localStorage": "Almacena todos los datos en el área de almacenamiento local de tu navegador",
+      "offline": "Puede funcionar incluso cuando no tienes conexión a internet",
+      "noCookies": "No utiliza cookies",
+      "noTracking": "No rastrea ninguna información de identidad o sesión del usuario"
+    },
+    "security": {
+      "title": "Seguridad de Datos",
+      "intro": "Como tus datos se almacenan solo en tu navegador:",
+      "browserClear": "Pueden ser eliminados si limpias el historial o caché de tu navegador",
+      "uninstall": "Puedes borrar todos los datos registrados de tu navegador cuando desinstales la extensión",
+      "access": "Solo tu navegador puede acceder a tus datos"
+    },
+    "permissions": {
+      "title": "Permisos",
+      "intro": "SaveYourTime requiere los siguientes permisos del navegador para funcionar:",
+      "activeTab": "Acceso a la pestaña activa (para monitorear el tiempo que pasas en los sitios que has especificado)",
+      "storage": "Acceso al almacenamiento local (para guardar tu configuración e información de tiempo)",
+      "minimal": "Estos permisos son los mínimos requeridos para la funcionalidad básica de la extensión."
+    },
+    "openSource": {
+      "title": "Código Abierto",
+      "description": "SaveYourTime es un proyecto completamente de código abierto. Nuestro código está disponible para que cualquiera lo revise en GitHub.",
+      "transparency": "Esta transparencia demuestra nuestro compromiso con la privacidad. Cualquiera que desee revisar el código puede verificar que la extensión realmente no envía ningún dato."
+    },
+    "rights": {
+      "title": "Derechos del Usuario",
+      "intro": "Como usuario de SaveYourTime, puedes:",
+      "remove": "Eliminar la extensión de la configuración de tu navegador en cualquier momento",
+      "delete": "Borrar todos los datos registrados desde la configuración de la extensión",
+      "modify": "Modificar cualquier dato que desees desde la configuración de la extensión"
+    },
+    "questions": {
+      "title": "Preguntas",
+      "contact": "Si tienes alguna pregunta sobre nuestra política de privacidad, por favor contáctanos a través de nuestro proyecto en GitHub."
+    },
+    "actions": {
+      "home": "Inicio"
+    }
+  }
+}

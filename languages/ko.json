@@ -1,0 +1,197 @@
+{
+  "lang": "ko",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "디지털 시간을 더 효율적으로 사용하는 데 도움이 되는 시간 관리 확장 프로그램"
+  },
+  "common": {
+    "settings": "설정",
+    "dashboard": "대시보드",
+    "active": "활성화",
+    "save": "저장",
+    "cancel": "취소",
+    "delete": "삭제",
+    "edit": "편집",
+    "close": "닫기",
+    "time": {
+      "hour": "시간",
+      "hours": "시간",
+      "minute": "분",
+      "minutes": "분",
+      "left": "남음",
+      "hourShort": "시",
+      "hoursShort": "시",
+      "minutesShort": "분"
+    }
+  },
+  "popup": {
+    "dailyLimit": "일일 제한",
+    "timeLeft": "남은 시간",
+    "timeEnd": "시간 초과",
+    "noLimits": "제한 설정 없음",
+    "otherSites": "기타 제한된 사이트",
+    "timeButtons": {
+      "15min": "+15분",
+      "30min": "+30분",
+      "1hour": "+1시간"
+    }
+  },
+  "warn": {
+    "title": "시간이 모두 소진되었습니다!",
+    "message": "이 사이트에 대한 일일 시간 제한에 도달했습니다. 더 중요한 작업에 집중할 좋은 기회입니다!",
+    "continueAnyway": "계속하기",
+    "dailyStats": "오늘 이 사이트 총 사용 시간: <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15분",
+      "30min": "+30분",
+      "1hour": "+1시간",
+      "2hours": "+2시간"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "대시보드",
+      "siteManagement": "사이트 관리",
+      "activeLimits": "활성 제한"
+    },
+    "stats": {
+      "restrictedSites": "제한된 사이트",
+      "blocked": "차단된 사이트",
+      "notBlocked": "허용된 사이트",
+      "mostVisited": "가장 많은 시간을 보내는 사이트"
+    },
+    "sites": {
+      "addNew": "새 사이트 추가",
+      "editSite": "사이트 편집",
+      "siteUrl": "사이트 URL (예: facebook.com)",
+      "timeTemplates": "시간 템플릿",
+      "customTime": "사용자 지정 시간",
+      "add": "추가",
+      "restrictedSites": "제한된 사이트",
+      "remaining": "남은 시간"
+    },
+    "activeLimits": {
+      "title": "현재 제한된 사이트"
+    },
+    "general": {
+      "title": "일반 설정",
+      "resetData": "모든 데이터 초기화",
+      "resetDataConfirm": "저장된 모든 데이터가 삭제됩니다. 이 작업은 되돌릴 수 없습니다. 계속하시겠습니까?",
+      "github": "GitHub 저장소",
+      "virusTotal": "VirusTotal 결과",
+      "reportIssue": "문제 신고",
+      "privacy": "개인정보 보호정책",
+      "documentation": "설명서"
+    }
+  },
+  "thanks": {
+    "welcome": "SaveYourTime에 오신 것을 환영합니다!",
+    "thankYou": "설치해 주셔서 감사합니다",
+    "features": {
+      "timeLimit": {
+        "title": "시간 제한",
+        "description": "소셜 미디어 및 기타 주의를 분산시키는 사이트에 대한 일일 시간 제한을 설정하세요. 제한에 도달하면 부드럽게 알려드립니다."
+      },
+      "statistics": {
+        "title": "사용 통계",
+        "description": "시각적 그래프를 통해 다양한 사이트에서 보내는 시간을 추적하고 시간을 더 효율적으로 관리하세요."
+      },
+      "blocking": {
+        "title": "스마트 차단",
+        "description": "시간 제한이 초과되었을 때 완전 차단 또는 부드러운 알림 중에서 선택하세요. 필요할 때 추가 시간을 얻을 수 있습니다."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime은 어떻게 작동하나요?",
+      "steps": [
+        {
+          "title": "사이트 추가",
+          "description": "시간을 제한하고 싶은 웹사이트를 추가하고 각각에 대한 일일 시간 제한을 설정하세요."
+        },
+        {
+          "title": "사용량 추적",
+          "description": "확장 프로그램은 백그라운드에서 조용히 작동하며 지정된 사이트에서 보내는 시간을 모니터링합니다."
+        },
+        {
+          "title": "제한 알림",
+          "description": "설정한 시간이 다 되면, 계속하기 전에 부드러운 알림을 보게 됩니다."
+        },
+        {
+          "title": "유연한 제어",
+          "description": "필요할 때 시간을 연장하거나 모든 제한을 제거할 수 있습니다. 항상 사용자가 제어합니다."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "개인정보 보호 및 데이터 보안",
+      "description": "SaveYourTime은 <strong>모든 데이터를 브라우저에 로컬로만 저장</strong>하며 외부 서버로 어떤 정보도 전송하지 않습니다. 사이트 사용 데이터와 설정은 브라우저의 \"로컬 스토리지\" 영역에 안전하게 저장됩니다.",
+      "details": "우리의 확장 프로그램은 최소한의 권한만 필요로 하며 사용자가 지정한 사이트에만 액세스합니다. 귀하의 개인정보 보호와 데이터 보안은 우리의 최우선 과제입니다.",
+      "openSource": "모든 소스 코드는 오픈 소스이며 GitHub 페이지에서 검토하고 수정할 수 있습니다.",
+      "learnMore": "개인정보 보호정책에 대해 자세히 알아보려면",
+      "learnMoreLink": "여기를 클릭하세요"
+    },
+    "actions": {
+      "configure": "설정 구성",
+      "viewSource": "GitHub에서 소스 보기",
+      "virusTotal": "VirusTotal 결과"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime 개인정보 보호정책",
+    "subtitle": "데이터 개인정보 보호 방법에 대한 정보",
+    "commitment": {
+      "title": "개인정보 보호 약속",
+      "description": "SaveYourTime에서는 귀하의 개인정보와 데이터 보안을 소중히 여깁니다. 이 확장 프로그램은 [hl]외부 서버로 어떤 데이터도 전송하지 않으며[/hl], 모든 정보는 사용자의 브라우저에만 저장됩니다."
+    },
+    "collected": {
+      "title": "수집된 정보",
+      "intro": "SaveYourTime은 다음 정보만 수집하고 기록합니다:",
+      "timeSpent": "지정한 웹사이트에서 보낸 시간",
+      "dailyLimits": "설정한 일일 시간 제한",
+      "settings": "확장 프로그램 설정 및 기본 설정",
+      "storage": "이 정보는 [hl]로컬 브라우저에만 저장되며[/hl] 확장 프로그램이 제대로 작동하는 데 필요합니다."
+    },
+    "storage": {
+      "title": "데이터 저장 및 전송",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]외부 서버로 사용자 데이터를 전송하지 않습니다[/hl]",
+      "localStorage": "모든 데이터를 브라우저의 로컬 스토리지 영역에 저장합니다",
+      "offline": "인터넷 연결이 없어도 작동할 수 있습니다",
+      "noCookies": "쿠키를 사용하지 않습니다",
+      "noTracking": "사용자 ID나 세션 정보를 추적하지 않습니다"
+    },
+    "security": {
+      "title": "데이터 보안",
+      "intro": "데이터가 브라우저에만 저장되므로:",
+      "browserClear": "브라우저 기록이나 캐시를 지우면 삭제될 수 있습니다",
+      "uninstall": "확장 프로그램을 제거할 때 브라우저에서 모든 기록된 데이터를 지울 수 있습니다",
+      "access": "브라우저만 데이터에 액세스할 수 있습니다"
+    },
+    "permissions": {
+      "title": "권한",
+      "intro": "SaveYourTime이 작동하려면 다음과 같은 브라우저 권한이 필요합니다:",
+      "activeTab": "활성 탭 액세스 (지정한 사이트에서 보낸 시간을 모니터링하기 위함)",
+      "storage": "로컬 스토리지 액세스 (설정 및 시간 정보를 저장하기 위함)",
+      "minimal": "이러한 권한은 확장 프로그램의 핵심 기능에 필요한 최소한의 권한입니다."
+    },
+    "openSource": {
+      "title": "오픈 소스 코드",
+      "description": "SaveYourTime은 완전한 오픈 소스 프로젝트입니다. 코드베이스는 GitHub에서 누구나 검토할 수 있습니다.",
+      "transparency": "이러한 투명성은 개인정보 보호에 대한 우리의 약속을 보여줍니다. 코드를 검토하고자 하는 사람은 확장 프로그램이 실제로 어떤 데이터도 전송하지 않는다는 것을 확인할 수 있습니다."
+    },
+    "rights": {
+      "title": "사용자 권리",
+      "intro": "SaveYourTime 사용자로서 다음과 같은 권한이 있습니다:",
+      "remove": "언제든지 브라우저 설정에서 확장 프로그램 제거",
+      "delete": "확장 프로그램 설정에서 모든 기록된 데이터 삭제",
+      "modify": "확장 프로그램 설정에서 원하는 데이터 수정"
+    },
+    "questions": {
+      "title": "질문",
+      "contact": "개인정보 보호정책에 대해 질문이 있으시면 GitHub 프로젝트를 통해 문의해 주세요."
+    },
+    "actions": {
+      "home": "홈"
+    }
+  }
+}

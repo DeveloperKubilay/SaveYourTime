@@ -1,0 +1,197 @@
+{
+  "lang": "no",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "En tidsstyringsutvidelse som hjelper deg med å bruke din digitale tid mer effektivt"
+  },
+  "common": {
+    "settings": "Innstillinger",
+    "dashboard": "Dashbord",
+    "active": "Aktiv",
+    "save": "Lagre",
+    "cancel": "Avbryt",
+    "delete": "Slett",
+    "edit": "Rediger",
+    "close": "Lukk",
+    "time": {
+      "hour": "time",
+      "hours": "timer",
+      "minute": "minutt",
+      "minutes": "minutter",
+      "left": "igjen",
+      "hourShort": "t",
+      "hoursShort": "t",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Daglig grense",
+    "timeLeft": "Tid igjen",
+    "timeEnd": "Tiden er ute",
+    "noLimits": "Ingen grenser satt",
+    "otherSites": "Andre begrensede nettsteder",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1t"
+    }
+  },
+  "warn": {
+    "title": "Du er tom for tid!",
+    "message": "Du har nådd din daglige tidsgrense for dette nettstedet. En flott mulighet til å rette oppmerksomheten din mot viktigere oppgaver!",
+    "continueAnyway": "Fortsett likevel",
+    "dailyStats": "I dag Dette nettstedet med total bruk på <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minutter",
+      "30min": "+30 minutter",
+      "1hour": "+1 time",
+      "2hours": "+2 timer"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashbord",
+      "siteManagement": "Nettstedadministrasjon",
+      "activeLimits": "Aktive grenser"
+    },
+    "stats": {
+      "restrictedSites": "Begrensede nettsteder",
+      "blocked": "Blokkerte nettsteder",
+      "notBlocked": "Tillatte nettsteder",
+      "mostVisited": "Nettsteder du bruker mest tid på"
+    },
+    "sites": {
+      "addNew": "Legg til nytt nettsted",
+      "editSite": "Rediger nettsted",
+      "siteUrl": "Nettstedsadresse (f.eks. facebook.com)",
+      "timeTemplates": "Tidsmaler",
+      "customTime": "Egendefinert tid",
+      "add": "Legg til",
+      "restrictedSites": "Begrensede nettsteder",
+      "remaining": "Gjenværende tid"
+    },
+    "activeLimits": {
+      "title": "Nåværende begrensede nettsteder"
+    },
+    "general": {
+      "title": "Generelle innstillinger",
+      "resetData": "Tilbakestill alle data",
+      "resetDataConfirm": "Alle lagrede data vil bli slettet. Denne handlingen kan ikke angres. Vil du fortsette?",
+      "github": "GitHub-repo",
+      "virusTotal": "VirusTotal-resultater",
+      "reportIssue": "Rapporter problem",
+      "privacy": "Personvernerklæring",
+      "documentation": "Dokumentasjon"
+    }
+  },
+  "thanks": {
+    "welcome": "Velkommen til SaveYourTime!",
+    "thankYou": "Takk for at du installerte",
+    "features": {
+      "timeLimit": {
+        "title": "Tidsbegrensning",
+        "description": "Sett daglige tidsgrenser for sosiale medier og andre distraherende nettsteder. Du vil bli påminnet når grensen nås."
+      },
+      "statistics": {
+        "title": "Bruksstatistikk",
+        "description": "Følg med på hvor mye tid du bruker på forskjellige nettsteder med visuelle grafer og styr tiden din bedre."
+      },
+      "blocking": {
+        "title": "Smart blokkering",
+        "description": "Velg mellom fullstendig blokkering eller vennlige påminnelser når tidsgrenser overskrides. Du kan legge til ekstra tid når det er nødvendig."
+      }
+    },
+    "howItWorks": {
+      "title": "Hvordan fungerer SaveYourTime?",
+      "steps": [
+        {
+          "title": "Legg til nettsteder",
+          "description": "Legg til nettsteder du vil begrense tiden på og sett en daglig tidsgrense for hver."
+        },
+        {
+          "title": "Brukssporing",
+          "description": "Utvidelsen arbeider stille i bakgrunnen og overvåker tiden du bruker på spesifiserte nettsteder."
+        },
+        {
+          "title": "Grensevarsel",
+          "description": "Når tiden din er ute, vil du se en vennlig påminnelse før du fortsetter."
+        },
+        {
+          "title": "Fleksibel kontroll",
+          "description": "Du kan utvide tiden eller fjerne alle begrensninger ved behov. Du har alltid kontrollen."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Personvern og datasikkerhet",
+      "description": "SaveYourTime <strong>lagrer alle dataene dine kun lokalt i nettleseren din</strong> og sender ikke informasjon til eksterne servere. Dine nettstedsbruksdata og innstillinger er trygt lagret i nettleserens \"lokal lagring\"-område.",
+      "details": "Utvidelsen vår krever minimale tillatelser og får bare tilgang til nettstedene du angir. Ditt personvern og datasikkerhet er våre høyeste prioriteringer.",
+      "openSource": "All kildekoden er åpen og kan gjennomgås og endres fra vår GitHub-side.",
+      "learnMore": "For å lære mer om vår personvernerklæring",
+      "learnMoreLink": "klikk her"
+    },
+    "actions": {
+      "configure": "Konfigurer innstillinger",
+      "viewSource": "Se kildekode på GitHub",
+      "virusTotal": "VirusTotal-resultater"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Personvernerklæring",
+    "subtitle": "Informasjon om hvordan vi beskytter ditt personvern",
+    "commitment": {
+      "title": "Forpliktelse til personvern",
+      "description": "Hos SaveYourTime verdsetter vi ditt personvern og datasikkerhet. Denne utvidelsen [hl]sender ikke data til eksterne servere[/hl], og all din informasjon lagres kun i din egen nettleser."
+    },
+    "collected": {
+      "title": "Informasjon som samles inn",
+      "intro": "SaveYourTime samler og registrerer kun følgende informasjon:",
+      "timeSpent": "Tiden du bruker på nettsteder du har spesifisert",
+      "dailyLimits": "De daglige tidsgrensene du har satt",
+      "settings": "Dine utvidelsesinnstillinger og preferanser",
+      "storage": "Denne informasjonen [hl]lagres kun i din lokale nettleser[/hl] og er nødvendig for at utvidelsen skal fungere riktig."
+    },
+    "storage": {
+      "title": "Datalagring og overføring",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Sender ikke brukerdata til eksterne servere[/hl]",
+      "localStorage": "Lagrer alle data i nettleserens lokale lagringsområde",
+      "offline": "Kan fungere selv når du ikke har internettforbindelse",
+      "noCookies": "Bruker ikke informasjonskapsler",
+      "noTracking": "Sporer ikke brukeridentitet eller sesjonsinformasjon"
+    },
+    "security": {
+      "title": "Datasikkerhet",
+      "intro": "Siden dataene dine lagres kun i nettleseren din:",
+      "browserClear": "De kan bli slettet hvis du tømmer nettleserhistorikken eller hurtigbufferen",
+      "uninstall": "Du kan slette alle registrerte data fra nettleseren når du avinstallerer utvidelsen",
+      "access": "Bare nettleseren din kan få tilgang til dataene dine"
+    },
+    "permissions": {
+      "title": "Tillatelser",
+      "intro": "SaveYourTime krever følgende nettlesertillatelser for å fungere:",
+      "activeTab": "Tilgang til aktiv fane (for å overvåke tid brukt på nettsteder du har spesifisert)",
+      "storage": "Tilgang til lokal lagring (for å lagre innstillingene og tidsinformasjonen din)",
+      "minimal": "Disse tillatelsene er minimum som kreves for utvidelsens kjernefunksjonalitet."
+    },
+    "openSource": {
+      "title": "Åpen kildekode",
+      "description": "SaveYourTime er et fullstendig åpen kildekode-prosjekt. Vår kodebase er tilgjengelig for alle å gjennomgå på GitHub.",
+      "transparency": "Denne åpenheten viser vår forpliktelse til personvern. Alle som ønsker å gjennomgå koden kan verifisere at utvidelsen virkelig ikke sender noen data."
+    },
+    "rights": {
+      "title": "Brukerrettigheter",
+      "intro": "Som SaveYourTime-bruker kan du:",
+      "remove": "Fjerne utvidelsen fra nettleserinnstillingene når som helst",
+      "delete": "Slette alle registrerte data fra utvidelsesinnstillingene",
+      "modify": "Endre alle data du ønsker fra utvidelsesinnstillingene"
+    },
+    "questions": {
+      "title": "Spørsmål",
+      "contact": "Hvis du har spørsmål om vår personvernerklæring, vennligst kontakt oss gjennom vårt GitHub-prosjekt."
+    },
+    "actions": {
+      "home": "Hjem"
+    }
+  }
+}

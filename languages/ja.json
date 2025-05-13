@@ -1,0 +1,197 @@
+{
+  "lang": "ja",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "デジタル時間をより効率的に使うのを助ける時間管理拡張機能"
+  },
+  "common": {
+    "settings": "設定",
+    "dashboard": "ダッシュボード",
+    "active": "アクティブ",
+    "save": "保存",
+    "cancel": "キャンセル",
+    "delete": "削除",
+    "edit": "編集",
+    "close": "閉じる",
+    "time": {
+      "hour": "時間",
+      "hours": "時間",
+      "minute": "分",
+      "minutes": "分",
+      "left": "残り",
+      "hourShort": "時",
+      "hoursShort": "時",
+      "minutesShort": "分"
+    }
+  },
+  "popup": {
+    "dailyLimit": "1日の制限",
+    "timeLeft": "残り時間",
+    "timeEnd": "時間切れ",
+    "noLimits": "制限なし",
+    "otherSites": "その他の制限サイト",
+    "timeButtons": {
+      "15min": "+15分",
+      "30min": "+30分",
+      "1hour": "+1時間"
+    }
+  },
+  "warn": {
+    "title": "時間切れです！",
+    "message": "このサイトの1日の時間制限に達しました。より重要なタスクに注意を向ける絶好の機会です！",
+    "continueAnyway": "それでも続ける",
+    "dailyStats": "今日このサイトの総利用時間は<strong>{{ totalTime }}</strong>です",
+    "timeOption": {
+      "15min": "+15分",
+      "30min": "+30分",
+      "1hour": "+1時間",
+      "2hours": "+2時間"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "ダッシュボード",
+      "siteManagement": "サイト管理",
+      "activeLimits": "アクティブな制限"
+    },
+    "stats": {
+      "restrictedSites": "制限サイト",
+      "blocked": "ブロックされたサイト",
+      "notBlocked": "許可されたサイト",
+      "mostVisited": "最も時間を費やすサイト"
+    },
+    "sites": {
+      "addNew": "新しいサイトを追加",
+      "editSite": "サイトを編集",
+      "siteUrl": "サイトURL（例：facebook.com）",
+      "timeTemplates": "時間テンプレート",
+      "customTime": "カスタム時間",
+      "add": "追加",
+      "restrictedSites": "制限サイト",
+      "remaining": "残り時間"
+    },
+    "activeLimits": {
+      "title": "現在制限されているサイト"
+    },
+    "general": {
+      "title": "一般設定",
+      "resetData": "すべてのデータをリセット",
+      "resetDataConfirm": "保存されたすべてのデータが削除されます。この操作は元に戻せません。続行しますか？",
+      "github": "GitHubリポジトリ",
+      "virusTotal": "VirusTotalの結果",
+      "reportIssue": "問題を報告",
+      "privacy": "プライバシーポリシー",
+      "documentation": "ドキュメント"
+    }
+  },
+  "thanks": {
+    "welcome": "SaveYourTimeへようこそ！",
+    "thankYou": "インストールありがとうございます",
+    "features": {
+      "timeLimit": {
+        "title": "時間制限",
+        "description": "ソーシャルメディアやその他の気が散るサイトの1日の時間制限を設定します。制限に達すると、優しく通知されます。"
+      },
+      "statistics": {
+        "title": "使用統計",
+        "description": "視覚的なグラフで異なるサイトでの時間の使い方を追跡し、時間をより効率的に管理します。"
+      },
+      "blocking": {
+        "title": "スマートブロッキング",
+        "description": "時間制限を超えた場合、完全なブロックまたは優しいリマインダーを選択できます。必要に応じて追加の時間を設定することもできます。"
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTimeの仕組み",
+      "steps": [
+        {
+          "title": "サイトを追加",
+          "description": "時間を制限したいウェブサイトを追加し、それぞれに1日の時間制限を設定します。"
+        },
+        {
+          "title": "使用状況の追跡",
+          "description": "拡張機能はバックグラウンドで静かに動作し、指定したサイトで費やす時間を監視します。"
+        },
+        {
+          "title": "制限通知",
+          "description": "設定した時間が終了すると、続行する前に優しいリマインダーが表示されます。"
+        },
+        {
+          "title": "柔軟なコントロール",
+          "description": "必要に応じて時間を延長したり、すべての制限を解除したりできます。常に自分でコントロールできます。"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "プライバシーとデータセキュリティ",
+      "description": "SaveYourTimeは<strong>すべてのデータをブラウザ内のローカルにのみ保存し</strong>、外部サーバーに情報を送信することはありません。サイトの使用データと設定はブラウザの「ローカルストレージ」領域に安全に保存されます。",
+      "details": "当社の拡張機能は最小限の権限しか必要とせず、指定したサイトにのみアクセスします。あなたのプライバシーとデータセキュリティは私たちの最優先事項です。",
+      "openSource": "すべてのソースコードはオープンで、GitHubページから確認および変更できます。",
+      "learnMore": "プライバシーポリシーの詳細については、",
+      "learnMoreLink": "こちらをクリック"
+    },
+    "actions": {
+      "configure": "設定を構成",
+      "viewSource": "GitHubでソースを表示",
+      "virusTotal": "VirusTotalの結果"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTimeプライバシーポリシー",
+    "subtitle": "データプライバシーを保護する方法に関する情報",
+    "commitment": {
+      "title": "プライバシーへの取り組み",
+      "description": "SaveYourTimeでは、あなたのプライバシーとデータセキュリティを大切にしています。この拡張機能は[hl]外部サーバーにデータを送信せず[/hl]、すべての情報はあなた自身のブラウザにのみ保存されます。"
+    },
+    "collected": {
+      "title": "収集される情報",
+      "intro": "SaveYourTimeは以下の情報のみを収集・記録します：",
+      "timeSpent": "指定したウェブサイトで費やす時間",
+      "dailyLimits": "設定した1日の時間制限",
+      "settings": "拡張機能の設定と優先設定",
+      "storage": "この情報は[hl]ローカルブラウザにのみ保存され[/hl]、拡張機能が適切に機能するために必要です。"
+    },
+    "storage": {
+      "title": "データの保存と送信",
+      "intro": "SaveYourTimeは：",
+      "noSend": "[hl]ユーザーデータを外部サーバーに送信しません[/hl]",
+      "localStorage": "すべてのデータをブラウザのローカルストレージ領域に保存します",
+      "offline": "インターネット接続がなくても機能します",
+      "noCookies": "Cookieを使用しません",
+      "noTracking": "ユーザーIDやセッション情報を追跡しません"
+    },
+    "security": {
+      "title": "データセキュリティ",
+      "intro": "データはブラウザにのみ保存されるため：",
+      "browserClear": "ブラウザの履歴やキャッシュをクリアすると削除される場合があります",
+      "uninstall": "拡張機能をアンインストールするときに、ブラウザからすべての記録データを削除できます",
+      "access": "あなたのブラウザだけがデータにアクセスできます"
+    },
+    "permissions": {
+      "title": "権限",
+      "intro": "SaveYourTimeは機能するために以下のブラウザ権限が必要です：",
+      "activeTab": "アクティブタブへのアクセス（指定したサイトでの時間を監視するため）",
+      "storage": "ローカルストレージへのアクセス（設定と時間情報を保存するため）",
+      "minimal": "これらの権限は拡張機能の基本機能に必要な最小限のものです。"
+    },
+    "openSource": {
+      "title": "オープンソースコード",
+      "description": "SaveYourTimeは完全なオープンソースプロジェクトです。コードベースはGitHubで誰でも確認できます。",
+      "transparency": "この透明性は、私たちのプライバシーへの取り組みを示しています。コードを確認したい人は、拡張機能が実際にデータを送信していないことを検証できます。"
+    },
+    "rights": {
+      "title": "ユーザーの権利",
+      "intro": "SaveYourTimeユーザーとして、あなたは：",
+      "remove": "いつでもブラウザ設定から拡張機能を削除できます",
+      "delete": "拡張機能の設定からすべての記録データを削除できます",
+      "modify": "拡張機能の設定から任意のデータを変更できます"
+    },
+    "questions": {
+      "title": "質問",
+      "contact": "プライバシーポリシーについて質問がある場合は、GitHubプロジェクトを通じてお問い合わせください。"
+    },
+    "actions": {
+      "home": "ホーム"
+    }
+  }
+}

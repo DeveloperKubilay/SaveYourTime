@@ -1,0 +1,197 @@
+{
+  "lang": "ig",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Ngwa njikwa oge nke na-enyere gị aka iji oge dijitalụ gị na-arụ ọrụ nke ọma"
+  },
+  "common": {
+    "settings": "Ntọala",
+    "dashboard": "Dashboard",
+    "active": "Na-arụ ọrụ",
+    "save": "Chekwa",
+    "cancel": "Kagbuo",
+    "delete": "Hichapụ",
+    "edit": "Dezie",
+    "close": "Mechie",
+    "time": {
+      "hour": "elekere",
+      "hours": "elekere",
+      "minute": "nkeji",
+      "minutes": "nkeji",
+      "left": "fọdụrụ",
+      "hourShort": "e",
+      "hoursShort": "e",
+      "minutesShort": "n"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Oke Ụbọchị",
+    "timeLeft": "Oge Fọdụrụ",
+    "timeEnd": "Oge agwụla",
+    "noLimits": "Enweghị Oke Edebere",
+    "otherSites": "Saịtị Ndị Ọzọ Agbachiri",
+    "timeButtons": {
+      "15min": "+15n",
+      "30min": "+30n",
+      "1hour": "+1e"
+    }
+  },
+  "warn": {
+    "title": "Oge Gị Agwụla!",
+    "message": "Ị eruola oke oge ụbọchị gị maka saịtị a. Ọ bụ nnukwu ohere iji kpọghachi ntụgharị uche gị na ọrụ dị mkpa karịa!",
+    "continueAnyway": "Gaa n'Ihu Ma Oleghị",
+    "dailyStats": "Taa Saịtị a nwere ojiji nke <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 nkeji",
+      "30min": "+30 nkeji",
+      "1hour": "+1 elekere",
+      "2hours": "+2 elekere"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashboard",
+      "siteManagement": "Njikwa Saịtị",
+      "activeLimits": "Oke Na-arụ Ọrụ"
+    },
+    "stats": {
+      "restrictedSites": "Saịtị A Na-agbachi Agbachi",
+      "blocked": "Saịtị A Gbachiri",
+      "notBlocked": "Saịtị A Kweere",
+      "mostVisited": "Saịtị Ị Na-eji Oge Kachasị Gaa"
+    },
+    "sites": {
+      "addNew": "Tinye Saịtị Ọhụrụ",
+      "editSite": "Dezie Saịtị",
+      "siteUrl": "URL Saịtị (dịka facebook.com)",
+      "timeTemplates": "Ụdị Oge",
+      "customTime": "Oge Pụrụ Iche",
+      "add": "Tinye",
+      "restrictedSites": "Saịtị A Na-agbachi Agbachi",
+      "remaining": "Oge fọdụrụ"
+    },
+    "activeLimits": {
+      "title": "Saịtị A Na-agbachi Ugbu A"
+    },
+    "general": {
+      "title": "Ntọala Ozuruọnụ",
+      "resetData": "Tọgharia Data Niile",
+      "resetDataConfirm": "A ga-ehichapụ data niile echekwara. Enweghị ike ilaghachi omume a. Ị chọrọ ịga n'ihu?",
+      "github": "GitHub Repo",
+      "virusTotal": "Nsonaazụ VirusTotal",
+      "reportIssue": "Kọọ Nsogbu",
+      "privacy": "Iwu Nzuzo",
+      "documentation": "Akwụkwọ"
+    }
+  },
+  "thanks": {
+    "welcome": "Nabata na SaveYourTime!",
+    "thankYou": "Daalụ maka ịwụnye",
+    "features": {
+      "timeLimit": {
+        "title": "Oke Oge",
+        "description": "Setịpụ oge ụbọchị maka saịtị mmanye mmekọrịta na ndị ọzọ na-agbapụta ntụgharị uche. A ga-echetara gị nwayọ mgbe oke gị ruru."
+      },
+      "statistics": {
+        "title": "Ọnụọgụ Ojiji",
+        "description": "Soro oge ị na-eji na saịtị dị iche iche site na egwu anya na-ahụ anya ma jikwaa oge gị nke ọma."
+      },
+      "blocking": {
+        "title": "Mgbochi Mara Ihe",
+        "description": "Họrọ n'etiti mgbochi zuru ezu ma ọ bụ ncheta dị nro mgbe a kpasara oke oge. Ị nwere ike ịgbakwunye oge ọzọ mgbe ọ dị mkpa."
+      }
+    },
+    "howItWorks": {
+      "title": "Kedụ ka SaveYourTime si arụ ọrụ?",
+      "steps": [
+        {
+          "title": "Tinye Saịtị",
+          "description": "Tinye webụsaịtị ị chọrọ ịhazi oge na ya ma setịpụ oke oge ụbọchị maka otu ọ bụla."
+        },
+        {
+          "title": "Nsoro Ojiji",
+          "description": "Ngwa ahụ na-arụ ọrụ na azụ, na-elekọta oge ị na-eji na saịtị ị kọwapụtara."
+        },
+        {
+          "title": "Ọkwa Oke",
+          "description": "Mgbe oge gị edebeere gwụla, ị ga-ahụ ncheta dị nro tupu ịga n'ihu."
+        },
+        {
+          "title": "Njikwa Dị Mfe",
+          "description": "Ị nwere ike ọ ga-etinye oge ma ọ bụ wepụ oke niile mgbe ọ dị mkpa. Ị na-achịkwa mgbe niile."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Nzuzo na Nchekwa Data",
+      "description": "SaveYourTime <strong>na-echekwa data gị niile naanị na ihe nchọgharị gị</strong> ma anaghị eziga ozi ọ bụla na seva ndị ọzọ. A na-echekwa data ojiji saịtị gị na ntọala gị n'ebe nchekwa obodo nke ihe nchọgharị gị.",
+      "details": "Ngwakọta anyị chọrọ ikike dị nta ma naanị ịbanye na saịtị ị kọwapụtara. Nzuzo gị na nchekwa data gị bụ ihe ndị kacha mkpa anyị.",
+      "openSource": "Koodu isi niile dị mepere emepe ma nwere ike inyocha ma meziwanye site na peeji GitHub anyị.",
+      "learnMore": "Ịmụta banyere iwu nzuzo anyị",
+      "learnMoreLink": "pịa ebe a"
+    },
+    "actions": {
+      "configure": "Hazie Ntọala",
+      "viewSource": "Lelee Isi na GitHub",
+      "virusTotal": "Nsonaazụ VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Iwu Nzuzo SaveYourTime",
+    "subtitle": "Ozi gbasara otú anyị si echebe nzuzo data gị",
+    "commitment": {
+      "title": "Nkwa Nzuzo",
+      "description": "Na SaveYourTime, anyị na-asọpụrụ nzuzo na nchekwa data gị. Ngwa agbakwunye a [hl]anaghị eziga data ọ bụla gaa na seva ndị ọzọ[/hl], yana ozi gị niile ka echekwara naanị na ihe nchọgharị gị."
+    },
+    "collected": {
+      "title": "Ozi A Nọrọla",
+      "intro": "SaveYourTime na-anọta ma dee naanị ozi ndị a:",
+      "timeSpent": "Oge ị na-eji na webụsaịtị ị kọwapụtara",
+      "dailyLimits": "Oke oge ụbọchị ị setịpụrụla",
+      "settings": "Ntọala ngwakọta gị na nkasiọnụ",
+      "storage": "A [hl]na-echekwa ozi a naanị na ihe nchọgharị obodo gị[/hl] ma dị mkpa maka ọrụ ngwakọta ahụ nke ọma."
+    },
+    "storage": {
+      "title": "Nchekwa Data na Ntugharị",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Anaghị eziga data onye ọrụ ọ bụla na seva ndị ọzọ[/hl]",
+      "localStorage": "Na-echekwa data niile n'ebe nchekwa obodo nke ihe nchọgharị gị",
+      "offline": "Nwere ike ịrụ ọrụ ọbụna mgbe ị nweghị njikọ ịntanetị",
+      "noCookies": "Anaghị eji kuki",
+      "noTracking": "Anaghị agbaso ozi nnọnwe onye ọrụ ma ọ bụ oge"
+    },
+    "security": {
+      "title": "Nchekwa Data",
+      "intro": "Dịka a na-echekwa data gị naanị na ihe nchọgharị gị:",
+      "browserClear": "A nwere ike ihichapụ ya ma ọ bụrụ na ị na-ahichapụ akụkọ ma ọ bụ mberede ihe nchọgharị gị",
+      "uninstall": "Ị nwere ike ihichapụ data niile edekọrọ site na ihe nchọgharị gị mgbe ị na-ewepụ ngwakọta ahụ",
+      "access": "Naanị ihe nchọgharị gị nwere ike ịbanye na data gị"
+    },
+    "permissions": {
+      "title": "Ikike",
+      "intro": "SaveYourTime chọrọ ikike ihe nchọgharị ndị a ịrụ ọrụ:",
+      "activeTab": "Ịbanye taabụ na-arụ ọrụ (iji nyochaa oge e ji na saịtị ị kọwapụtara)",
+      "storage": "Ịbanye nchekwa mpaghara (iji chekwaa ntọala gị na ozi oge)",
+      "minimal": "Ikike ndị a bụ ihe dị nta achọrọ maka ọrụ ngwakọta dị mkpa."
+    },
+    "openSource": {
+      "title": "Koodu Open Source",
+      "description": "SaveYourTime bụ prọjektị ihe niile mepere emepe. Usoro koodu anyị dị maka onye ọ bụla inyocha na GitHub.",
+      "transparency": "Adịghị mfe a na-egosipụta mgbaliike anyị n'inwe nzuzo. Onye ọ bụla chọrọ inyocha koodu nwere ike ịhụ na ngwakọta ahụ adịghị ezigbu eziga data."
+    },
+    "rights": {
+      "title": "Ikike Ndị Ọrụ",
+      "intro": "Dịka onye ọrụ SaveYourTime, ị nwere ike:",
+      "remove": "Wepụ ngwakọta ahụ site na ntọala ihe nchọgharị gị n'oge ọ bụla",
+      "delete": "Hichapụ data niile edekọrọ site na ntọala ngwakọta",
+      "modify": "Gbanwee data ọ bụla ị chọrọ site na ntọala ngwakọta"
+    },
+    "questions": {
+      "title": "Ajụjụ",
+      "contact": "Ọ bụrụ na ị nwere ajụjụ ọ bụla gbasara iwu nzuzo anyị, biko kpọtụrụ anyị site na prọjektị GitHub anyị."
+    },
+    "actions": {
+      "home": "Ụlọ"
+    }
+  }
+}

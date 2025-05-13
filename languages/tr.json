@@ -56,7 +56,7 @@
     },
     "stats": {
       "restrictedSites": "Kısıtlanan Siteler",
-      "Blocked": "Engellenmiş Siteler",
+      "blocked": "Engellenmiş Siteler",
       "notBlocked": "İzin verilen Siteler",
       "mostVisited": "En çok zaman geçirdiğiniz siteler"
     },

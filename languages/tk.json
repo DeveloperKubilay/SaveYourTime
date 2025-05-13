@@ -1,0 +1,197 @@
+{
+  "lang": "tk",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Sanly wagtyňyzy has netijeli ulanmaga kömek edýän wagt dolandyryş giňeltmesi"
+  },
+  "common": {
+    "settings": "Sazlamalar",
+    "dashboard": "Dolandyryş paneli",
+    "active": "Işjeň",
+    "save": "Ýatda sakla",
+    "cancel": "Ýatyrmak",
+    "delete": "Pozmak",
+    "edit": "Redaktirlemek",
+    "close": "Ýapmak",
+    "time": {
+      "hour": "sagat",
+      "hours": "sagat",
+      "minute": "minut",
+      "minutes": "minut",
+      "left": "galdy",
+      "hourShort": "s",
+      "hoursShort": "s",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Gündelik çäk",
+    "timeLeft": "Galan wagt",
+    "timeEnd": "Wagt gutardy",
+    "noLimits": "Çäk bellenmedi",
+    "otherSites": "Beýleki çäklendirilen saýtlar",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1s"
+    }
+  },
+  "warn": {
+    "title": "Wagtyňyz gutardy!",
+    "message": "Bu saýt üçin gündelik wagt çägiňize ýetdiňiz. Bu ünsüňizi has möhüm wezipelere gönükdirmek üçin ajaýyp mümkinçilik!",
+    "continueAnyway": "Ýöne dowam et",
+    "dailyStats": "Bu gün bu saýt jemi <strong>{{ totalTime }}</strong> ulanylýar",
+    "timeOption": {
+      "15min": "+15 minut",
+      "30min": "+30 minut",
+      "1hour": "+1 sagat",
+      "2hours": "+2 sagat"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dolandyryş paneli",
+      "siteManagement": "Saýt dolandyryşy",
+      "activeLimits": "Işjeň çäkler"
+    },
+    "stats": {
+      "restrictedSites": "Çäklendirilen saýtlar",
+      "blocked": "Bloklanan saýtlar",
+      "notBlocked": "Rugsat berilen saýtlar",
+      "mostVisited": "Iň köp wagt geçirýän saýtlaryňyz"
+    },
+    "sites": {
+      "addNew": "Täze saýt goşuň",
+      "editSite": "Saýty redaktirlemek",
+      "siteUrl": "Saýt URL (mysal üçin: facebook.com)",
+      "timeTemplates": "Wagt şablonlary",
+      "customTime": "Özelleşdirilen wagt",
+      "add": "Goşmak",
+      "restrictedSites": "Çäklendirilen saýtlar",
+      "remaining": "Galan wagt"
+    },
+    "activeLimits": {
+      "title": "Häzirki çäklendirilen saýtlar"
+    },
+    "general": {
+      "title": "Umumy sazlamalar",
+      "resetData": "Ähli maglumatlary täzeden düzmek",
+      "resetDataConfirm": "Ähli ýatda saklanan maglumatlar pozular. Bu hereket yzyna gaýdyp bolmaz. Dowam etmek isleýärsiňizmi?",
+      "github": "GitHub repozitoriýasy",
+      "virusTotal": "VirusTotal netijeleri",
+      "reportIssue": "Mesele barada habar beriň",
+      "privacy": "Gizlinlik syýasaty",
+      "documentation": "Dokumentasiýa"
+    }
+  },
+  "thanks": {
+    "welcome": "SaveYourTime-a hoş geldiňiz!",
+    "thankYou": "Guranyňyz üçin sag boluň",
+    "features": {
+      "timeLimit": {
+        "title": "Wagt çäklendirmek",
+        "description": "Sosial mediýa we beýleki üns sowýan saýtlar üçin gündelik wagt çäklerini belläň. Çägiňize ýeteniňizde size ýumşak ýatladylar."
+      },
+      "statistics": {
+        "title": "Ulanmak statistikasy",
+        "description": "Dürli saýtlarda näçe wagt geçirýändigiňizi görsel grafikalar bilen yzarlap, wagtyňyzy has gowy dolandyryň."
+      },
+      "blocking": {
+        "title": "Akylly blokirleme",
+        "description": "Wagt çäklerinden geçilende doly blokirleme we ýa ýumşak ýatlatmalar arasynda saýlaň. Gerek bolanda goşmaça wagt goşup bilersiňiz."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime nädip işleýär?",
+      "steps": [
+        {
+          "title": "Saýtlary goşuň",
+          "description": "Wagt çäklendirmek isleýän web sahypalaryňyzy goşuň we her biri üçin gündelik wagt çägini belläň."
+        },
+        {
+          "title": "Ulanmak yzarlama",
+          "description": "Giňeltme arka planda asuda işläp, görkezilen saýtlarda geçirýän wagtyňyzy gözegçilikde saklaýar."
+        },
+        {
+          "title": "Çäk bildirişi",
+          "description": "Kesgitlenen wagtyňyz gutaranda, dowam etmezden öň ýumşak ýatlatma görseziň."
+        },
+        {
+          "title": "Çeýe dolandyryş",
+          "description": "Gerek bolanda wagty uzadyp ýa-da ähli çäkleri aýryp bilersiňiz. Siz hemişe dolandyryşda bolarsyňyz."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Gizlinlik we maglumat howpsuzlygy",
+      "description": "SaveYourTime <strong>ähli maglumatlaryňyzy diňe ýerli brauzeriňizde saklaýar</strong> we daşarky serwerlere hiç hili maglumat ibermeýär. Saýt ulanmak maglumatlaryňyz we sazlamalaryňyz brauzeriňiziň \"ýerli ýatda saklamak\" zolagynda ygtybarly saklanylýar.",
+      "details": "Biziň giňeltmämiz minimal rugsat talap edýär we diňe siz görkezýän saýtlara girýär. Siziň gizlinligiňiz we maglumat howpsuzlygyňyz biziň iň esasy ileri tutýan ugurlarymyzdyr.",
+      "openSource": "Ähli çeşme kody açykdyr we GitHub sahypamyzdan gözden geçirilip üýtgedilip bilner.",
+      "learnMore": "Biziň gizlinlik syýasatymyz barada has köp maglumat almak üçin",
+      "learnMoreLink": "şu ýere basyň"
+    },
+    "actions": {
+      "configure": "Sazlamalary düzmek",
+      "viewSource": "GitHub-da çeşme kody görmek",
+      "virusTotal": "VirusTotal netijeleri"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime gizlinlik syýasaty",
+    "subtitle": "Siziň maglumat gizlinligiňizi nähili goraýandygymyz barada maglumat",
+    "commitment": {
+      "title": "Gizlinlik borçnamasy",
+      "description": "SaveYourTime-da siziň gizlinligiňizi we maglumat howpsuzlygyňyzy gymmatly hasaplaýarys. Bu giňeltme [hl]daşarky serwerlere hiç hili maglumaty ibermeýär[/hl] we ähli maglumatlaryňyz diňe öz brauzeriňizde saklanýar."
+    },
+    "collected": {
+      "title": "Ýygnalan maglumat",
+      "intro": "SaveYourTime diňe aşakdaky maglumatlary ýygnaýar we bellige alýar:",
+      "timeSpent": "Siz görkezýän web saýtlarynda geçirýän wagtyňyz",
+      "dailyLimits": "Siz belleýän gündelik wagt çäkleriňiz",
+      "settings": "Siziň giňeltme sazlamalaryňyz we saýlamalar",
+      "storage": "Bu maglumatlar [hl]diňe siziň ýerli brauzeriňizde saklanylýar[/hl] we giňeltmäniň dogry işlemegi üçin zerurdyr."
+    },
+    "storage": {
+      "title": "Maglumat saklamak we geçirmek",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Ulanyjy maglumatlarynyň hiç birini daşarky serwerlere ibermeýär[/hl]",
+      "localStorage": "Ähli maglumatlary brauzeriňiziň ýerli ýatda saklamak zolagynda saklaýar",
+      "offline": "Hatda internet birikmesi bolmasa-da işläp bilýär",
+      "noCookies": "Cookies ulanmaýar",
+      "noTracking": "Hiç bir ulanyjy şahsyýet ýa-da sessiýa maglumatlaryny yzarlamaýar"
+    },
+    "security": {
+      "title": "Maglumat howpsuzlygy",
+      "intro": "Siziň maglumatlaryňyz diňe brauzeriňizde saklanylandygy sebäpli:",
+      "browserClear": "Brauzeriň taryhyny ýa-da keşini arassalasaňyz, pozulyp bilner",
+      "uninstall": "Giňeltmäni aýranynyzda brauzeriňizden ähli giňeltilen maglumatları arassalap bilersiňiz",
+      "access": "Diňe brauzeriňiz siziň maglumatlaryňyza girip bilýär"
+    },
+    "permissions": {
+      "title": "Rugsatlar",
+      "intro": "SaveYourTime işlemegi üçin aşakdaky brauzer rugsatlary talap edýär:",
+      "activeTab": "Işjeň tab elýeterliligi (siz görkezýän saýtlarda geçirýän wagtyňyzy gözegçilikde saklamak üçin)",
+      "storage": "Ýerli saklamak elýeterliligi (sazlamalaryňyzy we wagt maglumatlaryňyzy ýatda saklamak üçin)",
+      "minimal": "Bu rugsatlar giňeltmäniň esasy funksiýalary üçin gerek bolan minimum rugsatlardyr."
+    },
+    "openSource": {
+      "title": "Açyk çeşme kody",
+      "description": "SaveYourTime doly açyk çeşmeli taslamadyr. Biziň kod bazamyz GitHub-da islendigiň gözden geçirmegi üçin elýeterlidir.",
+      "transparency": "Bu aýdynlyk biziň gizlinlige borçnamamyzy görkezýär. Kody gözden geçirmek isleýän kim bolsa-da, giňeltmäniň hakykatdanam hiç bir maglumat ibermeýändigini tassyklap biler."
+    },
+    "rights": {
+      "title": "Ulanyjy hukuklary",
+      "intro": "SaveYourTime ulanyjosy hökmünde, siz:",
+      "remove": "Islendik wagt brauzer sazlamalaryndan giňeltmäni aýryp bilersiňiz",
+      "delete": "Giňeltme sazlamalaryndan ähli ýazylan maglumatlary pozup bilersiňiz",
+      "modify": "Giňeltme sazlamalaryndan islendik maglumaty üýtgedip bilersiňiz"
+    },
+    "questions": {
+      "title": "Soraglar",
+      "contact": "Biziň gizlinlik syýasatymyz barada soraglaryňyz bar bolsa, GitHub taslamasynyň üsti bilen habarlaşyň."
+    },
+    "actions": {
+      "home": "Baş sahypa"
+    }
+  }
+}

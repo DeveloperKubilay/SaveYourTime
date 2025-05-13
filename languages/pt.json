@@ -1,0 +1,197 @@
+{
+  "lang": "pt",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Uma extensão de gerenciamento de tempo que ajuda a usar seu tempo digital de forma mais eficiente"
+  },
+  "common": {
+    "settings": "Configurações",
+    "dashboard": "Painel",
+    "active": "Ativo",
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "close": "Fechar",
+    "time": {
+      "hour": "hora",
+      "hours": "horas",
+      "minute": "minuto",
+      "minutes": "minutos",
+      "left": "restante",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Limite Diário",
+    "timeLeft": "Tempo Restante",
+    "timeEnd": "Tempo Esgotado",
+    "noLimits": "Sem Limites Definidos",
+    "otherSites": "Outros Sites Restritos",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Seu Tempo Acabou!",
+    "message": "Você atingiu seu limite diário para este site. É uma ótima oportunidade para redirecionar sua atenção para tarefas mais importantes!",
+    "continueAnyway": "Continuar Mesmo Assim",
+    "dailyStats": "Hoje Este site com uso total de <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minutos",
+      "30min": "+30 minutos",
+      "1hour": "+1 hora",
+      "2hours": "+2 horas"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Painel",
+      "siteManagement": "Gerenciamento de Sites",
+      "activeLimits": "Limites Ativos"
+    },
+    "stats": {
+      "restrictedSites": "Sites Restritos",
+      "blocked": "Sites Bloqueados",
+      "notBlocked": "Sites Permitidos",
+      "mostVisited": "Sites em que Você Passa Mais Tempo"
+    },
+    "sites": {
+      "addNew": "Adicionar Novo Site",
+      "editSite": "Editar Site",
+      "siteUrl": "URL do Site (ex. facebook.com)",
+      "timeTemplates": "Modelos de Tempo",
+      "customTime": "Tempo Personalizado",
+      "add": "Adicionar",
+      "restrictedSites": "Sites Restritos",
+      "remaining": "Tempo restante"
+    },
+    "activeLimits": {
+      "title": "Sites Atualmente Limitados"
+    },
+    "general": {
+      "title": "Configurações Gerais",
+      "resetData": "Redefinir Todos os Dados",
+      "resetDataConfirm": "Todos os dados salvos serão excluídos. Esta ação não pode ser desfeita. Deseja continuar?",
+      "github": "Repositório GitHub",
+      "virusTotal": "Resultados VirusTotal",
+      "reportIssue": "Reportar Problema",
+      "privacy": "Política de Privacidade",
+      "documentation": "Documentação"
+    }
+  },
+  "thanks": {
+    "welcome": "Bem-vindo ao SaveYourTime!",
+    "thankYou": "Obrigado pela instalação",
+    "features": {
+      "timeLimit": {
+        "title": "Limitação de Tempo",
+        "description": "Defina limites diários para redes sociais e outros sites distrativos. Você receberá um lembrete gentil quando seu limite for atingido."
+      },
+      "statistics": {
+        "title": "Estatísticas de Uso",
+        "description": "Acompanhe quanto tempo você gasta em diferentes sites com gráficos visuais e gerencie melhor seu tempo."
+      },
+      "blocking": {
+        "title": "Bloqueio Inteligente",
+        "description": "Escolha entre bloqueio completo ou lembretes suaves quando os limites de tempo forem excedidos. Você pode adicionar tempo extra sempre que necessário."
+      }
+    },
+    "howItWorks": {
+      "title": "Como o SaveYourTime Funciona?",
+      "steps": [
+        {
+          "title": "Adicionar Sites",
+          "description": "Adicione sites que você deseja limitar o tempo e defina um limite diário para cada um."
+        },
+        {
+          "title": "Monitoramento de Uso",
+          "description": "A extensão trabalha silenciosamente em segundo plano, monitorando o tempo que você gasta nos sites especificados."
+        },
+        {
+          "title": "Notificação de Limite",
+          "description": "Quando seu tempo definido acabar, você verá um lembrete gentil antes de continuar."
+        },
+        {
+          "title": "Controle Flexível",
+          "description": "Você pode estender o tempo ou remover todos os limites quando necessário. Você está sempre no controle."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacidade e Segurança de Dados",
+      "description": "SaveYourTime <strong>armazena todos os seus dados apenas localmente em seu navegador</strong> e não envia nenhuma informação para servidores externos. Seus dados de uso do site e configurações são armazenados com segurança na área de \"armazenamento local\" do seu navegador.",
+      "details": "Nossa extensão requer permissões mínimas e acessa apenas os sites que você especificar. Sua privacidade e segurança de dados são nossas principais prioridades.",
+      "openSource": "Todo o código-fonte é aberto e pode ser revisado e modificado a partir da nossa página no GitHub.",
+      "learnMore": "Para saber mais sobre nossa política de privacidade",
+      "learnMoreLink": "clique aqui"
+    },
+    "actions": {
+      "configure": "Configurar Ajustes",
+      "viewSource": "Ver Código no GitHub",
+      "virusTotal": "Resultados VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidade do SaveYourTime",
+    "subtitle": "Informações sobre como protegemos sua privacidade de dados",
+    "commitment": {
+      "title": "Compromisso com a Privacidade",
+      "description": "No SaveYourTime, valorizamos sua privacidade e segurança de dados. Esta extensão [hl]não envia nenhum dado para servidores externos[/hl], e todas as suas informações são armazenadas apenas em seu próprio navegador."
+    },
+    "collected": {
+      "title": "Informações Coletadas",
+      "intro": "SaveYourTime coleta e registra apenas as seguintes informações:",
+      "timeSpent": "O tempo que você gasta nos sites que especificou",
+      "dailyLimits": "Os limites diários de tempo que você definiu",
+      "settings": "Suas configurações e preferências da extensão",
+      "storage": "Essas informações são [hl]armazenadas apenas em seu navegador local[/hl] e são necessárias para o funcionamento adequado da extensão."
+    },
+    "storage": {
+      "title": "Armazenamento e Transmissão de Dados",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Não envia nenhum dado do usuário para servidores externos[/hl]",
+      "localStorage": "Armazena todos os dados na área de armazenamento local do seu navegador",
+      "offline": "Pode funcionar mesmo quando você não tem conexão com a internet",
+      "noCookies": "Não usa cookies",
+      "noTracking": "Não rastreia nenhuma identidade do usuário ou informações de sessão"
+    },
+    "security": {
+      "title": "Segurança de Dados",
+      "intro": "Como seus dados são armazenados apenas em seu navegador:",
+      "browserClear": "Eles podem ser excluídos se você limpar o histórico ou cache do navegador",
+      "uninstall": "Você pode limpar todos os dados gravados do seu navegador ao desinstalar a extensão",
+      "access": "Apenas seu navegador pode acessar seus dados"
+    },
+    "permissions": {
+      "title": "Permissões",
+      "intro": "SaveYourTime requer as seguintes permissões do navegador para funcionar:",
+      "activeTab": "Acesso à aba ativa (para monitorar o tempo gasto nos sites que você especificou)",
+      "storage": "Acesso ao armazenamento local (para salvar suas configurações e informações de tempo)",
+      "minimal": "Essas permissões são o mínimo necessário para a funcionalidade principal da extensão."
+    },
+    "openSource": {
+      "title": "Código Aberto",
+      "description": "SaveYourTime é um projeto completamente de código aberto. Nosso código-fonte está disponível para qualquer pessoa revisar no GitHub.",
+      "transparency": "Esta transparência demonstra nosso compromisso com a privacidade. Qualquer pessoa que desejar revisar o código pode verificar que a extensão realmente não envia nenhum dado."
+    },
+    "rights": {
+      "title": "Direitos do Usuário",
+      "intro": "Como usuário do SaveYourTime, você pode:",
+      "remove": "Remover a extensão das configurações do seu navegador a qualquer momento",
+      "delete": "Excluir todos os dados registrados das configurações da extensão",
+      "modify": "Modificar quaisquer dados que desejar das configurações da extensão"
+    },
+    "questions": {
+      "title": "Perguntas",
+      "contact": "Se você tiver alguma dúvida sobre nossa política de privacidade, entre em contato conosco através do nosso projeto no GitHub."
+    },
+    "actions": {
+      "home": "Início"
+    }
+  }
+}
