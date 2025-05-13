@@ -1,0 +1,197 @@
+{
+  "lang": "uz",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Raqamli vaqtingizdan samaraliroq foydalanishga yordam beradigan vaqt boshqarish kengaytmasi"
+  },
+  "common": {
+    "settings": "Sozlamalar",
+    "dashboard": "Boshqaruv paneli",
+    "active": "Faol",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "delete": "O'chirish",
+    "edit": "Tahrirlash",
+    "close": "Yopish",
+    "time": {
+      "hour": "soat",
+      "hours": "soat",
+      "minute": "daqiqa",
+      "minutes": "daqiqa",
+      "left": "qoldi",
+      "hourShort": "s",
+      "hoursShort": "s",
+      "minutesShort": "d"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Kunlik Limit",
+    "timeLeft": "Qolgan Vaqt",
+    "timeEnd": "Vaqt tugadi",
+    "noLimits": "Limitlar O'rnatilmagan",
+    "otherSites": "Boshqa Cheklangan Saytlar",
+    "timeButtons": {
+      "15min": "+15d",
+      "30min": "+30d",
+      "1hour": "+1s"
+    }
+  },
+  "warn": {
+    "title": "Vaqtingiz Tugadi!",
+    "message": "Bu sayt uchun kunlik vaqt limitiga yetib keldingiz. E'tiboringizni muhimroq vazifalalarga yo'naltirish uchun ajoyib imkoniyat!",
+    "continueAnyway": "Baribir Davom Etish",
+    "dailyStats": "Bugun bu saytda jami <strong>{{ totalTime }}</strong> vaqt o'tkazdingiz",
+    "timeOption": {
+      "15min": "+15 daqiqa",
+      "30min": "+30 daqiqa",
+      "1hour": "+1 soat",
+      "2hours": "+2 soat"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Boshqaruv paneli",
+      "siteManagement": "Sayt Boshqaruvi",
+      "activeLimits": "Faol Limitlar"
+    },
+    "stats": {
+      "restrictedSites": "Cheklangan Saytlar",
+      "blocked": "Bloklangan Saytlar",
+      "notBlocked": "Ruxsat Etilgan Saytlar",
+      "mostVisited": "Eng Ko'p Vaqt O'tkazadigan Saytlaringiz"
+    },
+    "sites": {
+      "addNew": "Yangi Sayt Qo'shish",
+      "editSite": "Saytni Tahrirlash",
+      "siteUrl": "Sayt URL (masalan, facebook.com)",
+      "timeTemplates": "Vaqt Shablonlari",
+      "customTime": "Maxsus Vaqt",
+      "add": "Qo'shish",
+      "restrictedSites": "Cheklangan Saytlar",
+      "remaining": "Qolgan vaqt"
+    },
+    "activeLimits": {
+      "title": "Hozir Cheklangan Saytlar"
+    },
+    "general": {
+      "title": "Umumiy Sozlamalar",
+      "resetData": "Barcha Ma'lumotlarni Tiklash",
+      "resetDataConfirm": "Barcha saqlangan ma'lumotlar o'chiriladi. Bu harakatni qaytarib bo'lmaydi. Davom etishni xohlaysizmi?",
+      "github": "GitHub Repozitoriya",
+      "virusTotal": "VirusTotal Natijalari",
+      "reportIssue": "Muammo Haqida Xabar Berish",
+      "privacy": "Maxfiylik Siyosati",
+      "documentation": "Hujjatlar"
+    }
+  },
+  "thanks": {
+    "welcome": "SaveYourTime-ga Xush Kelibsiz!",
+    "thankYou": "O'rnatganingiz uchun rahmat",
+    "features": {
+      "timeLimit": {
+        "title": "Vaqt Cheklash",
+        "description": "Ijtimoiy tarmoqlar va boshqa chalg'ituvchi saytlar uchun kunlik vaqt limitlarini o'rnating. Limitingiz tugaganda sizga muloyimlik bilan eslatiladi."
+      },
+      "statistics": {
+        "title": "Foydalanish Statistikasi",
+        "description": "Turli xil saytlarda qancha vaqt sarflayotganingizni vizual grafikalar bilan kuzatib boring va vaqtingizni yaxshiroq boshqaring."
+      },
+      "blocking": {
+        "title": "Aqlli Bloklash",
+        "description": "Vaqt limitlari tugaganda, to'liq bloklash yoki muloyim eslatmalar o'rtasida tanlang. Kerak bo'lganda qo'shimcha vaqt qo'shishingiz mumkin."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime Qanday Ishlaydi?",
+      "steps": [
+        {
+          "title": "Saytlarni Qo'shing",
+          "description": "Vaqtini cheklashni xohlagan veb-saytlarni qo'shing va har biri uchun kunlik vaqt limitini belgilang."
+        },
+        {
+          "title": "Foydalanishni Kuzatish",
+          "description": "Kengaytma fonda ishlaydi va belgilangan saytlarda sarflagan vaqtingizni kuzatib boradi."
+        },
+        {
+          "title": "Limit Bildirishnomasi",
+          "description": "Belgilagan vaqtingiz tugaganda, davom etishdan oldin muloyim eslatma ko'rasiz."
+        },
+        {
+          "title": "Moslashuvchan Boshqaruv",
+          "description": "Kerak bo'lganda vaqtni uzaytirish yoki barcha limitlarni olib tashlashingiz mumkin. Boshqaruv doimo sizda."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Maxfiylik va Ma'lumotlar Xavfsizligi",
+      "description": "SaveYourTime <strong>barcha ma'lumotlaringizni faqat brauzeringizda mahalliy saqlab qo'yadi</strong> va hech qanday ma'lumotni tashqi serverlarga yubormaydi. Saytdan foydalanish ma'lumotlaringiz va sozlamalaringiz brauzeringizning \"mahalliy xotira\" maydonida xavfsiz saqlanadi.",
+      "details": "Bizning kengaytmamiz minimal ruxsatnomalar talab qiladi va faqat siz ko'rsatgan saytlarga kiradi. Maxfiyligingiz va ma'lumotlaringizning xavfsizligi bizning asosiy ustuvorliklarimiz hisoblanadi.",
+      "openSource": "Barcha manba kodi ochiq va GitHub sahifamizdan ko'rib chiqish va o'zgartirish mumkin.",
+      "learnMore": "Bizning maxfiylik siyosatimiz haqida ko'proq ma'lumot olish uchun",
+      "learnMoreLink": "shu yerga bosing"
+    },
+    "actions": {
+      "configure": "Sozlamalarni Sozlash",
+      "viewSource": "GitHub-da Manba Kodini Ko'rish",
+      "virusTotal": "VirusTotal Natijalari"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Maxfiylik Siyosati",
+    "subtitle": "Ma'lumotlaringiz maxfiyligini qanday himoya qilishimiz haqida ma'lumot",
+    "commitment": {
+      "title": "Maxfiylik Majburiyati",
+      "description": "SaveYourTime-da sizning maxfiyligingiz va ma'lumotlaringiz xavfsizligiga ahamiyat beramiz. Bu kengaytma [hl]hech qanday ma'lumotni tashqi serverlarga yubormaydi[/hl], va barcha ma'lumotlaringiz faqat o'z brauzeringizda saqlanadi."
+    },
+    "collected": {
+      "title": "To'plangan Ma'lumotlar",
+      "intro": "SaveYourTime faqat quyidagi ma'lumotlarni to'playdi va qayd qiladi:",
+      "timeSpent": "Siz ko'rsatgan veb-saytlarda o'tkazgan vaqtingiz",
+      "dailyLimits": "Siz o'rnatgan kunlik vaqt limitlari",
+      "settings": "Kengaytma sozlamalaringiz va afzalliklaringiz",
+      "storage": "Bu ma'lumotlar [hl]faqat mahalliy brauzeringizda saqlanadi[/hl] va kengaytmaning to'g'ri ishlashi uchun zarur."
+    },
+    "storage": {
+      "title": "Ma'lumot Saqlash va Uzatish",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Hech qanday foydalanuvchi ma'lumotlarini tashqi serverlarga yubormaydi[/hl]",
+      "localStorage": "Barcha ma'lumotlarni brauzeringizning mahalliy xotira maydonida saqlaydi",
+      "offline": "Internet ulanishingiz bo'lmaganda ham ishlaydi",
+      "noCookies": "Kukilardan foydalanmaydi",
+      "noTracking": "Hech qanday foydalanuvchi identifikatori yoki sessiya ma'lumotlarini kuzatmaydi"
+    },
+    "security": {
+      "title": "Ma'lumotlar Xavfsizligi",
+      "intro": "Ma'lumotlaringiz faqat brauzeringizda saqlangani uchun:",
+      "browserClear": "Brauzer tarixini yoki keshni tozalasangiz, o'chirilishi mumkin",
+      "uninstall": "Kengaytmani o'chirganda brauzeringizdan barcha qayd etilgan ma'lumotlarni o'chirishingiz mumkin",
+      "access": "Faqat brauzeringiz ma'lumotlaringizga kirishi mumkin"
+    },
+    "permissions": {
+      "title": "Ruxsatnomalar",
+      "intro": "SaveYourTime ishlashi uchun quyidagi brauzer ruxsatnomalarini talab qiladi:",
+      "activeTab": "Faol tabga kirish (siz ko'rsatgan saytlarda sarflangan vaqtni kuzatish uchun)",
+      "storage": "Mahalliy xotiraga kirish (sozlamalaringiz va vaqt ma'lumotlarini saqlash uchun)",
+      "minimal": "Bu ruxsatnomalar kengaytmaning asosiy funksiyalari uchun talab qilinadigan minimumdir."
+    },
+    "openSource": {
+      "title": "Ochiq Manba Kodi",
+      "description": "SaveYourTime to'liq ochiq manbali loyiha. Bizning kod bazamiz GitHub-da har kim ko'rib chiqishi mumkin.",
+      "transparency": "Bu shaffoflik maxfiylikka bo'lgan majburiyatimizni ko'rsatadi. Kodni ko'rib chiqishni xohlagan har kim, kengaytma haqiqatan ham hech qanday ma'lumot yubormasligini tekshirishi mumkin."
+    },
+    "rights": {
+      "title": "Foydalanuvchi Huquqlari",
+      "intro": "SaveYourTime foydalanuvchisi sifatida siz:",
+      "remove": "Istalgan vaqtda brauzer sozlamalaringizdan kengaytmani olib tashlashingiz mumkin",
+      "delete": "Kengaytma sozlamalaridan barcha qayd qilingan ma'lumotlarni o'chirishingiz mumkin",
+      "modify": "Kengaytma sozlamalaridan istalgan ma'lumotni o'zgartirishingiz mumkin"
+    },
+    "questions": {
+      "title": "Savollar",
+      "contact": "Maxfiylik siyosatimiz haqida savollaringiz bo'lsa, iltimos, GitHub loyihamiz orqali biz bilan bog'laning."
+    },
+    "actions": {
+      "home": "Bosh Sahifa"
+    }
+  }
+}

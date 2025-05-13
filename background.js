@@ -1,7 +1,7 @@
 chrome.runtime.onInstalled.addListener(async function (details) {
     if (details.reason === 'install') {
         chrome.storage.local.clear();
-        /*
+        /* Debug
                     Urls: [
                 {
                     url: "ifconfig.me",

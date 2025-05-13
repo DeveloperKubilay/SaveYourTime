@@ -1,4 +1,0 @@
-//basitler
-toplu dil desteği
-olabiliecek hatalar için catch
-readme.md

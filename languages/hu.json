@@ -1,0 +1,197 @@
+{
+  "lang": "hu",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Időbeosztást segítő bővítmény, amely segít hatékonyabban használni a digitális idődet"
+  },
+  "common": {
+    "settings": "Beállítások",
+    "dashboard": "Irányítópult",
+    "active": "Aktív",
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "delete": "Törlés",
+    "edit": "Szerkesztés",
+    "close": "Bezárás",
+    "time": {
+      "hour": "óra",
+      "hours": "óra",
+      "minute": "perc",
+      "minutes": "perc",
+      "left": "maradt",
+      "hourShort": "ó",
+      "hoursShort": "ó",
+      "minutesShort": "p"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Napi limit",
+    "timeLeft": "Hátralévő idő",
+    "timeEnd": "Lejárt az idő",
+    "noLimits": "Nincs beállítva limit",
+    "otherSites": "Más korlátozott oldalak",
+    "timeButtons": {
+      "15min": "+15p",
+      "30min": "+30p",
+      "1hour": "+1ó"
+    }
+  },
+  "warn": {
+    "title": "Kifogytál az időből!",
+    "message": "Elérted a napi időlimitet erre az oldalra. Remek alkalom, hogy a figyelmedet fontosabb feladatokra irányítsd!",
+    "continueAnyway": "Folytatás mindenképp",
+    "dailyStats": "Ma Ez az oldal összesen <strong>{{ totalTime }}</strong> használattal",
+    "timeOption": {
+      "15min": "+15 perc",
+      "30min": "+30 perc",
+      "1hour": "+1 óra",
+      "2hours": "+2 óra"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Irányítópult",
+      "siteManagement": "Oldalkezelés",
+      "activeLimits": "Aktív limitek"
+    },
+    "stats": {
+      "restrictedSites": "Korlátozott oldalak",
+      "blocked": "Blokkolt oldalak",
+      "notBlocked": "Engedélyezett oldalak",
+      "mostVisited": "Oldalak, ahol a legtöbb időt töltöd"
+    },
+    "sites": {
+      "addNew": "Új oldal hozzáadása",
+      "editSite": "Oldal szerkesztése",
+      "siteUrl": "Oldal URL (pl. facebook.com)",
+      "timeTemplates": "Idősablonok",
+      "customTime": "Egyéni idő",
+      "add": "Hozzáadás",
+      "restrictedSites": "Korlátozott oldalak",
+      "remaining": "Hátralévő idő"
+    },
+    "activeLimits": {
+      "title": "Jelenleg korlátozott oldalak"
+    },
+    "general": {
+      "title": "Általános beállítások",
+      "resetData": "Összes adat visszaállítása",
+      "resetDataConfirm": "Minden mentett adat törlődni fog. Ez a művelet nem visszavonható. Szeretnéd folytatni?",
+      "github": "GitHub repo",
+      "virusTotal": "VirusTotal eredmények",
+      "reportIssue": "Hibabejelentés",
+      "privacy": "Adatvédelmi irányelvek",
+      "documentation": "Dokumentáció"
+    }
+  },
+  "thanks": {
+    "welcome": "Üdvözölünk a SaveYourTime-ban!",
+    "thankYou": "Köszönjük, hogy telepítetted",
+    "features": {
+      "timeLimit": {
+        "title": "Időkorlátozás",
+        "description": "Állíts be napi időlimiteket közösségi média és más figyelemelterelő oldalakra. Finoman emlékeztetünk, amikor eléred a limitet."
+      },
+      "statistics": {
+        "title": "Használati statisztikák",
+        "description": "Kövesd nyomon, mennyi időt töltesz különböző oldalakon vizuális grafikonokkal és kezeld jobban az idődet."
+      },
+      "blocking": {
+        "title": "Intelligens blokkolás",
+        "description": "Válassz a teljes blokkolás vagy a finom emlékeztetők között, amikor túlléped az időlimitet. Bármikor adhatsz hozzá extra időt, ha szükséges."
+      }
+    },
+    "howItWorks": {
+      "title": "Hogyan működik a SaveYourTime?",
+      "steps": [
+        {
+          "title": "Oldalak hozzáadása",
+          "description": "Add hozzá azokat a weboldalakat, amelyekre időlimitet szeretnél beállítani, és állíts be egy napi időkorlátot mindegyikre."
+        },
+        {
+          "title": "Használat követése",
+          "description": "A bővítmény csendben dolgozik a háttérben, figyelve, mennyi időt töltesz a megadott oldalakon."
+        },
+        {
+          "title": "Limit értesítés",
+          "description": "Amikor letelik a beállított idő, egy finom emlékeztetőt fogsz látni a folytatás előtt."
+        },
+        {
+          "title": "Rugalmas irányítás",
+          "description": "Meghosszabbíthatod az időt vagy eltávolíthatod az összes limitet, ha szükséges. Mindig te irányítasz."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Adatvédelem és adatbiztonság",
+      "description": "A SaveYourTime <strong>minden adatodat csak helyileg tárolja a böngésződben</strong> és nem küld semmilyen információt külső szerverekre. Az oldal használati adataid és beállításaid biztonságosan tárolódnak a böngésződ \"helyi tárolójában\".",
+      "details": "A bővítményünk minimális engedélyeket igényel, és csak azokhoz az oldalakhoz fér hozzá, amiket megadsz. Az adatvédelem és az adatbiztonság az elsődleges prioritásunk.",
+      "openSource": "Minden forráskód nyílt és átnézhető, módosítható a GitHub oldalunkról.",
+      "learnMore": "Ha többet szeretnél megtudni az adatvédelmi irányelveinkről",
+      "learnMoreLink": "kattints ide"
+    },
+    "actions": {
+      "configure": "Beállítások konfigurálása",
+      "viewSource": "Forráskód megtekintése GitHubon",
+      "virusTotal": "VirusTotal eredmények"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Adatvédelmi irányelvek",
+    "subtitle": "Információ arról, hogyan védjük adataid biztonságát",
+    "commitment": {
+      "title": "Adatvédelmi kötelezettségvállalás",
+      "description": "A SaveYourTime-nál értékeljük a magánéleted és adatbiztonságod. Ez a bővítmény [hl]nem küld semmilyen adatot külső szerverekre[/hl], és minden információd csak a saját böngésződben tárolódik."
+    },
+    "collected": {
+      "title": "Gyűjtött információk",
+      "intro": "A SaveYourTime csak a következő információkat gyűjti és rögzíti:",
+      "timeSpent": "Az időt, amit az általad meghatározott weboldalakon töltesz",
+      "dailyLimits": "Az általad beállított napi időkorlátokat",
+      "settings": "A bővítmény beállításait és preferenciáit",
+      "storage": "Ezek az információk [hl]csak a helyi böngésződben tárolódnak[/hl], és szükségesek a bővítmény megfelelő működéséhez."
+    },
+    "storage": {
+      "title": "Adattárolás és továbbítás",
+      "intro": "A SaveYourTime:",
+      "noSend": "[hl]Nem küld felhasználói adatokat külső szerverekre[/hl]",
+      "localStorage": "Minden adatot a böngésző helyi tárolójában tárol",
+      "offline": "Akkor is működik, ha nincs internetkapcsolatod",
+      "noCookies": "Nem használ sütiket",
+      "noTracking": "Nem követi a felhasználói identitást vagy munkamenet információkat"
+    },
+    "security": {
+      "title": "Adatbiztonság",
+      "intro": "Mivel az adataid csak a böngésződben tárolódnak:",
+      "browserClear": "Törlődhetnek, ha törlöd a böngésző előzményeket vagy a gyorsítótárat",
+      "uninstall": "A bővítmény eltávolításakor törölheted az összes rögzített adatot a böngésződből",
+      "access": "Csak a böngésződ férhet hozzá az adataidhoz"
+    },
+    "permissions": {
+      "title": "Engedélyek",
+      "intro": "A SaveYourTime a következő böngésző engedélyeket igényli a működéshez:",
+      "activeTab": "Aktív lap hozzáférés (hogy követhesse az időt, amit a megadott oldalakon töltesz)",
+      "storage": "Helyi tároló hozzáférés (a beállításaid és időinformációid mentéséhez)",
+      "minimal": "Ezek az engedélyek a bővítmény alapvető funkcionalitásához szükséges minimális engedélyek."
+    },
+    "openSource": {
+      "title": "Nyílt forráskód",
+      "description": "A SaveYourTime egy teljesen nyílt forráskódú projekt. A kódbázisunk bárki számára elérhető ellenőrzésre a GitHubon.",
+      "transparency": "Ez az átláthatóság bizonyítja elkötelezettségünket az adatvédelem iránt. Bárki, aki szeretné ellenőrizni a kódot, igazolhatja, hogy a bővítmény valóban nem küld semmilyen adatot."
+    },
+    "rights": {
+      "title": "Felhasználói jogok",
+      "intro": "SaveYourTime felhasználóként:",
+      "remove": "Bármikor eltávolíthatod a bővítményt a böngésző beállításaiból",
+      "delete": "Törölheted az összes rögzített adatot a bővítmény beállításaiból",
+      "modify": "Módosíthatsz bármilyen adatot a bővítmény beállításaiból"
+    },
+    "questions": {
+      "title": "Kérdések",
+      "contact": "Ha bármilyen kérdésed van az adatvédelmi irányelveinkkel kapcsolatban, kérjük, vedd fel velünk a kapcsolatot a GitHub projektünkön keresztül."
+    },
+    "actions": {
+      "home": "Kezdőlap"
+    }
+  }
+}

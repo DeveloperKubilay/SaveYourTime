@@ -1,0 +1,197 @@
+{
+  "lang": "yo",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Ìtọ́jú àsìkò tí ó ń ṣe ìrànlọ́wọ́ fún ẹ láti lo àsìkò díjítà rẹ ní ìlọsíwájú"
+  },
+  "common": {
+    "settings": "Ètò",
+    "dashboard": "Dáṣbọ́ọ̀dù",
+    "active": "Àṣeyọrí",
+    "save": "Fi pamọ́",
+    "cancel": "Fagilé",
+    "delete": "Pa rẹ́",
+    "edit": "Ṣe àtúnṣe",
+    "close": "Tì",
+    "time": {
+      "hour": "wákàtí",
+      "hours": "wákàtí",
+      "minute": "ìṣẹ́jú",
+      "minutes": "ìṣẹ́jú",
+      "left": "tó kù",
+      "hourShort": "w",
+      "hoursShort": "w",
+      "minutesShort": "ì"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Ààlà Ojoojúmọ́",
+    "timeLeft": "Àsìkò Tó Kù",
+    "timeEnd": "Àsìkò ti parí",
+    "noLimits": "Kò sí Ààlà",
+    "otherSites": "Àwọn Aaye Mìíràn Tí a ṣe ìpàdé",
+    "timeButtons": {
+      "15min": "+15ì",
+      "30min": "+30ì",
+      "1hour": "+1w"
+    }
+  },
+  "warn": {
+    "title": "Àsìkò rẹ ti parí!",
+    "message": "O ti dé òpin àkókò ojoojúmọ́ rẹ fún aaye yìí. Èyí jẹ́ ànfààní tó dára láti yí ìfarabalẹ̀ rẹ sí àwọn ohun tó ṣe pàtàkì jù lọ!",
+    "continueAnyway": "Tẹ̀síwájú Bákannáà",
+    "dailyStats": "Lónìí aaye yìí pẹ̀lú ìlò àpapọ̀ ti <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 ìṣẹ́jú",
+      "30min": "+30 ìṣẹ́jú",
+      "1hour": "+1 wákàtí",
+      "2hours": "+2 wákàtí"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dáṣbọ́ọ̀dù",
+      "siteManagement": "Ìṣàkóso Aaye Ayelujára",
+      "activeLimits": "Ààlà Àṣeyọrí"
+    },
+    "stats": {
+      "restrictedSites": "Àwọn Aaye Ìpàdé",
+      "blocked": "Àwọn Aaye Tí a Dínà",
+      "notBlocked": "Àwọn Aaye Tí a Fàyè Gbà",
+      "mostVisited": "Àwọn Aaye Tí O Lo Àsìkò Púpọ̀ lórí"
+    },
+    "sites": {
+      "addNew": "Ṣe Àfikún Aaye Tuntun",
+      "editSite": "Ṣe àtúnṣe Aaye",
+      "siteUrl": "Aaye URL (bí àpẹẹrẹ facebook.com)",
+      "timeTemplates": "Àwòrán Àsìkò",
+      "customTime": "Àsìkò Àkànṣe",
+      "add": "Fi kún",
+      "restrictedSites": "Àwọn Aaye Ìpàdé",
+      "remaining": "Àsìkò tó kù"
+    },
+    "activeLimits": {
+      "title": "Àwọn Aaye Tí a ṣe Ìdíwọ́ Lọ́wọ́lọ́wọ́"
+    },
+    "general": {
+      "title": "Ètò Gbogbogbò",
+      "resetData": "Tún Gbogbo Dátà Tò",
+      "resetDataConfirm": "Gbogbo dátà tí a fipamọ́ yóò parẹ́. A kò le dá ìgbésẹ̀ yìí padà. Ṣé o fẹ́ tẹ̀síwájú?",
+      "github": "GitHub Repo",
+      "virusTotal": "Àwọn Èsì VirusTotal",
+      "reportIssue": "Jábọ̀ Ìsòro",
+      "privacy": "Ìlànà Àṣírí",
+      "documentation": "Ìwé Àlàyé"
+    }
+  },
+  "thanks": {
+    "welcome": "Káàbọ̀ sí SaveYourTime!",
+    "thankYou": "O ṣeun fún fífi sórí ẹ̀rọ",
+    "features": {
+      "timeLimit": {
+        "title": "Ìdíwọ́ Àsìkò",
+        "description": "Ṣe ìgbélérò àsìkò ojoojúmọ́ fún àwọn míídíà àwùjọ àti àwọn aaye mìíràn tó le yà ọ́ lẹ́nu. A ó rán ẹ létí ní jẹ́jẹ́ nígbàti o bá dé ààlà rẹ."
+      },
+      "statistics": {
+        "title": "Àwọn Àkọsílẹ̀ Ìlò",
+        "description": "Ṣe ìtọ́pa bí o ṣe lò àsìkò lórí àwọn aaye oníbátan pẹ̀lú àwòrán ìyè àti ṣàkóso àsìkò rẹ dáradára."
+      },
+      "blocking": {
+        "title": "Ìdínà Ọgbọ́n",
+        "description": "Yan láàrin ìdínà kíkún tàbí ìrántí jẹ́jẹ́ nígbàtí o bá kọjá ààlà àsìkò. O le fi àsìkò àfikún kún nígbàkígbà tí o bá nílò."
+      }
+    },
+    "howItWorks": {
+      "title": "Báwo ni SaveYourTime ṣe ńṣiṣẹ́?",
+      "steps": [
+        {
+          "title": "Fi Àwọn Aaye Kún",
+          "description": "Fi àwọn aaye tí o fẹ́ dá àsìkò dúró lé lórí kún kí o sì ṣe àgbékalẹ̀ ààlà àsìkò ojoojúmọ́ fún ọ̀kọ̀ọ̀kan."
+        },
+        {
+          "title": "Ìtọ́pa Ìlò",
+          "description": "Àfikún náà ńṣiṣẹ́ ní ìkọ̀kọ̀ ní abẹ́, nítòótọ́ àsìkò tí o lò lórí àwọn aaye tí a pèsè."
+        },
+        {
+          "title": "Ìfitónilétí Ààlà",
+          "description": "Nígbàtí àsìkò tí o ṣe ìgbékalẹ̀ bá parí, ìwọ yóò rí ìrántí jẹ́jẹ́ kan kí o tó tẹ̀síwájú."
+        },
+        {
+          "title": "Ìdarí Tó Túbọ̀",
+          "description": "O lè fàágùn àsìkò tàbí yọ gbogbo ààlà kúrò nígbàtí o bá nílò. O wà ní ìdarí nígbà gbogbo."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Àṣírí àti Àbò Dátà",
+      "description": "SaveYourTime <strong>tọ́jú gbogbo dátà rẹ nìkan ní ìbílẹ̀ nínú aṣàwákiri rẹ</strong> àti pé kò fi èyíkéyìí ìròyin ránṣẹ́ sí àwọn ẹ̀rọ-ìwọ̀fà òde. Àwọn ìlò aaye rẹ àti ètò ni a tọ́jú ní àìléwu nínú agbègbè \"ìpamọ́ ìbílẹ̀\" aṣàwákiri rẹ.",
+      "details": "Àfikún wa nílò àwọn ìyọ̀nda kéré jù àti pé ó wọlé sí àwọn aaye tí o pèsè nìkan. Àṣírí rẹ àti àbò dátà ni àwọn ìṣápéjúwe wa pataki.",
+      "openSource": "Gbogbo koodu orísun jẹ́ ṣíṣí àti pé a lè ṣàgbéyẹ̀wò àti ṣàtúnṣe láti ojú-ìwé GitHub wa.",
+      "learnMore": "Láti kẹ́kọ̀ọ́ síi nípa ètò àṣírí wa",
+      "learnMoreLink": "tẹ níbí"
+    },
+    "actions": {
+      "configure": "Ṣe Ìṣètò Ètò",
+      "viewSource": "Wo Orísun lórí GitHub",
+      "virusTotal": "Àwọn Èsì VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Ètò Àṣírí SaveYourTime",
+    "subtitle": "Ìròyìn nípa bí a ṣe dáàbò bo àṣírí dátà rẹ",
+    "commitment": {
+      "title": "Ìdúróṣinṣin Àṣírí",
+      "description": "Ní SaveYourTime, a ṣe ìdojúkọ àṣírí àti àbò dátà rẹ. Àfikún yìí [hl]kò fi èyíkéyìí dátà ránṣẹ́ sí àwọn ẹ̀rọ-ìwọ̀fà òde[/hl], àti pé gbogbo ìròyìn rẹ ni a tọ́jú níka nínú aṣàwákiri rẹ."
+    },
+    "collected": {
+      "title": "Ìròyìn Tí A Kójọ",
+      "intro": "SaveYourTime kójọ ká sí àkọọ́lẹ̀ nìkan àwọn ìròyìn wọ̀nyí:",
+      "timeSpent": "Àsìkò tí o lò lórí àwọn aaye ayelujára tí o ṣàpèsè",
+      "dailyLimits": "Àwọn ààlà àsìkò ojoojúmọ́ tí o ṣeto",
+      "settings": "Àwọn ètò àfikún àti àwọn àṣàyàn rẹ",
+      "storage": "Àwọn ìròyìn yì ni a tọ́jú [hl]níka nínú aṣàwákiri ìbílẹ̀ rẹ[/hl] àti pé ó ṣe pàtàkì fún àfikún náà láti ṣiṣẹ́ dáradára."
+    },
+    "storage": {
+      "title": "Ìpamọ́ Dátà àti Ìgbéjáde",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Kò fi èyíkéyìí dátà olùṣàmúlò ránṣẹ́ sí àwọn ẹ̀rọ-ìwọ̀fà òde[/hl]",
+      "localStorage": "Tọ́jú gbogbo dátà sínú agbègbè ìpamọ́ ìbílẹ̀ aṣàwákiri rẹ",
+      "offline": "Le ṣiṣẹ́ páàpàa nígbàtí o kò ní ìsopọ̀ íńtánẹ́ẹ̀tì",
+      "noCookies": "Kò lo àwọn kúkì",
+      "noTracking": "Kò tọ́pa èyíkéyìí ìdánimọ̀ olùṣàmúlò tàbí ìròyìn ìgbà"
+    },
+    "security": {
+      "title": "Àbò Dátà",
+      "intro": "Nítorí pé a tọ́jú dátà rẹ níka nínú aṣàwákiri rẹ:",
+      "browserClear": "A lè pa á rẹ́ tí o bá fọ ìtàn aṣàwákiri tàbí kàṣù",
+      "uninstall": "O lè fọ gbogbo dátà tí a kọ sílẹ̀ láti aṣàwákiri rẹ nígbàtí o bá yọ kúrò nínú àfikún náà",
+      "access": "Aṣàwákiri rẹ nìkan ló lè wọlé sí dátà rẹ"
+    },
+    "permissions": {
+      "title": "Àwọn Ìyọ̀nda",
+      "intro": "SaveYourTime nílò àwọn ìyọ̀nda aṣàwákiri wọ̀nyí láti ṣiṣẹ́:",
+      "activeTab": "Wọlé sí taabu tó ńṣiṣẹ́ (láti ṣe ìṣọ́ àsìkò tí o lò lórí àwọn aaye tí o ṣàpèsè)",
+      "storage": "Wọlé sí ìpamọ́ ìbílẹ̀ (láti fi àwọn ètò àti ìròyìn àsìkò rẹ pamọ́)",
+      "minimal": "Àwọn ìyọ̀nda wọ̀nyí ni ó kéré jù tó nílò fún ìṣiṣẹ́ àwọn èròjà àfikún náà."
+    },
+    "openSource": {
+      "title": "Koodu Orísun Ṣíṣí",
+      "description": "SaveYourTime jẹ́ iṣẹ́-ṣíṣe orísun ṣíṣí ní kikun. Ipilẹ̀ṣẹ̀ koodu wa wà ní ìṣàmúlò fún ẹnikẹ́ni láti gbèwò lórí GitHub.",
+      "transparency": "Ìfarahàn yìí ṣe àfihàn ìdúróṣinṣin wa sí àṣírí. Ẹnikẹ́ni tí ó bá fẹ́ ṣàgbéyẹ̀wò koodu náà lè jẹ́rìísí pé àfikún náà kò fi èyíkéyìí dátà ránṣẹ́ ní tòótọ́."
+    },
+    "rights": {
+      "title": "Àwọn Ẹ̀tọ́ Olùṣàmúlò",
+      "intro": "Gẹ́gẹ́bí olùṣàmúlò SaveYourTime, o lè:",
+      "remove": "Yọ àfikún náà kúrò nínú àwọn ètò aṣàwákiri rẹ ní èyíkéyìí àkókò",
+      "delete": "Pa gbogbo dátà tí a kọ sílẹ̀ rẹ́ láti àwọn ètò àfikún",
+      "modify": "Ṣàtúnṣe èyíkéyìí dátà tí o fẹ́ láti àwọn ètò àfikún"
+    },
+    "questions": {
+      "title": "Àwọn Ìbéèrè",
+      "contact": "Tí o bá ní àwọn ìbéèrè nípa ètò àṣírí wa, jọ̀wọ́ kan sí wa láti ọ̀dọ̀ iṣẹ́-ṣíṣe GitHub wa."
+    },
+    "actions": {
+      "home": "Ilé"
+    }
+  }
+}

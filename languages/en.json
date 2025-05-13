@@ -10,9 +10,8 @@
     "active": "Active",
     "save": "Save",
     "cancel": "Cancel",
-    "add": "Add",
-    "edit": "Edit",
     "delete": "Delete",
+    "edit": "Edit",
     "close": "Close",
     "time": {
       "hour": "hour",
@@ -57,7 +56,7 @@
     },
     "stats": {
       "restrictedSites": "Restricted Sites",
-      "Blocked": "Blocked Sites",
+      "blocked": "Blocked Sites",
       "notBlocked": "Allowed Sites",
       "mostVisited": "Sites You Spend Most Time On"
     },

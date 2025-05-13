@@ -1,0 +1,197 @@
+{
+  "lang": "vi",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Tiện ích quản lý thời gian giúp bạn sử dụng thời gian kỹ thuật số hiệu quả hơn"
+  },
+  "common": {
+    "settings": "Cài đặt",
+    "dashboard": "Bảng điều khiển",
+    "active": "Đang hoạt động",
+    "save": "Lưu",
+    "cancel": "Hủy",
+    "delete": "Xóa",
+    "edit": "Chỉnh sửa",
+    "close": "Đóng",
+    "time": {
+      "hour": "giờ",
+      "hours": "giờ",
+      "minute": "phút",
+      "minutes": "phút",
+      "left": "còn lại",
+      "hourShort": "g",
+      "hoursShort": "g",
+      "minutesShort": "p"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Giới hạn hàng ngày",
+    "timeLeft": "Thời gian còn lại",
+    "timeEnd": "Hết giờ",
+    "noLimits": "Chưa đặt giới hạn",
+    "otherSites": "Các trang bị hạn chế khác",
+    "timeButtons": {
+      "15min": "+15p",
+      "30min": "+30p",
+      "1hour": "+1g"
+    }
+  },
+  "warn": {
+    "title": "Bạn đã hết thời gian!",
+    "message": "Bạn đã đạt đến giới hạn thời gian hàng ngày cho trang web này. Đây là cơ hội tốt để tập trung vào những việc quan trọng hơn!",
+    "continueAnyway": "Vẫn tiếp tục",
+    "dailyStats": "Hôm nay trang web này có tổng thời gian sử dụng là <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 phút",
+      "30min": "+30 phút",
+      "1hour": "+1 giờ",
+      "2hours": "+2 giờ"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Bảng điều khiển",
+      "siteManagement": "Quản lý trang web",
+      "activeLimits": "Giới hạn đang hoạt động"
+    },
+    "stats": {
+      "restrictedSites": "Trang web bị hạn chế",
+      "blocked": "Trang web bị chặn",
+      "notBlocked": "Trang web được phép",
+      "mostVisited": "Các trang bạn dành nhiều thời gian nhất"
+    },
+    "sites": {
+      "addNew": "Thêm trang mới",
+      "editSite": "Chỉnh sửa trang",
+      "siteUrl": "URL trang web (ví dụ: facebook.com)",
+      "timeTemplates": "Mẫu thời gian",
+      "customTime": "Thời gian tùy chỉnh",
+      "add": "Thêm",
+      "restrictedSites": "Trang web bị hạn chế",
+      "remaining": "Thời gian còn lại"
+    },
+    "activeLimits": {
+      "title": "Trang web hiện đang bị giới hạn"
+    },
+    "general": {
+      "title": "Cài đặt chung",
+      "resetData": "Đặt lại tất cả dữ liệu",
+      "resetDataConfirm": "Tất cả dữ liệu đã lưu sẽ bị xóa. Hành động này không thể hoàn tác. Bạn có muốn tiếp tục không?",
+      "github": "Kho GitHub",
+      "virusTotal": "Kết quả VirusTotal",
+      "reportIssue": "Báo cáo vấn đề",
+      "privacy": "Chính sách bảo mật",
+      "documentation": "Tài liệu"
+    }
+  },
+  "thanks": {
+    "welcome": "Chào mừng đến với SaveYourTime!",
+    "thankYou": "Cảm ơn bạn đã cài đặt",
+    "features": {
+      "timeLimit": {
+        "title": "Giới hạn thời gian",
+        "description": "Đặt giới hạn thời gian hàng ngày cho mạng xã hội và các trang web gây mất tập trung. Bạn sẽ được nhắc nhở khi đạt đến giới hạn."
+      },
+      "statistics": {
+        "title": "Thống kê sử dụng",
+        "description": "Theo dõi thời gian bạn dành cho các trang web khác nhau bằng biểu đồ trực quan và quản lý thời gian hiệu quả hơn."
+      },
+      "blocking": {
+        "title": "Chặn thông minh",
+        "description": "Lựa chọn giữa chặn hoàn toàn hoặc nhắc nhở nhẹ nhàng khi vượt quá giới hạn. Bạn có thể thêm thời gian bất cứ khi nào cần."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime hoạt động như thế nào?",
+      "steps": [
+        {
+          "title": "Thêm trang web",
+          "description": "Thêm các trang web bạn muốn giới hạn thời gian và đặt giới hạn thời gian hàng ngày cho mỗi trang."
+        },
+        {
+          "title": "Theo dõi sử dụng",
+          "description": "Tiện ích hoạt động âm thầm trong nền, theo dõi thời gian bạn dành cho các trang web đã chỉ định."
+        },
+        {
+          "title": "Thông báo giới hạn",
+          "description": "Khi hết thời gian, bạn sẽ nhận được một lời nhắc nhẹ nhàng trước khi tiếp tục."
+        },
+        {
+          "title": "Kiểm soát linh hoạt",
+          "description": "Bạn có thể gia hạn thời gian hoặc loại bỏ tất cả giới hạn khi cần. Bạn luôn có quyền kiểm soát."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Quyền riêng tư và bảo mật dữ liệu",
+      "description": "SaveYourTime <strong>lưu trữ tất cả dữ liệu của bạn chỉ ở cục bộ trong trình duyệt</strong> và không gửi bất kỳ thông tin nào đến máy chủ bên ngoài. Dữ liệu sử dụng trang web và cài đặt của bạn được lưu trữ an toàn trong khu vực \"local storage\" của trình duyệt.",
+      "details": "Tiện ích của chúng tôi chỉ yêu cầu quyền tối thiểu và chỉ truy cập các trang web bạn chỉ định. Quyền riêng tư và bảo mật dữ liệu của bạn là ưu tiên hàng đầu của chúng tôi.",
+      "openSource": "Tất cả mã nguồn đều mở và có thể được xem và sửa đổi từ trang GitHub của chúng tôi.",
+      "learnMore": "Để tìm hiểu thêm về chính sách bảo mật của chúng tôi",
+      "learnMoreLink": "nhấp vào đây"
+    },
+    "actions": {
+      "configure": "Cấu hình cài đặt",
+      "viewSource": "Xem mã nguồn trên GitHub",
+      "virusTotal": "Kết quả VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Chính sách bảo mật SaveYourTime",
+    "subtitle": "Thông tin về cách chúng tôi bảo vệ quyền riêng tư dữ liệu của bạn",
+    "commitment": {
+      "title": "Cam kết về quyền riêng tư",
+      "description": "Tại SaveYourTime, chúng tôi coi trọng quyền riêng tư và bảo mật dữ liệu của bạn. Tiện ích này [hl]không gửi bất kỳ dữ liệu nào đến máy chủ bên ngoài[/hl], và tất cả thông tin của bạn chỉ được lưu trữ trong trình duyệt của bạn."
+    },
+    "collected": {
+      "title": "Thông tin được thu thập",
+      "intro": "SaveYourTime chỉ thu thập và ghi lại các thông tin sau:",
+      "timeSpent": "Thời gian bạn dành cho các trang web đã chỉ định",
+      "dailyLimits": "Các giới hạn thời gian hàng ngày bạn đã đặt",
+      "settings": "Cài đặt và tùy chọn tiện ích của bạn",
+      "storage": "Thông tin này [hl]chỉ được lưu trữ trong trình duyệt cục bộ của bạn[/hl] và cần thiết để tiện ích hoạt động đúng."
+    },
+    "storage": {
+      "title": "Lưu trữ và truyền dữ liệu",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Không gửi bất kỳ dữ liệu người dùng nào đến máy chủ bên ngoài[/hl]",
+      "localStorage": "Lưu trữ tất cả dữ liệu trong khu vực lưu trữ cục bộ của trình duyệt",
+      "offline": "Có thể hoạt động ngay cả khi bạn không có kết nối internet",
+      "noCookies": "Không sử dụng cookie",
+      "noTracking": "Không theo dõi danh tính người dùng hoặc thông tin phiên"
+    },
+    "security": {
+      "title": "Bảo mật dữ liệu",
+      "intro": "Vì dữ liệu của bạn chỉ được lưu trữ trong trình duyệt:",
+      "browserClear": "Nó có thể bị xóa nếu bạn xóa lịch sử hoặc bộ nhớ cache của trình duyệt",
+      "uninstall": "Bạn có thể xóa tất cả dữ liệu đã ghi từ trình duyệt khi gỡ cài đặt tiện ích",
+      "access": "Chỉ trình duyệt của bạn mới có thể truy cập dữ liệu của bạn"
+    },
+    "permissions": {
+      "title": "Quyền",
+      "intro": "SaveYourTime yêu cầu các quyền trình duyệt sau để hoạt động:",
+      "activeTab": "Truy cập tab đang hoạt động (để theo dõi thời gian dành cho các trang web bạn đã chỉ định)",
+      "storage": "Truy cập lưu trữ cục bộ (để lưu cài đặt và thông tin thời gian)",
+      "minimal": "Những quyền này là tối thiểu cần thiết cho chức năng cốt lõi của tiện ích."
+    },
+    "openSource": {
+      "title": "Mã nguồn mở",
+      "description": "SaveYourTime là một dự án hoàn toàn mã nguồn mở. Mã của chúng tôi có sẵn cho bất kỳ ai xem trên GitHub.",
+      "transparency": "Sự minh bạch này thể hiện cam kết của chúng tôi về quyền riêng tư. Bất kỳ ai muốn xem xét mã đều có thể xác minh rằng tiện ích thực sự không gửi bất kỳ dữ liệu nào."
+    },
+    "rights": {
+      "title": "Quyền của người dùng",
+      "intro": "Là người dùng SaveYourTime, bạn có thể:",
+      "remove": "Xóa tiện ích khỏi cài đặt trình duyệt bất kỳ lúc nào",
+      "delete": "Xóa tất cả dữ liệu đã ghi từ cài đặt tiện ích",
+      "modify": "Sửa đổi bất kỳ dữ liệu nào từ cài đặt tiện ích"
+    },
+    "questions": {
+      "title": "Câu hỏi",
+      "contact": "Nếu bạn có bất kỳ câu hỏi nào về chính sách bảo mật của chúng tôi, vui lòng liên hệ với chúng tôi qua dự án GitHub."
+    },
+    "actions": {
+      "home": "Trang chủ"
+    }
+  }
+}

@@ -1,0 +1,197 @@
+{
+  "lang": "sl",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Razširitev za upravljanje s časom, ki vam pomaga učinkoviteje izkoristiti digitalni čas"
+  },
+  "common": {
+    "settings": "Nastavitve",
+    "dashboard": "Nadzorna plošča",
+    "active": "Aktivno",
+    "save": "Shrani",
+    "cancel": "Prekliči",
+    "delete": "Izbriši",
+    "edit": "Uredi",
+    "close": "Zapri",
+    "time": {
+      "hour": "ura",
+      "hours": "ur",
+      "minute": "minuta",
+      "minutes": "minut",
+      "left": "preostalo",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Dnevna omejitev",
+    "timeLeft": "Preostali čas",
+    "timeEnd": "Čas je potekel",
+    "noLimits": "Ni nastavljenih omejitev",
+    "otherSites": "Druge omejene strani",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Porabili ste ves čas!",
+    "message": "Dosegli ste dnevno časovno omejitev za to stran. Odlična priložnost, da svojo pozornost preusmerite na pomembnejše naloge!",
+    "continueAnyway": "Vseeno nadaljuj",
+    "dailyStats": "Danes ta stran s skupno uporabo <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minut",
+      "30min": "+30 minut",
+      "1hour": "+1 ura",
+      "2hours": "+2 uri"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Nadzorna plošča",
+      "siteManagement": "Upravljanje strani",
+      "activeLimits": "Aktivne omejitve"
+    },
+    "stats": {
+      "restrictedSites": "Omejene strani",
+      "blocked": "Blokirane strani",
+      "notBlocked": "Dovoljene strani",
+      "mostVisited": "Strani, na katerih preživite največ časa"
+    },
+    "sites": {
+      "addNew": "Dodaj novo stran",
+      "editSite": "Uredi stran",
+      "siteUrl": "URL strani (npr. facebook.com)",
+      "timeTemplates": "Časovne predloge",
+      "customTime": "Prilagojen čas",
+      "add": "Dodaj",
+      "restrictedSites": "Omejene strani",
+      "remaining": "Preostali čas"
+    },
+    "activeLimits": {
+      "title": "Trenutno omejene strani"
+    },
+    "general": {
+      "title": "Splošne nastavitve",
+      "resetData": "Ponastavi vse podatke",
+      "resetDataConfirm": "Vsi shranjeni podatki bodo izbrisani. Tega dejanja ni mogoče razveljaviti. Želite nadaljevati?",
+      "github": "GitHub repozitorij",
+      "virusTotal": "Rezultati VirusTotal",
+      "reportIssue": "Prijavi napako",
+      "privacy": "Pravilnik o zasebnosti",
+      "documentation": "Dokumentacija"
+    }
+  },
+  "thanks": {
+    "welcome": "Dobrodošli v SaveYourTime!",
+    "thankYou": "Hvala za namestitev",
+    "features": {
+      "timeLimit": {
+        "title": "Časovna omejitev",
+        "description": "Nastavite dnevne časovne omejitve za družabna omrežja in druge moteče strani. Ko dosežete omejitev, boste nežno opomnjeni."
+      },
+      "statistics": {
+        "title": "Statistika uporabe",
+        "description": "Spremljajte, koliko časa porabite na različnih straneh z vizualnimi grafi in bolje upravljajte svoj čas."
+      },
+      "blocking": {
+        "title": "Pametno blokiranje",
+        "description": "Izbirajte med popolnim blokiranjem ali nežnimi opomniki, ko so presežene časovne omejitve. Po potrebi lahko dodate dodatni čas."
+      }
+    },
+    "howItWorks": {
+      "title": "Kako deluje SaveYourTime?",
+      "steps": [
+        {
+          "title": "Dodajte strani",
+          "description": "Dodajte spletne strani, na katerih želite omejiti čas, in nastavite dnevno časovno omejitev za vsako."
+        },
+        {
+          "title": "Sledenje uporabi",
+          "description": "Razširitev tiho deluje v ozadju in spremlja čas, ki ga preživite na določenih straneh."
+        },
+        {
+          "title": "Opozorilo o omejitvi",
+          "description": "Ko se nastavljeni čas izteče, boste pred nadaljevanjem prejeli nežen opomnik."
+        },
+        {
+          "title": "Prilagodljiv nadzor",
+          "description": "Po potrebi lahko podaljšate čas ali odstranite vse omejitve. Vedno imate nadzor."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Zasebnost in varnost podatkov",
+      "description": "SaveYourTime <strong>shranjuje vse vaše podatke samo lokalno v vašem brskalniku</strong> in ne pošilja nobenih informacij zunanjim strežnikom. Vaši podatki o uporabi strani in nastavitve so varno shranjeni v območju \"lokalnega shranjevanja\" vašega brskalnika.",
+      "details": "Naša razširitev zahteva minimalna dovoljenja in dostopa samo do strani, ki jih določite. Vaša zasebnost in varnost podatkov sta naši glavni prednostni nalogi.",
+      "openSource": "Vsa izvorna koda je odprta in jo je mogoče pregledati ter spremeniti na naši strani GitHub.",
+      "learnMore": "Za več informacij o našem pravilniku o zasebnosti",
+      "learnMoreLink": "kliknite tukaj"
+    },
+    "actions": {
+      "configure": "Konfiguriraj nastavitve",
+      "viewSource": "Ogled izvorne kode na GitHubu",
+      "virusTotal": "Rezultati VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Pravilnik o zasebnosti",
+    "subtitle": "Informacije o tem, kako varujemo vašo zasebnost",
+    "commitment": {
+      "title": "Zaveza k zasebnosti",
+      "description": "Pri SaveYourTime cenimo vašo zasebnost in varnost podatkov. Ta razširitev [hl]ne pošilja nobenih podatkov zunanjim strežnikom[/hl], in vse vaše informacije so shranjene samo v vašem lastnem brskalniku."
+    },
+    "collected": {
+      "title": "Zbrane informacije",
+      "intro": "SaveYourTime zbira in beleži samo naslednje informacije:",
+      "timeSpent": "Čas, ki ga porabite na spletnih straneh, ki ste jih določili",
+      "dailyLimits": "Dnevne časovne omejitve, ki ste jih nastavili",
+      "settings": "Vaše nastavitve in preference razširitve",
+      "storage": "Te informacije so [hl]shranjene samo v vašem lokalnem brskalniku[/hl] in so potrebne za pravilno delovanje razširitve."
+    },
+    "storage": {
+      "title": "Shranjevanje in prenos podatkov",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Ne pošilja nobenih uporabniških podatkov zunanjim strežnikom[/hl]",
+      "localStorage": "Shranjuje vse podatke v območju lokalnega shranjevanja vašega brskalnika",
+      "offline": "Lahko deluje tudi brez internetne povezave",
+      "noCookies": "Ne uporablja piškotkov",
+      "noTracking": "Ne sledi nobeni identiteti uporabnika ali informacijam o seji"
+    },
+    "security": {
+      "title": "Varnost podatkov",
+      "intro": "Ker so vaši podatki shranjeni samo v vašem brskalniku:",
+      "browserClear": "Lahko se izbrišejo, če počistite zgodovino brskalnika ali predpomnilnik",
+      "uninstall": "Ob odstranitvi razširitve lahko iz brskalnika izbrišete vse zabeležene podatke",
+      "access": "Do vaših podatkov lahko dostopa samo vaš brskalnik"
+    },
+    "permissions": {
+      "title": "Dovoljenja",
+      "intro": "SaveYourTime za delovanje potrebuje naslednja dovoljenja brskalnika:",
+      "activeTab": "Dostop do aktivnega zavihka (za spremljanje časa na straneh, ki ste jih določili)",
+      "storage": "Dostop do lokalnega shranjevanja (za shranjevanje vaših nastavitev in časovnih informacij)",
+      "minimal": "Ta dovoljenja so najmanjša potrebna za osnovno funkcionalnost razširitve."
+    },
+    "openSource": {
+      "title": "Odprtokodna koda",
+      "description": "SaveYourTime je popolnoma odprtokodni projekt. Naša koda je na voljo za pregled vsem na GitHubu.",
+      "transparency": "Ta preglednost dokazuje našo zavezanost k zasebnosti. Vsakdo, ki želi pregledati kodo, lahko preveri, da razširitev resnično ne pošilja nobenih podatkov."
+    },
+    "rights": {
+      "title": "Pravice uporabnikov",
+      "intro": "Kot uporabnik SaveYourTime lahko:",
+      "remove": "Kadar koli odstranite razširitev iz nastavitev brskalnika",
+      "delete": "Izbrišete vse zabeležene podatke iz nastavitev razširitve",
+      "modify": "Spremenite katerekoli podatke v nastavitvah razširitve"
+    },
+    "questions": {
+      "title": "Vprašanja",
+      "contact": "Če imate kakršnakoli vprašanja o našem pravilniku o zasebnosti, nas kontaktirajte preko našega GitHub projekta."
+    },
+    "actions": {
+      "home": "Domov"
+    }
+  }
+}

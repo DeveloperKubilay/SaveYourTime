@@ -1,0 +1,197 @@
+{
+  "lang": "zh",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "一个帮助您更有效地利用数字时间的时间管理扩展程序"
+  },
+  "common": {
+    "settings": "设置",
+    "dashboard": "仪表板",
+    "active": "活跃",
+    "save": "保存",
+    "cancel": "取消",
+    "delete": "删除",
+    "edit": "编辑",
+    "close": "关闭",
+    "time": {
+      "hour": "小时",
+      "hours": "小时",
+      "minute": "分钟",
+      "minutes": "分钟",
+      "left": "剩余",
+      "hourShort": "小时",
+      "hoursShort": "小时",
+      "minutesShort": "分"
+    }
+  },
+  "popup": {
+    "dailyLimit": "每日限制",
+    "timeLeft": "剩余时间",
+    "timeEnd": "时间到",
+    "noLimits": "未设置限制",
+    "otherSites": "其他受限网站",
+    "timeButtons": {
+      "15min": "+15分钟",
+      "30min": "+30分钟",
+      "1hour": "+1小时"
+    }
+  },
+  "warn": {
+    "title": "您已用完时间！",
+    "message": "您已达到此网站的每日时间限制。这是将注意力转向更重要任务的绝佳机会！",
+    "continueAnyway": "仍然继续",
+    "dailyStats": "今天此网站总使用时间 <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15分钟",
+      "30min": "+30分钟",
+      "1hour": "+1小时",
+      "2hours": "+2小时"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "仪表板",
+      "siteManagement": "网站管理",
+      "activeLimits": "活跃限制"
+    },
+    "stats": {
+      "restrictedSites": "受限网站",
+      "blocked": "已屏蔽网站",
+      "notBlocked": "允许的网站",
+      "mostVisited": "您花费最多时间的网站"
+    },
+    "sites": {
+      "addNew": "添加新网站",
+      "editSite": "编辑网站",
+      "siteUrl": "网站URL（例如 facebook.com）",
+      "timeTemplates": "时间模板",
+      "customTime": "自定义时间",
+      "add": "添加",
+      "restrictedSites": "受限网站",
+      "remaining": "剩余时间"
+    },
+    "activeLimits": {
+      "title": "当前受限网站"
+    },
+    "general": {
+      "title": "常规设置",
+      "resetData": "重置所有数据",
+      "resetDataConfirm": "所有保存的数据将被删除。此操作无法撤销。您想继续吗？",
+      "github": "GitHub仓库",
+      "virusTotal": "VirusTotal结果",
+      "reportIssue": "报告问题",
+      "privacy": "隐私政策",
+      "documentation": "文档"
+    }
+  },
+  "thanks": {
+    "welcome": "欢迎使用SaveYourTime！",
+    "thankYou": "感谢安装",
+    "features": {
+      "timeLimit": {
+        "title": "时间限制",
+        "description": "为社交媒体和其他分散注意力的网站设置每日时间限制。达到限制时，您将收到温和提醒。"
+      },
+      "statistics": {
+        "title": "使用统计",
+        "description": "通过可视化图表跟踪您在不同网站上花费的时间，更好地管理您的时间。"
+      },
+      "blocking": {
+        "title": "智能屏蔽",
+        "description": "在超出时间限制时，选择完全屏蔽或温和提醒。您可以随时添加额外时间。"
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime如何工作？",
+      "steps": [
+        {
+          "title": "添加网站",
+          "description": "添加您想要限制时间的网站，并为每个网站设置每日时间限制。"
+        },
+        {
+          "title": "使用跟踪",
+          "description": "扩展程序在后台安静工作，监控您在指定网站上花费的时间。"
+        },
+        {
+          "title": "限制通知",
+          "description": "当设定的时间用完时，您将在继续之前看到温和提醒。"
+        },
+        {
+          "title": "灵活控制",
+          "description": "您可以在需要时延长时间或移除所有限制。您始终掌控一切。"
+        }
+      ]
+    },
+    "privacy": {
+      "title": "隐私和数据安全",
+      "description": "SaveYourTime <strong>仅在您的浏览器本地存储所有数据</strong>，不会向外部服务器发送任何信息。您的网站使用数据和设置安全存储在浏览器的\"本地存储\"区域。",
+      "details": "我们的扩展程序只需要最少的权限，只访问您指定的网站。您的隐私和数据安全是我们的首要任务。",
+      "openSource": "所有源代码都是开放的，可以从我们的GitHub页面查看和修改。",
+      "learnMore": "要了解有关我们隐私政策的更多信息",
+      "learnMoreLink": "点击这里"
+    },
+    "actions": {
+      "configure": "配置设置",
+      "viewSource": "在GitHub上查看源代码",
+      "virusTotal": "VirusTotal结果"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime隐私政策",
+    "subtitle": "关于我们如何保护您的数据隐私的信息",
+    "commitment": {
+      "title": "隐私承诺",
+      "description": "在SaveYourTime，我们重视您的隐私和数据安全。此扩展[hl]不向外部服务器发送任何数据[/hl]，所有信息仅存储在您自己的浏览器中。"
+    },
+    "collected": {
+      "title": "收集的信息",
+      "intro": "SaveYourTime仅收集和记录以下信息：",
+      "timeSpent": "您在指定网站上花费的时间",
+      "dailyLimits": "您设置的每日时间限制",
+      "settings": "您的扩展程序设置和首选项",
+      "storage": "此信息[hl]仅存储在您的本地浏览器中[/hl]，这对扩展程序正常运行是必要的。"
+    },
+    "storage": {
+      "title": "数据存储和传输",
+      "intro": "SaveYourTime：",
+      "noSend": "[hl]不向外部服务器发送任何用户数据[/hl]",
+      "localStorage": "将所有数据存储在浏览器的本地存储区域",
+      "offline": "即使在没有互联网连接的情况下也能工作",
+      "noCookies": "不使用cookie",
+      "noTracking": "不跟踪任何用户身份或会话信息"
+    },
+    "security": {
+      "title": "数据安全",
+      "intro": "由于您的数据仅存储在浏览器中：",
+      "browserClear": "如果您清除浏览器历史记录或缓存，数据可能会被删除",
+      "uninstall": "卸载扩展程序时，可以从浏览器中清除所有记录的数据",
+      "access": "只有您的浏览器可以访问您的数据"
+    },
+    "permissions": {
+      "title": "权限",
+      "intro": "SaveYourTime需要以下浏览器权限才能运行：",
+      "activeTab": "活动标签访问权限（用于监控您在指定网站上花费的时间）",
+      "storage": "本地存储访问权限（用于保存您的设置和时间信息）",
+      "minimal": "这些权限是扩展程序核心功能所需的最低要求。"
+    },
+    "openSource": {
+      "title": "开源代码",
+      "description": "SaveYourTime是一个完全开源的项目。我们的代码库可在GitHub上供任何人查看。",
+      "transparency": "这种透明度展示了我们对隐私的承诺。任何希望查看代码的人都可以验证扩展程序确实不发送任何数据。"
+    },
+    "rights": {
+      "title": "用户权利",
+      "intro": "作为SaveYourTime用户，您可以：",
+      "remove": "随时从浏览器设置中移除扩展程序",
+      "delete": "从扩展程序设置中删除所有记录的数据",
+      "modify": "从扩展程序设置中修改您想要的任何数据"
+    },
+    "questions": {
+      "title": "问题",
+      "contact": "如果您对我们的隐私政策有任何疑问，请通过我们的GitHub项目联系我们。"
+    },
+    "actions": {
+      "home": "主页"
+    }
+  }
+}

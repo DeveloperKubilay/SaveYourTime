@@ -1,0 +1,197 @@
+{
+  "lang": "sk",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Rozšírenie na správu času, ktoré vám pomáha efektívnejšie využívať váš digitálny čas"
+  },
+  "common": {
+    "settings": "Nastavenia",
+    "dashboard": "Dashboard",
+    "active": "Aktívne",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "delete": "Vymazať",
+    "edit": "Upraviť",
+    "close": "Zavrieť",
+    "time": {
+      "hour": "hodina",
+      "hours": "hodín",
+      "minute": "minúta",
+      "minutes": "minút",
+      "left": "zostáva",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Denný limit",
+    "timeLeft": "Zostávajúci čas",
+    "timeEnd": "Čas vypršal",
+    "noLimits": "Nie sú nastavené žiadne limity",
+    "otherSites": "Ďalšie obmedzené stránky",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Vypršal vám čas!",
+    "message": "Dosiahli ste denný časový limit pre túto stránku. Je to skvelá príležitosť presmerovať svoju pozornosť na dôležitejšie úlohy!",
+    "continueAnyway": "Pokračovať aj tak",
+    "dailyStats": "Dnes táto stránka s celkovým využitím <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minút",
+      "30min": "+30 minút",
+      "1hour": "+1 hodina",
+      "2hours": "+2 hodiny"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashboard",
+      "siteManagement": "Správa stránok",
+      "activeLimits": "Aktívne limity"
+    },
+    "stats": {
+      "restrictedSites": "Obmedzené stránky",
+      "blocked": "Blokované stránky",
+      "notBlocked": "Povolené stránky",
+      "mostVisited": "Stránky, na ktorých trávite najviac času"
+    },
+    "sites": {
+      "addNew": "Pridať novú stránku",
+      "editSite": "Upraviť stránku",
+      "siteUrl": "URL stránky (napr. facebook.com)",
+      "timeTemplates": "Časové šablóny",
+      "customTime": "Vlastný čas",
+      "add": "Pridať",
+      "restrictedSites": "Obmedzené stránky",
+      "remaining": "Zostávajúci čas"
+    },
+    "activeLimits": {
+      "title": "Aktuálne obmedzené stránky"
+    },
+    "general": {
+      "title": "Všeobecné nastavenia",
+      "resetData": "Obnoviť všetky údaje",
+      "resetDataConfirm": "Všetky uložené údaje budú vymazané. Túto akciu nemožno vrátiť späť. Chcete pokračovať?",
+      "github": "GitHub repozitár",
+      "virusTotal": "Výsledky VirusTotal",
+      "reportIssue": "Nahlásiť problém",
+      "privacy": "Zásady ochrany osobných údajov",
+      "documentation": "Dokumentácia"
+    }
+  },
+  "thanks": {
+    "welcome": "Vitajte v SaveYourTime!",
+    "thankYou": "Ďakujeme za inštaláciu",
+    "features": {
+      "timeLimit": {
+        "title": "Časové obmedzenia",
+        "description": "Nastavte denné časové limity pre sociálne siete a iné rozptyľujúce stránky. Keď dosiahnete limit, budete jemne upozornení."
+      },
+      "statistics": {
+        "title": "Štatistiky používania",
+        "description": "Sledujte, koľko času trávite na rôznych stránkach s vizuálnymi grafmi a lepšie spravujte svoj čas."
+      },
+      "blocking": {
+        "title": "Inteligentné blokovanie",
+        "description": "Vyberte si medzi úplným blokovaním alebo jemným upozornením po prekročení časových limitov. Kedykoľvek môžete pridať extra čas."
+      }
+    },
+    "howItWorks": {
+      "title": "Ako funguje SaveYourTime?",
+      "steps": [
+        {
+          "title": "Pridať stránky",
+          "description": "Pridajte webové stránky, na ktorých chcete obmedziť čas, a nastavte denný časový limit pre každú z nich."
+        },
+        {
+          "title": "Sledovanie využitia",
+          "description": "Rozšírenie ticho pracuje na pozadí a monitoruje čas, ktorý trávite na určených stránkach."
+        },
+        {
+          "title": "Upozornenie na limit",
+          "description": "Keď vyprší vami stanovený čas, pred pokračovaním sa zobrazí jemné upozornenie."
+        },
+        {
+          "title": "Flexibilná kontrola",
+          "description": "V prípade potreby môžete predĺžiť čas alebo odstrániť všetky limity. Vždy máte kontrolu."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Ochrana osobných údajov a bezpečnosť údajov",
+      "description": "SaveYourTime <strong>ukladá všetky vaše údaje iba lokálne vo vašom prehliadači</strong> a neodosiela žiadne informácie externým serverom. Údaje o využívaní stránok a nastavenia sú bezpečne uložené v oblasti \"lokálneho úložiska\" vášho prehliadača.",
+      "details": "Naše rozšírenie vyžaduje minimálne oprávnenia a pristupuje iba k stránkam, ktoré zadáte. Ochrana vášho súkromia a bezpečnosť údajov sú našimi hlavnými prioritami.",
+      "openSource": "Všetok zdrojový kód je otvorený a môže byť kontrolovaný a upravovaný z našej GitHub stránky.",
+      "learnMore": "Ak sa chcete dozvedieť viac o našich zásadách ochrany osobných údajov",
+      "learnMoreLink": "kliknite sem"
+    },
+    "actions": {
+      "configure": "Konfigurovať nastavenia",
+      "viewSource": "Zobraziť zdroj na GitHub",
+      "virusTotal": "Výsledky VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Zásady ochrany osobných údajov SaveYourTime",
+    "subtitle": "Informácie o tom, ako chránime vaše súkromie",
+    "commitment": {
+      "title": "Záväzok k ochrane súkromia",
+      "description": "V SaveYourTime si ceníme vaše súkromie a bezpečnosť údajov. Toto rozšírenie [hl]neposiela žiadne údaje externým serverom[/hl] a všetky vaše informácie sú uložené iba vo vašom vlastnom prehliadači."
+    },
+    "collected": {
+      "title": "Zhromaždené informácie",
+      "intro": "SaveYourTime zhromažďuje a zaznamenáva iba nasledujúce informácie:",
+      "timeSpent": "Čas, ktorý trávite na webových stránkach, ktoré ste určili",
+      "dailyLimits": "Denné časové limity, ktoré ste nastavili",
+      "settings": "Vaše nastavenia a preferencie rozšírenia",
+      "storage": "Tieto informácie sú [hl]uložené iba vo vašom lokálnom prehliadači[/hl] a sú nevyhnutné pre správne fungovanie rozšírenia."
+    },
+    "storage": {
+      "title": "Ukladanie a prenos údajov",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Neposiela žiadne používateľské údaje externým serverom[/hl]",
+      "localStorage": "Ukladá všetky údaje v oblasti lokálneho úložiska vášho prehliadača",
+      "offline": "Môže fungovať aj keď nemáte pripojenie na internet",
+      "noCookies": "Nepoužíva cookies",
+      "noTracking": "Nesleduje žiadnu identitu používateľa ani informácie o reláciách"
+    },
+    "security": {
+      "title": "Bezpečnosť údajov",
+      "intro": "Keďže vaše údaje sú uložené iba vo vašom prehliadači:",
+      "browserClear": "Môžu byť vymazané, ak vymažete históriu alebo vyrovnávaciu pamäť prehliadača",
+      "uninstall": "Pri odinštalovaní rozšírenia môžete z prehliadača vymazať všetky zaznamenané údaje",
+      "access": "K vašim údajom môže pristupovať iba váš prehliadač"
+    },
+    "permissions": {
+      "title": "Oprávnenia",
+      "intro": "SaveYourTime vyžaduje nasledujúce oprávnenia prehliadača na fungovanie:",
+      "activeTab": "Prístup k aktívnej karte (na monitorovanie času stráveného na stránkach, ktoré ste určili)",
+      "storage": "Prístup k lokálnemu úložisku (na ukladanie vašich nastavení a časových informácií)",
+      "minimal": "Tieto oprávnenia sú minimálne požadované pre základnú funkčnosť rozšírenia."
+    },
+    "openSource": {
+      "title": "Kód s otvoreným zdrojom",
+      "description": "SaveYourTime je projekt s úplne otvoreným zdrojovým kódom. Náš kód je dostupný na preskúmanie pre každého na GitHub.",
+      "transparency": "Táto transparentnosť dokazuje náš záväzok k ochrane súkromia. Každý, kto si želá preskúmať kód, si môže overiť, že rozšírenie skutočne neodosiela žiadne údaje."
+    },
+    "rights": {
+      "title": "Práva používateľa",
+      "intro": "Ako používateľ SaveYourTime môžete:",
+      "remove": "Kedykoľvek odstrániť rozšírenie z nastavení prehliadača",
+      "delete": "Vymazať všetky zaznamenané údaje z nastavení rozšírenia",
+      "modify": "Upraviť akékoľvek údaje, ktoré chcete, z nastavení rozšírenia"
+    },
+    "questions": {
+      "title": "Otázky",
+      "contact": "Ak máte akékoľvek otázky týkajúce sa našich zásad ochrany osobných údajov, kontaktujte nás prostredníctvom nášho projektu na GitHub."
+    },
+    "actions": {
+      "home": "Domov"
+    }
+  }
+}

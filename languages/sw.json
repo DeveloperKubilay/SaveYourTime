@@ -1,0 +1,197 @@
+{
+  "lang": "sw",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Programu ya usimamizi wa muda inayokusaidia kutumia muda wako wa kidijitali kwa ufanisi zaidi"
+  },
+  "common": {
+    "settings": "Mipangilio",
+    "dashboard": "Dashibodi",
+    "active": "Inafanya kazi",
+    "save": "Hifadhi",
+    "cancel": "Ghairi",
+    "delete": "Futa",
+    "edit": "Hariri",
+    "close": "Funga",
+    "time": {
+      "hour": "saa",
+      "hours": "masaa",
+      "minute": "dakika",
+      "minutes": "dakika",
+      "left": "imesalia",
+      "hourShort": "s",
+      "hoursShort": "s",
+      "minutesShort": "d"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Kiwango cha Kila Siku",
+    "timeLeft": "Muda Uliobaki",
+    "timeEnd": "Muda umeisha",
+    "noLimits": "Hakuna Vikomo Vilivyowekwa",
+    "otherSites": "Tovuti Zingine Zilizozuiwa",
+    "timeButtons": {
+      "15min": "+15d",
+      "30min": "+30d",
+      "1hour": "+1s"
+    }
+  },
+  "warn": {
+    "title": "Muda Wako Umeisha!",
+    "message": "Umefika kikomo chako cha muda wa kila siku kwa tovuti hii. Nafasi nzuri ya kuelekeza usikivu wako kwenye kazi muhimu zaidi!",
+    "continueAnyway": "Endelea Hata Hivyo",
+    "dailyStats": "Leo tovuti hii ina matumizi ya jumla ya <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+dakika 15",
+      "30min": "+dakika 30",
+      "1hour": "+saa 1",
+      "2hours": "+masaa 2"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashibodi",
+      "siteManagement": "Usimamizi wa Tovuti",
+      "activeLimits": "Vikomo Hai"
+    },
+    "stats": {
+      "restrictedSites": "Tovuti Zilizowekewa Vikomo",
+      "blocked": "Tovuti Zilizozuiwa",
+      "notBlocked": "Tovuti Zilizoruhusiwa",
+      "mostVisited": "Tovuti Unazotumia Muda Mwingi"
+    },
+    "sites": {
+      "addNew": "Ongeza Tovuti Mpya",
+      "editSite": "Hariri Tovuti",
+      "siteUrl": "URL ya Tovuti (mfano facebook.com)",
+      "timeTemplates": "Violezo vya Muda",
+      "customTime": "Muda Maalum",
+      "add": "Ongeza",
+      "restrictedSites": "Tovuti Zilizowekewa Vikomo",
+      "remaining": "Muda uliobaki"
+    },
+    "activeLimits": {
+      "title": "Tovuti Zilizowekewa Vikomo Kwa Sasa"
+    },
+    "general": {
+      "title": "Mipangilio ya Jumla",
+      "resetData": "Weka upya Data Zote",
+      "resetDataConfirm": "Data zote zilizohifadhiwa zitafutwa. Kitendo hiki hakiwezi kubatilishwa. Je, ungependa kuendelea?",
+      "github": "GitHub Repo",
+      "virusTotal": "Matokeo ya VirusTotal",
+      "reportIssue": "Ripoti Tatizo",
+      "privacy": "Sera ya Faragha",
+      "documentation": "Nyaraka"
+    }
+  },
+  "thanks": {
+    "welcome": "Karibu kwenye SaveYourTime!",
+    "thankYou": "Asante kwa kusakinisha",
+    "features": {
+      "timeLimit": {
+        "title": "Kuweka Vikomo vya Muda",
+        "description": "Weka vikomo vya muda wa kila siku kwa mitandao ya kijamii na tovuti nyingine zinazovuruga. Utakumbushwa kwa upole wakati kikomo chako kitafikiwa."
+      },
+      "statistics": {
+        "title": "Takwimu za Matumizi",
+        "description": "Fuatilia ni muda gani unatumia kwenye tovuti tofauti kwa grafu za picha na simamia muda wako vizuri zaidi."
+      },
+      "blocking": {
+        "title": "Uzuiaji wa Akili",
+        "description": "Chagua kati ya kuzuia kabisa au kukumbusha kwa upole wakati vikomo vya muda vimezidiwa. Unaweza kuongeza muda wa ziada wakati wowote unapohitaji."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime Inafanya Kazi Vipi?",
+      "steps": [
+        {
+          "title": "Ongeza Tovuti",
+          "description": "Ongeza tovuti ambazo ungependa kuwekea kikomo cha muda na uweke kikomo cha muda wa kila siku kwa kila moja."
+        },
+        {
+          "title": "Ufuatiliaji wa Matumizi",
+          "description": "Programu inafanya kazi kimya nyuma, ikifuatilia muda unaotumia kwenye tovuti zilizotajwa."
+        },
+        {
+          "title": "Taarifa ya Kikomo",
+          "description": "Wakati muda ulioweka umeisha, utaona ukumbusho laini kabla ya kuendelea."
+        },
+        {
+          "title": "Udhibiti wa Urahisi",
+          "description": "Unaweza kuongeza muda au kuondoa vikomo vyote unapohitaji. Wewe ndiye mwenye kudhibiti."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Faragha na Usalama wa Data",
+      "description": "SaveYourTime <strong>inahifadhi data yako yote kimaeneo tu katika kivinjari chako</strong> na haitumi taarifa zozote kwenye seva za nje. Data yako ya matumizi ya tovuti na mipangilio imehifadhiwa kwa usalama katika eneo la \"hifadhi za ndani\" za kivinjari chako.",
+      "details": "Programu yetu inahitaji ruhusa chache tu na inafikia tu tovuti unazotaja. Faragha yako na usalama wa data ni vipaumbele vyetu vya juu.",
+      "openSource": "Msimbo wote wa programu ni wazi na unaweza kupitiwa na kurekebishwa kutoka ukurasa wetu wa GitHub.",
+      "learnMore": "Ili kujifunza zaidi kuhusu sera yetu ya faragha",
+      "learnMoreLink": "bonyeza hapa"
+    },
+    "actions": {
+      "configure": "Sanidi Mipangilio",
+      "viewSource": "Angalia Msimbo kwenye GitHub",
+      "virusTotal": "Matokeo ya VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Sera ya Faragha ya SaveYourTime",
+    "subtitle": "Taarifa kuhusu jinsi tunavyolinda faragha ya data yako",
+    "commitment": {
+      "title": "Ahadi ya Faragha",
+      "description": "Katika SaveYourTime, tunathamini faragha na usalama wa data yako. Programu hii [hl]haitumi data yoyote kwenye seva za nje[/hl], na taarifa zako zote zinahifadhiwa tu kwenye kivinjari chako mwenyewe."
+    },
+    "collected": {
+      "title": "Taarifa Zinazokusanywa",
+      "intro": "SaveYourTime inakusanya na kurekodi tu taarifa zifuatazo:",
+      "timeSpent": "Muda unaotumia kwenye tovuti ulizobainisha",
+      "dailyLimits": "Vikomo vya muda wa kila siku ulivyoweka",
+      "settings": "Mipangilio ya programu na mapendeleo yako",
+      "storage": "Taarifa hizi [hl]zinahifadhiwa tu kwenye kivinjari chako cha mtandaoni[/hl] na ni muhimu ili programu ifanye kazi vizuri."
+    },
+    "storage": {
+      "title": "Uhifadhi wa Data na Utumaji",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Haitumi data yoyote ya mtumiaji kwenye seva za nje[/hl]",
+      "localStorage": "Inahifadhi data zote kwenye eneo la hifadhi ya ndani ya kivinjari chako",
+      "offline": "Inaweza kufanya kazi hata wakati huna muunganisho wa intaneti",
+      "noCookies": "Haitumii vidakuzi (cookies)",
+      "noTracking": "Haifuatilii utambulisho wowote wa mtumiaji au taarifa za kikao"
+    },
+    "security": {
+      "title": "Usalama wa Data",
+      "intro": "Kwa kuwa data yako imehifadhiwa tu kwenye kivinjari chako:",
+      "browserClear": "Inaweza kufutwa ukifuta historia ya kivinjari chako au akiba (cache)",
+      "uninstall": "Unaweza kufuta data zote zilizoandikwa kutoka kwenye kivinjari chako unapoondoa programu",
+      "access": "Ni kivinjari chako tu kinachoweza kufikia data yako"
+    },
+    "permissions": {
+      "title": "Ruhusa",
+      "intro": "SaveYourTime inahitaji ruhusa zifuatazo za kivinjari kufanya kazi:",
+      "activeTab": "Upatikanaji wa kichupo kinachofanya kazi (kufuatilia muda uliotumia kwenye tovuti ulizotaja)",
+      "storage": "Upatikanaji wa hifadhi za ndani (kuhifadhi mipangilio yako na taarifa za muda)",
+      "minimal": "Ruhusa hizi ni kiwango cha chini kinachohitajika kwa utendaji kazi wa msingi wa programu."
+    },
+    "openSource": {
+      "title": "Msimbo wa Chanzo Wazi",
+      "description": "SaveYourTime ni mradi wa chanzo wazi kabisa. Msingi wetu wa msimbo unapatikana kwa mtu yeyote kuupitia kwenye GitHub.",
+      "transparency": "Uwazi huu unaonyesha ahadi yetu ya faragha. Mtu yeyote anayetaka kupitia msimbo anaweza kuthibitisha kuwa programu kweli haitumi data yoyote."
+    },
+    "rights": {
+      "title": "Haki za Mtumiaji",
+      "intro": "Kama mtumiaji wa SaveYourTime, unaweza:",
+      "remove": "Kuondoa programu kutoka kwenye mipangilio ya kivinjari chako wakati wowote",
+      "delete": "Kufuta data zote zilizoandikwa kutoka kwenye mipangilio ya programu",
+      "modify": "Kubadilisha data yoyote unayotaka kutoka kwenye mipangilio ya programu"
+    },
+    "questions": {
+      "title": "Maswali",
+      "contact": "Ikiwa una maswali yoyote kuhusu sera yetu ya faragha, tafadhali wasiliana nasi kupitia mradi wetu wa GitHub."
+    },
+    "actions": {
+      "home": "Mwanzo"
+    }
+  }
+}

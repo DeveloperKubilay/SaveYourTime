@@ -1,0 +1,197 @@
+{
+  "lang": "zu",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Okokwenza ukuphatha isikhathi okukusiza usebenzise kahle isikhathi sakho se-digital"
+  },
+  "common": {
+    "settings": "Izilungiselelo",
+    "dashboard": "Ideshibhodi",
+    "active": "Iyasebenza",
+    "save": "Londoloza",
+    "cancel": "Khansela",
+    "delete": "Susa",
+    "edit": "Hlela",
+    "close": "Vala",
+    "time": {
+      "hour": "ihora",
+      "hours": "amahora",
+      "minute": "iminithi",
+      "minutes": "amaminithi",
+      "left": "kusele",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Umkhawulo Wosuku",
+    "timeLeft": "Isikhathi Esisele",
+    "timeEnd": "Isikhathi Siphelile",
+    "noLimits": "Awekho Amalimiti Abekiwe",
+    "otherSites": "Amanye Amawebhusayithi Anemikhawulo",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Isikhathi Sakho Siphelile!",
+    "message": "Usufinyelele umkhawulo wakho wosuku wesikhathi saleli sayithi. Ithuba elihle lokuthumela ukugxila kwakho emisebenzini ebaluleke kakhulu!",
+    "continueAnyway": "Qhubeka Noma Kunjalo",
+    "dailyStats": "Namuhla leli sayithi lisetshenziswe isikhathi esingaba <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 amaminithi",
+      "30min": "+30 amaminithi",
+      "1hour": "+1 ihora",
+      "2hours": "+2 amahora"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Ideshibhodi",
+      "siteManagement": "Ukuphathwa Kwewebhusayithi",
+      "activeLimits": "Imikhawulo Esebenzayo"
+    },
+    "stats": {
+      "restrictedSites": "Amasayithi Anemikhawulo",
+      "blocked": "Amasayithi Avinjiwe",
+      "notBlocked": "Amasayithi Avunyelwe",
+      "mostVisited": "Amasayithi Ochitha Kuwo Isikhathi Esiningi"
+    },
+    "sites": {
+      "addNew": "Engeza Isayithi Elisha",
+      "editSite": "Hlela Isayithi",
+      "siteUrl": "I-URL Yesayithi (isib. facebook.com)",
+      "timeTemplates": "Izifanekiso Zesikhathi",
+      "customTime": "Isikhathi Esisungulwe Ngendlela Yakho",
+      "add": "Engeza",
+      "restrictedSites": "Amasayithi Anemikhawulo",
+      "remaining": "Isikhathi esisele"
+    },
+    "activeLimits": {
+      "title": "Amasayithi Anemkhawulo Okwamanje"
+    },
+    "general": {
+      "title": "Izilungiselelo Ezijwayelekile",
+      "resetData": "Setha Kabusha Yonke Imininingwane",
+      "resetDataConfirm": "Yonke imininingwane elondoloziwe izosulwa. Lesi senzo asikwazi ukubuyiselwa. Ufuna ukuqhubeka?",
+      "github": "I-Repo ye-GitHub",
+      "virusTotal": "Imiphumela ye-VirusTotal",
+      "reportIssue": "Bika Inkinga",
+      "privacy": "Inqubomgomo Yemfihlo",
+      "documentation": "Amadokhumenti"
+    }
+  },
+  "thanks": {
+    "welcome": "Siyakwamukela ku-SaveYourTime!",
+    "thankYou": "Siyabonga ngokufaka",
+    "features": {
+      "timeLimit": {
+        "title": "Umkhawulo Wesikhathi",
+        "description": "Hlela imikhawulo yesikhathi sosuku yezinkundla zokuxhumana nezinye izindawo eziphazamisayo. Uzokhumbuza kancane uma umkhawulo wakho ufinyelela."
+      },
+      "statistics": {
+        "title": "Izibalo Zokusetshenziswa",
+        "description": "Landela isikhathi osichitha kumawebhusayithi ahlukene ngegrafu ebonwayo futhi uphathe isikhathi sakho kangcono."
+      },
+      "blocking": {
+        "title": "Ukuvimba Okuhlakaniphile",
+        "description": "Khetha phakathi kokuvimba okuphelele noma izikhumbuzo ezithambile lapho imikhawulo yesikhathi yeqiwe. Ungakwazi ukwengeza isikhathi esengeziwe uma kunesidingo."
+      }
+    },
+    "howItWorks": {
+      "title": "I-SaveYourTime Isebenza Kanjani?",
+      "steps": [
+        {
+          "title": "Engeza Amasayithi",
+          "description": "Engeza amawebhusayithi ofuna ukuhlela isikhathi kuwo bese uhlela umkhawulo wesikhathi wosuku ngasinye."
+        },
+        {
+          "title": "Ukulandela Ukusetshenziswa",
+          "description": "Ukwandisa kusebenza ngasese, kulandela isikhathi osichitha kumasayithi okhethiwe."
+        },
+        {
+          "title": "Isaziso Somkhawulo",
+          "description": "Uma isikhathi osihlele siphela, uzobona isikhumbuzo esithambile ngaphambi kokuqhubeka."
+        },
+        {
+          "title": "Ukulawula Okunokwehla",
+          "description": "Ungakwazi ukwandisa isikhathi noma ususe yonke imikhawulo uma kunesidingo. Uhlala unolawulo."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Imfihlo Nokuvikeleka Kwemininingwane",
+      "description": "I-SaveYourTime <strong>ilondoloza yonke imininingwane yakho kuphela ebhulawuzeni lakho uqobo</strong> futhi ayithumeli noma yiluphi ulwazi kumaseva angaphandle. Imininingwane yakho yokusebenzisa isayithi nokusethwa kwakho ilondolozwa ngokuphephile endaweni yesitoreji sendawo sebhulawuza yakho.",
+      "details": "Ukwengeza kwethu kudinga izimvume ezimbalwa futhi kufinyelela kuphela kumasayithi owacacisayo. Ukuba nemfihlo yakho nokuphepha kwemininingwane yakho kuyizinto zethu eziphezulu.",
+      "openSource": "Wonke amakhodi omthombo avulekile futhi angahlolwa futhi ashintshwe kusuka ekhasini lethu le-GitHub.",
+      "learnMore": "Ukufunda kabanzi mayelana nenqubomgomo yethu yemfihlo",
+      "learnMoreLink": "chofoza lapha"
+    },
+    "actions": {
+      "configure": "Lungiselela Izilungiselelo",
+      "viewSource": "Buka Umthombo ku-GitHub",
+      "virusTotal": "Imiphumela ye-VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Inqubomgomo Yemfihlo ye-SaveYourTime",
+    "subtitle": "Ulwazi mayelana nokuthi sivikela kanjani imfihlo yedatha yakho",
+    "commitment": {
+      "title": "Ukuzibophezela Kwemfihlo",
+      "description": "E-SaveYourTime, sihlonipha imfihlo yakho nokuphepha kwemininingwane yakho. Lokhu okwengezwayo [hl]akuthumeli noma yiluphi idatha kumaseva angaphandle[/hl], futhi yonke imininingwane yakho ilondolozwa kuphela ebhulawuzeni lakho."
+    },
+    "collected": {
+      "title": "Ulwazi Oluqoqiwe",
+      "intro": "I-SaveYourTime iqoqa futhi irekhoda kuphela lolu lwazi olulandelayo:",
+      "timeSpent": "Isikhathi osichitha kumawebhusayithi owacacisile",
+      "dailyLimits": "Imikhawulo yesikhathi wosuku osahlele",
+      "settings": "Izilungiselelo zokwandisa nokuncamelayo",
+      "storage": "Lolu lwazi [hl]lugcinwa kuphela ebhulawuzeni lakho lendawo[/hl] futhi luyadingeka ukuze ukwengeza kusebenze kahle."
+    },
+    "storage": {
+      "title": "Ukugcinwa Nokudluliswa Kwedatha",
+      "intro": "I-SaveYourTime:",
+      "noSend": "[hl]Ayithumeli noma yiluphi ulwazi lomsebenzisi kumaseva angaphandle[/hl]",
+      "localStorage": "Igcina yonke imininingwane endaweni yokugcinwa ebhulawuzeni lakho",
+      "offline": "Ingasebenza ngisho nalapho ungenalo uxhumo lwe-inthanethi",
+      "noCookies": "Ayisebenzisi amakhukhi",
+      "noTracking": "Ayilandeli noma yiluphi ulwazi lwesazisi lomsebenzisi noma lweseshini"
+    },
+    "security": {
+      "title": "Ukuphepha Kwedatha",
+      "intro": "Njengoba idatha yakho ilondolozwe kuphela kusebhulawuza yakho:",
+      "browserClear": "Kungenzeka isulwe uma usula umlando webhulawuza lakho noma inqolobane",
+      "uninstall": "Ungasula yonke imininingwane erekhowdiwe kusuka kusebhulawuza lakho uma ususa ukwandiswa",
+      "access": "Isebhulawuza lakho kuphela elifinyelelayo kwidatha yakho"
+    },
+    "permissions": {
+      "title": "Izimvume",
+      "intro": "I-SaveYourTime idinga lezi zimvume zebhulawuza ezilandelayo ukuze isebenze:",
+      "activeTab": "Ukufinyelela kuthebhu esebenzayo (ukuze ibheke isikhathi esichithwe kumasayithi owacacisile)",
+      "storage": "Ukufinyelela kwindawo yokugcina (ukugcina izilungiselelo zakho nolwazi lwesikhathi)",
+      "minimal": "Lezi zimvume ziyimfuneko encane edingekayo yomsebenzi oyisisekelo wokwengeza."
+    },
+    "openSource": {
+      "title": "Ikhodi Yomthombo Ovulekile",
+      "description": "I-SaveYourTime iyiphrojekthi eyomthombo ovulekile ngokuphelele. Isisekelo sethu sekhodi siyatholakala ukuze noma ubani asihlole ku-GitHub.",
+      "transparency": "Lokhu kukhanya kukhombisa ukuzibophezela kwethu ekubeni nemfihlo. Noma ubani ofisa ukubuyekeza ikhodi angaqinisekisa ukuthi okwandisiwe ngempela akuthumeli noma yiluphi idatha."
+    },
+    "rights": {
+      "title": "Amalungelo Omsebenzisi",
+      "intro": "Njengomsebenzisi we-SaveYourTime, ungakwazi:",
+      "remove": "Susa ukwandiswa ezilungiselelweni zakho zebhulawuza nganoma yisiphi isikhathi",
+      "delete": "Susa yonke imininingwane erekhowdiwe kusukela ezilungiselweni zokwengeza",
+      "modify": "Shintsha noma yiluphi ulwazi olufunayo kusuka ezilungiselelweni zokwandisa"
+    },
+    "questions": {
+      "title": "Imibuzo",
+      "contact": "Uma unemibuzo mayelana nenqubomgomo yethu yemfihlo, sicela uxhumane nathi ngephrojekthi yethu ye-GitHub."
+    },
+    "actions": {
+      "home": "Ikhaya"
+    }
+  }
+}

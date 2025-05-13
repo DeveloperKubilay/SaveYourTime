@@ -1,0 +1,197 @@
+{
+  "lang": "az",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Rəqəmsal vaxtınızdan daha səmərəli istifadə etməyə kömək edən vaxt idarəetmə əlavəsi"
+  },
+  "common": {
+    "settings": "Tənzimləmələr",
+    "dashboard": "İdarəetmə paneli",
+    "active": "Aktiv",
+    "save": "Yadda saxla",
+    "cancel": "Ləğv et",
+    "delete": "Sil",
+    "edit": "Düzəliş et",
+    "close": "Bağla",
+    "time": {
+      "hour": "saat",
+      "hours": "saat",
+      "minute": "dəqiqə",
+      "minutes": "dəqiqə",
+      "left": "qalıb",
+      "hourShort": "s",
+      "hoursShort": "s",
+      "minutesShort": "d"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Gündəlik Limit",
+    "timeLeft": "Qalan Vaxt",
+    "timeEnd": "Vaxt bitdi",
+    "noLimits": "Limit Təyin Edilməyib",
+    "otherSites": "Digər Məhdudlaşdırılmış Saytlar",
+    "timeButtons": {
+      "15min": "+15d",
+      "30min": "+30d",
+      "1hour": "+1s"
+    }
+  },
+  "warn": {
+    "title": "Vaxtınız Bitdi!",
+    "message": "Bu sayt üçün gündəlik vaxt limitinizə çatdınız. Diqqətinizi daha vacib işlərə yönəltmək üçün əla fürsətdir!",
+    "continueAnyway": "Yenə də Davam Et",
+    "dailyStats": "Bugün bu sayta <strong>{{ totalTime }}</strong> vaxt sərf etdiniz",
+    "timeOption": {
+      "15min": "+15 dəqiqə",
+      "30min": "+30 dəqiqə",
+      "1hour": "+1 saat",
+      "2hours": "+2 saat"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "İdarəetmə paneli",
+      "siteManagement": "Sayt İdarəetmə",
+      "activeLimits": "Aktiv Limitlər"
+    },
+    "stats": {
+      "restrictedSites": "Məhdudlaşdırılmış Saytlar",
+      "blocked": "Bloklanmış Saytlar",
+      "notBlocked": "İcazəli Saytlar",
+      "mostVisited": "Ən Çox Vaxt Keçirdiyiniz Saytlar"
+    },
+    "sites": {
+      "addNew": "Yeni Sayt Əlavə Et",
+      "editSite": "Sayta Düzəliş Et",
+      "siteUrl": "Sayt URL (məs. facebook.com)",
+      "timeTemplates": "Vaxt Şablonları",
+      "customTime": "Xüsusi Vaxt",
+      "add": "Əlavə et",
+      "restrictedSites": "Məhdudlaşdırılmış Saytlar",
+      "remaining": "Qalan vaxt"
+    },
+    "activeLimits": {
+      "title": "Hal-hazırda Məhdudlaşdırılmış Saytlar"
+    },
+    "general": {
+      "title": "Ümumi Tənzimləmələr",
+      "resetData": "Bütün Məlumatları Sıfırla",
+      "resetDataConfirm": "Bütün saxlanılan məlumatlar silinəcək. Bu əməliyyat geri qaytarıla bilməz. Davam etmək istəyirsiniz?",
+      "github": "GitHub Repo",
+      "virusTotal": "VirusTotal Nəticələri",
+      "reportIssue": "Xəta Bildir",
+      "privacy": "Məxfilik Siyasəti",
+      "documentation": "Sənədləşdirmə"
+    }
+  },
+  "thanks": {
+    "welcome": "SaveYourTime-a Xoş Gəldiniz!",
+    "thankYou": "Quraşdırdığınız üçün təşəkkür edirik",
+    "features": {
+      "timeLimit": {
+        "title": "Vaxt Məhdudiyyəti",
+        "description": "Sosial media və digər diqqəti dağıdan saytlar üçün gündəlik vaxt limitləri təyin edin. Limit bitdikdə sizə yumşaq bir xəbərdarlıq göstəriləcək."
+      },
+      "statistics": {
+        "title": "İstifadə Statistikası",
+        "description": "Müxtəlif saytlarda nə qədər vaxt keçirdiyinizi vizual qrafiklərlə izləyin və vaxtınızı daha yaxşı idarə edin."
+      },
+      "blocking": {
+        "title": "Ağıllı Bloklama",
+        "description": "Vaxt limitləri bitdikdə tam bloklama və ya yumşaq xəbərdarlıqlar arasında seçim edin. Lazım olduqda əlavə vaxt əlavə edə bilərsiniz."
+      }
+    },
+    "howItWorks": {
+      "title": "SaveYourTime Necə İşləyir?",
+      "steps": [
+        {
+          "title": "Saytları Əlavə Edin",
+          "description": "Vaxtını məhdudlaşdırmaq istədiyiniz veb saytları əlavə edin və hər biri üçün gündəlik vaxt limiti təyin edin."
+        },
+        {
+          "title": "İstifadəni İzləmə",
+          "description": "Əlavə arxa planda işləyir və təyin edilmiş saytlarda keçirdiyiniz vaxtı izləyir."
+        },
+        {
+          "title": "Limit Bildirişi",
+          "description": "Təyin etdiyiniz vaxt bitdikdə, davam etməzdən əvvəl yumşaq bir xəbərdarlıq görəcəksiniz."
+        },
+        {
+          "title": "Çevik İdarəetmə",
+          "description": "Lazım olduqda vaxtı uzada və ya bütün limitləri aradan qaldıra bilərsiniz. Hər zaman nəzarət sizdədir."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Məxfilik və Məlumat Təhlükəsizliyi",
+      "description": "SaveYourTime <strong>bütün məlumatlarınızı yalnız brauzerinizdə yerli olaraq saxlayır</strong> və heç bir məlumatı xarici serverlərə göndərmir. Sayt istifadəsi məlumatlarınız və tənzimləmələriniz təhlükəsiz şəkildə brauzerinizin \"yerli yaddaş\" sahəsində saxlanılır.",
+      "details": "Əlavəmiz minimal icazələr tələb edir və yalnız müəyyən etdiyiniz saytlara daxil olur. Məxfiliyiniz və məlumatlarınızın təhlükəsizliyi bizim üçün əsas prioritetdir.",
+      "openSource": "Bütün mənbə kodu açıqdır və GitHub səhifəmizdən baxıla və dəyişdirilə bilər.",
+      "learnMore": "Məxfilik siyasətimiz haqqında daha ətraflı məlumat üçün",
+      "learnMoreLink": "buraya klikləyin"
+    },
+    "actions": {
+      "configure": "Tənzimləmələri Konfiqurasiya Et",
+      "viewSource": "GitHub-da Mənbə Kodu Baxın",
+      "virusTotal": "VirusTotal Nəticələri"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime Məxfilik Siyasəti",
+    "subtitle": "Məlumatlarınızın məxfiliyini necə qoruduğumuz haqqında məlumat",
+    "commitment": {
+      "title": "Məxfilik Öhdəliyi",
+      "description": "SaveYourTime-da sizin məxfiliyinizə və məlumatlarınızın təhlükəsizliyinə dəyər veririk. Bu əlavə [hl]heç bir məlumatı xarici serverlərə göndərmir[/hl], və bütün məlumatlarınız yalnız öz brauzerinizdə saxlanılır."
+    },
+    "collected": {
+      "title": "Toplanan Məlumatlar",
+      "intro": "SaveYourTime yalnız aşağıdakı məlumatları toplayır və qeyd edir:",
+      "timeSpent": "Müəyyən etdiyiniz veb saytlarda keçirdiyiniz vaxt",
+      "dailyLimits": "Təyin etdiyiniz gündəlik vaxt limitləri",
+      "settings": "Əlavə tənzimləmələriniz və üstünlükləriniz",
+      "storage": "Bu məlumat [hl]yalnız yerli brauzerinizdə saxlanılır[/hl] və əlavənin düzgün işləməsi üçün lazımdır."
+    },
+    "storage": {
+      "title": "Məlumat Saxlanma və Ötürülməsi",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Heç bir istifadəçi məlumatını xarici serverlərə göndərmir[/hl]",
+      "localStorage": "Bütün məlumatları brauzerinizin yerli yaddaş sahəsində saxlayır",
+      "offline": "İnternet bağlantınız olmadıqda belə işləyə bilir",
+      "noCookies": "Kukilərdən istifadə etmir",
+      "noTracking": "Heç bir istifadəçi kimliyi və ya sessiya məlumatlarını izləmir"
+    },
+    "security": {
+      "title": "Məlumat Təhlükəsizliyi",
+      "intro": "Məlumatlarınız yalnız brauzerinizdə saxlanıldığı üçün:",
+      "browserClear": "Brauzer tarixçənizi və ya keşinizi təmizlədikdə silinə bilər",
+      "uninstall": "Əlavəni silərkən bütün qeydə alınmış məlumatları brauzerinizdən silə bilərsiniz",
+      "access": "Yalnız brauzeriniz məlumatlarınıza daxil ola bilər"
+    },
+    "permissions": {
+      "title": "İcazələr",
+      "intro": "SaveYourTime işləməsi üçün aşağıdakı brauzer icazələrini tələb edir:",
+      "activeTab": "Aktiv sekməyə giriş (müəyyən etdiyiniz saytlarda keçirdiyiniz vaxtı izləmək üçün)",
+      "storage": "Yerli yaddaşa giriş (parametrlərinizi və vaxt məlumatlarınızı saxlamaq üçün)",
+      "minimal": "Bu icazələr əlavənin əsas funksionallığı üçün tələb olunan minimumdur."
+    },
+    "openSource": {
+      "title": "Açıq Mənbə Kodu",
+      "description": "SaveYourTime tamamilə açıq mənbəli layihədir. Kod bazamız GitHub-da hər kəsin nəzərdən keçirməsi üçün mövcuddur.",
+      "transparency": "Bu şəffaflıq məxfiliyə olan öhdəliyimizi nümayiş etdirir. Kodu nəzərdən keçirmək istəyən hər kəs əlavənin həqiqətən heç bir məlumat göndərmədiyini təsdiq edə bilər."
+    },
+    "rights": {
+      "title": "İstifadəçi Hüquqları",
+      "intro": "SaveYourTime istifadəçisi olaraq siz:",
+      "remove": "İstənilən vaxt brauzer parametrlərinizdən əlavəni silə bilərsiniz",
+      "delete": "Əlavə parametrlərindən bütün qeyd edilmiş məlumatları silə bilərsiniz",
+      "modify": "Əlavə parametrlərindən istənilən məlumatı dəyişə bilərsiniz"
+    },
+    "questions": {
+      "title": "Suallar",
+      "contact": "Məxfilik siyasətimiz haqqında hər hansı sualınız varsa, zəhmət olmasa GitHub layihəmiz vasitəsilə bizimlə əlaqə saxlayın."
+    },
+    "actions": {
+      "home": "Ana Səhifə"
+    }
+  }
+}

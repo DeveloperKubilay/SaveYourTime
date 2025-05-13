@@ -1,0 +1,197 @@
+{
+  "lang": "sv",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Ett tidshanteringstillägg som hjälper dig att använda din digitala tid mer effektivt"
+  },
+  "common": {
+    "settings": "Inställningar",
+    "dashboard": "Dashboard",
+    "active": "Aktiv",
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "delete": "Radera",
+    "edit": "Redigera",
+    "close": "Stäng",
+    "time": {
+      "hour": "timme",
+      "hours": "timmar",
+      "minute": "minut",
+      "minutes": "minuter",
+      "left": "kvar",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Daglig gräns",
+    "timeLeft": "Tid kvar",
+    "timeEnd": "Tiden är slut",
+    "noLimits": "Inga gränser inställda",
+    "otherSites": "Andra begränsade webbplatser",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Du har slut på tid!",
+    "message": "Du har nått din dagliga tidsgräns för denna webbplats. Ett bra tillfälle att rikta din uppmärksamhet mot viktigare uppgifter!",
+    "continueAnyway": "Fortsätt ändå",
+    "dailyStats": "Idag Denna webbplats med total användning av <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minuter",
+      "30min": "+30 minuter",
+      "1hour": "+1 timme",
+      "2hours": "+2 timmar"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Dashboard",
+      "siteManagement": "Webbplatshantering",
+      "activeLimits": "Aktiva gränser"
+    },
+    "stats": {
+      "restrictedSites": "Begränsade webbplatser",
+      "blocked": "Blockerade webbplatser",
+      "notBlocked": "Tillåtna webbplatser",
+      "mostVisited": "Webbplatser du spenderar mest tid på"
+    },
+    "sites": {
+      "addNew": "Lägg till ny webbplats",
+      "editSite": "Redigera webbplats",
+      "siteUrl": "Webbplats-URL (t.ex. facebook.com)",
+      "timeTemplates": "Tidsmallar",
+      "customTime": "Anpassad tid",
+      "add": "Lägg till",
+      "restrictedSites": "Begränsade webbplatser",
+      "remaining": "Återstående tid"
+    },
+    "activeLimits": {
+      "title": "För närvarande begränsade webbplatser"
+    },
+    "general": {
+      "title": "Allmänna inställningar",
+      "resetData": "Återställ all data",
+      "resetDataConfirm": "All sparad data kommer att raderas. Denna åtgärd kan inte ångras. Vill du fortsätta?",
+      "github": "GitHub repo",
+      "virusTotal": "VirusTotal-resultat",
+      "reportIssue": "Rapportera problem",
+      "privacy": "Integritetspolicy",
+      "documentation": "Dokumentation"
+    }
+  },
+  "thanks": {
+    "welcome": "Välkommen till SaveYourTime!",
+    "thankYou": "Tack för att du installerade",
+    "features": {
+      "timeLimit": {
+        "title": "Tidsbegränsning",
+        "description": "Ställ in dagliga tidsgränser för sociala medier och andra distraherande webbplatser. Du kommer att bli påmind när din gräns är nådd."
+      },
+      "statistics": {
+        "title": "Användningsstatistik",
+        "description": "Håll reda på hur mycket tid du spenderar på olika webbplatser med visuella grafer och hantera din tid bättre."
+      },
+      "blocking": {
+        "title": "Smart blockering",
+        "description": "Välj mellan fullständig blockering eller milda påminnelser när tidsgränserna överskrids. Du kan lägga till extra tid när det behövs."
+      }
+    },
+    "howItWorks": {
+      "title": "Hur fungerar SaveYourTime?",
+      "steps": [
+        {
+          "title": "Lägg till webbplatser",
+          "description": "Lägg till webbplatser du vill begränsa tiden på och ställ in en daglig tidsgräns för var och en."
+        },
+        {
+          "title": "Användningsspårning",
+          "description": "Tillägget arbetar tyst i bakgrunden och övervakar tiden du spenderar på specificerade webbplatser."
+        },
+        {
+          "title": "Gränsavisering",
+          "description": "När din inställda tid är slut ser du en påminnelse innan du fortsätter."
+        },
+        {
+          "title": "Flexibel kontroll",
+          "description": "Du kan förlänga tiden eller ta bort alla gränser när det behövs. Du har alltid kontrollen."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Integritet och datasäkerhet",
+      "description": "SaveYourTime <strong>lagrar all din data endast lokalt i din webbläsare</strong> och skickar inte någon information till externa servrar. Din webbplatsanvändningsdata och inställningar sparas säkert i din webbläsares \"lokala lagring\".",
+      "details": "Vårt tillägg kräver minimala behörigheter och har endast tillgång till de webbplatser du anger. Din integritet och datasäkerhet är våra främsta prioriteringar.",
+      "openSource": "All källkod är öppen och kan granskas och modifieras från vår GitHub-sida.",
+      "learnMore": "För att lära dig mer om vår integritetspolicy",
+      "learnMoreLink": "klicka här"
+    },
+    "actions": {
+      "configure": "Konfigurera inställningar",
+      "viewSource": "Visa källkod på GitHub",
+      "virusTotal": "VirusTotal-resultat"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime integritetspolicy",
+    "subtitle": "Information om hur vi skyddar din dataintegritet",
+    "commitment": {
+      "title": "Integritetsåtagande",
+      "description": "På SaveYourTime värdesätter vi din integritet och datasäkerhet. Detta tillägg [hl]skickar ingen data till externa servrar[/hl], och all din information lagras endast i din egen webbläsare."
+    },
+    "collected": {
+      "title": "Insamlad information",
+      "intro": "SaveYourTime samlar in och registrerar endast följande information:",
+      "timeSpent": "Tiden du spenderar på webbplatser du har angett",
+      "dailyLimits": "De dagliga tidsgränser du har ställt in",
+      "settings": "Dina tilläggsinställningar och preferenser",
+      "storage": "Denna information [hl]lagras endast i din lokala webbläsare[/hl] och är nödvändig för att tillägget ska fungera korrekt."
+    },
+    "storage": {
+      "title": "Datalagring och överföring",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Skickar ingen användardata till externa servrar[/hl]",
+      "localStorage": "Lagrar all data i din webbläsares lokala lagringsområde",
+      "offline": "Kan fungera även när du inte har en internetanslutning",
+      "noCookies": "Använder inte cookies",
+      "noTracking": "Spårar ingen användaridentitet eller sessionsinformation"
+    },
+    "security": {
+      "title": "Datasäkerhet",
+      "intro": "Eftersom din data endast lagras i din webbläsare:",
+      "browserClear": "Kan den raderas om du rensar din webbläsarhistorik eller cache",
+      "uninstall": "Du kan rensa all registrerad data från din webbläsare när du avinstallerar tillägget",
+      "access": "Endast din webbläsare kan komma åt din data"
+    },
+    "permissions": {
+      "title": "Behörigheter",
+      "intro": "SaveYourTime kräver följande webbläsarbehörigheter för att fungera:",
+      "activeTab": "Aktiv flikåtkomst (för att övervaka tid spenderad på webbplatser du angett)",
+      "storage": "Lokal lagringsåtkomst (för att spara dina inställningar och tidsinformation)",
+      "minimal": "Dessa behörigheter är det minimum som krävs för tilläggets kärnfunktionalitet."
+    },
+    "openSource": {
+      "title": "Öppen källkod",
+      "description": "SaveYourTime är ett helt öppet källkodsprojekt. Vår kodbas är tillgänglig för alla att granska på GitHub.",
+      "transparency": "Denna transparens demonstrerar vårt åtagande för integritet. Vem som helst som vill granska koden kan verifiera att tillägget verkligen inte skickar någon data."
+    },
+    "rights": {
+      "title": "Användarrättigheter",
+      "intro": "Som SaveYourTime-användare kan du:",
+      "remove": "Ta bort tillägget från dina webbläsarinställningar när som helst",
+      "delete": "Radera all registrerad data från tilläggsinställningarna",
+      "modify": "Ändra all data du vill från tilläggsinställningarna"
+    },
+    "questions": {
+      "title": "Frågor",
+      "contact": "Om du har några frågor om vår integritetspolicy, kontakta oss gärna genom vårt GitHub-projekt."
+    },
+    "actions": {
+      "home": "Hem"
+    }
+  }
+}

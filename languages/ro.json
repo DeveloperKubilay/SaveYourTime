@@ -1,0 +1,197 @@
+{
+  "lang": "ro",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "O extensie de gestionare a timpului care te ajută să îți utilizezi timpul digital mai eficient"
+  },
+  "common": {
+    "settings": "Setări",
+    "dashboard": "Tablou de Bord",
+    "active": "Activ",
+    "save": "Salvează",
+    "cancel": "Anulează",
+    "delete": "Șterge",
+    "edit": "Editează",
+    "close": "Închide",
+    "time": {
+      "hour": "oră",
+      "hours": "ore",
+      "minute": "minut",
+      "minutes": "minute",
+      "left": "rămas",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Limită Zilnică",
+    "timeLeft": "Timp Rămas",
+    "timeEnd": "Timp Expirat",
+    "noLimits": "Fără Limite Setate",
+    "otherSites": "Alte Site-uri Restricționate",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Ai rămas fără timp!",
+    "message": "Ai atins limita zilnică de timp pentru acest site. O oportunitate excelentă pentru a-ți redirecționa atenția către sarcini mai importante!",
+    "continueAnyway": "Continuă oricum",
+    "dailyStats": "Astăzi acest site cu o utilizare totală de <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minute",
+      "30min": "+30 minute",
+      "1hour": "+1 oră",
+      "2hours": "+2 ore"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Tablou de Bord",
+      "siteManagement": "Gestionarea Site-urilor",
+      "activeLimits": "Limite Active"
+    },
+    "stats": {
+      "restrictedSites": "Site-uri Restricționate",
+      "blocked": "Site-uri Blocate",
+      "notBlocked": "Site-uri Permise",
+      "mostVisited": "Site-uri Unde Petreci Cel Mai Mult Timp"
+    },
+    "sites": {
+      "addNew": "Adaugă Site Nou",
+      "editSite": "Editează Site",
+      "siteUrl": "URL Site (ex. facebook.com)",
+      "timeTemplates": "Șabloane de Timp",
+      "customTime": "Timp Personalizat",
+      "add": "Adaugă",
+      "restrictedSites": "Site-uri Restricționate",
+      "remaining": "Timp rămas"
+    },
+    "activeLimits": {
+      "title": "Site-uri Limitate în Prezent"
+    },
+    "general": {
+      "title": "Setări Generale",
+      "resetData": "Resetează Toate Datele",
+      "resetDataConfirm": "Toate datele salvate vor fi șterse. Această acțiune nu poate fi anulată. Dorești să continui?",
+      "github": "Repository GitHub",
+      "virusTotal": "Rezultate VirusTotal",
+      "reportIssue": "Raportează o Problemă",
+      "privacy": "Politica de Confidențialitate",
+      "documentation": "Documentație"
+    }
+  },
+  "thanks": {
+    "welcome": "Bine ai venit la SaveYourTime!",
+    "thankYou": "Mulțumim pentru instalare",
+    "features": {
+      "timeLimit": {
+        "title": "Limită de Timp",
+        "description": "Setează limite zilnice de timp pentru rețelele sociale și alte site-uri care distrag atenția. Vei fi reamintit cu amabilitate când atingi limita."
+      },
+      "statistics": {
+        "title": "Statistici de Utilizare",
+        "description": "Urmărește timpul petrecut pe diferite site-uri cu grafice vizuale și gestionează-ți mai bine timpul."
+      },
+      "blocking": {
+        "title": "Blocare Inteligentă",
+        "description": "Alege între blocare completă sau mementouri amabile atunci când limitele de timp sunt depășite. Poți adăuga timp suplimentar când ai nevoie."
+      }
+    },
+    "howItWorks": {
+      "title": "Cum funcționează SaveYourTime?",
+      "steps": [
+        {
+          "title": "Adaugă Site-uri",
+          "description": "Adaugă site-urile web pe care dorești să limitezi timpul și setează o limită zilnică pentru fiecare."
+        },
+        {
+          "title": "Monitorizarea Utilizării",
+          "description": "Extensia lucrează silențios în fundal, monitorizând timpul petrecut pe site-urile specificate."
+        },
+        {
+          "title": "Notificare de Limită",
+          "description": "Când timpul stabilit expiră, vei vedea un memento amabil înainte de a continua."
+        },
+        {
+          "title": "Control Flexibil",
+          "description": "Poți extinde timpul sau elimina toate limitele când ai nevoie. Tu ești întotdeauna în control."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Confidențialitatea și Securitatea Datelor",
+      "description": "SaveYourTime <strong>stochează toate datele tale doar local în browserul tău</strong> și nu trimite nicio informație către servere externe. Datele de utilizare a site-urilor și setările tale sunt stocate în siguranță în zona de \"stocare locală\" a browserului tău.",
+      "details": "Extensia noastră necesită permisiuni minime și accesează doar site-urile pe care le specifici. Confidențialitatea și securitatea datelor tale sunt prioritățile noastre principale.",
+      "openSource": "Tot codul sursă este open source și poate fi revizuit și modificat de pe pagina noastră GitHub.",
+      "learnMore": "Pentru a afla mai multe despre politica noastră de confidențialitate",
+      "learnMoreLink": "click aici"
+    },
+    "actions": {
+      "configure": "Configurează Setări",
+      "viewSource": "Vezi Codul pe GitHub",
+      "virusTotal": "Rezultate VirusTotal"
+    }
+  },
+  "privacy": {
+    "title": "Politica de Confidențialitate SaveYourTime",
+    "subtitle": "Informații despre cum îți protejăm confidențialitatea datelor",
+    "commitment": {
+      "title": "Angajamentul pentru Confidențialitate",
+      "description": "La SaveYourTime, prețuim confidențialitatea și securitatea datelor tale. Această extensie [hl]nu trimite nicio dată către servere externe[/hl], iar toate informațiile tale sunt stocate doar în propriul tău browser."
+    },
+    "collected": {
+      "title": "Informații Colectate",
+      "intro": "SaveYourTime colectează și înregistrează doar următoarele informații:",
+      "timeSpent": "Timpul petrecut pe site-urile web pe care le-ai specificat",
+      "dailyLimits": "Limitele zilnice de timp pe care le-ai setat",
+      "settings": "Setările și preferințele tale pentru extensie",
+      "storage": "Aceste informații sunt [hl]stocate doar în browserul tău local[/hl] și sunt necesare pentru ca extensia să funcționeze corect."
+    },
+    "storage": {
+      "title": "Stocarea și Transmiterea Datelor",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Nu trimite nicio dată a utilizatorului către servere externe[/hl]",
+      "localStorage": "Stochează toate datele în zona de stocare locală a browserului tău",
+      "offline": "Poate funcționa chiar și când nu ai conexiune la internet",
+      "noCookies": "Nu utilizează cookie-uri",
+      "noTracking": "Nu urmărește nicio informație de identitate sau de sesiune a utilizatorului"
+    },
+    "security": {
+      "title": "Securitatea Datelor",
+      "intro": "Deoarece datele tale sunt stocate doar în browserul tău:",
+      "browserClear": "Pot fi șterse dacă îți cureți istoricul sau cache-ul browserului",
+      "uninstall": "Poți șterge toate datele înregistrate din browser când dezinstalezi extensia",
+      "access": "Doar browserul tău poate accesa datele tale"
+    },
+    "permissions": {
+      "title": "Permisiuni",
+      "intro": "SaveYourTime necesită următoarele permisiuni de browser pentru a funcționa:",
+      "activeTab": "Acces la fila activă (pentru a monitoriza timpul petrecut pe site-urile pe care le-ai specificat)",
+      "storage": "Acces la stocarea locală (pentru a salva setările și informațiile despre timp)",
+      "minimal": "Aceste permisiuni sunt minimul necesar pentru funcționalitatea de bază a extensiei."
+    },
+    "openSource": {
+      "title": "Open Source",
+      "description": "SaveYourTime este un proiect complet open source. Codul nostru este disponibil pentru ca oricine să îl revizuiască pe GitHub.",
+      "transparency": "Această transparență demonstrează angajamentul nostru față de confidențialitate. Oricine dorește să revizuiască codul poate verifica că extensia nu trimite într-adevăr nicio dată."
+    },
+    "rights": {
+      "title": "Drepturile Utilizatorului",
+      "intro": "Ca utilizator al SaveYourTime, poți:",
+      "remove": "Elimina extensia din setările browserului tău în orice moment",
+      "delete": "Șterge toate datele înregistrate din setările extensiei",
+      "modify": "Modifica orice date dorești din setările extensiei"
+    },
+    "questions": {
+      "title": "Întrebări",
+      "contact": "Dacă ai întrebări despre politica noastră de confidențialitate, te rugăm să ne contactezi prin proiectul nostru GitHub."
+    },
+    "actions": {
+      "home": "Acasă"
+    }
+  }
+}

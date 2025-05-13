@@ -1,0 +1,197 @@
+{
+  "lang": "bs",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Dodatak za upravljanje vremenom koji vam pomaže da efikasnije koristite svoje digitalno vrijeme"
+  },
+  "common": {
+    "settings": "Postavke",
+    "dashboard": "Kontrolna tabla",
+    "active": "Aktivno",
+    "save": "Sačuvaj",
+    "cancel": "Otkaži",
+    "delete": "Izbriši",
+    "edit": "Uredi",
+    "close": "Zatvori",
+    "time": {
+      "hour": "sat",
+      "hours": "sati",
+      "minute": "minuta",
+      "minutes": "minuta",
+      "left": "preostalo",
+      "hourShort": "h",
+      "hoursShort": "h",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Dnevno ograničenje",
+    "timeLeft": "Preostalo vrijeme",
+    "timeEnd": "Vrijeme je isteklo",
+    "noLimits": "Nema postavljenih ograničenja",
+    "otherSites": "Druge ograničene stranice",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1h"
+    }
+  },
+  "warn": {
+    "title": "Potrošili ste sve vrijeme!",
+    "message": "Dostigli ste svoje dnevno vremensko ograničenje za ovu stranicu. Odlična prilika da preusmjerite pažnju na važnije zadatke!",
+    "continueAnyway": "Ipak nastavi",
+    "dailyStats": "Danas Ova stranica s ukupnim korištenjem od <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minuta",
+      "30min": "+30 minuta",
+      "1hour": "+1 sat",
+      "2hours": "+2 sata"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Kontrolna tabla",
+      "siteManagement": "Upravljanje stranicama",
+      "activeLimits": "Aktivna ograničenja"
+    },
+    "stats": {
+      "restrictedSites": "Ograničene stranice",
+      "blocked": "Blokirane stranice",
+      "notBlocked": "Dozvoljene stranice",
+      "mostVisited": "Stranice na kojima provodite najviše vremena"
+    },
+    "sites": {
+      "addNew": "Dodaj novu stranicu",
+      "editSite": "Uredi stranicu",
+      "siteUrl": "URL stranice (npr. facebook.com)",
+      "timeTemplates": "Vremenski predlošci",
+      "customTime": "Prilagođeno vrijeme",
+      "add": "Dodaj",
+      "restrictedSites": "Ograničene stranice",
+      "remaining": "Preostalo vrijeme"
+    },
+    "activeLimits": {
+      "title": "Trenutno ograničene stranice"
+    },
+    "general": {
+      "title": "Opće postavke",
+      "resetData": "Resetuj sve podatke",
+      "resetDataConfirm": "Svi sačuvani podaci će biti izbrisani. Ova radnja se ne može poništiti. Da li želite nastaviti?",
+      "github": "GitHub repozitorij",
+      "virusTotal": "VirusTotal rezultati",
+      "reportIssue": "Prijavi problem",
+      "privacy": "Politika privatnosti",
+      "documentation": "Dokumentacija"
+    }
+  },
+  "thanks": {
+    "welcome": "Dobrodošli u SaveYourTime!",
+    "thankYou": "Hvala na instalaciji",
+    "features": {
+      "timeLimit": {
+        "title": "Ograničavanje vremena",
+        "description": "Postavite dnevna vremenska ograničenja za društvene mreže i druge stranice koje odvraćaju pažnju. Bit ćete nježno podsjetni kada dostignete svoje ograničenje."
+      },
+      "statistics": {
+        "title": "Statistika korištenja",
+        "description": "Pratite koliko vremena provodite na različitim stranicama pomoću vizualnih grafikona i bolje upravljajte svojim vremenom."
+      },
+      "blocking": {
+        "title": "Pametno blokiranje",
+        "description": "Izaberite između potpunog blokiranja ili nježnih podsjetnika kada se prekorače vremenska ograničenja. Možete dodati dodatno vrijeme kad god je potrebno."
+      }
+    },
+    "howItWorks": {
+      "title": "Kako SaveYourTime radi?",
+      "steps": [
+        {
+          "title": "Dodaj stranice",
+          "description": "Dodajte web stranice na kojima želite ograničiti vrijeme i postavite dnevno vremensko ograničenje za svaku."
+        },
+        {
+          "title": "Praćenje korištenja",
+          "description": "Dodatak tiho radi u pozadini, prateći vrijeme koje provodite na navedenim stranicama."
+        },
+        {
+          "title": "Obavijest o ograničenju",
+          "description": "Kada istekne postavljeno vrijeme, vidjet ćete nježan podsjetnik prije nego što nastavite."
+        },
+        {
+          "title": "Fleksibilna kontrola",
+          "description": "Možete produžiti vrijeme ili ukloniti sva ograničenja kada je potrebno. Vi ste uvijek u kontroli."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privatnost i sigurnost podataka",
+      "description": "SaveYourTime <strong>pohranjuje sve vaše podatke samo lokalno u vašem pregledniku</strong> i ne šalje nikakve informacije vanjskim serverima. Vaši podaci o korištenju stranica i postavke sigurno su pohranjeni u području \"lokalne pohrane\" vašeg preglednika.",
+      "details": "Naš dodatak zahtijeva minimalne dozvole i pristupa samo stranicama koje vi odredite. Vaša privatnost i sigurnost podataka su naši glavni prioriteti.",
+      "openSource": "Sav izvorni kod je otvoren i može se pregledati i modificirati s naše GitHub stranice.",
+      "learnMore": "Da saznate više o našoj politici privatnosti",
+      "learnMoreLink": "kliknite ovdje"
+    },
+    "actions": {
+      "configure": "Konfiguriši postavke",
+      "viewSource": "Pogledaj izvorni kod na GitHub-u",
+      "virusTotal": "VirusTotal rezultati"
+    }
+  },
+  "privacy": {
+    "title": "SaveYourTime politika privatnosti",
+    "subtitle": "Informacije o tome kako štitimo privatnost vaših podataka",
+    "commitment": {
+      "title": "Posvećenost privatnosti",
+      "description": "U SaveYourTime, cijenimo vašu privatnost i sigurnost podataka. Ovaj dodatak [hl]ne šalje nikakve podatke vanjskim serverima[/hl], a sve vaše informacije se pohranjuju samo u vašem vlastitom pregledniku."
+    },
+    "collected": {
+      "title": "Prikupljene informacije",
+      "intro": "SaveYourTime prikuplja i bilježi samo sljedeće informacije:",
+      "timeSpent": "Vrijeme koje provodite na web stranicama koje ste naveli",
+      "dailyLimits": "Dnevna vremenska ograničenja koja ste postavili",
+      "settings": "Vaše postavke i preference dodatka",
+      "storage": "Ove informacije su [hl]pohranjene samo u vašem lokalnom pregledniku[/hl] i neophodne su za pravilno funkcionisanje dodatka."
+    },
+    "storage": {
+      "title": "Pohrana i prijenos podataka",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Ne šalje nikakve korisničke podatke vanjskim serverima[/hl]",
+      "localStorage": "Pohranjuje sve podatke u području lokalne pohrane vašeg preglednika",
+      "offline": "Može raditi čak i kada nemate internet vezu",
+      "noCookies": "Ne koristi kolačiće (cookies)",
+      "noTracking": "Ne prati nikakve identitete korisnika ili informacije o sesijama"
+    },
+    "security": {
+      "title": "Sigurnost podataka",
+      "intro": "Budući da se vaši podaci pohranjuju samo u vašem pregledniku:",
+      "browserClear": "Mogu biti izbrisani ako očistite historiju preglednika ili keš",
+      "uninstall": "Možete očistiti sve zabilježene podatke iz vašeg preglednika kada deinstalirate dodatak",
+      "access": "Samo vaš preglednik može pristupiti vašim podacima"
+    },
+    "permissions": {
+      "title": "Dozvole",
+      "intro": "SaveYourTime zahtijeva sljedeće dozvole preglednika za funkcionisanje:",
+      "activeTab": "Pristup aktivnoj kartici (za praćenje vremena provedenog na stranicama koje ste naveli)",
+      "storage": "Pristup lokalnoj pohrani (za čuvanje vaših postavki i vremenskih informacija)",
+      "minimal": "Ove dozvole su minimum potreban za osnovnu funkcionalnost dodatka."
+    },
+    "openSource": {
+      "title": "Otvoreni izvorni kod",
+      "description": "SaveYourTime je potpuno projekat otvorenog koda. Naš kod je dostupan svima za pregled na GitHub-u.",
+      "transparency": "Ova transparentnost pokazuje našu posvećenost privatnosti. Svako ko želi pregledati kod može potvrditi da dodatak zaista ne šalje nikakve podatke."
+    },
+    "rights": {
+      "title": "Prava korisnika",
+      "intro": "Kao korisnik SaveYourTime, možete:",
+      "remove": "Ukloniti dodatak iz postavki vašeg preglednika u bilo kojem trenutku",
+      "delete": "Izbrisati sve zabilježene podatke iz postavki dodatka",
+      "modify": "Modificirati bilo koje podatke koje želite iz postavki dodatka"
+    },
+    "questions": {
+      "title": "Pitanja",
+      "contact": "Ako imate bilo kakva pitanja o našoj politici privatnosti, molimo kontaktirajte nas putem našeg GitHub projekta."
+    },
+    "actions": {
+      "home": "Početna"
+    }
+  }
+}
