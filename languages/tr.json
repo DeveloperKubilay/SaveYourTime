@@ -64,9 +64,9 @@
       "addNew": "Yeni Site Ekle",
       "editSite": "Siteyi Düzenle",
       "siteUrl": "Site URL (örn: facebook.com)",
-      "timeTemplates": "Zaman Şablonları",
-      "customTime": "Özel Süre",
+      "timeTemplates": "Zaman Şablonları",      "customTime": "Özel Süre",
       "add": "Ekle",
+      "quickAdd": "Hızlı Ekle",
       "restrictedSites": "Kısıtlı Siteler",
       "remaining": "Kalan süre"
     },

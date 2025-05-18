@@ -181,7 +181,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
         const limitedSites = data.filter(item => item.limited).length;
         const totalSites = data.length;
 
-        document.getElementById('restrictedSites').textContent = totalSites;
+        document.getElementById('restrictedSites'). textContent= totalSites;
         document.getElementById('blockedSites').textContent = limitedSites;
         document.getElementById('notBlockedSites').textContent = totalSites - limitedSites;
 
@@ -310,6 +310,57 @@ window.SAVE_YOUR_TIME_RUN = async function () {
 
 
 
+    const quickAddBtn = document.getElementById('quickAddBtn');
+    const quickAddDropdown = document.getElementById('quickAddDropdown');
+
+    if (quickAddBtn && quickAddDropdown) {
+        quickAddBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            quickAddDropdown.style.display = quickAddDropdown.style.display === 'block' ? 'none' : 'block';
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!quickAddDropdown.contains(e.target) && e.target !== quickAddBtn) {
+                quickAddDropdown.style.display = 'none';
+            }
+        });
+
+        quickAddDropdown.querySelectorAll('.quick-add-item').forEach(item => {
+            item.addEventListener('click', function () {
+                let url = this.textContent.trim().toLowerCase();
+                const icon = this.querySelector('i');
+                if (icon) {
+                    if (icon.classList.contains('fa-youtube')) url = 'youtube.com';
+                    else if (icon.classList.contains('fa-facebook')) url = 'facebook.com';
+                    else if (icon.classList.contains('fa-x-twitter')) url = 'twitter.com';
+                    else if (icon.classList.contains('fa-tiktok')) url = 'tiktok.com';
+                    else if (icon.classList.contains('fa-instagram')) url = 'instagram.com';
+                    else if (icon.classList.contains('fa-whatsapp')) url = 'web.whatsapp.com';
+                    else if (icon.classList.contains('fa-reddit')) url = 'reddit.com';
+                    else if (icon.classList.contains('fa-snapchat')) url = 'snapchat.com';
+                    else if (icon.classList.contains('fa-pinterest')) url = 'pinterest.com';
+                    else if (icon.classList.contains('fa-vimeo')) url = 'vimeo.com';
+                    else if (icon.classList.contains('fa-play-circle')) url = 'odysee.com';
+                    else if (icon.classList.contains('fa-linkedin')) url = 'linkedin.com';
+                    else if (icon.classList.contains('fa-discord')) url = 'discord.com';
+                    else if (icon.classList.contains('fa-telegram')) url = 'web.telegram.org';
+                    else if (icon.classList.contains('fa-twitch')) url = 'twitch.tv';
+                    else if (icon.classList.contains('fa-spotify')) url = 'open.spotify.com';
+                    else if (icon.classList.contains('fa-play')) url = 'netflix.com';
+                    else if (icon.classList.contains('fa-steam')) url = 'store.steampowered.com';
+                    else if (icon.classList.contains('fa-amazon')) url = 'amazon.com';
+                    else if (icon.classList.contains('fa-ebay')) url = 'ebay.com';
+                    else if (icon.classList.contains('fa-gamepad')) url = 'kick.com';
+                    else if (icon.classList.contains('fa-google')) url = 'google.com';
+                }
+                document.getElementById('siteUrl').value = url;
+                addSite();
+                quickAddDropdown.style.display = 'none';
+            });
+        });
+    }
+
+
     //Settings
     const resetDataBtn = document.getElementById('resetDataBtn');
     if (resetDataBtn) {
@@ -319,11 +370,10 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 window.SendMSG("resetAllData")
                 setTimeout(() => window.location.reload(), 500)
             }
-        })
+        });
+
+
     }
-
-
-
 }
 
 
@@ -344,10 +394,10 @@ function updateSite() {
     if (url && timeLimitMinutes > 0) {
         const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
         if (siteItem) {
-            const oldUrl = siteItem.querySelector('.site-url').textContent;
+            const oldUrl = siteItem.querySelector('.site-url').textContent.trim();
             const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
-
-            siteItem.querySelector('.site-url').textContent = url;
+            
+            siteItem.querySelector('.site-url').innerHTML = `${getIconHTML(url)}${url}`;
             siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
             siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
             siteItem.querySelector('.site-remaining').setAttribute('data-remaining', validHours + '.' + validMinutes);
@@ -361,6 +411,59 @@ function updateSite() {
             resetSiteForm();
         }
     }
+}
+
+function getIconHTML(url) {
+    let iconHTML = '';
+    if (url.includes('youtube')) {
+        iconHTML = '<i class="fab fa-youtube" style="color:#FF0000;margin-right:5px;"></i>';
+    } else if (url.includes('facebook')) {
+        iconHTML = '<i class="fab fa-facebook" style="color:#4267B2;margin-right:5px;"></i>';
+    } else if (url.includes('twitter') || url.includes('x.com')) {
+        iconHTML = '<i class="fab fa-x-twitter" style="color:#000000;margin-right:5px;"></i>';
+    } else if (url.includes('tiktok')) {
+        iconHTML = '<i class="fab fa-tiktok" style="color:#000000;margin-right:5px;"></i>';
+    } else if (url.includes('instagram')) {
+        iconHTML = '<i class="fab fa-instagram" style="color:#833AB4;margin-right:5px;"></i>';
+    } else if (url.includes('whatsapp')) {
+        iconHTML = '<i class="fab fa-whatsapp" style="color:#25D366;margin-right:5px;"></i>';
+    } else if (url.includes('reddit')) {
+        iconHTML = '<i class="fab fa-reddit" style="color:#FF4500;margin-right:5px;"></i>';
+    } else if (url.includes('snapchat')) {
+        iconHTML = '<i class="fab fa-snapchat" style="color:#FFFC00;margin-right:5px;"></i>';
+    } else if (url.includes('pinterest')) {
+        iconHTML = '<i class="fab fa-pinterest" style="color:#BD081C;margin-right:5px;"></i>';
+    } else if (url.includes('vimeo')) {
+        iconHTML = '<i class="fab fa-vimeo" style="color:#1AB7EA;margin-right:5px;"></i>';
+    } else if (url.includes('linkedin')) {
+        iconHTML = '<i class="fab fa-linkedin" style="color:#0077B5;margin-right:5px;"></i>';
+    } else if (url.includes('discord')) {
+        iconHTML = '<i class="fab fa-discord" style="color:#5865F2;margin-right:5px;"></i>';
+    } else if (url.includes('telegram')) {
+        iconHTML = '<i class="fab fa-telegram" style="color:#0088cc;margin-right:5px;"></i>';
+    } else if (url.includes('twitch')) {
+        iconHTML = '<i class="fab fa-twitch" style="color:#6441A4;margin-right:5px;"></i>';
+    } else if (url.includes('spotify')) {
+        iconHTML = '<i class="fab fa-spotify" style="color:#1ED760;margin-right:5px;"></i>';
+    } else if (url.includes('netflix')) {
+        iconHTML = '<i class="fas fa-play" style="color:#E50914;margin-right:5px;"></i>';
+    } else if (url.includes('steam')) {
+        iconHTML = '<i class="fab fa-steam" style="color:#0078B4;margin-right:5px;"></i>';
+    } else if (url.includes('amazon')) {
+        iconHTML = '<i class="fab fa-amazon" style="color:#FF9900;margin-right:5px;"></i>';
+    } else if (url.includes('ebay')) {
+        iconHTML = '<i class="fab fa-ebay" style="color:#FF0000;margin-right:5px;"></i>';
+    } else if (url.includes('kick')) {
+        iconHTML = '<i class="fas fa-gamepad" style="color:#00FF00;margin-right:5px;"></i>';
+    } else if (url.includes('google')) {
+        iconHTML = '<i class="fab fa-google" style="color:#DB4437;margin-right:5px;"></i>';
+    } else if (url.includes('pornhub')) {
+        iconHTML = '<i class="fas fa-film" style="color:#FF9900;margin-right:5px;"></i>';
+    } else {
+        // Default icon for other sites
+        iconHTML = '<i class="fas fa-globe" style="color:#7C8995;margin-right:5px;"></i>';
+    }
+    return iconHTML;
 }
 
 
@@ -404,10 +507,11 @@ function addSite(murl, timeLimit, usage,itsLimited) {
     newSite.className = 'site-item';
     newSite.setAttribute('data-site-id', siteId);
 
+    
     const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
     newSite.innerHTML = `
             <div class="site-info">
-                <span class="site-url">${url}</span>
+                <span class="site-url">${getIconHTML(url)}${url}</span>
                 <span class="site-limit">${window.translations.popup.dailyLimit}: ${timeString}</span>
                 <span class="site-remaining" data-remaining="${validHours}.${validMinutes}">${window.translations.settings.sites.remaining}: ${
                     typeof usage !== "undefined" ? window.formatTime(!itsLimited ? (timeLimit-usage)*60000 : usage*60000) : timeString

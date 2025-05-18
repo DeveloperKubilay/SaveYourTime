@@ -67,6 +67,7 @@
       "timeTemplates": "시간 템플릿",
       "customTime": "사용자 지정 시간",
       "add": "추가",
+      "quickAdd": "빠른 추가",
       "restrictedSites": "제한된 사이트",
       "remaining": "남은 시간"
     },

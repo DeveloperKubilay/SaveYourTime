@@ -67,6 +67,7 @@
       "timeTemplates": "Modelos de Tempo",
       "customTime": "Tempo Personalizado",
       "add": "Adicionar",
+      "quickAdd": "Adicionar rápido",
       "restrictedSites": "Sites Restritos",
       "remaining": "Tempo restante"
     },

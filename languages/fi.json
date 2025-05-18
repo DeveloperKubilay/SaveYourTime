@@ -67,6 +67,7 @@
       "timeTemplates": "Aikamallit",
       "customTime": "Mukautettu aika",
       "add": "Lisää",
+      "quickAdd": "Pikalisäys",
       "restrictedSites": "Rajoitetut sivustot",
       "remaining": "Jäljellä oleva aika"
     },

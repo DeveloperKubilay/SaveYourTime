@@ -67,6 +67,7 @@
       "timeTemplates": "Plantillas de Tiempo",
       "customTime": "Tiempo Personalizado",
       "add": "Añadir",
+      "quickAdd": "Añadir rápido",
       "restrictedSites": "Sitios Restringidos",
       "remaining": "Tiempo restante"
     },
