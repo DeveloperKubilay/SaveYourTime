@@ -67,6 +67,7 @@
       "timeTemplates": "时间模板",
       "customTime": "自定义时间",
       "add": "添加",
+      "quickAdd": "快速添加",
       "restrictedSites": "受限网站",
       "remaining": "剩余时间"
     },

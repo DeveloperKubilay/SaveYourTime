@@ -67,6 +67,7 @@
       "timeTemplates": "Tidsmaler",
       "customTime": "Egendefinert tid",
       "add": "Legg til",
+      "quickAdd": "Hurtig legg til",
       "restrictedSites": "Begrensede nettsteder",
       "remaining": "Gjenværende tid"
     },
