@@ -67,6 +67,7 @@
       "timeTemplates": "時間テンプレート",
       "customTime": "カスタム時間",
       "add": "追加",
+      "quickAdd": "クイック追加",
       "restrictedSites": "制限サイト",
       "remaining": "残り時間"
     },

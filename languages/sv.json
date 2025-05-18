@@ -67,6 +67,7 @@
       "timeTemplates": "Tidsmallar",
       "customTime": "Anpassad tid",
       "add": "Lägg till",
+      "quickAdd": "Snabbtillägg",
       "restrictedSites": "Begränsade webbplatser",
       "remaining": "Återstående tid"
     },

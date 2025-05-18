@@ -752,6 +752,85 @@
                 <h3 id="siteFormTitle"><i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span></h3>
                 <div class="form-row">
                     <input type="text" id="siteUrl" data-lang-placeholder="settings.sites.siteUrl" style="flex: 1">
+
+
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <div style="position: relative;">
+                            <button id="quickAddBtn" class="action-btn" style="background-color: var(--primary); :hover{background-color: var(--primary-dark);}"><i class="fas fa-bolt"></i> <span data-lang="settings.sites.quickAdd">Hızlı Ekle</span></button>
+                            <div id="quickAddDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 5px; background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; min-width: 200px; max-height: 400px; overflow-y: auto;">
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-youtube" style="color: rgb(255, 0, 0); margin-right: 10px;"></i> YouTube
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-facebook" style="color: rgb(66, 103, 178); margin-right: 10px;"></i> Facebook
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-x" style="color: rgb(0, 0, 0); margin-right: 10px;"></i> X / Twitter
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-tiktok" style="color: rgb(0, 0, 0); margin-right: 10px;"></i> TikTok
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-instagram" style="color: rgb(131, 58, 180); margin-right: 10px;"></i> Instagram
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-whatsapp" style="color: rgb(37, 211, 102); margin-right: 10px;"></i> WhatsApp
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-reddit" style="color: rgb(255, 69, 0); margin-right: 10px;"></i> Reddit
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-snapchat" style="color: rgb(255, 252, 0); margin-right: 10px;"></i> Snapchat
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-pinterest" style="color: rgb(189, 8, 28); margin-right: 10px;"></i> Pinterest
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-vimeo" style="color: rgb(26, 183, 234); margin-right: 10px;"></i> Vimeo
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fas fa-play-circle" style="color: rgb(252, 66, 123); margin-right: 10px;"></i> Odysee
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-linkedin" style="color: rgb(0, 119, 181); margin-right: 10px;"></i> LinkedIn
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-discord" style="color: rgb(88, 101, 242); margin-right: 10px;"></i> Discord
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-telegram" style="color: rgb(0, 122, 255); margin-right: 10px;"></i> Telegram
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-twitch" style="color: rgb(100, 65, 164); margin-right: 10px;"></i> Twitch
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-spotify" style="color: rgb(30, 215, 96); margin-right: 10px;"></i> Spotify
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fas fa-play" style="color: rgb(229, 9, 20); margin-right: 10px;"></i> Netflix
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-steam" style="color: rgb(0, 120, 180); margin-right: 10px;"></i> Steam
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-amazon" style="color: rgb(255, 153, 0); margin-right: 10px;"></i> Amazon
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-ebay" style="color: rgb(255, 0, 0); margin-right: 10px;"></i> Ebay
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fas fa-gamepad" style="color: rgb(0, 255, 0); margin-right: 10px;"></i> Kick
+                                </div>
+                                <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
+                                    <i class="fab fa-google" style="color: rgb(219, 68, 55); margin-right: 10px;"></i> Google
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
                 <div class="time-templates">
                     <h4 style="margin: 10px 0; color: var(--text-muted);" data-lang="settings.sites.timeTemplates">Zaman Şablonları</h4>
@@ -850,4 +929,3 @@
     <script src="../js/settings.js"></script>
 </body>
 </html>
-
