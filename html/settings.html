@@ -752,36 +752,12 @@
                 <h3 id="siteFormTitle"><i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span data-lang="settings.sites.addNew">Yeni Site Ekle</span></h3>
                 <div class="form-row">
                     <input type="text" id="siteUrl" data-lang-placeholder="settings.sites.siteUrl" style="flex: 1">
-                </div>
-                <div class="time-templates">
-                    <h4 style="margin: 10px 0; color: var(--text-muted);" data-lang="settings.sites.timeTemplates">Zaman Şablonları</h4>
-                    <div class="template-buttons">
-                        <button class="template-btn" data-hours="0.5"><i class="fas fa-clock"></i> 30 <span data-lang="common.time.minutes">dakika</span></button>
-                        <button class="template-btn" data-hours="1"><i class="fas fa-clock"></i> 1 <span data-lang="common.time.hour">saat</span></button>
-                        <button class="template-btn" data-hours="2"><i class="fas fa-clock"></i> 2 <span data-lang="common.time.hours">saat</span></button>
-                        <button class="template-btn" data-hours="3"><i class="fas fa-clock"></i> 3 <span data-lang="common.time.hours">saat</span></button>
-                    </div>
-                    <div class="form-row" style="margin-top: 15px;">
-                        <div style="flex: 1;">
-                            <label style="display: block; margin-bottom: 5px; color: var(--text-muted);" data-lang="settings.sites.customTime">Özel Süre</label>
-                            <div style="display: flex; gap: 10px;">
-                                <div style="flex: 1; position: relative;">
-                                    <input type="number" id="timeHours" min="0" max="23" step="1" placeholder="0" style="padding-right: 45px;">
-                                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.hour">sa</span>
-                                </div>
-                                <div style="flex: 1; position: relative;">
-                                    <input type="number" id="timeMinutes" min="0" max="59" step="1" placeholder="0" style="padding-right: 45px;">
-                                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.minutes">dk</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="margin-top: 15px; display: flex; gap: 10px;">
-                    <button id="addSiteBtn" class="action-btn add-btn"><i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span></button>
+
+
+                    
                     <div style="display: flex; gap: 10px;">
                         <div style="position: relative;">
-                            <button id="quickAddBtn" class="action-btn" style="background-color: var(--primary-dark);"><i class="fas fa-bolt"></i> <span data-lang="settings.sites.quickAdd">Hızlı Ekle</span></button>
+                            <button id="quickAddBtn" class="action-btn" style="background-color: var(--primary); :hover{background-color: var(--primary-dark);}"><i class="fas fa-bolt"></i> <span data-lang="settings.sites.quickAdd">Hızlı Ekle</span></button>
                             <div id="quickAddDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 5px; background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); z-index: 1000; min-width: 200px; max-height: 400px; overflow-y: auto;">
                                 <div class="quick-add-item" style="padding: 12px 15px; cursor: pointer; transition: all 0.2s; border-bottom: 1px solid var(--border);">
                                     <i class="fab fa-youtube" style="color: rgb(255, 0, 0); margin-right: 10px;"></i> YouTube
@@ -852,7 +828,36 @@
                             </div>
                         </div>
                     </div>
-</div>
+
+
+
+                </div>
+                <div class="time-templates">
+                    <h4 style="margin: 10px 0; color: var(--text-muted);" data-lang="settings.sites.timeTemplates">Zaman Şablonları</h4>
+                    <div class="template-buttons">
+                        <button class="template-btn" data-hours="0.5"><i class="fas fa-clock"></i> 30 <span data-lang="common.time.minutes">dakika</span></button>
+                        <button class="template-btn" data-hours="1"><i class="fas fa-clock"></i> 1 <span data-lang="common.time.hour">saat</span></button>
+                        <button class="template-btn" data-hours="2"><i class="fas fa-clock"></i> 2 <span data-lang="common.time.hours">saat</span></button>
+                        <button class="template-btn" data-hours="3"><i class="fas fa-clock"></i> 3 <span data-lang="common.time.hours">saat</span></button>
+                    </div>
+                    <div class="form-row" style="margin-top: 15px;">
+                        <div style="flex: 1;">
+                            <label style="display: block; margin-bottom: 5px; color: var(--text-muted);" data-lang="settings.sites.customTime">Özel Süre</label>
+                            <div style="display: flex; gap: 10px;">
+                                <div style="flex: 1; position: relative;">
+                                    <input type="number" id="timeHours" min="0" max="23" step="1" placeholder="0" style="padding-right: 45px;">
+                                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.hour">sa</span>
+                                </div>
+                                <div style="flex: 1; position: relative;">
+                                    <input type="number" id="timeMinutes" min="0" max="59" step="1" placeholder="0" style="padding-right: 45px;">
+                                    <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted);" data-lang="common.time.minutes">dk</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <button id="addSiteBtn" class="action-btn add-btn"><i class="fas fa-plus"></i> <span data-lang="settings.sites.add">Ekle</span></button>
                     <button id="cancelEditBtn" style="display: none; background-color: #475569; color: white;" class="action-btn cancel-btn"><i class="fas fa-times"></i> <span data-lang="common.cancel">İptal</span></button>
                     <input type="hidden" id="editingSiteId" value="">
                 </div>
@@ -924,4 +929,3 @@
     <script src="../js/settings.js"></script>
 </body>
 </html>
-

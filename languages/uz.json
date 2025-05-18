@@ -67,6 +67,7 @@
       "timeTemplates": "Vaqt Shablonlari",
       "customTime": "Maxsus Vaqt",
       "add": "Qo'shish",
+      "quickAdd": "Tezkor qo'shish",
       "restrictedSites": "Cheklangan Saytlar",
       "remaining": "Qolgan vaqt"
     },

@@ -67,6 +67,7 @@
       "timeTemplates": "Шаблони часу",
       "customTime": "Власний час",
       "add": "Додати",
+      "quickAdd": "Швидке додавання",
       "restrictedSites": "Обмежені сайти",
       "remaining": "Залишилося часу"
     },

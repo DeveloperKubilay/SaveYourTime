@@ -64,9 +64,9 @@
       "addNew": "Add New Site",
       "editSite": "Edit Site",
       "siteUrl": "Site URL (e.g. facebook.com)",
-      "timeTemplates": "Time Templates",
-      "customTime": "Custom Time",
+      "timeTemplates": "Time Templates",      "customTime": "Custom Time",
       "add": "Add",
+      "quickAdd": "Quick Add",
       "restrictedSites": "Restricted Sites",
       "remaining": "Remaining time"
     },

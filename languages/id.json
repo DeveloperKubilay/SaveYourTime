@@ -67,6 +67,7 @@
       "timeTemplates": "Template Waktu",
       "customTime": "Waktu Kustom",
       "add": "Tambah",
+      "quickAdd": "Tambah Cepat",
       "restrictedSites": "Situs Terbatas",
       "remaining": "Waktu tersisa"
     },

@@ -181,7 +181,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
         const limitedSites = data.filter(item => item.limited).length;
         const totalSites = data.length;
 
-        document.getElementById('restrictedSites').textContent = totalSites;
+        document.getElementById('restrictedSites'). textContent= totalSites;
         document.getElementById('blockedSites').textContent = limitedSites;
         document.getElementById('notBlockedSites').textContent = totalSites - limitedSites;
 
@@ -344,10 +344,10 @@ function updateSite() {
     if (url && timeLimitMinutes > 0) {
         const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
         if (siteItem) {
-            const oldUrl = siteItem.querySelector('.site-url').textContent;
+            const oldUrl = siteItem.querySelector('.site-url').textContent.trim();
             const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
-
-            siteItem.querySelector('.site-url').textContent = url;
+            
+            siteItem.querySelector('.site-url').innerHTML = `${getIconHTML(url)}${url}`;
             siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
             siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
             siteItem.querySelector('.site-remaining').setAttribute('data-remaining', validHours + '.' + validMinutes);
@@ -416,47 +416,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-
-function addSite(murl, timeLimit, usage,itsLimited) {
-    const url = (murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "")).replace(/\/+$/, "");
-    if (!url.includes(".")) return;
-    const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
-    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
-
-    let validHours, validMinutes;
-    
-    if (timeLimit !== undefined) {
-        validHours = Math.floor(timeLimit / 60);
-        validMinutes = timeLimit % 60;
-    } else {
-        validHours = Math.min(23, Math.max(0, timeHours));
-        validMinutes = Math.min(59, Math.max(0, timeMinutes));
-    }
-    
-    const timeLimitMinutes = validHours * 60 + validMinutes;
-    if (!url || timeLimitMinutes < 0.000000000000001) return;
-    const siteId = url.replace(/[^a-zA-Z0-9]/g, '');//URL ama arındırılmış hali
-
-    let siteExists = false;
-    const siteItems = document.querySelectorAll('.site-item');
-
-    siteItems.forEach(item => {
-        const existingUrl = item.querySelector('.site-url').textContent.trim().toLowerCase();
-        if (existingUrl === url) {
-            siteExists = true;
-            document.getElementById('editingSiteId').value = item.getAttribute('data-site-id');
-            updateSite();
-        }
-    });
-
-    if (siteExists) return;
-
-    const sitesList = document.getElementById('sitesList');
-    const newSite = document.createElement('div');
-    newSite.className = 'site-item';
-    newSite.setAttribute('data-site-id', siteId);
-    
-    // Determine icon based on URL
+function getIconHTML(url) {
     let iconHTML = '';
     if (url.includes('youtube')) {
         iconHTML = '<i class="fab fa-youtube" style="color:#FF0000;margin-right:5px;"></i>';
@@ -506,11 +466,55 @@ function addSite(murl, timeLimit, usage,itsLimited) {
         // Default icon for other sites
         iconHTML = '<i class="fas fa-globe" style="color:#7C8995;margin-right:5px;"></i>';
     }
+    return iconHTML;
+}
+
+
+
+function addSite(murl, timeLimit, usage,itsLimited) {
+    const url = (murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "")).replace(/\/+$/, "");
+    if (!url.includes(".")) return;
+    const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
+    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
+
+    let validHours, validMinutes;
+    
+    if (timeLimit !== undefined) {
+        validHours = Math.floor(timeLimit / 60);
+        validMinutes = timeLimit % 60;
+    } else {
+        validHours = Math.min(23, Math.max(0, timeHours));
+        validMinutes = Math.min(59, Math.max(0, timeMinutes));
+    }
+    
+    const timeLimitMinutes = validHours * 60 + validMinutes;
+    if (!url || timeLimitMinutes < 0.000000000000001) return;
+    const siteId = url.replace(/[^a-zA-Z0-9]/g, '');//URL ama arındırılmış hali
+
+    let siteExists = false;
+    const siteItems = document.querySelectorAll('.site-item');
+
+    siteItems.forEach(item => {
+        const existingUrl = item.querySelector('.site-url').textContent.trim().toLowerCase();
+        if (existingUrl === url) {
+            siteExists = true;
+            document.getElementById('editingSiteId').value = item.getAttribute('data-site-id');
+            updateSite();
+        }
+    });
+
+    if (siteExists) return;
+
+    const sitesList = document.getElementById('sitesList');
+    const newSite = document.createElement('div');
+    newSite.className = 'site-item';
+    newSite.setAttribute('data-site-id', siteId);
+
     
     const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
     newSite.innerHTML = `
             <div class="site-info">
-                <span class="site-url">${iconHTML}${url}</span>
+                <span class="site-url">${getIconHTML(url)}${url}</span>
                 <span class="site-limit">${window.translations.popup.dailyLimit}: ${timeString}</span>
                 <span class="site-remaining" data-remaining="${validHours}.${validMinutes}">${window.translations.settings.sites.remaining}: ${
                     typeof usage !== "undefined" ? window.formatTime(!itsLimited ? (timeLimit-usage)*60000 : usage*60000) : timeString
