@@ -310,60 +310,6 @@ window.SAVE_YOUR_TIME_RUN = async function () {
 
 
 
-    //Settings
-    const resetDataBtn = document.getElementById('resetDataBtn');
-    if (resetDataBtn) {
-        resetDataBtn.addEventListener('click', function () {
-            const confirmReset = confirm(window.translations.settings.general.resetDataConfirm);
-            if (confirmReset) {
-                window.SendMSG("resetAllData")
-                setTimeout(() => window.location.reload(), 500)
-            }
-        })
-    }
-
-
-
-}
-
-
-
-
-function updateSite() {
-    const siteId = document.getElementById('editingSiteId').value;
-    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "").replace(/\/+$/, "");
-    if (!url.includes(".")) return;
-    const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
-    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
-
-    const validHours = Math.min(23, Math.max(0, timeHours));
-    const validMinutes = Math.min(59, Math.max(0, timeMinutes));
-
-    const timeLimitMinutes = (validHours * 60) + validMinutes;
- 
-    if (url && timeLimitMinutes > 0) {
-        const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
-        if (siteItem) {
-            const oldUrl = siteItem.querySelector('.site-url').textContent.trim();
-            const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
-            
-            siteItem.querySelector('.site-url').innerHTML = `${getIconHTML(url)}${url}`;
-            siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
-            siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
-            siteItem.querySelector('.site-remaining').setAttribute('data-remaining', validHours + '.' + validMinutes);
-
-            window.SendMSG("addSite", {
-                oldurl: oldUrl,
-                url: url,
-                limit: timeLimitMinutes * 60 * 1000
-            });
-
-            resetSiteForm();
-        }
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
     const quickAddBtn = document.getElementById('quickAddBtn');
     const quickAddDropdown = document.getElementById('quickAddDropdown');
 
@@ -413,8 +359,59 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-});
 
+
+    //Settings
+    const resetDataBtn = document.getElementById('resetDataBtn');
+    if (resetDataBtn) {
+        resetDataBtn.addEventListener('click', function () {
+            const confirmReset = confirm(window.translations.settings.general.resetDataConfirm);
+            if (confirmReset) {
+                window.SendMSG("resetAllData")
+                setTimeout(() => window.location.reload(), 500)
+            }
+        });
+
+
+    }
+}
+
+
+
+
+function updateSite() {
+    const siteId = document.getElementById('editingSiteId').value;
+    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "").replace(/\/+$/, "");
+    if (!url.includes(".")) return;
+    const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
+    const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
+
+    const validHours = Math.min(23, Math.max(0, timeHours));
+    const validMinutes = Math.min(59, Math.max(0, timeMinutes));
+
+    const timeLimitMinutes = (validHours * 60) + validMinutes;
+ 
+    if (url && timeLimitMinutes > 0) {
+        const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
+        if (siteItem) {
+            const oldUrl = siteItem.querySelector('.site-url').textContent.trim();
+            const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
+            
+            siteItem.querySelector('.site-url').innerHTML = `${getIconHTML(url)}${url}`;
+            siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
+            siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
+            siteItem.querySelector('.site-remaining').setAttribute('data-remaining', validHours + '.' + validMinutes);
+
+            window.SendMSG("addSite", {
+                oldurl: oldUrl,
+                url: url,
+                limit: timeLimitMinutes * 60 * 1000
+            });
+
+            resetSiteForm();
+        }
+    }
+}
 
 function getIconHTML(url) {
     let iconHTML = '';
