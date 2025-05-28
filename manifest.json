@@ -15,7 +15,7 @@
         "alarms"
     ],
     "background": {
-        "scripts": ["background.js"]
+        "service_worker": "background.js"
     },
     "action": {
         "default_popup": "html/popup.html"
