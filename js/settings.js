@@ -330,7 +330,10 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 let url = this.textContent.trim().toLowerCase();
                 const icon = this.querySelector('i');
                 if (icon) {
-                    if (icon.classList.contains('fa-youtube')) url = 'youtube.com';
+                    if (icon.classList.contains('fa-youtube')) {
+                        if (icon.classList.contains('yt-shorts')) url = 'youtube.com/shorts';
+                        else url = 'youtube.com';
+                    }
                     else if (icon.classList.contains('fa-facebook')) url = 'facebook.com';
                     else if (icon.classList.contains('fa-x-twitter')) url = 'twitter.com';
                     else if (icon.classList.contains('fa-tiktok')) url = 'tiktok.com';
@@ -529,7 +532,7 @@ function addSite(murl, timeLimit, usage,itsLimited) {
         window.SendMSG("addSite", {
             url: url,
             limit: timeLimitMinutes * 60 * 1000
-        });
+        })
     }
 
     sitesList.prepend(newSite);
