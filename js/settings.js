@@ -331,8 +331,8 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 const icon = this.querySelector('i');
                 if (icon) {
                     if (icon.classList.contains('fa-youtube')) {
-                        if (icon.classList.contains('yt-shorts')) url = 'youtube.com/shorts';
-                        else url = 'youtube.com';
+                        if (icon.classList.contains('yt-shorts')) url = 'www.youtube.com/shorts';
+                        else url = 'www.youtube.com';
                     }
                     else if (icon.classList.contains('fa-facebook')) url = 'facebook.com';
                     else if (icon.classList.contains('fa-x-twitter')) url = 'twitter.com';
