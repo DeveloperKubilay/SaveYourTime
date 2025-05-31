@@ -27,10 +27,10 @@ chrome.runtime.onInstalled.addListener(async function (details) {
         */
 
         var lang = "en";
-        try{
-           lang = navigator.language.substring(0, 2).toLowerCase()
-           await fetch(chrome.runtime.getURL('languages/' + lang + ".json"));
-        }catch{ lang = "en" }
+        try {
+            lang = navigator.language.substring(0, 2).toLowerCase()
+            await fetch(chrome.runtime.getURL('languages/' + lang + ".json"));
+        } catch { lang = "en" }
 
         chrome.storage.local.set({
             Urls: [],
@@ -60,17 +60,21 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
 
 chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     if (changeInfo.status === 'complete' && tab.url) {
-        await run(tab.id);
+        await run(tab);
     }
 });
 
-async function run(tabId, itsint) {
+async function run(tab, itsint) {
     var {
         Urls = [],
         lang: langCode = "en",
         Tabignores = [],
         lastResetTime = 0
     } = await chrome.storage.local.get(['Urls', 'lang', 'Tabignores', 'lastResetTime']);
+
+    if (!tab || !tab.url) {
+        return;
+    }
 
     if (Date.now() - lastResetTime > 24 * 60 * 60 * 1000) {
         var temp = {}
@@ -84,13 +88,12 @@ async function run(tabId, itsint) {
         await chrome.storage.local.set({ ...temp, Urls: Urls, lastResetTime: Date.now() });
     }
 
-    const isTabIgnored = Tabignores.some(tab => tab.id === tabId);
+    const isTabIgnored = Tabignores.some(tab => tab.id === tab.id);
     if (isTabIgnored) return;
 
     const langResponse = await fetch(chrome.runtime.getURL('languages/' + langCode + ".json"));
     lang = await langResponse.json();
 
-    const tab = await chrome.tabs.get(tabId);
     const urlItem = Urls.filter(pattern =>
         tab.url.replace("https://", "").replace("http://", "").toLowerCase().startsWith(pattern.url)
     ).sort((a, b) => b.url.length - a.url.length)[0] || {}
@@ -108,7 +111,7 @@ async function run(tabId, itsint) {
                     limited: true
                 }, function (response) { });
                 if (itsint) {
-                    if(urlItem.limited) return;
+                    if (urlItem.limited) return;
                     Urls = Urls.map(url => {
                         if (url.url === urlItem.url) url.limited = true;
                         return url;
@@ -120,7 +123,7 @@ async function run(tabId, itsint) {
                 [urlItem.url]: usage + 60000
             });
 
-        } catch (error) {}
+        } catch (error) { }
     }
 
 
