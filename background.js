@@ -107,7 +107,7 @@ async function run(tab, itsint) {
                     lang: lang,
                     currentpattern: urlItem.url,
                     usage: usage,
-                    tabId: tabId,
+                    tabId: tab.id,
                     limited: true
                 }, function (response) { });
                 if (itsint) {
