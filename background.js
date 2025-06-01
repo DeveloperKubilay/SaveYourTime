@@ -53,7 +53,7 @@ chrome.alarms.onAlarm.addListener(async (alarm) => {
     if (alarm.name === "myTimer") {
         const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
         if (activeTab) {
-            await run(activeTab.id, true);
+            await run(activeTab, true);
         }
     }
 });
@@ -65,6 +65,7 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 });
 
 async function run(tab, itsint) {
+    console.log("R");
     var {
         Urls = [],
         lang: langCode = "en",
@@ -88,7 +89,8 @@ async function run(tab, itsint) {
         await chrome.storage.local.set({ ...temp, Urls: Urls, lastResetTime: Date.now() });
     }
 
-    const isTabIgnored = Tabignores.some(tab => tab.id === tab.id);
+
+    const isTabIgnored = Tabignores.some(ignoredTab => ignoredTab.id === tab.id);
     if (isTabIgnored) return;
 
     const langResponse = await fetch(chrome.runtime.getURL('languages/' + langCode + ".json"));
