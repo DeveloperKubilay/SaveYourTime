@@ -2,6 +2,8 @@
 
 <img src="https://i.imgur.com/94AQDq2.png" width="100%">
 
+[Chrome Web Store](https://chromewebstore.google.com/detail/saveyourtime/noefpbkcooahahhneghdjomngoigjdbf?authuser=0&hl=tr&pli=1)
+
 ## 🌈 About
 
 SaveYourTime is a powerful browser extension that helps you manage your digital time better by setting daily limits on distracting websites.
