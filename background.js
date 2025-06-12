@@ -65,7 +65,6 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
 });
 
 async function run(tab, itsint) {
-    console.log("R");
     var {
         Urls = [],
         lang: langCode = "en",
@@ -80,10 +79,8 @@ async function run(tab, itsint) {
     if (Date.now() - lastResetTime > 24 * 60 * 60 * 1000) {
         var temp = {}
         Urls = Urls.map(url => {
-            if (url.limited) {
-                temp[url.url] = 0;
-                url.limited = false;
-            }
+            temp[url.url] = 0;
+            url.limited = false;
             return url;
         });
         await chrome.storage.local.set({ ...temp, Urls: Urls, lastResetTime: Date.now() });
