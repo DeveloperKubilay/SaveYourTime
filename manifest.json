@@ -33,8 +33,9 @@
     "content_scripts": [
         {
             "matches": ["<all_urls>"],
-            "js": ["script.js"]
-        }
+            "js": ["js/libs/toastify.js","script.js"],
+            "css": ["js/libs/toastify.min.css"]
+        } 
     ],
     "browser_specific_settings": {
         "gecko": {

@@ -40,6 +40,7 @@
     "title": "נגמר לך הזמן!",
     "message": "הגעת למגבלת הזמן היומית שלך לאתר זה. זוהי הזדמנות מצוינת להפנות את תשומת הלב שלך למשימות חשובות יותר!",
     "continueAnyway": "המשך בכל זאת",
+    "ThrowWarn":"נותרו לך {{ minutes }}ד עד שתגיע למגבלה היומית שלך! - {{ appName }}",
     "dailyStats": "היום האתר הזה עם שימוש כולל של <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 דקות",
@@ -79,7 +80,7 @@
       "resetData": "אפס את כל הנתונים",
       "resetDataConfirm": "כל הנתונים השמורים יימחקו. לא ניתן לבטל פעולה זו. האם ברצונך להמשיך?",
       "github": "מאגר GitHub",
-      "virusTotal": "תוצאות VirusTotal",
+      "chromeWebStore": "חנות Chrome",
       "reportIssue": "דווח על בעיה",
       "privacy": "מדיניות פרטיות",
       "documentation": "תיעוד"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "הגדר הגדרות",
-      "viewSource": "הצג קוד מקור ב-GitHub",
-      "virusTotal": "תוצאות VirusTotal"
+      "viewSource": "הצג קוד מקור ב-GitHub"
     }
   },
   "privacy": {

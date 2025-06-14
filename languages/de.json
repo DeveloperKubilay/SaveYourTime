@@ -40,6 +40,7 @@
     "title": "Ihre Zeit ist abgelaufen!",
     "message": "Sie haben Ihr tägliches Zeitlimit für diese Website erreicht. Eine gute Gelegenheit, Ihre Aufmerksamkeit auf wichtigere Aufgaben zu lenken!",
     "continueAnyway": "Trotzdem fortfahren",
+    "ThrowWarn":"Sie haben noch {{ minutes }}m bis Sie Ihr tägliches Limit erreichen! - {{ appName }}",
     "dailyStats": "Heute Diese Seite mit einer Gesamtnutzung von <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 Minuten",
@@ -79,7 +80,7 @@
       "resetData": "Alle Daten zurücksetzen",
       "resetDataConfirm": "Alle gespeicherten Daten werden gelöscht. Diese Aktion kann nicht rückgängig gemacht werden. Möchten Sie fortfahren?",
       "github": "GitHub-Repository",
-      "virusTotal": "VirusTotal-Ergebnisse",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Problem melden",
       "privacy": "Datenschutzrichtlinie",
       "documentation": "Dokumentation"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Einstellungen konfigurieren",
-      "viewSource": "Quellcode auf GitHub ansehen",
-      "virusTotal": "VirusTotal-Ergebnisse"
+      "viewSource": "Quellcode auf GitHub ansehen"
     }
   },
   "privacy": {

@@ -40,6 +40,7 @@
     "title": "Vaxtınız Bitdi!",
     "message": "Bu sayt üçün gündəlik vaxt limitinizə çatdınız. Diqqətinizi daha vacib işlərə yönəltmək üçün əla fürsətdir!",
     "continueAnyway": "Yenə də Davam Et",
+    "ThrowWarn": "Gündəlik limitinizə çatmağa {{ minutes }} dəqiqə qalıb! - {{ appName }}",
     "dailyStats": "Bugün bu sayta <strong>{{ totalTime }}</strong> vaxt sərf etdiniz",
     "timeOption": {
       "15min": "+15 dəqiqə",
@@ -79,7 +80,7 @@
       "resetData": "Bütün Məlumatları Sıfırla",
       "resetDataConfirm": "Bütün saxlanılan məlumatlar silinəcək. Bu əməliyyat geri qaytarıla bilməz. Davam etmək istəyirsiniz?",
       "github": "GitHub Repo",
-      "virusTotal": "VirusTotal Nəticələri",
+      "chromeWebStore": "Chrome Veb Mağazası",
       "reportIssue": "Xəta Bildir",
       "privacy": "Məxfilik Siyasəti",
       "documentation": "Sənədləşdirmə"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Tənzimləmələri Konfiqurasiya Et",
-      "viewSource": "GitHub-da Mənbə Kodu Baxın",
-      "virusTotal": "VirusTotal Nəticələri"
+      "viewSource": "GitHub-da Mənbə Kodu Baxın"
     }
   },
   "privacy": {

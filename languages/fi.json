@@ -40,6 +40,7 @@
     "title": "Aika on loppunut!",
     "message": "Olet saavuttanut päivittäisen aikarajasi tälle sivustolle. Tämä on loistava tilaisuus kohdistaa huomiosi tärkeämpiin tehtäviin!",
     "continueAnyway": "Jatka silti",
+    "ThrowWarn": "Sinulla on {{ minutes }}m jäljellä ennen päivittäisen rajasi saavuttamista! - {{ appName }}",
     "dailyStats": "Tänään tällä sivustolla yhteensä käytetty aika <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minuuttia",
@@ -79,7 +80,7 @@
       "resetData": "Nollaa kaikki data",
       "resetDataConfirm": "Kaikki tallennetut tiedot poistetaan. Tätä toimintoa ei voi kumota. Haluatko jatkaa?",
       "github": "GitHub-repo",
-      "virusTotal": "VirusTotal-tulokset",
+      "chromeWebStore": "Chrome-verkkokauppa",
       "reportIssue": "Ilmoita ongelmasta",
       "privacy": "Tietosuojakäytäntö",
       "documentation": "Dokumentaatio"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Määritä asetukset",
-      "viewSource": "Katso lähdekoodi GitHubissa",
-      "virusTotal": "VirusTotal-tulokset"
+      "viewSource": "Katso lähdekoodi GitHubissa"
     }
   },
   "privacy": {

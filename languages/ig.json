@@ -40,6 +40,7 @@
     "title": "Oge Gị Agwụla!",
     "message": "Ị eruola oke oge ụbọchị gị maka saịtị a. Ọ bụ nnukwu ohere iji kpọghachi ntụgharị uche gị na ọrụ dị mkpa karịa!",
     "continueAnyway": "Gaa n'Ihu Ma Oleghị",
+    "ThrowWarn":"Ị nwere {{ minutes }}m fọdụrụ tupu ị ruo oke ụbọchị gị! - {{ appName }}",
     "dailyStats": "Taa Saịtị a nwere ojiji nke <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 nkeji",
@@ -79,7 +80,7 @@
       "resetData": "Tọgharia Data Niile",
       "resetDataConfirm": "A ga-ehichapụ data niile echekwara. Enweghị ike ilaghachi omume a. Ị chọrọ ịga n'ihu?",
       "github": "GitHub Repo",
-      "virusTotal": "Nsonaazụ VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Kọọ Nsogbu",
       "privacy": "Iwu Nzuzo",
       "documentation": "Akwụkwọ"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Hazie Ntọala",
-      "viewSource": "Lelee Isi na GitHub",
-      "virusTotal": "Nsonaazụ VirusTotal"
+      "viewSource": "Lelee Isi na GitHub"
     }
   },
   "privacy": {

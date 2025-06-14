@@ -40,6 +40,7 @@
     "title": "زمان شما تمام شده است!",
     "message": "به محدودیت زمان روزانه برای این سایت رسیده‌اید. فرصت خوبی برای هدایت توجه شما به کارهای مهم‌تر!",
     "continueAnyway": "ادامه دادن",
+    "ThrowWarn":"شما {{ minutes }}د تا رسیدن به محدودیت روزانه خود زمان دارید! - {{ appName }}",
     "dailyStats": "امروز این سایت با استفاده کلی <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+۱۵ دقیقه",
@@ -79,7 +80,7 @@
       "resetData": "بازنشانی تمام داده‌ها",
       "resetDataConfirm": "تمام داده‌های ذخیره‌شده حذف خواهند شد. این عمل قابل بازگشت نیست. آیا می‌خواهید ادامه دهید؟",
       "github": "مخزن گیت‌هاب",
-      "virusTotal": "نتایج VirusTotal",
+      "chromeWebStore": "فروشگاه کروم",
       "reportIssue": "گزارش مشکل",
       "privacy": "سیاست حریم خصوصی",
       "documentation": "مستندات"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "پیکربندی تنظیمات",
-      "viewSource": "مشاهده کد منبع در گیت‌هاب",
-      "virusTotal": "نتایج VirusTotal"
+      "viewSource": "مشاهده کد منبع در گیت‌هاب"
     }
   },
   "privacy": {

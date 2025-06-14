@@ -40,6 +40,7 @@
     "title": "¡Te has quedado sin tiempo!",
     "message": "Has alcanzado tu límite diario de tiempo para este sitio. ¡Una gran oportunidad para redirigir tu atención a tareas más importantes!",
     "continueAnyway": "Continuar de todos modos",
+    "ThrowWarn":"¡Te quedan {{ minutes }}m para alcanzar tu límite diario! - {{ appName }}",
     "dailyStats": "Hoy este sitio con un uso total de <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minutos",
@@ -79,7 +80,7 @@
       "resetData": "Restablecer Todos los Datos",
       "resetDataConfirm": "Todos los datos guardados serán eliminados. Esta acción no se puede deshacer. ¿Deseas continuar?",
       "github": "Repositorio GitHub",
-      "virusTotal": "Resultados de VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Reportar Problema",
       "privacy": "Política de Privacidad",
       "documentation": "Documentación"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Configurar Ajustes",
-      "viewSource": "Ver Código en GitHub",
-      "virusTotal": "Resultados de VirusTotal"
+      "viewSource": "Ver Código en GitHub"
     }
   },
   "privacy": {

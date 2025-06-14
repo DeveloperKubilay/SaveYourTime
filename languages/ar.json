@@ -40,6 +40,7 @@
     "title": "لقد نفد وقتك!",
     "message": "لقد وصلت إلى الحد اليومي للوقت لهذا الموقع. فرصة رائعة لتوجيه انتباهك إلى مهام أكثر أهمية!",
     "continueAnyway": "المتابعة على أي حال",
+    "ThrowWarn": "متبقي {{ minutes }} دقيقة حتى تصل إلى الحد اليومي! - {{ appName }}",
     "dailyStats": "اليوم هذا الموقع بإجمالي استخدام <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 دقيقة",
@@ -79,7 +80,7 @@
       "resetData": "إعادة تعيين كل البيانات",
       "resetDataConfirm": "سيتم حذف جميع البيانات المحفوظة. لا يمكن التراجع عن هذا الإجراء. هل ترغب في المتابعة؟",
       "github": "مستودع GitHub",
-      "virusTotal": "نتائج VirusTotal",
+      "chromeWebStore": "متجر Chrome",
       "reportIssue": "الإبلاغ عن مشكلة",
       "privacy": "سياسة الخصوصية",
       "documentation": "التوثيق"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "تكوين الإعدادات",
-      "viewSource": "عرض المصدر على GitHub",
-      "virusTotal": "نتائج VirusTotal"
+      "viewSource": "عرض المصدر على GitHub"
     }
   },
   "privacy": {

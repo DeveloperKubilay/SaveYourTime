@@ -40,6 +40,7 @@
     "title": "Potrošili ste sve vrijeme!",
     "message": "Dostigli ste svoje dnevno vremensko ograničenje za ovu stranicu. Odlična prilika da preusmjerite pažnju na važnije zadatke!",
     "continueAnyway": "Ipak nastavi",
+    "ThrowWarn": "Preostalo vam je {{ minutes }} m do dostizanja dnevnog ograničenja! - {{ appName }}",
     "dailyStats": "Danas Ova stranica s ukupnim korištenjem od <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minuta",
@@ -79,7 +80,7 @@
       "resetData": "Resetuj sve podatke",
       "resetDataConfirm": "Svi sačuvani podaci će biti izbrisani. Ova radnja se ne može poništiti. Da li želite nastaviti?",
       "github": "GitHub repozitorij",
-      "virusTotal": "VirusTotal rezultati",
+      "chromeWebStore": "Chrome Web prodavnica",
       "reportIssue": "Prijavi problem",
       "privacy": "Politika privatnosti",
       "documentation": "Dokumentacija"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfiguriši postavke",
-      "viewSource": "Pogledaj izvorni kod na GitHub-u",
-      "virusTotal": "VirusTotal rezultati"
+      "viewSource": "Pogledaj izvorni kod na GitHub-u"
     }
   },
   "privacy": {

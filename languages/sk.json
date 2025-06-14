@@ -40,6 +40,7 @@
     "title": "Vypršal vám čas!",
     "message": "Dosiahli ste denný časový limit pre túto stránku. Je to skvelá príležitosť presmerovať svoju pozornosť na dôležitejšie úlohy!",
     "continueAnyway": "Pokračovať aj tak",
+    "ThrowWarn":"Máte zostávajúcich {{ minutes }}m, než dosiahnete denný limit! - {{ appName }}",
     "dailyStats": "Dnes táto stránka s celkovým využitím <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minút",
@@ -79,7 +80,7 @@
       "resetData": "Obnoviť všetky údaje",
       "resetDataConfirm": "Všetky uložené údaje budú vymazané. Túto akciu nemožno vrátiť späť. Chcete pokračovať?",
       "github": "GitHub repozitár",
-      "virusTotal": "Výsledky VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Nahlásiť problém",
       "privacy": "Zásady ochrany osobných údajov",
       "documentation": "Dokumentácia"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfigurovať nastavenia",
-      "viewSource": "Zobraziť zdroj na GitHub",
-      "virusTotal": "Výsledky VirusTotal"
+      "viewSource": "Zobraziť zdroj na GitHub"
     }
   },
   "privacy": {

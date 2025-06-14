@@ -40,6 +40,7 @@
     "title": "Anda Kehabisan Masa!",
     "message": "Anda telah mencapai had masa harian untuk laman web ini. Peluang yang baik untuk mengalihkan perhatian anda kepada tugas yang lebih penting!",
     "continueAnyway": "Teruskan Juga",
+    "ThrowWarn":"Anda mempunyai {{ minutes }}m lagi sehingga mencapai had harian anda! - {{ appName }}",
     "dailyStats": "Hari Ini Laman web ini dengan penggunaan keseluruhan <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minit",
@@ -79,7 +80,7 @@
       "resetData": "Set Semula Semua Data",
       "resetDataConfirm": "Semua data tersimpan akan dipadam. Tindakan ini tidak dapat diurungkan. Adakah anda ingin meneruskan?",
       "github": "Repo GitHub",
-      "virusTotal": "Keputusan VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Laporkan Masalah",
       "privacy": "Dasar Privasi",
       "documentation": "Dokumentasi"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfigurasikan Tetapan",
-      "viewSource": "Lihat Sumber di GitHub",
-      "virusTotal": "Keputusan VirusTotal"
+      "viewSource": "Lihat Sumber di GitHub"
     }
   },
   "privacy": {

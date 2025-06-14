@@ -40,6 +40,7 @@
     "title": "Du er tom for tid!",
     "message": "Du har nådd din daglige tidsgrense for dette nettstedet. En flott mulighet til å rette oppmerksomheten din mot viktigere oppgaver!",
     "continueAnyway": "Fortsett likevel",
+    "ThrowWarn":"Du har {{ minutes }}m igjen til du når den daglige grensen din! - {{ appName }}",
     "dailyStats": "I dag Dette nettstedet med total bruk på <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minutter",
@@ -79,7 +80,7 @@
       "resetData": "Tilbakestill alle data",
       "resetDataConfirm": "Alle lagrede data vil bli slettet. Denne handlingen kan ikke angres. Vil du fortsette?",
       "github": "GitHub-repo",
-      "virusTotal": "VirusTotal-resultater",
+      "chromeWebStore": "Chrome Nettbutikk",
       "reportIssue": "Rapporter problem",
       "privacy": "Personvernerklæring",
       "documentation": "Dokumentasjon"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfigurer innstillinger",
-      "viewSource": "Se kildekode på GitHub",
-      "virusTotal": "VirusTotal-resultater"
+      "viewSource": "Se kildekode på GitHub"
     }
   },
   "privacy": {

@@ -40,6 +40,7 @@
     "title": "Je tijd is op!",
     "message": "Je hebt je dagelijkse tijdslimiet voor deze site bereikt. Een mooie kans om je aandacht te verleggen naar belangrijkere taken!",
     "continueAnyway": "Toch doorgaan",
+    "ThrowWarn":"Je hebt nog {{ minutes }}m over tot je je dagelijkse limiet bereikt! - {{ appName }}",
     "dailyStats": "Vandaag deze site met een totaal gebruik van <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minuten",
@@ -79,7 +80,7 @@
       "resetData": "Alle Gegevens Resetten",
       "resetDataConfirm": "Alle opgeslagen gegevens zullen worden verwijderd. Deze actie kan niet ongedaan worden gemaakt. Wil je doorgaan?",
       "github": "GitHub Repository",
-      "virusTotal": "VirusTotal Resultaten",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Probleem Melden",
       "privacy": "Privacybeleid",
       "documentation": "Documentatie"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Instellingen Configureren",
-      "viewSource": "Bekijk Code op GitHub",
-      "virusTotal": "VirusTotal Resultaten"
+      "viewSource": "Bekijk Code op GitHub"
     }
   },
   "privacy": {
