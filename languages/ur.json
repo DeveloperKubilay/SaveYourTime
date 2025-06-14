@@ -40,6 +40,7 @@
     "title": "آپ کا وقت ختم ہو گیا ہے!",
     "message": "آپ اس سائٹ کے لیے اپنی روزانہ کی وقت کی حد تک پہنچ گئے ہیں۔ زیادہ اہم کاموں کی طرف اپنی توجہ موڑنے کا ایک بہترین موقع ہے!",
     "continueAnyway": "بہرحال جاری رکھیں",
+    "ThrowWarn": "آپ کے پاس روزانہ کی حد تک پہنچنے تک {{ minutes }}م باقی ہے! - {{ appName }}",
     "dailyStats": "آج اس سائٹ کا کل استعمال <strong>{{ totalTime }}</strong> ہے",
     "timeOption": {
       "15min": "+15 منٹ",
@@ -79,7 +80,7 @@
       "resetData": "تمام ڈیٹا دوبارہ ترتیب دیں",
       "resetDataConfirm": "تمام محفوظ شدہ ڈیٹا حذف ہو جائے گا۔ یہ عمل واپس نہیں لیا جا سکتا۔ کیا آپ جاری رکھنا چاہتے ہیں؟",
       "github": "GitHub ریپوزٹری",
-      "virusTotal": "VirusTotal نتائج",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "مسئلہ رپورٹ کریں",
       "privacy": "رازداری کی پالیسی",
       "documentation": "دستاویزات"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "ترتیبات کو ترتیب دیں",
-      "viewSource": "GitHub پر سورس دیکھیں",
-      "virusTotal": "VirusTotal نتائج"
+      "viewSource": "GitHub پر سورس دیکھیں"
     }
   },
   "privacy": {

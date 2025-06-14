@@ -40,6 +40,7 @@
     "title": "Остали сте без времена!",
     "message": "Достигли сте дневно временско ограничење за овај сајт. Одлична прилика да преусмерите пажњу на важније задатке!",
     "continueAnyway": "Ипак настави",
+    "ThrowWarn":"Остало вам је {{ minutes }} минута до достизања дневног ограничења! - {{ appName }}",
     "dailyStats": "Данас овај сајт са укупним коришћењем од <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 минута",
@@ -79,7 +80,7 @@
       "resetData": "Ресетуј Све Податке",
       "resetDataConfirm": "Сви сачувани подаци ће бити избрисани. Ова радња не може бити поништена. Желите ли да наставите?",
       "github": "GitHub Репозиторијум",
-      "virusTotal": "VirusTotal Резултати",
+      "chromeWebStore": "Chrome Web Продавница",
       "reportIssue": "Пријави Проблем",
       "privacy": "Политика Приватности",
       "documentation": "Документација"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Конфигуриши Подешавања",
-      "viewSource": "Погледај Код на GitHub-у",
-      "virusTotal": "VirusTotal Резултати"
+      "viewSource": "Погледај Код на GitHub-у"
     }
   },
   "privacy": {

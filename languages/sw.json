@@ -40,6 +40,7 @@
     "title": "Muda Wako Umeisha!",
     "message": "Umefika kikomo chako cha muda wa kila siku kwa tovuti hii. Nafasi nzuri ya kuelekeza usikivu wako kwenye kazi muhimu zaidi!",
     "continueAnyway": "Endelea Hata Hivyo",
+    "ThrowWarn":"Umeacha dakika {{ minutes }} kufika kwenye kikomo chako cha kila siku! - {{ appName }}",
     "dailyStats": "Leo tovuti hii ina matumizi ya jumla ya <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+dakika 15",
@@ -79,7 +80,7 @@
       "resetData": "Weka upya Data Zote",
       "resetDataConfirm": "Data zote zilizohifadhiwa zitafutwa. Kitendo hiki hakiwezi kubatilishwa. Je, ungependa kuendelea?",
       "github": "GitHub Repo",
-      "virusTotal": "Matokeo ya VirusTotal",
+      "chromeWebStore": "Duka la Chrome",
       "reportIssue": "Ripoti Tatizo",
       "privacy": "Sera ya Faragha",
       "documentation": "Nyaraka"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Sanidi Mipangilio",
-      "viewSource": "Angalia Msimbo kwenye GitHub",
-      "virusTotal": "Matokeo ya VirusTotal"
+      "viewSource": "Angalia Msimbo kwenye GitHub"
     }
   },
   "privacy": {

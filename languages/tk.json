@@ -40,6 +40,7 @@
     "title": "Wagtyňyz gutardy!",
     "message": "Bu saýt üçin gündelik wagt çägiňize ýetdiňiz. Bu ünsüňizi has möhüm wezipelere gönükdirmek üçin ajaýyp mümkinçilik!",
     "continueAnyway": "Ýöne dowam et",
+    "ThrowWarn":"Gündelik çägiňize ýetmäge {{ minutes }} minut galdy! - {{ appName }}",
     "dailyStats": "Bu gün bu saýt jemi <strong>{{ totalTime }}</strong> ulanylýar",
     "timeOption": {
       "15min": "+15 minut",
@@ -79,7 +80,7 @@
       "resetData": "Ähli maglumatlary täzeden düzmek",
       "resetDataConfirm": "Ähli ýatda saklanan maglumatlar pozular. Bu hereket yzyna gaýdyp bolmaz. Dowam etmek isleýärsiňizmi?",
       "github": "GitHub repozitoriýasy",
-      "virusTotal": "VirusTotal netijeleri",
+      "chromeWebStore": "Chrome Web Dükan",
       "reportIssue": "Mesele barada habar beriň",
       "privacy": "Gizlinlik syýasaty",
       "documentation": "Dokumentasiýa"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Sazlamalary düzmek",
-      "viewSource": "GitHub-da çeşme kody görmek",
-      "virusTotal": "VirusTotal netijeleri"
+      "viewSource": "GitHub-da çeşme kody görmek"
     }
   },
   "privacy": {
@@ -165,7 +165,7 @@
       "title": "Maglumat howpsuzlygy",
       "intro": "Siziň maglumatlaryňyz diňe brauzeriňizde saklanylandygy sebäpli:",
       "browserClear": "Brauzeriň taryhyny ýa-da keşini arassalasaňyz, pozulyp bilner",
-      "uninstall": "Giňeltmäni aýranynyzda brauzeriňizden ähli giňeltilen maglumatları arassalap bilersiňiz",
+      "uninstall": "Giňeltmäni aýranynyzda brauzeriňizden ähli giňeltilen maglumatlary arassalap bilersiňiz",
       "access": "Diňe brauzeriňiz siziň maglumatlaryňyza girip bilýär"
     },
     "permissions": {

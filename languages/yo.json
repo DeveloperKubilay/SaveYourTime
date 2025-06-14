@@ -40,6 +40,7 @@
     "title": "Àsìkò rẹ ti parí!",
     "message": "O ti dé òpin àkókò ojoojúmọ́ rẹ fún aaye yìí. Èyí jẹ́ ànfààní tó dára láti yí ìfarabalẹ̀ rẹ sí àwọn ohun tó ṣe pàtàkì jù lọ!",
     "continueAnyway": "Tẹ̀síwájú Bákannáà",
+    "ThrowWarn": "O ní {{ minutes }}ì sílẹ̀ títí ìwọ yóò fi dé ààlà ojoojúmọ́ rẹ! - {{ appName }}",
     "dailyStats": "Lónìí aaye yìí pẹ̀lú ìlò àpapọ̀ ti <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 ìṣẹ́jú",
@@ -79,7 +80,7 @@
       "resetData": "Tún Gbogbo Dátà Tò",
       "resetDataConfirm": "Gbogbo dátà tí a fipamọ́ yóò parẹ́. A kò le dá ìgbésẹ̀ yìí padà. Ṣé o fẹ́ tẹ̀síwájú?",
       "github": "GitHub Repo",
-      "virusTotal": "Àwọn Èsì VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Jábọ̀ Ìsòro",
       "privacy": "Ìlànà Àṣírí",
       "documentation": "Ìwé Àlàyé"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Ṣe Ìṣètò Ètò",
-      "viewSource": "Wo Orísun lórí GitHub",
-      "virusTotal": "Àwọn Èsì VirusTotal"
+      "viewSource": "Wo Orísun lórí GitHub"
     }
   },
   "privacy": {

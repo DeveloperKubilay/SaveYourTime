@@ -40,6 +40,7 @@
     "title": "Isikhathi Sakho Siphelile!",
     "message": "Usufinyelele umkhawulo wakho wosuku wesikhathi saleli sayithi. Ithuba elihle lokuthumela ukugxila kwakho emisebenzini ebaluleke kakhulu!",
     "continueAnyway": "Qhubeka Noma Kunjalo",
+    "ThrowWarn": "Usele {{ minutes }}m kuze ufike emgomweni wakho wosuku! - {{ appName }}",
     "dailyStats": "Namuhla leli sayithi lisetshenziswe isikhathi esingaba <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 amaminithi",
@@ -79,7 +80,7 @@
       "resetData": "Setha Kabusha Yonke Imininingwane",
       "resetDataConfirm": "Yonke imininingwane elondoloziwe izosulwa. Lesi senzo asikwazi ukubuyiselwa. Ufuna ukuqhubeka?",
       "github": "I-Repo ye-GitHub",
-      "virusTotal": "Imiphumela ye-VirusTotal",
+      "chromeWebStore": "I-Chrome Web Store",
       "reportIssue": "Bika Inkinga",
       "privacy": "Inqubomgomo Yemfihlo",
       "documentation": "Amadokhumenti"
@@ -128,17 +129,16 @@
       "description": "I-SaveYourTime <strong>ilondoloza yonke imininingwane yakho kuphela ebhulawuzeni lakho uqobo</strong> futhi ayithumeli noma yiluphi ulwazi kumaseva angaphandle. Imininingwane yakho yokusebenzisa isayithi nokusethwa kwakho ilondolozwa ngokuphephile endaweni yesitoreji sendawo sebhulawuza yakho.",
       "details": "Ukwengeza kwethu kudinga izimvume ezimbalwa futhi kufinyelela kuphela kumasayithi owacacisayo. Ukuba nemfihlo yakho nokuphepha kwemininingwane yakho kuyizinto zethu eziphezulu.",
       "openSource": "Wonke amakhodi omthombo avulekile futhi angahlolwa futhi ashintshwe kusuka ekhasini lethu le-GitHub.",
-      "learnMore": "Ukufunda kabanzi mayelana nenqubomgomo yethu yemfihlo",
+      "learnMore": "Ukufunda kabanzi mayelana nenqubomgolo yethu yemfihlo",
       "learnMoreLink": "chofoza lapha"
     },
     "actions": {
       "configure": "Lungiselela Izilungiselelo",
-      "viewSource": "Buka Umthombo ku-GitHub",
-      "virusTotal": "Imiphumela ye-VirusTotal"
+      "viewSource": "Buka Umthombo ku-GitHub"
     }
   },
   "privacy": {
-    "title": "Inqubomgomo Yemfihlo ye-SaveYourTime",
+    "title": "Inqubomgolo Yemfihlo ye-SaveYourTime",
     "subtitle": "Ulwazi mayelana nokuthi sivikela kanjani imfihlo yedatha yakho",
     "commitment": {
       "title": "Ukuzibophezela Kwemfihlo",
@@ -178,7 +178,7 @@
     "openSource": {
       "title": "Ikhodi Yomthombo Ovulekile",
       "description": "I-SaveYourTime iyiphrojekthi eyomthombo ovulekile ngokuphelele. Isisekelo sethu sekhodi siyatholakala ukuze noma ubani asihlole ku-GitHub.",
-      "transparency": "Lokhu kukhanya kukhombisa ukuzibophezela kwethu ekubeni nemfihlo. Noma ubani ofisa ukubuyekeza ikhodi angaqinisekisa ukuthi okwandisiwe ngempela akuthumeli noma yiluphi idatha."
+      "transparency": "Lokhu kukhanya kukhombisa ukuzibophezela kwethu ekubeni nemfihlo. Noma ubani ofisa ukubuyekeza ikhodi angaqinisekisa ukuthi okwandiswe ngempela akuthumeli noma yiluphi idatha."
     },
     "rights": {
       "title": "Amalungelo Omsebenzisi",
@@ -189,7 +189,7 @@
     },
     "questions": {
       "title": "Imibuzo",
-      "contact": "Uma unemibuzo mayelana nenqubomgomo yethu yemfihlo, sicela uxhumane nathi ngephrojekthi yethu ye-GitHub."
+      "contact": "Uma unemibuzo mayelana nenqubomgolo yethu yemfihlo, sicela uxhumane nathi ngephrojekthi yethu ye-GitHub."
     },
     "actions": {
       "home": "Ikhaya"

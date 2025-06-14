@@ -40,6 +40,7 @@
     "title": "Bạn đã hết thời gian!",
     "message": "Bạn đã đạt đến giới hạn thời gian hàng ngày cho trang web này. Đây là cơ hội tốt để tập trung vào những việc quan trọng hơn!",
     "continueAnyway": "Vẫn tiếp tục",
+    "ThrowWarn": "Bạn còn {{ minutes }}p nữa sẽ đạt đến giới hạn hàng ngày! - {{ appName }}",
     "dailyStats": "Hôm nay trang web này có tổng thời gian sử dụng là <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 phút",
@@ -79,7 +80,7 @@
       "resetData": "Đặt lại tất cả dữ liệu",
       "resetDataConfirm": "Tất cả dữ liệu đã lưu sẽ bị xóa. Hành động này không thể hoàn tác. Bạn có muốn tiếp tục không?",
       "github": "Kho GitHub",
-      "virusTotal": "Kết quả VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Báo cáo vấn đề",
       "privacy": "Chính sách bảo mật",
       "documentation": "Tài liệu"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Cấu hình cài đặt",
-      "viewSource": "Xem mã nguồn trên GitHub",
-      "virusTotal": "Kết quả VirusTotal"
+      "viewSource": "Xem mã nguồn trên GitHub"
     }
   },
   "privacy": {

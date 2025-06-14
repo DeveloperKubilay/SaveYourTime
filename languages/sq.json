@@ -40,6 +40,7 @@
     "title": "Ju ka mbaruar Koha!",
     "message": "Keni arritur kufirin tuaj ditor të kohës për këtë faqe. Një mundësi e shkëlqyer për të drejtuar vëmendjen tuaj në detyra më të rëndësishme!",
     "continueAnyway": "Vazhdo Gjithsesi",
+    "ThrowWarn":"Ju keni {{ minutes }} minuta të mbetura derisa të arrini kufirin tuaj ditor! - {{ appName }}",
     "dailyStats": "Sot Kjo faqe me përdorim total prej <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minuta",
@@ -79,7 +80,7 @@
       "resetData": "Rivendos të Gjitha të Dhënat",
       "resetDataConfirm": "Të gjitha të dhënat e ruajtura do të fshihen. Ky veprim nuk mund të kthehet. Dëshironi të vazhdoni?",
       "github": "Depozita GitHub",
-      "virusTotal": "Rezultatet e VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Raporto Problem",
       "privacy": "Politika e Privatësisë",
       "documentation": "Dokumentacioni"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfiguro Cilësimet",
-      "viewSource": "Shiko Burimin në GitHub",
-      "virusTotal": "Rezultatet e VirusTotal"
+      "viewSource": "Shiko Burimin në GitHub"
     }
   },
   "privacy": {
