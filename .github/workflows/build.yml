@@ -25,11 +25,12 @@ jobs:
           jq '.background = {scripts: ["background.js"]} | del(.background.service_worker)' manifest_firefox.json > tmp.json && mv tmp.json manifest_firefox.json
           mv manifest_firefox.json manifest.json
 
-      - name: Create Firefox version
-        run: zip -r firefox.zip . -x ".*" -x ".git/*" -x ".github/*" -x "original.zip"
-
       - name: Upload Firefox version
         uses: actions/upload-artifact@v4.6.2
         with:
           name: Firefox
-          path: firefox.zip
+          path: |
+            **/*
+            !.git/**/*
+            !.github/**/*
+            !.*
