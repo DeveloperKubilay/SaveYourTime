@@ -40,6 +40,7 @@
     "title": "คุณหมดเวลาแล้ว!",
     "message": "คุณถึงขีดจำกัดเวลารายวันสำหรับเว็บไซต์นี้แล้ว นี่เป็นโอกาสดีที่จะหันความสนใจไปยังงานที่สำคัญกว่า!",
     "continueAnyway": "ดำเนินการต่อ",
+    "ThrowWarn":"คุณเหลือเวลาอีก {{ minutes }} นาทีก่อนถึงขีดจำกัดรายวัน! - {{ appName }}",
     "dailyStats": "วันนี้ เว็บไซต์นี้มีการใช้งานทั้งหมด <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 นาที",
@@ -79,7 +80,7 @@
       "resetData": "รีเซ็ตข้อมูลทั้งหมด",
       "resetDataConfirm": "ข้อมูลที่บันทึกไว้ทั้งหมดจะถูกลบ การกระทำนี้ไม่สามารถเปลี่ยนกลับได้ คุณต้องการดำเนินการต่อหรือไม่?",
       "github": "GitHub Repo",
-      "virusTotal": "ผลลัพธ์ VirusTotal",
+      "chromeWebStore": "Chrome เว็บสโตร์",
       "reportIssue": "รายงานปัญหา",
       "privacy": "นโยบายความเป็นส่วนตัว",
       "documentation": "เอกสาร"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "กำหนดค่า",
-      "viewSource": "ดูซอร์สโค้ดบน GitHub",
-      "virusTotal": "ผลลัพธ์ VirusTotal"
+      "viewSource": "ดูซอร์สโค้ดบน GitHub"
     }
   },
   "privacy": {

@@ -40,6 +40,7 @@
     "title": "Vaqtingiz Tugadi!",
     "message": "Bu sayt uchun kunlik vaqt limitiga yetib keldingiz. E'tiboringizni muhimroq vazifalalarga yo'naltirish uchun ajoyib imkoniyat!",
     "continueAnyway": "Baribir Davom Etish",
+    "ThrowWarn": "Kunlik limitingizga yetgunicha {{ minutes }}d qoldi! - {{ appName }}",
     "dailyStats": "Bugun bu saytda jami <strong>{{ totalTime }}</strong> vaqt o'tkazdingiz",
     "timeOption": {
       "15min": "+15 daqiqa",
@@ -79,7 +80,7 @@
       "resetData": "Barcha Ma'lumotlarni Tiklash",
       "resetDataConfirm": "Barcha saqlangan ma'lumotlar o'chiriladi. Bu harakatni qaytarib bo'lmaydi. Davom etishni xohlaysizmi?",
       "github": "GitHub Repozitoriya",
-      "virusTotal": "VirusTotal Natijalari",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Muammo Haqida Xabar Berish",
       "privacy": "Maxfiylik Siyosati",
       "documentation": "Hujjatlar"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Sozlamalarni Sozlash",
-      "viewSource": "GitHub-da Manba Kodini Ko'rish",
-      "virusTotal": "VirusTotal Natijalari"
+      "viewSource": "GitHub-da Manba Kodini Ko'rish"
     }
   },
   "privacy": {

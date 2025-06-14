@@ -40,6 +40,7 @@
     "title": "Сезнең вакытыгыз бетте!",
     "message": "Сез бу сайт өчен көнлек вакыт чигенә җиттегез. Бу игътибарыгызны мөһимрәк эшләргә юнәлтү өчен яхшы мөмкинлек!",
     "continueAnyway": "Барыбер дәвам итү",
+    "ThrowWarn": "Көнлек чикләргә җиткәнче сездә {{ minutes }}м калды! - {{ appName }}",
     "dailyStats": "Бүген бу сайт <strong>{{ totalTime }}</strong> вакыт кулланылды",
     "timeOption": {
       "15min": "+15 минут",
@@ -79,7 +80,7 @@
       "resetData": "Барлык мәгълүматларны яңадан кору",
       "resetDataConfirm": "Барлык сакланган мәгълүматлар бетереләчәк. Бу гамәлне кире кайтарып булмый. Дәвам итәргә теләйсезме?",
       "github": "GitHub репозиториясе",
-      "virusTotal": "VirusTotal нәтиҗәләре",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Проблема турында хәбәр итү",
       "privacy": "Хосусыйлык сәясәте",
       "documentation": "Документация"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Көйләүләрне конфигурацияләү",
-      "viewSource": "GitHub-та чыганакны карау",
-      "virusTotal": "VirusTotal нәтиҗәләре"
+      "viewSource": "GitHub-та чыганакны карау"
     }
   },
   "privacy": {

@@ -133,8 +133,7 @@
     },
     "actions": {
       "configure": "Configure Settings",
-      "viewSource": "View Source on GitHub",
-      "virusTotal": "VirusTotal Results"
+      "viewSource": "View Source on GitHub"
     }
   },
   "privacy": {

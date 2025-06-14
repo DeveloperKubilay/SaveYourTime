@@ -40,6 +40,7 @@
     "title": "У вас закінчився час!",
     "message": "Ви досягли денного ліміту часу для цього сайту. Це чудова можливість перенаправити свою увагу на більш важливі завдання!",
     "continueAnyway": "Все одно продовжити",
+    "ThrowWarn": "У вас залишилося {{ minutes }}хв до досягнення денного ліміту! - {{ appName }}",
     "dailyStats": "Сьогодні Цей сайт із загальним використанням <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 хвилин",
@@ -79,7 +80,7 @@
       "resetData": "Скинути всі дані",
       "resetDataConfirm": "Усі збережені дані будуть видалені. Цю дію неможливо скасувати. Бажаєте продовжити?",
       "github": "GitHub репозиторій",
-      "virusTotal": "Результати VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Повідомити про проблему",
       "privacy": "Політика конфіденційності",
       "documentation": "Документація"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Налаштувати параметри",
-      "viewSource": "Переглянути код на GitHub",
-      "virusTotal": "Результати VirusTotal"
+      "viewSource": "Переглянути код на GitHub"
     }
   },
   "privacy": {

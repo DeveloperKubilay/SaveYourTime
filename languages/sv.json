@@ -40,6 +40,7 @@
     "title": "Du har slut på tid!",
     "message": "Du har nått din dagliga tidsgräns för denna webbplats. Ett bra tillfälle att rikta din uppmärksamhet mot viktigare uppgifter!",
     "continueAnyway": "Fortsätt ändå",
+    "ThrowWarn":"Du har {{ minutes }}m kvar tills du når din dagliga gräns! - {{ appName }}",
     "dailyStats": "Idag Denna webbplats med total användning av <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minuter",
@@ -79,7 +80,7 @@
       "resetData": "Återställ all data",
       "resetDataConfirm": "All sparad data kommer att raderas. Denna åtgärd kan inte ångras. Vill du fortsätta?",
       "github": "GitHub repo",
-      "virusTotal": "VirusTotal-resultat",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Rapportera problem",
       "privacy": "Integritetspolicy",
       "documentation": "Dokumentation"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfigurera inställningar",
-      "viewSource": "Visa källkod på GitHub",
-      "virusTotal": "VirusTotal-resultat"
+      "viewSource": "Visa källkod på GitHub"
     }
   },
   "privacy": {

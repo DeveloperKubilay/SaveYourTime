@@ -40,6 +40,7 @@
     "title": "Ixesha Lakho Liphelile!",
     "message": "Ufikelele kumda wakho wosuku kule webhusayithi. Lithuba elihle lokujolisa ingqalelo yakho kwimisebenzi ebaluleke kakhulu!",
     "continueAnyway": "Qhubeka Nakanjani",
+    "ThrowWarn": "Uneseleyo {{ minutes }}m de ufikelele kumda wakho wosuku! - {{ appName }}",
     "dailyStats": "Namhlanje le sayithi inokusetyenziswa okupheleleyo kwe <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 imizuzu",
@@ -79,7 +80,7 @@
       "resetData": "Cwangcisa Kwakhona Yonke Idatha",
       "resetDataConfirm": "Yonke idatha egciniweyo iza kucinywa. Esi senzo asinakurhoxiswa. Ufuna ukuqhubeka?",
       "github": "Igumbi lokugcina leGitHub",
-      "virusTotal": "Iziphumo zeVirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Nika Ingxelo Yengxaki",
       "privacy": "Umgaqo-nkqubo Wabucala",
       "documentation": "Amaxwebhu"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Qwalasela Iisethingi",
-      "viewSource": "Jonga Umthombo ku-GitHub",
-      "virusTotal": "Iziphumo zeVirusTotal"
+      "viewSource": "Jonga Umthombo ku-GitHub"
     }
   },
   "privacy": {

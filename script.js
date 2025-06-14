@@ -118,9 +118,9 @@ function addIframe(data) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.target === "addIframe") addIframe(request);
     if (request.target === "throwWarn") Toastify({
-        text: data.lang.warn.ThrowWarn
+        text: request.lang.warn.ThrowWarn
             .replace("{{ minutes }}", request.minutes)
-            .replace("{{ appName }}", data.lang.app.name),
+            .replace("{{ appName }}", request.lang.app.name),
         duration: 3000,
         destination: chrome.runtime.getURL("html/settings.html"),
         newWindow: true,

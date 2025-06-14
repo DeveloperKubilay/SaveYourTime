@@ -40,6 +40,7 @@
     "title": "您已用完时间！",
     "message": "您已达到此网站的每日时间限制。这是将注意力转向更重要任务的绝佳机会！",
     "continueAnyway": "仍然继续",
+    "ThrowWarn": "您还有 {{ minutes }}分钟就到达每日限制! - {{ appName }}",
     "dailyStats": "今天此网站总使用时间 <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15分钟",
@@ -79,7 +80,7 @@
       "resetData": "重置所有数据",
       "resetDataConfirm": "所有保存的数据将被删除。此操作无法撤销。您想继续吗？",
       "github": "GitHub仓库",
-      "virusTotal": "VirusTotal结果",
+      "chromeWebStore": "Chrome网上应用店",
       "reportIssue": "报告问题",
       "privacy": "隐私政策",
       "documentation": "文档"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "配置设置",
-      "viewSource": "在GitHub上查看源代码",
-      "virusTotal": "VirusTotal结果"
+      "viewSource": "在GitHub上查看源代码"
     }
   },
   "privacy": {
