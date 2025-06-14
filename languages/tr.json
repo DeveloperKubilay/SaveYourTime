@@ -40,6 +40,7 @@
     "title": "Zamanınızı Doldurdunuz!",
     "message": "Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!",
     "continueAnyway": "Yine de Devam Et",
+    "ThrowWarn":"Günlük limitinize ulaşmanıza {{ minutes }} dk kaldı! - {{ appName }}",
     "dailyStats": "Bugün bu site için toplam <strong>{{ totalTime }}</strong> kullanım",
     "timeOption": {
       "15min": "+15 dakika",
@@ -78,7 +79,7 @@
       "resetData": "Tüm Verileri Sıfırla",
       "resetDataConfirm": "Tüm kayıtlı veriler silinecektir. Bu işlem geri alınamaz. Devam etmek istiyor musunuz?",
       "github": "GitHub Repo",
-      "virusTotal": "VirusTotal Sonuçları",
+      "chromeWebStore": "Chrome Web Mağazası",
       "reportIssue": "Sorun Bildir",
       "privacy": "Gizlilik Politikası",
       "documentation": "Dokümantasyon"
@@ -132,8 +133,7 @@
     },
     "actions": {
       "configure": "Ayarları Yapılandır",
-      "viewSource": "GitHub'da Kaynak Kodu Gör",
-      "virusTotal": "VirusTotal Sonuçları"
+      "viewSource": "GitHub'da Kaynak Kodu Gör"
     }
   },
   "privacy": {

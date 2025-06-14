@@ -40,6 +40,7 @@
     "title": "Уақытыңыз бітті!",
     "message": "Сіз бұл сайт үшін күндік уақыт шегіне жеттіңіз. Бұл назарыңызды маңызды тапсырмаларға аударудың тамаша мүмкіндігі!",
     "continueAnyway": "Жалғастыру",
+    "ThrowWarn":"Күндік шектеуге жеткенше {{ minutes }}м қалды! - {{ appName }}",
     "dailyStats": "Бүгін бұл сайт жалпы қолдану уақыты <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 минут",
@@ -79,7 +80,7 @@
       "resetData": "Барлық деректерді қалпына келтіру",
       "resetDataConfirm": "Барлық сақталған деректер жойылады. Бұл әрекетті болдырмау мүмкін емес. Жалғастырғыңыз келе ме?",
       "github": "GitHub репозиторийі",
-      "virusTotal": "VirusTotal нәтижелері",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Мәселе туралы хабарлау",
       "privacy": "Құпиялылық саясаты",
       "documentation": "Құжаттама"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Параметрлерді теңшеу",
-      "viewSource": "GitHub-та кодты қарау",
-      "virusTotal": "VirusTotal нәтижелері"
+      "viewSource": "GitHub-та кодты қарау"
     }
   },
   "privacy": {

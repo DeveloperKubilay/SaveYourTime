@@ -40,6 +40,7 @@
     "title": "तुमचा वेळ संपला आहे!",
     "message": "तुम्ही या साइटसाठी दैनिक वेळ मर्यादा गाठली आहे. अधिक महत्त्वाच्या कामांकडे तुमचे लक्ष वळवण्याची ही एक उत्तम संधी आहे!",
     "continueAnyway": "तरीही सुरू ठेवा",
+    "ThrowWarn":"तुम्हाला दैनिक मर्यादा गाठेपर्यंत {{ minutes }}मि शिल्लक आहे! - {{ appName }}",
     "dailyStats": "आज या साइटवर एकूण <strong>{{ totalTime }}</strong> वापर",
     "timeOption": {
       "15min": "+15 मिनिटे",
@@ -79,7 +80,7 @@
       "resetData": "सर्व डेटा रीसेट करा",
       "resetDataConfirm": "सर्व सेव्ह केलेला डेटा हटवला जाईल. ही क्रिया पूर्ववत केली जाऊ शकत नाही. तुम्हाला पुढे जायचे आहे का?",
       "github": "GitHub रेपो",
-      "virusTotal": "VirusTotal परिणाम",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "समस्या नोंदवा",
       "privacy": "गोपनीयता धोरण",
       "documentation": "दस्तऐवजीकरण"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "सेटिंग्ज कॉन्फिगर करा",
-      "viewSource": "GitHub वर स्रोत पहा",
-      "virusTotal": "VirusTotal परिणाम"
+      "viewSource": "GitHub वर स्रोत पहा"
     }
   },
   "privacy": {

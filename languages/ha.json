@@ -40,6 +40,7 @@
     "title": "Lokacinka Ya Ƙare!",
     "message": "Ka cika iyakar lokacin rana don wannan gidan yanar gizo. Wannan babbar dama ce don maimaita hankalinka ga ayyuka masu muhimmanci!",
     "continueAnyway": "Ci Gaba Duk Da Haka",
+    "ThrowWarn":"Kana da {{ minutes }}m har ka kai iyakar lokacin rana! - {{ appName }}",
     "dailyStats": "Yau wannan gidan yanar gizo da amfani na gaba ɗaya na <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+mintoci 15",
@@ -79,7 +80,7 @@
       "resetData": "Sake Duk Bayanan",
       "resetDataConfirm": "Za a share duk bayanan da aka ajiye. Ba za a iya juya wannan aiki ba. Kana son ci gaba?",
       "github": "Ma'ajiyar GitHub",
-      "virusTotal": "Sakamakon VirusTotal",
+      "chromeWebStore": "Babban Shagon Chrome",
       "reportIssue": "Ba da Rahoton Matsala",
       "privacy": "Manufar Sirri",
       "documentation": "Takaddun Bayani"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Shirya Saituna",
-      "viewSource": "Duba Tushe a GitHub",
-      "virusTotal": "Sakamakon VirusTotal"
+      "viewSource": "Duba Tushe a GitHub"
     }
   },
   "privacy": {

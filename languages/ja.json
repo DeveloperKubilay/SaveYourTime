@@ -40,6 +40,7 @@
     "title": "時間切れです！",
     "message": "このサイトの1日の時間制限に達しました。より重要なタスクに注意を向ける絶好の機会です！",
     "continueAnyway": "それでも続ける",
+    "ThrowWarn":"1日の制限に達するまで{{ minutes }}分残っています！ - {{ appName }}",
     "dailyStats": "今日このサイトの総利用時間は<strong>{{ totalTime }}</strong>です",
     "timeOption": {
       "15min": "+15分",
@@ -79,7 +80,7 @@
       "resetData": "すべてのデータをリセット",
       "resetDataConfirm": "保存されたすべてのデータが削除されます。この操作は元に戻せません。続行しますか？",
       "github": "GitHubリポジトリ",
-      "virusTotal": "VirusTotalの結果",
+      "chromeWebStore": "Chrome ウェブストア",
       "reportIssue": "問題を報告",
       "privacy": "プライバシーポリシー",
       "documentation": "ドキュメント"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "設定を構成",
-      "viewSource": "GitHubでソースを表示",
-      "virusTotal": "VirusTotalの結果"
+      "viewSource": "GitHubでソースを表示"
     }
   },
   "privacy": {

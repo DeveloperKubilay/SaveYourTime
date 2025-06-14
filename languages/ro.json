@@ -40,6 +40,7 @@
     "title": "Ai rămas fără timp!",
     "message": "Ai atins limita zilnică de timp pentru acest site. O oportunitate excelentă pentru a-ți redirecționa atenția către sarcini mai importante!",
     "continueAnyway": "Continuă oricum",
+    "ThrowWarn": "Mai ai {{ minutes }}m până atingi limita zilnică! - {{ appName }}",
     "dailyStats": "Astăzi acest site cu o utilizare totală de <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minute",
@@ -79,7 +80,7 @@
       "resetData": "Resetează Toate Datele",
       "resetDataConfirm": "Toate datele salvate vor fi șterse. Această acțiune nu poate fi anulată. Dorești să continui?",
       "github": "Repository GitHub",
-      "virusTotal": "Rezultate VirusTotal",
+      "chromeWebStore": "Magazin Chrome Web",
       "reportIssue": "Raportează o Problemă",
       "privacy": "Politica de Confidențialitate",
       "documentation": "Documentație"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Configurează Setări",
-      "viewSource": "Vezi Codul pe GitHub",
-      "virusTotal": "Rezultate VirusTotal"
+      "viewSource": "Vezi Codul pe GitHub"
     }
   },
   "privacy": {

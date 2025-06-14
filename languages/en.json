@@ -40,6 +40,7 @@
     "title": "You've Run Out of Time!",
     "message": "You've reached your daily time limit for this site. A great opportunity to redirect your attention to more important tasks!",
     "continueAnyway": "Continue Anyway",
+    "ThrowWarn":"You have {{ minutes }}m left until you reach your daily limit! - {{ appName }}",
     "dailyStats": "Today This site with total usage of <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minutes",
@@ -78,7 +79,7 @@
       "resetData": "Reset All Data",
       "resetDataConfirm": "All saved data will be deleted. This action cannot be undone. Do you want to continue?",
       "github": "GitHub Repo",
-      "virusTotal": "VirusTotal Results",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Report Issue",
       "privacy": "Privacy Policy",
       "documentation": "Documentation"

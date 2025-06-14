@@ -40,6 +40,7 @@
     "title": "Hai esaurito il tempo!",
     "message": "Hai raggiunto il tuo limite di tempo giornaliero per questo sito. È un'ottima opportunità per dedicare la tua attenzione a compiti più importanti!",
     "continueAnyway": "Continua Comunque",
+    "ThrowWarn":"Hai {{ minutes }}m rimasti prima di raggiungere il tuo limite giornaliero! - {{ appName }}",
     "dailyStats": "Oggi questo sito ha un utilizzo totale di <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 minuti",
@@ -79,7 +80,7 @@
       "resetData": "Reimposta Tutti i Dati",
       "resetDataConfirm": "Tutti i dati salvati verranno eliminati. Questa azione non può essere annullata. Vuoi continuare?",
       "github": "Repository GitHub",
-      "virusTotal": "Risultati VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Segnala Problema",
       "privacy": "Informativa sulla Privacy",
       "documentation": "Documentazione"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Configura Impostazioni",
-      "viewSource": "Visualizza Sorgente su GitHub",
-      "virusTotal": "Risultati VirusTotal"
+      "viewSource": "Visualizza Sorgente su GitHub"
     }
   },
   "privacy": {

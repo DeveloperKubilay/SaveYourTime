@@ -40,6 +40,7 @@
     "title": "Waktu Anda Habis!",
     "message": "Anda telah mencapai batas waktu harian untuk situs ini. Kesempatan bagus untuk mengarahkan perhatian Anda ke tugas yang lebih penting!",
     "continueAnyway": "Lanjutkan Saja",
+    "ThrowWarn":"Anda memiliki {{ minutes }}m tersisa sampai mencapai batas harian Anda! - {{ appName }}",
     "dailyStats": "Hari ini Situs ini dengan total penggunaan <strong>{{ totalTime }}</strong>",
     "timeOption": {
       "15min": "+15 menit",
@@ -79,7 +80,7 @@
       "resetData": "Reset Semua Data",
       "resetDataConfirm": "Semua data tersimpan akan dihapus. Tindakan ini tidak dapat dibatalkan. Apakah Anda ingin melanjutkan?",
       "github": "Repo GitHub",
-      "virusTotal": "Hasil VirusTotal",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Laporkan Masalah",
       "privacy": "Kebijakan Privasi",
       "documentation": "Dokumentasi"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Konfigurasi Pengaturan",
-      "viewSource": "Lihat Sumber di GitHub",
-      "virusTotal": "Hasil VirusTotal"
+      "viewSource": "Lihat Sumber di GitHub"
     }
   },
   "privacy": {

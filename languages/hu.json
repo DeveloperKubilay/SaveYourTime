@@ -40,6 +40,7 @@
     "title": "Kifogytál az időből!",
     "message": "Elérted a napi időlimitet erre az oldalra. Remek alkalom, hogy a figyelmedet fontosabb feladatokra irányítsd!",
     "continueAnyway": "Folytatás mindenképp",
+    "ThrowWarn":"Még {{ minutes }}p maradt a napi limit eléréséig! - {{ appName }}",
     "dailyStats": "Ma Ez az oldal összesen <strong>{{ totalTime }}</strong> használattal",
     "timeOption": {
       "15min": "+15 perc",
@@ -79,7 +80,7 @@
       "resetData": "Összes adat visszaállítása",
       "resetDataConfirm": "Minden mentett adat törlődni fog. Ez a művelet nem visszavonható. Szeretnéd folytatni?",
       "github": "GitHub repo",
-      "virusTotal": "VirusTotal eredmények",
+      "chromeWebStore": "Chrome Web Store",
       "reportIssue": "Hibabejelentés",
       "privacy": "Adatvédelmi irányelvek",
       "documentation": "Dokumentáció"
@@ -133,8 +134,7 @@
     },
     "actions": {
       "configure": "Beállítások konfigurálása",
-      "viewSource": "Forráskód megtekintése GitHubon",
-      "virusTotal": "VirusTotal eredmények"
+      "viewSource": "Forráskód megtekintése GitHubon"
     }
   },
   "privacy": {
