@@ -1,0 +1,33 @@
+name: Build
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create Chrome version
+        run: zip -r chrome.zip . -x ".*" -x ".git/*" -x ".github/*"
+
+      - name: Upload original zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: Chrome
+          path: chrome.zip
+
+      - name: Edit JSON with jq
+        run: |
+          jq 'del(.service_worker) | .scripts = ["background.js"]' input.json > tmp.json && mv tmp.json input.json
+
+      - name: Create Firefox version
+        run: zip -r firefox.zip . -x ".*" -x ".git/*" -x ".github/*" -x "original.zip"
+
+      - name: Upload edited zip
+        uses: actions/upload-artifact@v3
+        with:
+          name: Firefox
+          path: firefox.zip
