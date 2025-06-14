@@ -100,7 +100,10 @@ async function run(tab, itsint) {
     if (urlItem.url) {
         try {
             const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0;
-            if (usage >= urlItem.limit - 300000 || usage >= urlItem.limit - 60000 && !urlItem.limited) {
+            if (
+                (usage >= urlItem.limit - 60000 && usage <= urlItem.limit) || 
+                usage < 60000 && !urlItem.limited
+            ) {
                 chrome.tabs.sendMessage(tab.id, {
                     target: "throwWarn",
                     lang: lang,

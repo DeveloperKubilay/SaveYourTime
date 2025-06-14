@@ -117,6 +117,9 @@ function addIframe(data) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     if (request.target === "addIframe") addIframe(request);
+    console.log(request.lang.warn.ThrowWarn
+            .replace("{{ minutes }}", request.minutes)
+            .replace("{{ appName }}", request.lang.app.name))
     if (request.target === "throwWarn") Toastify({
         text: request.lang.warn.ThrowWarn
             .replace("{{ minutes }}", request.minutes)
