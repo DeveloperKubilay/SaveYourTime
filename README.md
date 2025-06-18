@@ -80,7 +80,7 @@ Contributions are welcome! Feel free to open issues or submit pull requests on G
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the Apache 2.0 License — see the GitHub files for details.
 
 ---
 
@@ -164,4 +164,4 @@ Katkılarınızı bekliyoruz! GitHub üzerinden sorunlar açabilir veya pull req
 
 ## 📄 Lisans
 
-Bu proje MIT Lisansı altında lisanslanmıştır - ayrıntılar için LICENSE dosyasına bakın.
+Bu proje Apache 2.0 Lisansı altında lisanslanmıştır - ayrıntılar için github dosyalarına bakın.
