@@ -101,11 +101,11 @@ async function run(tab, itsint) {
         try {
             const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0;
             const remainingMinutes = Math.floor((urlItem.limit - usage) / 60000);
-            if ((remainingMinutes === 5 || remainingMinutes === 1) && !urlItem.limited) {
+            if (itsint && (remainingMinutes === 5 || remainingMinutes === 1) && !urlItem.limited) {
                 chrome.tabs.sendMessage(tab.id, {
                     target: "throwWarn",
                     lang: lang,
-                    minutes:remainingMinutes,
+                    minutes: remainingMinutes,
                 }, function (response) { });
             }
             if (usage >= urlItem.limit) {
