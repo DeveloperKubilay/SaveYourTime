@@ -34,3 +34,9 @@ jobs:
             !.git/**/*
             !.github/**/*
             !.*
+
+      - name: End
+        run: |
+          VERSION=$(jq -r '.version' manifest.json)
+          echo "# 🚀 SaveYourTime" >> $GITHUB_STEP_SUMMARY
+          echo "## 🔢 New Version: $VERSION" >> $GITHUB_STEP_SUMMARY
