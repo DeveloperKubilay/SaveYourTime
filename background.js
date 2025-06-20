@@ -64,6 +64,8 @@ chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
     }
 });
 
+
+
 async function run(tab, itsint) {
     var {
         Urls = [],
@@ -100,7 +102,7 @@ async function run(tab, itsint) {
     if (urlItem.url) {
         try {
             const usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0;
-            const remainingMinutes = Math.floor((urlItem.limit - usage) / 60000);
+            const remainingMinutes = Math.floor((urlItem.limit - (usage + 60000)) / 60000);
             if (itsint && (remainingMinutes === 5 || remainingMinutes === 1) && !urlItem.limited) {
                 chrome.tabs.sendMessage(tab.id, {
                     target: "throwWarn",
@@ -133,9 +135,7 @@ async function run(tab, itsint) {
         } catch (error) { }
     }
 
-
 }
-
 
 
 
