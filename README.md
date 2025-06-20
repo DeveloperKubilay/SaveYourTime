@@ -7,8 +7,8 @@
 
 ## Download
 <p align="center">
-  <a href="https://chromewebstore.google.com/detail/saveyourtime/noefpbkcooahahhneghdjomngoigjdbf?authuser=0&hl=tr&pli=1">Chrome Web Store</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="https://addons.mozilla.org/tr/firefox/addon/saveyourtime/">Firefox</a>
+  <a href="https://chromewebstore.google.com/detail/saveyourtime/noefpbkcooahahhneghdjomngoigjdbf">Chrome Web Store</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://addons.mozilla.org/tr/firefox/addon/saveyourtime">Firefox</a>
 </p>
 
 
