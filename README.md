@@ -1,11 +1,17 @@
 # 🕒 SaveYourTime - Time Management Extension
 
 <img src="https://i.imgur.com/94AQDq2.png" width="100%">
-<img src="https://i.imgur.com/GnpbXqR.png" width="40%">
+<p align="center">
+  <img src="https://i.imgur.com/GnpbXqR.png" width="40%">
+</p>
 
 ## Download
-[Chrome Web Store](https://chromewebstore.google.com/detail/saveyourtime/noefpbkcooahahhneghdjomngoigjdbf?authuser=0&hl=tr&pli=1)
-[Firefox](https://addons.mozilla.org/tr/firefox/addon/saveyourtime/)
+<p align="center">
+  <a href="https://chromewebstore.google.com/detail/saveyourtime/noefpbkcooahahhneghdjomngoigjdbf?authuser=0&hl=tr&pli=1">Chrome Web Store</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://addons.mozilla.org/tr/firefox/addon/saveyourtime/">Firefox</a>
+</p>
+
+
 
 ## 🌈 About
 
