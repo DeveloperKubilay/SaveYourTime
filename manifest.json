@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "SaveYourTime",
-    "version": "1.2",
+    "version": "1.3",
     "description": "Limit time soon, SaveYourTime!!!",
     "icons": {
         "16": "icons/icon16.png",
