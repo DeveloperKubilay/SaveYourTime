@@ -12,7 +12,6 @@
 </p>
 
 
-
 ## 🌈 About
 
 SaveYourTime is a powerful browser extension that helps you manage your digital time better by setting daily limits on distracting websites.
@@ -25,12 +24,6 @@ SaveYourTime is a powerful browser extension that helps you manage your digital 
 - 🔄 Add extra time when needed
 - 🛡️ Privacy-focused: all data stays in your browser
 - 🌐 Supports 50+ languages
-
-## 📥 Installation
-
-1. Download the extension from [Chrome Web Store](#) or [Firefox Add-ons](#)
-2. Click "Add to Chrome/Firefox" button
-3. You're ready to go! The welcome page will open automatically
 
 ## 🚀 How to Use
 
@@ -109,12 +102,6 @@ SaveYourTime, dikkat dağıtıcı web siteleri için günlük limitler belirleye
 - 🔄 Gerektiğinde ekstra süre ekleyin
 - 🛡️ Gizlilik odaklı: tüm veriler tarayıcınızda kalır
 - 🌐 50+ dil desteği
-
-## 📥 Kurulum
-
-1. Eklentiyi [Chrome Web Mağazası](#) veya [Firefox Eklentileri](#)'nden indirin
-2. "Chrome/Firefox'a Ekle" düğmesine tıklayın
-3. Hazırsınız! Karşılama sayfası otomatik olarak açılacaktır
 
 ## 🚀 Nasıl Kullanılır
 
