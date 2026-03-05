@@ -1,0 +1,198 @@
+{
+  "lang": "pl",
+  "app": {
+    "name": "SaveYourTime",
+    "tagline": "Rozszerzenie do zarządzania czasem, które pomaga efektywniej wykorzystywać Twój czas w sieci"
+  },
+  "common": {
+    "settings": "Ustawienia",
+    "dashboard": "Panel główny",
+    "active": "Aktywne",
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "delete": "Usuń",
+    "edit": "Edytuj",
+    "close": "Zamknij",
+    "time": {
+      "hour": "godzina",
+      "hours": "godziny",
+      "minute": "minuta",
+      "minutes": "minuty",
+      "left": "pozostało",
+      "hourShort": "g",
+      "hoursShort": "g",
+      "minutesShort": "m"
+    }
+  },
+  "popup": {
+    "dailyLimit": "Limit dzienny",
+    "timeLeft": "Pozostały czas",
+    "timeEnd": "Czas minął",
+    "noLimits": "Brak ustawionych limitów",
+    "otherSites": "Inne ograniczone strony",
+    "timeButtons": {
+      "15min": "+15m",
+      "30min": "+30m",
+      "1hour": "+1g"
+    }
+  },
+  "warn": {
+    "title": "Wyczerpałeś swój limit czasu!",
+    "message": "Osiągnąłeś dzienny limit czasu dla tej strony. To świetna okazja, aby skierować uwagę na ważniejsze zadania!",
+    "continueAnyway": "Kontynuuj mimo to",
+    "ThrowWarn": "Pozostało Ci {{ minutes }}m do osiągnięcia dziennego limitu! - {{ appName }}",
+    "dailyStats": "Dzisiaj korzystałeś z tej strony przez łączny czas <strong>{{ totalTime }}</strong>",
+    "timeOption": {
+      "15min": "+15 minut",
+      "30min": "+30 minut",
+      "1hour": "+1 godzina",
+      "2hours": "+2 godziny"
+    }
+  },
+  "settings": {
+    "tabs": {
+      "dashboard": "Panel główny",
+      "siteManagement": "Zarządzanie stronami",
+      "activeLimits": "Aktywne limity"
+    },
+    "stats": {
+      "restrictedSites": "Strony z ograniczeniami",
+      "blocked": "Zablokowane strony",
+      "notBlocked": "Dozwolone strony",
+      "mostVisited": "Strony, na których spędzasz najwięcej czasu"
+    },
+    "sites": {
+      "addNew": "Dodaj nową stronę",
+      "editSite": "Edytuj stronę",
+      "siteUrl": "Adres strony (np. facebook.com)",
+      "timeTemplates": "Szablony czasu",
+      "customTime": "Własny czas",
+      "add": "Dodaj",
+      "quickAdd": "Szybkie dodanie",
+      "restrictedSites": "Strony z ograniczeniami",
+      "remaining": "Pozostały czas"
+    },
+    "activeLimits": {
+      "title": "Obecnie ograniczone strony"
+    },
+    "general": {
+      "title": "Ustawienia ogólne",
+      "resetData": "Zresetuj wszystkie dane",
+      "resetDataConfirm": "Wszystkie zapisane dane zostaną usunięte. Tej operacji nie można cofnąć. Czy chcesz kontynuować?",
+      "github": "Repozytorium GitHub",
+      "chromeWebStore": "Chrome Web Store",
+      "reportIssue": "Zgłoś problem",
+      "privacy": "Polityka prywatności",
+      "documentation": "Dokumentacja"
+    }
+  },
+  "thanks": {
+    "welcome": "Witamy w SaveYourTime!",
+    "thankYou": "Dziękujemy za instalację",
+    "features": {
+      "timeLimit": {
+        "title": "Ograniczanie czasu",
+        "description": "Ustaw dzienne limity czasu dla mediów społecznościowych i innych rozpraszających stron. Otrzymasz delikatne przypomnienie po osiągnięciu limitu."
+      },
+      "statistics": {
+        "title": "Statystyki użytkowania",
+        "description": "Śledź, ile czasu spędzasz na różnych stronach dzięki czytelnym wykresom i lepiej zarządzaj swoim czasem."
+      },
+      "blocking": {
+        "title": "Inteligentne blokowanie",
+        "description": "Wybierz między całkowitą blokadą a delikatnymi przypomnieniami po przekroczeniu limitu. W razie potrzeby możesz dodać dodatkowy czas."
+      }
+    },
+    "howItWorks": {
+      "title": "Jak działa SaveYourTime?",
+      "steps": [
+        {
+          "title": "Dodaj strony",
+          "description": "Dodaj strony internetowe, na których chcesz ograniczyć czas, i ustaw dla każdej dzienny limit."
+        },
+        {
+          "title": "Śledzenie czasu",
+          "description": "Rozszerzenie działa w tle, monitorując czas spędzany na wybranych stronach."
+        },
+        {
+          "title": "Powiadomienie o limicie",
+          "description": "Gdy ustawiony czas minie, zobaczysz przypomnienie przed dalszym korzystaniem ze strony."
+        },
+        {
+          "title": "Elastyczna kontrola",
+          "description": "W razie potrzeby możesz wydłużyć czas lub usunąć limity. To Ty masz pełną kontrolę."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Prywatność i bezpieczeństwo danych",
+      "description": "SaveYourTime <strong>przechowuje wszystkie dane wyłącznie lokalnie w Twojej przeglądarce</strong> i nie wysyła żadnych informacji na zewnętrzne serwery. Dane dotyczące korzystania ze stron i ustawienia są bezpiecznie zapisywane w pamięci lokalnej przeglądarki.",
+      "details": "Rozszerzenie wymaga minimalnych uprawnień i uzyskuje dostęp tylko do stron, które sam wskażesz. Twoja prywatność i bezpieczeństwo danych są dla nas najważniejsze.",
+      "openSource": "Cały kod źródłowy jest publiczny i można go przeglądać oraz modyfikować na naszej stronie GitHub.",
+      "learnMore": "Aby dowiedzieć się więcej o naszej polityce prywatności",
+      "learnMoreLink": "kliknij tutaj"
+    },
+    "actions": {
+      "configure": "Skonfiguruj ustawienia",
+      "viewSource": "Zobacz kod na GitHub"
+    }
+  },
+  "privacy": {
+    "title": "Polityka prywatności SaveYourTime",
+    "subtitle": "Informacje o tym, jak chronimy Twoją prywatność",
+    "commitment": {
+      "title": "Nasze zobowiązanie do prywatności",
+      "description": "W SaveYourTime cenimy Twoją prywatność i bezpieczeństwo danych. To rozszerzenie [hl]nie wysyła żadnych danych na zewnętrzne serwery[/hl], a wszystkie informacje są przechowywane wyłącznie w Twojej przeglądarce."
+    },
+    "collected": {
+      "title": "Zbierane informacje",
+      "intro": "SaveYourTime zbiera i zapisuje wyłącznie następujące informacje:",
+      "timeSpent": "Czas spędzony na wskazanych stronach",
+      "dailyLimits": "Ustawione przez Ciebie dzienne limity czasu",
+      "settings": "Ustawienia i preferencje rozszerzenia",
+      "storage": "Informacje te są [hl]przechowywane wyłącznie lokalnie w Twojej przeglądarce[/hl] i są niezbędne do prawidłowego działania rozszerzenia."
+    },
+    "storage": {
+      "title": "Przechowywanie i przesyłanie danych",
+      "intro": "SaveYourTime:",
+      "noSend": "[hl]Nie wysyła żadnych danych użytkownika na zewnętrzne serwery[/hl]",
+      "localStorage": "Przechowuje wszystkie dane w pamięci lokalnej przeglądarki",
+      "offline": "Może działać nawet bez połączenia z internetem",
+      "noCookies": "Nie używa plików cookies",
+      "noTracking": "Nie śledzi tożsamości użytkownika ani informacji o sesji"
+    },
+    "security": {
+      "title": "Bezpieczeństwo danych",
+      "intro": "Ponieważ dane są przechowywane wyłącznie w Twojej przeglądarce:",
+      "browserClear": "Mogą zostać usunięte po wyczyszczeniu historii lub pamięci podręcznej przeglądarki",
+      "uninstall": "Możesz usunąć wszystkie zapisane dane podczas odinstalowywania rozszerzenia",
+      "access": "Dostęp do danych ma wyłącznie Twoja przeglądarka"
+    },
+    "permissions": {
+      "title": "Uprawnienia",
+      "intro": "SaveYourTime wymaga następujących uprawnień przeglądarki:",
+      "activeTab": "Dostęp do aktywnej karty (aby monitorować czas spędzony na wskazanych stronach)",
+      "storage": "Dostęp do pamięci lokalnej (aby zapisywać ustawienia i dane o czasie)",
+      "minimal": "Są to minimalne uprawnienia niezbędne do działania podstawowych funkcji rozszerzenia."
+    },
+    "openSource": {
+      "title": "Kod open source",
+      "description": "SaveYourTime jest w pełni projektem open source. Nasz kod źródłowy jest dostępny publicznie na GitHubie.",
+      "transparency": "Ta przejrzystość potwierdza nasze zaangażowanie w ochronę prywatności. Każdy może zweryfikować, że rozszerzenie rzeczywiście nie wysyła żadnych danych."
+    },
+    "rights": {
+      "title": "Prawa użytkownika",
+      "intro": "Jako użytkownik SaveYourTime możesz:",
+      "remove": "W każdej chwili usunąć rozszerzenie z ustawień przeglądarki",
+      "delete": "Usunąć wszystkie zapisane dane z poziomu ustawień rozszerzenia",
+      "modify": "Modyfikować dowolne dane w ustawieniach rozszerzenia"
+    },
+    "questions": {
+      "title": "Pytania",
+      "contact": "Jeśli masz pytania dotyczące naszej polityki prywatności, skontaktuj się z nami poprzez projekt na GitHubie."
+    },
+    "actions": {
+      "home": "Strona główna"
+    }
+  }
+}

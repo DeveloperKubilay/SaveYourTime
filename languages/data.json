@@ -40,6 +40,11 @@
             "flag": "BD",
             "file": "bn.json"
         },
+        "pl": {
+            "name": "Polski",
+            "flag": "PL",
+            "file": "pl.json"
+        },
         "pt": {
             "name": "Português",
             "flag": "PT",
