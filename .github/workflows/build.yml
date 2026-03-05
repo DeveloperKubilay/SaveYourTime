@@ -1,41 +1,89 @@
-name: Build
+name: Build and Release
 
 on:
   workflow_dispatch:
+    inputs:
+      release_tag:
+        description: Optional tag name. Defaults to v<manifest.version>.
+        required: false
+        type: string
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Upload Chrome version as artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Chrome
-          path: |
-            **/*
-            !.git/**/*
-            !.github/**/*
-            !.*
-
-      - name: Edit manifest for Firefox
-        run: |
-          cp manifest.json manifest_firefox.json
-          jq '.background = {scripts: ["background.js"]} | del(.background.service_worker)' manifest_firefox.json > tmp.json && mv tmp.json manifest_firefox.json
-          mv manifest_firefox.json manifest.json
-
-      - name: Upload Firefox version
-        uses: actions/upload-artifact@v4.6.2
-        with:
-          name: Firefox
-          path: |
-            **/*
-            !.git/**/*
-            !.github/**/*
-            !.*
-
-      - name: End
+      - name: Resolve release metadata
+        id: meta
+        shell: bash
+        env:
+          INPUT_RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.release_tag || '' }}
         run: |
           VERSION=$(jq -r '.version' manifest.json)
-          echo "# 🚀 SaveYourTime v$VERSION" >> $GITHUB_STEP_SUMMARY
+
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            TAG="${GITHUB_REF_NAME}"
+          elif [[ -n "${INPUT_RELEASE_TAG}" ]]; then
+            TAG="${INPUT_RELEASE_TAG}"
+          else
+            TAG="v${VERSION}"
+          fi
+
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+
+      - name: Build release packages
+        shell: bash
+        run: |
+          VERSION="${{ steps.meta.outputs.version }}"
+          mkdir -p dist/chrome dist/firefox
+
+          rsync -a --exclude '.git/' --exclude '.github/' --exclude 'dist/' --exclude '.*' ./ dist/chrome/
+          rsync -a --exclude '.git/' --exclude '.github/' --exclude 'dist/' --exclude '.*' ./ dist/firefox/
+
+          jq '.background = {scripts: ["background.js"]} | del(.background.service_worker)' dist/firefox/manifest.json > dist/firefox/manifest.tmp
+          mv dist/firefox/manifest.tmp dist/firefox/manifest.json
+
+          (
+            cd dist/chrome
+            zip -r "../saveyourtime-chrome-${VERSION}.zip" .
+          )
+
+          (
+            cd dist/firefox
+            zip -r "../saveyourtime-firefox-${VERSION}.zip" .
+          )
+
+          rm -rf dist/chrome dist/firefox
+
+      - name: Create or update GitHub release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.meta.outputs.tag }}
+        run: |
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/*.zip --clobber
+          else
+            gh release create "$TAG" dist/*.zip --title "SaveYourTime" --generate-notes --target "$GITHUB_SHA"
+          fi
+
+      - name: Write summary
+        shell: bash
+        run: |
+          {
+            echo "# SaveYourTime v${{ steps.meta.outputs.version }}"
+            echo ""
+            echo "- Tag: \`${{ steps.meta.outputs.tag }}\`"
+            echo "- Release: \`SaveYourTime\`"
+            echo "- Assets:"
+            echo "  - \`saveyourtime-chrome-${{ steps.meta.outputs.version }}.zip\`"
+            echo "  - \`saveyourtime-firefox-${{ steps.meta.outputs.version }}.zip\`"
+          } >> "$GITHUB_STEP_SUMMARY"

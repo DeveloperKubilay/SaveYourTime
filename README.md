@@ -74,7 +74,7 @@ SaveYourTime respects your privacy:
 
 The extension supports 50+ languages worldwide:
 
-Arabic (ar), Azerbaijani (az), Bengali (bn), Bosnian (bs), Czech (cs), German (de), Greek (el), English (en), Spanish (es), Persian (fa), Finnish (fi), French (fr), Hausa (ha), Hebrew (he), Hindi (hi), Hungarian (hu), Armenian (hy), Indonesian (id), Igbo (ig), Italian (it), Japanese (ja), Georgian (ka), Kazakh (kk), Korean (ko), Kyrgyz (ky), Marathi (mr), Malay (ms), Burmese (my), Dutch (nl), Norwegian (no), Punjabi (pa), Portuguese (pt), Romanian (ro), Russian (ru), Slovak (sk), Slovenian (sl), Albanian (sq), Serbian (sr), Swedish (sv), Swahili (sw), Tamil (ta), Telugu (te), Tajik (tg), Thai (th), Turkmen (tk), Turkish (tr), Tatar (tt), Ukrainian (uk), Urdu (ur), Uzbek (uz), Vietnamese (vi), Xhosa (xh), Yoruba (yo), Chinese (zh), Zulu (zu)
+العربية (ar), Azərbaycan (az), বাংলা (bn), Bosanski (bs), Čeština (cs), Deutsch (de), Ελληνικά (el), English (en), Español (es), فارسی (fa), Suomi (fi), Français (fr), Hausa (ha), עברית (he), हिन्दी (hi), Magyar (hu), Հայերեն (hy), Indonesia (id), Igbo (ig), Italiano (it), 日本語 (ja), ქართული (ka), Қазақ (kk), 한국어 (ko), Кыргызча (ky), मराठी (mr), Melayu (ms), မြန်မာ (my), Nederlands (nl), Norsk (no), ਪੰਜਾਬੀ (pa), Polski (pl), Português (pt), Română (ro), Русский (ru), Slovenčina (sk), Slovenščina (sl), Shqip (sq), Српски (sr), Svenska (sv), Kiswahili (sw), தமிழ் (ta), తెలుగు (te), Тоҷикӣ (tg), ไทย (th), Türkmen (tk), Türkçe (tr), Татар (tt), Українська (uk), اردو (ur), Oʻzbek (uz), Tiếng Việt (vi), isiXhosa (xh), Yorùbá (yo), 中文 (zh), isiZulu (zu)
 
 ## 🤝 Contributing
 
@@ -152,7 +152,7 @@ SaveYourTime gizliliğinize saygı duyar:
 
 Eklenti, dünya çapında 50'den fazla dili destekler:
 
-Arapça (ar), Azerbaycan (az), Bengal (bn), Boşnakça (bs), Çekçe (cs), Almanca (de), Yunanca (el), İngilizce (en), İspanyolca (es), Farsça (fa), Fince (fi), Fransızca (fr), Hausa (ha), İbranice (he), Hintçe (hi), Macarca (hu), Ermenice (hy), Endonezce (id), İgbo (ig), İtalyanca (it), Japonca (ja), Gürcüce (ka), Kazakça (kk), Korece (ko), Kırgızca (ky), Marathi (mr), Malayca (ms), Birmanca (my), Hollandaca (nl), Norveççe (no), Pencapça (pa), Portekizce (pt), Romence (ro), Rusça (ru), Slovakça (sk), Slovence (sl), Arnavutça (sq), Sırpça (sr), İsveççe (sv), Svahili (sw), Tamilce (ta), Telugu (te), Tacikçe (tg), Tayca (th), Türkmence (tk), Türkçe (tr), Tatarca (tt), Ukraynaca (uk), Urduca (ur), Özbekçe (uz), Vietnamca (vi), Xhosa (xh), Yoruba (yo), Çince (zh), Zulu (zu)
+العربية (ar), Azərbaycan (az), বাংলা (bn), Bosanski (bs), Čeština (cs), Deutsch (de), Ελληνικά (el), English (en), Español (es), فارسی (fa), Suomi (fi), Français (fr), Hausa (ha), עברית (he), हिन्दी (hi), Magyar (hu), Հայերեն (hy), Indonesia (id), Igbo (ig), Italiano (it), 日本語 (ja), ქართული (ka), Қазақ (kk), 한국어 (ko), Кыргызча (ky), मराठी (mr), Melayu (ms), မြန်မာ (my), Nederlands (nl), Norsk (no), ਪੰਜਾਬੀ (pa), Polski (pl), Português (pt), Română (ro), Русский (ru), Slovenčina (sk), Slovenščina (sl), Shqip (sq), Српски (sr), Svenska (sv), Kiswahili (sw), தமிழ் (ta), తెలుగు (te), Тоҷикӣ (tg), ไทย (th), Türkmen (tk), Türkçe (tr), Татар (tt), Українська (uk), اردو (ur), Oʻzbek (uz), Tiếng Việt (vi), isiXhosa (xh), Yorùbá (yo), 中文 (zh), isiZulu (zu)
 
 ## 🤝 Katkıda Bulunma
 
