@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', async function () {
     const availableLanguages = (await (await fetch('../languages/data.json')).json()).languages;
 
-    const { lang = "en" } = await chrome.storage.local.get(['lang']);
+    const browserLang = (navigator.language || navigator.userLanguage).split('-')[0];
+    const { lang = availableLanguages[browserLang] ? browserLang : "en" } = await chrome.storage.local.get(['lang']);
 
     const langResponse = await fetch(`../languages/${availableLanguages[lang]?.file || "en.json"}`);
     window.translations = await langResponse.json();
