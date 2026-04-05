@@ -27,9 +27,12 @@ function initializeCharts(labelArray, usageArray, backgroundColor) {
                         color: 'rgba(255, 255, 255, 0.05)'
                     },
                     ticks: {
-                        color: '#9ca3af'
+                        color: '#9ca3af',
+                        callback: function(value) {
+                            return window.formatTime(value * 60000, -1, true);
+                        }
                     },
-                    suggestedMax: maxValue < 1 ? 1 : undefined
+                    suggestedMax: maxValue < 60 ? 60 : undefined
                 },
                 y: {
                     grid: {
@@ -54,7 +57,7 @@ function initializeCharts(labelArray, usageArray, backgroundColor) {
                     padding: 10,
                     callbacks: {
                         label: function (context) {
-                            return `${context.raw} ${window.translations.common.time.hours}`;
+                            return window.formatTime(context.raw * 60000, -1, true);
                         }
                     }
                 }
@@ -109,8 +112,9 @@ window.SAVE_YOUR_TIME_RUN = async function () {
 
 
     //site Editleme buttonları
-    const siteList = document.getElementById('sitesList')
-    const activeLimitsList = document.getElementById('activeLimitsList')
+    const siteList = document.getElementById('sitesList');
+    const allSitesList = document.getElementById('allSitesList');
+    const searchSitesInput = document.getElementById('searchSites');
 
     siteList.addEventListener('click', function (event) {
         const editBtn = event.target.closest('.edit-btn');
@@ -169,15 +173,76 @@ window.SAVE_YOUR_TIME_RUN = async function () {
     }
 
     addDeleteButtonListener(siteList);
-    addDeleteButtonListener(activeLimitsList);
 
 
     window.getUrlData(null, true).then(data => {
         data = data.urls
-        var labelArray = [];
-        var usageArray = [];
-        var backgroundColor = [];
+        data.forEach((item, index) => {
+            //Site management
+            addSite(item.url, item.limit / 60000, item.usage / 60000, item.limited)
+        });
+        
+        chrome.storage.local.get(['DailyUsage'], function(result) {
+            const daily = result.DailyUsage || {};
+            const allStats = Object.keys(daily).map(domain => ({
+                domain: domain,
+                usage: daily[domain]
+            })).sort((a, b) => b.usage - a.usage).slice(0, 20); // Top 20
 
+            var labelArray = [];
+            var usageArray = [];
+            var backgroundColor = [];
+
+            allStats.slice(0, 10).forEach((item, index) => {
+                var url = item.domain;
+                var bg = "hsl(" + Math.floor(Math.random() * 360) + ", 70%, 50%)";
+                var usageMinutes = item.usage / 60000;
+
+                try {
+                    let formattedUrl = url.split(".")[0];
+                    formattedUrl = formattedUrl.charAt(0).toUpperCase() + formattedUrl.slice(1);
+
+                    if (formattedUrl === "Youtube") formattedUrl = "YouTube";
+                    else if (formattedUrl === "Tiktok") formattedUrl = "TikTok";
+                    else if (formattedUrl === "Whatsapp") formattedUrl = "WhatsApp";
+                    else if (formattedUrl == "Pornhub") formattedUrl = "PornHub";
+                    
+                    url = formattedUrl;
+                } catch (error) {
+                    url = item.domain.replace("https://", "").replace("http://").replace("www.", "");
+                }
+
+
+                if (url == "YouTube") bg = "rgba(255, 0, 0, 1)";
+                else if (url == "Facebook") bg = "rgba(66, 103, 178, 1)";
+                else if (url == "X" || url == "TikTok") bg = "rgba(0, 0, 0, 1)";
+                else if (url == "Instagram") bg = "rgba(131, 58, 180, 1)";
+                else if (url == "WhatsApp") bg = "rgba(37, 211, 102, 1)";
+                else if (url == "Reddit") bg = "rgba(255, 69, 0, 1)";
+                else if (url == "Snapchat") bg = "rgba(255, 252, 0, 1)";
+                else if (url == "Pinterest") bg = "rgba(189, 8, 28, 1)";
+                else if (url == "Vimeo") bg = "rgba(26, 183, 234, 1)";
+                else if (url == "Odysee") bg = "rgba(252, 66, 123, 1)";
+                else if (url == "Linkedin") bg = "rgba(0, 119, 181, 1)";
+                else if (url == "Discord") bg = "rgba(88, 101, 242, 1)";
+                else if (url == "Telegram") bg = "rgba(0, 122, 255, 1)";
+                else if (url == "Twitch") bg = "rgba(100, 65, 164, 1)";
+                else if (url == "Spotify") bg = "rgba(30, 215, 96, 1)";
+                else if (url == "Netflix") bg = "rgba(229, 9, 20, 1)";
+                else if (url == "Steam") bg = "rgba(0, 120, 180, 1)";
+                else if (url == "Amazon") bg = "rgba(255, 153, 0, 1)";
+                else if (url == "Ebay") bg = "rgba(255, 0, 0, 1)";
+                else if (url == "Kick") bg = "rgba(0, 255, 0, 1)";
+                else if (url == "Google") bg = "rgba(219, 68, 55, 1)";
+                else if (url == "Pornhub") bg = "rgba(255, 153, 0, 1)";
+
+
+                labelArray.push(url);
+                usageArray.push(usageMinutes < 0 ? 0 : +usageMinutes.toFixed(2));
+                backgroundColor.push(bg);
+            });
+            
+            initializeCharts(labelArray, usageArray, backgroundColor);
         const limitedSites = data.filter(item => item.limited).length;
         const totalSites = data.length;
 
@@ -185,104 +250,31 @@ window.SAVE_YOUR_TIME_RUN = async function () {
         document.getElementById('blockedSites').textContent = limitedSites;
         document.getElementById('notBlockedSites').textContent = totalSites - limitedSites;
 
-        data.forEach((item, index) => {
-            //Dashboard
-            var url,
-                bg = "hsl(" + Math.floor(Math.random() * 360) + ", 70%, 50%)",
-                usage = item.usage / 3600000;
-
-            try {
-                var url = (new URL(item.url)).hostname.replace(/^www\./, '').split(".")[0];
-                url = url.charAt(0).toUpperCase() + url.slice(1);
-
-                if (url === "Youtube") url = "YouTube";
-                else if (url === "Tiktok") url = "TikTok";
-                else if (url === "Whatsapp") url = "WhatsApp";
-                else if (url == "Pornhub") url = "PornHub";
-
-            } catch (error) {
-                url = item.url.replace("https://", "").replace("http://").replace("www.", "")
+            function renderAllSites(searchTerm = "") {
+                if (!allSitesList) return;
+                allSitesList.innerHTML = '';
+                allStats.filter(s => s.domain.toLowerCase().includes(searchTerm.toLowerCase())).forEach(item => {
+                    const siteItem = document.createElement('div');
+                    siteItem.className = 'site-item';
+                    const timeStr = window.formatTime(item.usage, -9999999999999999999, true);
+                    siteItem.innerHTML = `
+                        <div class="site-info" style="flex-direction:row; justify-content:space-between; align-items:center;">
+                            <span class="site-url" style="font-size:16px;">${getIconHTML(item.domain)}${item.domain}</span>
+                            <span class="site-remaining" style="color:var(--primary); font-weight:bold; font-size:16px;">${timeStr}</span>
+                        </div>`;
+                    allSitesList.appendChild(siteItem);
+                });
             }
 
+            renderAllSites();
 
-            if (url == "YouTube") bg = "rgba(255, 0, 0, 1)";
-            else if (url == "Facebook") bg = "rgba(66, 103, 178, 1)";
-            else if (url == "X" || url == "TikTok") bg = "rgba(0, 0, 0, 1)";
-            else if (url == "Instagram") bg = "rgba(131, 58, 180, 1)";
-            else if (url == "WhatsApp") bg = "rgba(37, 211, 102, 1)";
-            else if (url == "Reddit") bg = "rgba(255, 69, 0, 1)";
-            else if (url == "Snapchat") bg = "rgba(255, 252, 0, 1)";
-            else if (url == "Pinterest") bg = "rgba(189, 8, 28, 1)";
-            else if (url == "Vimeo") bg = "rgba(26, 183, 234, 1)";
-            else if (url == "Odysee") bg = "rgba(252, 66, 123, 1)";
-            else if (url == "Linkedin") bg = "rgba(0, 119, 181, 1)";
-            else if (url == "Discord") bg = "rgba(88, 101, 242, 1)";
-            else if (url == "Telegram") bg = "rgba(0, 122, 255, 1)";
-            else if (url == "Twitch") bg = "rgba(100, 65, 164, 1)";
-            else if (url == "Spotify") bg = "rgba(30, 215, 96, 1)";
-            else if (url == "Netflix") bg = "rgba(229, 9, 20, 1)";
-            else if (url == "Steam") bg = "rgba(0, 120, 180, 1)";
-            else if (url == "Amazon") bg = "rgba(255, 153, 0, 1)";
-            else if (url == "Ebay") bg = "rgba(255, 0, 0, 1)";
-            else if (url == "Kick") bg = "rgba(0, 255, 0, 1)";
-            else if (url == "Google") bg = "rgba(219, 68, 55, 1)";
-            else if (url == "Pornhub") bg = "rgba(255, 153, 0, 1)";
-
-
-            labelArray.push(url);
-            usageArray.push(usage < 0 ? 0 : +usage.toFixed(2));
-            backgroundColor.push(bg);
-
-            //Site management
-            addSite(item.url, item.limit / 60000, item.usage / 60000, item.limited)
-        });
-        initializeCharts(labelArray, usageArray, backgroundColor);
-        //Active limits
-        data.filter(item => item.limited).forEach(item => {    
-            const siteItem = document.createElement('div');
-            siteItem.className = 'site-item';
-            siteItem.innerHTML = `
-                    <div class="site-info">
-                        <span class="site-url">${item.url}</span>
-                        <span class="site-remaining" data-time="${-item.usage}">${window.translations.settings.sites.remaining}: ${
-                            window.formatTime(-item.usage,-9999999999999999999,true)
-                        }</span>
-                    </div>
-                    <div class="site-actions">
-                        <button class="time-btn" data-time="15">+15${window.translations.common.time.minutesShort}</button>
-                        <button class="time-btn" data-time="30">+30${window.translations.common.time.minutesShort}</button>
-                        <button class="time-btn" data-time="60">+1${window.translations.common.time.hourShort}</button>
-                        <button class="time-btn" data-time="120">+2${window.translations.common.time.hoursShort}</button>
-                        <button class="time-btn" data-time="-60">-1${window.translations.common.time.hoursShort}</button>
-                        <button class="delete-btn" data-lang-title="common.close"><i class="fas fa-times"></i></button>
-                    </div>` 
-             siteItem.querySelector(".delete-btn").setAttribute('title', window.translations.common.delete);
-             activeLimitsList.innerHTML += siteItem.outerHTML;
-        })
-        const timeButtons = document.querySelectorAll('.time-btn');
-        timeButtons.forEach(button => {
-            button.addEventListener('click', function (btn) {
-                const siteItem = btn.target.closest('.site-item');
-                const url = siteItem.querySelector('.site-url').textContent;
-                const timeChange = parseInt(this.getAttribute('data-time'));
-                const remainingTime = siteItem.querySelector('.site-remaining');
-                
-                const time = Number(remainingTime.getAttribute("data-time")) + (timeChange* 60000)
-                remainingTime.setAttribute('data-time',time);
-
-                remainingTime.innerHTML = 
-                    `${window.translations.settings.sites.remaining}: ${window.formatTime( 
-                        Number(remainingTime.getAttribute("data-time"))
-                    , -9999999999999999999,true)}`
-        
-
-                window.SendMSG("addTime", {
-                    currentpattern: url,
-                    minutes: timeChange
+            if (searchSitesInput) {
+                searchSitesInput.addEventListener('input', (e) => {
+                    renderAllSites(e.target.value);
                 });
-            })
-        })
-    })
+            }
+        });
+    });
 
 
 
