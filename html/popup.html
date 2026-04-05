@@ -31,9 +31,13 @@
         
         body {
             width: 320px;
+            max-height: 580px;
             background-color: var(--bg-dark);
             color: var(--text-light);
-            overflow: hidden;
+            overflow-y: auto;
+            overflow-x: hidden;
+            opacity: 0;
+            transition: opacity 0.15s ease-in;
         }
         
         .popup-container {
@@ -271,22 +275,239 @@
             transition: stroke-dashoffset 0.5s ease;
         }
 
+        /* ===== Site Management Panel ===== */
+        .site-manage-panel {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .site-manage-panel .panel-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .site-manage-panel .url-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .site-manage-panel .url-display {
+            flex: 1;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 12px;
+            color: var(--text-light);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .site-manage-panel .url-display i {
+            color: var(--primary);
+            margin-right: 6px;
+            font-size: 11px;
+        }
+
+        .template-row {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+
+        .template-row .tpl-btn {
+            flex: 1;
+            background-color: rgba(255,255,255,0.06);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 4px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .template-row .tpl-btn:hover {
+            background-color: rgba(74, 222, 128, 0.12);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .template-row .tpl-btn.selected {
+            background-color: rgba(74, 222, 128, 0.2);
+            color: var(--primary);
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .custom-time-row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .custom-time-row .time-input-wrap {
+            flex: 1;
+            position: relative;
+        }
+
+        .custom-time-row input {
+            width: 100%;
+            background-color: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 28px 6px 8px;
+            font-size: 12px;
+            color: var(--text-light);
+            outline: none;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+
+        .custom-time-row input::-webkit-outer-spin-button,
+        .custom-time-row input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        .custom-time-row input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(74,222,128,0.15);
+        }
+
+        .custom-time-row .unit-label {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .manage-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .manage-actions .action-btn-popup {
+            flex: 1;
+            padding: 7px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .manage-actions .btn-add {
+            background-color: var(--primary);
+            color: #111827;
+        }
+
+        .manage-actions .btn-add:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .manage-actions .btn-remove {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--red);
+        }
+
+        .manage-actions .btn-remove:hover {
+            background-color: rgba(239, 68, 68, 0.25);
+        }
+
+        .manage-actions .btn-edit {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+        }
+
+        .manage-actions .btn-edit:hover {
+            background-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .manage-status {
+            font-size: 10px;
+            color: var(--primary);
+            text-align: center;
+            margin-top: 6px;
+            display: none;
+        }
+
+        /* Site list action buttons */
+        .site-item-actions {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .site-item-actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 4px;
+            border-radius: 4px;
+            font-size: 11px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+        }
+
+        .site-item-actions .site-edit-btn {
+            color: #3b82f6;
+        }
+
+        .site-item-actions .site-edit-btn:hover {
+            background-color: rgba(59,130,246,0.15);
+        }
+
+        .site-item-actions .site-del-btn {
+            color: var(--red);
+        }
+
+        .site-item-actions .site-del-btn:hover {
+            background-color: rgba(239,68,68,0.15);
+        }
+
         /* Language dropdown styling */
         #languageSwitcher option {
             background-color: rgba(31, 41, 55, 0.95);
-            color: var(--text-light); /* White text for all options */
+            color: var(--text-light);
             padding: 8px 12px;
         }
         
         #languageSwitcher option:checked {
             background-color: rgba(31, 41, 55, 0.95);
-            color: #f59e0b; /* Yellow text for selected option */
+            color: #f59e0b;
             font-weight: 500;
         }
         
         #languageSwitcher option:hover {
             background-color: rgba(31, 41, 55, 0.8);
-            color: var(--primary); /* Green text for hovered option */
+            color: var(--primary);
         }
     </style>
 </head>
@@ -325,6 +546,42 @@
             </div>
         </div>
         
+        <!-- Site Management Panel -->
+        <div class="site-manage-panel" id="siteManagePanel">
+            <div class="panel-title">
+                <i class="fas fa-sliders-h"></i>
+                <span data-lang="popup.siteManage.title">Bu Site İçin Limit</span>
+            </div>
+            <div class="url-row">
+                <div class="url-display" id="manageUrlDisplay">
+                    <i class="fas fa-link"></i>
+                    <span id="manageUrlText">—</span>
+                </div>
+            </div>
+            <div class="template-row">
+                <button class="tpl-btn" data-minutes="30"><i class="fas fa-clock" style="margin-right:3px;font-size:9px;"></i>30dk</button>
+                <button class="tpl-btn" data-minutes="60"><i class="fas fa-clock" style="margin-right:3px;font-size:9px;"></i>1sa</button>
+                <button class="tpl-btn" data-minutes="120"><i class="fas fa-clock" style="margin-right:3px;font-size:9px;"></i>2sa</button>
+                <button class="tpl-btn" data-minutes="180"><i class="fas fa-clock" style="margin-right:3px;font-size:9px;"></i>3sa</button>
+            </div>
+            <div class="custom-time-row">
+                <div class="time-input-wrap">
+                    <input type="number" id="popupTimeHours" min="0" max="23" placeholder="0">
+                    <span class="unit-label" data-lang="common.time.hourShort">sa</span>
+                </div>
+                <div class="time-input-wrap">
+                    <input type="number" id="popupTimeMinutes" min="0" max="59" placeholder="0">
+                    <span class="unit-label" data-lang="common.time.minutesShort">dk</span>
+                </div>
+            </div>
+            <div class="manage-actions" id="manageActions">
+                <button class="action-btn-popup btn-add" id="popupAddSiteBtn">
+                    <i class="fas fa-plus"></i> <span data-lang="popup.siteManage.setLimit">Limit Koy</span>
+                </button>
+            </div>
+            <div class="manage-status" id="manageStatus"></div>
+        </div>
+
         <div class="other-sites">
             <div class="section-title" data-lang="popup.otherSites">Diğer Kısıtlı Siteler</div>
             <div class="site-list" id="siteList"></div>

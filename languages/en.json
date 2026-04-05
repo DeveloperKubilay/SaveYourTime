@@ -34,12 +34,21 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limit for This Site",
+      "setLimit": "Set Limit",
+      "updateLimit": "Update",
+      "added": "Limit added",
+      "updated": "Limit updated",
+      "removed": "Limit removed"
     }
   },
   "warn": {
     "title": "You've Run Out of Time!",
     "message": "You've reached your daily time limit for this site. A great opportunity to redirect your attention to more important tasks!",
     "continueAnyway": "Continue Anyway",
+    "continueAndRemove": "Continue & Remove Timer",
     "ThrowWarn":"You have {{ minutes }}m left until you reach your daily limit! - {{ appName }}",
     "dailyStats": "Today This site with total usage of <strong>{{ totalTime }}</strong>",
     "timeOption": {
@@ -53,7 +62,7 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Management",
-      "activeLimits": "Active Limits"
+      "allSites": "Statistics"
     },
     "stats": {
       "restrictedSites": "Restricted Sites",
@@ -71,8 +80,9 @@
       "restrictedSites": "Restricted Sites",
       "remaining": "Remaining time"
     },
-    "activeLimits": {
-      "title": "Currently Limited Sites"
+    "allSites": {
+      "title": "All Sites (Top 20)",
+      "search": "Search Site..."
     },
     "general": {
       "title": "General Settings",

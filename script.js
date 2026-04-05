@@ -1,21 +1,27 @@
 function formatTime(lang, ms) {
     const absMs = Math.abs(ms);
-    const minutes = Math.floor((absMs / (1000 * 60)) % 60);
-    const hours = Math.floor(absMs / (1000 * 60 * 60));
+    const totalMinutes = Math.round(absMs / (1000 * 60));
+    const minutes = totalMinutes % 60;
+    const hours = Math.floor(totalMinutes / 60);
 
     const sign = ms < 0 ? "-" : "";
 
     return `${sign}${hours} ${lang.common.time.hoursShort}, ${minutes} ${lang.common.time.minutesShort}`;
 }
 
+let limitTimeout = null;
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden && limitTimeout) {
+        clearTimeout(limitTimeout);
+        limitTimeout = null;
+    }
+});
+
 let Lastsitedata;
 let limited;
-let Tabignore = false;
-
 
 function addIframe(data) {
-    if (Tabignore) return;
-
     if (data.limited) {
         if (limited) return;
         limited = true;
@@ -70,13 +76,28 @@ function addIframe(data) {
                         currentpattern: data.currentpattern,
                     }),
                         addIframe({ limited: false });
-                else if (event.data.type === "continue")
+                else if (event.data.type === "continue") {
+                    document.getElementById("site-SAVE_YOUR_TIME_iframe").style.display = "none";
                     chrome.runtime.sendMessage({
                         target: "Iframe_Continue",
                         tabId: data.tabId,
-                    }),
-                        addIframe({ limited: false }),
-                        (Tabignore = true);
+                        url: data.currentpattern
+                    });
+                    addIframe({ limited: false });
+                }
+                else if (event.data.type === "continueAndRemove") {
+                    document.getElementById("site-SAVE_YOUR_TIME_iframe").style.display = "none";
+                    chrome.runtime.sendMessage({
+                        target: "Iframe_Continue",
+                        tabId: data.tabId,
+                        url: data.currentpattern
+                    });
+                    chrome.runtime.sendMessage({
+                        target: "deleteSite",
+                        url: data.currentpattern,
+                    });
+                    addIframe({ limited: false });
+                }
                 else if (event.data.type === "settings")
                     window.open(chrome.runtime.getURL("html/settings.html"));
             } catch { }
@@ -116,7 +137,20 @@ function addIframe(data) {
 }
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-    if (request.target === "addIframe") addIframe(request);
+    if (request.target === "addIframe") {
+        if (limitTimeout) clearTimeout(limitTimeout);
+        addIframe(request);
+    }
+    if (request.target === "scheduleIframe") {
+        if (limitTimeout) clearTimeout(limitTimeout);
+        if (!document.hidden) {
+            limitTimeout = setTimeout(() => {
+                request.limited = true;
+                request.usage = (request.usage || 0) + request.remainingMs;
+                addIframe(request);
+            }, request.remainingMs);
+        }
+    }
     if (request.target === "throwWarn") Toastify({
         text: request.lang.warn.ThrowWarn
             .replace("{{ minutes }}", request.minutes)
