@@ -92,16 +92,18 @@ function resetSiteForm() {
 }
 
 function formatDomainLabel(domain) {
-    let label = domain.split('.')[0];
-    label = label.charAt(0).toUpperCase() + label.slice(1);
+    if (!domain) return '';
+    let label = domain.toLowerCase();
 
-    if (label === 'Youtube') return 'YouTube';
-    if (label === 'Tiktok') return 'TikTok';
-    if (label === 'Whatsapp') return 'WhatsApp';
-    if (label === 'Pornhub') return 'PornHub';
-    if (label === 'X') return 'X';
+    if (label.includes('youtube.com')) return 'YouTube';
+    if (label.includes('tiktok.com')) return 'TikTok';
+    if (label.includes('whatsapp.com')) return 'WhatsApp';
+    if (label.includes('pornhub.com')) return 'PornHub';
+    if (label === 'x.com' || label.includes('twitter.com')) return 'X';
+    if (label.includes('facebook.com')) return 'Facebook';
+    if (label.includes('instagram.com')) return 'Instagram';
 
-    return label;
+    return domain;
 }
 
 function hashString(value) {

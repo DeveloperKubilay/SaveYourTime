@@ -34,6 +34,12 @@ window.addEventListener('message', async function (event) {
             addIframe({ limited: false });
         } else if (event.data.type === 'settings') {
             window.open(chrome.runtime.getURL('html/settings.html'));
+        } else if (event.data.type === 'delete') {
+            chrome.runtime.sendMessage({
+                target: 'deleteSite',
+                url: currentLimitData.currentpattern
+            });
+            addIframe({ limited: false });
         }
     } catch { }
 });
@@ -65,7 +71,7 @@ function addIframe(data) {
             document.createElement('link');
         link.type = 'image/x-icon';
         link.rel = 'shortcut icon';
-        link.href = chrome.runtime.getURL('icons/icon128.png');
+        link.href = chrome.runtime.getURL('public/icons/icon128.png');
 
         document.getElementsByTagName('head')[0].appendChild(link);
 
