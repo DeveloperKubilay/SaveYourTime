@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang="common.settings">SaveYourTime</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../public/css/all.min.css" rel="stylesheet">
     <script src="../js/libs/chart.umd.min.js"></script>
     <script src="../js/utils.js" defer></script>
     <script src="../js/lang.js" defer></script>
@@ -701,6 +701,10 @@
             <i class="fas fa-clock"></i>
             <span data-lang="settings.tabs.activeLimits">Aktif Limitler</span>
         </div>
+        <div class="nav-item" data-tab="all-sites">
+            <i class="fas fa-list-ol"></i>
+            <span data-lang="settings.tabs.allSites">Tüm Siteler</span>
+        </div>
         <div class="nav-item" data-tab="settings">
             <i class="fas fa-cog"></i>
             <span data-lang="common.settings">Ayarlar</span>
@@ -880,6 +884,18 @@
             <div class="card">
                 <h3 data-lang="settings.activeLimits.title">Şu Anda Limitli Siteler</h3>
                 <div id="activeLimitsList"></div>
+            </div>
+        </div>
+
+        <div class="tab-content" id="all-sites">
+            <h2><i class="fas fa-list-ol"></i> <span data-lang="settings.tabs.allSites">Tüm Siteler</span></h2>
+
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 15px; flex-wrap: wrap;">
+                    <h3 data-lang="settings.allSites.title" style="margin-bottom: 0;">Tüm Siteler (İlk 20)</h3>
+                    <input type="text" id="searchSites" data-lang-placeholder="settings.allSites.search" placeholder="Site Ara..." style="max-width: 250px; margin: 0;">
+                </div>
+                <div id="allSitesList"></div>
             </div>
         </div>
         

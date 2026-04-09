@@ -2,14 +2,18 @@ window.getUrlData = async function(url,list) {
     return new Promise((resolve) => {
         chrome.storage.local.get(["Urls"], async function(data) {
             const urls = data.Urls || [];
-            const foundUrl = !url ? {} : urls.filter(item => 
-                url.replace("https://", "").replace("http://","").toLowerCase().startsWith(item.url)
-            ).sort((a, b) => b.url.length - a.url.length)[0] || {};
+            const cleanUrl = url ? url.replace("https://", "").replace("http://","").toLowerCase() : "";
+            const cleanUrlNoWww = cleanUrl.replace(/^www\./, '');
+            const foundUrl = !url ? {} : urls.filter(item => {
+                const p = item.url.toLowerCase();
+                const pNoWww = p.replace(/^www\./, '');
+                return cleanUrl.startsWith(p) || cleanUrlNoWww.startsWith(pNoWww);
+            }).sort((a, b) => b.url.length - a.url.length)[0] || {};
 
             const newUrls = [];
           
             if(list) {
-                const temparray = urls.map(item => item.url !== url ? item : null).slice(0, 5);
+                const temparray = urls.filter(item => item.url !== (foundUrl && foundUrl.url)).slice(0, 5);
                 const usages = await window.getUsage(temparray.map(item => item.url));
                 for (let i = 0; i < temparray.length; i++) {
                     const item = temparray[i];
@@ -58,8 +62,10 @@ window.getUrl = async function() {
         chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
             const tab = tabs[0];
             try {
+                const parsedUrl = new URL(tab.url);
                 resolve({
-                    shorturl:(new URL(tab.url)).hostname.replace(/^www\./, ''),
+                    shorturl: parsedUrl.hostname.replace(/^www\./, ''),
+                    hostname: parsedUrl.hostname,
                     fullurl: tab.url
                 });
             } catch (e) {

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/lang.js" defer></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../public/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: #4ade80;
@@ -55,6 +55,7 @@
             flex-direction: column;
             animation: slideIn 0.6s ease;
             border: 1px solid var(--border);
+            position: relative;
         }
 
         @keyframes slideIn {
@@ -277,6 +278,57 @@
             color: var(--text-muted);
         }
 
+        .delete-btn {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: #ef4444;
+            border: none;
+            width: 60px;
+            height: 48px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .delete-btn:hover {
+            background-color: rgba(239, 68, 68, 0.25);
+        }
+
+        .delete-btn i {
+            margin: 0;
+            font-size: 20px;
+            color: #ef4444;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border: none;
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: rgba(255, 255, 255, 0.14);
+            color: var(--text-light);
+        }
+
+        .close-btn i {
+            margin: 0;
+            font-size: 16px;
+        }
+
         .footer {
             display: flex;
             justify-content: space-between;
@@ -348,6 +400,9 @@
 
 <body>
     <div class="time-limit-container">
+        <button class="close-btn" data-lang-title="common.close" data-lang-aria-label="common.close">
+            <i class="fas fa-times"></i>
+        </button>
         <div class="time-limit-content">
             <div class="left-section">
                 <div class="shield-container">
@@ -393,7 +448,10 @@
                         <i class="fas fa-arrow-right" style="position:relative; top:1px;"></i>
                         <span data-lang="warn.continueAnyway"></span>
                     </button>
-                    <button class="action-btn settings-btn" data-lang-title="common.settings">
+                    <button class="action-btn delete-btn" data-lang-title="common.delete" data-lang-aria-label="common.delete">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                    <button class="action-btn settings-btn" data-lang-title="common.settings" data-lang-aria-label="common.settings">
                         <i class="fas fa-cog"></i>
                     </button>
                 </div>

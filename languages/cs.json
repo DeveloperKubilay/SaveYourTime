@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limit pro tuto stránku",
+      "setLimit": "Nastavit limit",
+      "updateLimit": "Aktualizovat",
+      "added": "Limit přidán",
+      "updated": "Limit aktualizován",
+      "removed": "Limit odstraněn",
+      "unsupported": "Stránka není podporována"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Přehled",
       "siteManagement": "Správa stránek",
-      "activeLimits": "Aktivní limity"
+      "activeLimits": "Aktivní limity",
+      "allSites": "Všechny stránky"
     },
     "stats": {
       "restrictedSites": "Omezené stránky",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Aktuálně omezené stránky"
+    },
+    "allSites": {
+      "title": "Všechny stránky (Top 20)",
+      "search": "Hledat stránku..."
     },
     "general": {
       "title": "Obecná nastavení",

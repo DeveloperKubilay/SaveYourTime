@@ -34,6 +34,15 @@
       "15min": "+15м",
       "30min": "+30м",
       "1hour": "+1с"
+    },
+    "siteManage": {
+      "title": "Бул сайт үчүн чектөө",
+      "setLimit": "Чектөөнү орнотуу",
+      "updateLimit": "Жаңыртуу",
+      "added": "Чектөө кошулду",
+      "updated": "Чектөө жаңыртылды",
+      "removed": "Чектөө алынды",
+      "unsupported": "Бет колдоого алынбайт"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Башкы такта",
       "siteManagement": "Сайт башкаруу",
-      "activeLimits": "Активдүү чектөөлөр"
+      "activeLimits": "Активдүү чектөөлөр",
+      "allSites": "Бардык сайттар"
     },
     "stats": {
       "restrictedSites": "Чектелген сайттар",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Учурда чектелген сайттар"
+    },
+    "allSites": {
+      "title": "Бардык сайттар (Top 20)",
+      "search": "Сайтты изде..."
     },
     "general": {
       "title": "Жалпы орнотуулар",

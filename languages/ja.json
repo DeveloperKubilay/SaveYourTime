@@ -34,6 +34,15 @@
       "15min": "+15分",
       "30min": "+30分",
       "1hour": "+1時間"
+    },
+    "siteManage": {
+      "title": "このサイトの制限",
+      "setLimit": "制限を設定",
+      "updateLimit": "更新",
+      "added": "制限を追加しました",
+      "updated": "制限を更新しました",
+      "removed": "制限を削除しました",
+      "unsupported": "このページはサポートされていません"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "ダッシュボード",
       "siteManagement": "サイト管理",
-      "activeLimits": "アクティブな制限"
+      "activeLimits": "アクティブな制限",
+      "allSites": "すべてのサイト"
     },
     "stats": {
       "restrictedSites": "制限サイト",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "現在制限されているサイト"
+    },
+    "allSites": {
+      "title": "すべてのサイト (Top 20)",
+      "search": "サイトを検索..."
     },
     "general": {
       "title": "一般設定",

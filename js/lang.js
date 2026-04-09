@@ -4,8 +4,19 @@ document.addEventListener('DOMContentLoaded', async function () {
     const browserLang = (navigator.language || navigator.userLanguage).split('-')[0];
     const { lang = availableLanguages[browserLang] ? browserLang : "en" } = await chrome.storage.local.get(['lang']);
 
-    const langResponse = await fetch(`../languages/${availableLanguages[lang]?.file || "en.json"}`);
-    window.translations = await langResponse.json();
+    const baseTranslations = await (await fetch('../languages/en.json')).json();
+    const selectedFile = availableLanguages[lang]?.file || 'en.json';
+    let selectedTranslations = baseTranslations;
+    if (selectedFile !== 'en.json') {
+        try {
+            selectedTranslations = await (await fetch(`../languages/${selectedFile}`)).json();
+        } catch {
+            await chrome.storage.local.set({ lang: 'en' }).catch(() => {});
+            selectedTranslations = baseTranslations;
+        }
+    }
+
+    window.translations = mergeTranslations(baseTranslations, selectedTranslations);
     window.formatTime = function (ms, minimum, forHourselectmenu) {
         var hours = Math.floor(ms / (1000 * 60 * 60));
         var minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60)) || 0;
@@ -87,6 +98,17 @@ function applyTranslations(translations) {
             element.setAttribute('title', translation);
         }
     });
+
+    // aria-label erişilebilirlik etiketi
+    const ariaLabelElements = document.querySelectorAll('[data-lang-aria-label]');
+    ariaLabelElements.forEach(element => {
+        const key = element.getAttribute('data-lang-aria-label');
+        const translation = getNestedTranslation(translations, key);
+
+        if (translation) {
+            element.setAttribute('aria-label', translation);
+        }
+    });
 }
 
 // common.test yapmaya yarar
@@ -103,6 +125,31 @@ function getNestedTranslation(translations, key) {
     }
 
     return result;
+}
+
+function mergeTranslations(base, override) {
+    if (!override || typeof override !== 'object' || Array.isArray(override)) {
+        return override === undefined ? base : override;
+    }
+
+    const merged = { ...base };
+    for (const [key, value] of Object.entries(override)) {
+        const baseValue = merged[key];
+        if (
+            value &&
+            typeof value === 'object' &&
+            !Array.isArray(value) &&
+            baseValue &&
+            typeof baseValue === 'object' &&
+            !Array.isArray(baseValue)
+        ) {
+            merged[key] = mergeTranslations(baseValue, value);
+        } else {
+            merged[key] = value;
+        }
+    }
+
+    return merged;
 }
 
 // Dil seçme menüsüsüne dilleri ekler

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-lang="app.name">SaveYourTime</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="../public/css/all.min.css" rel="stylesheet">
     <script src="../js/lang.js" defer></script>
     <style>
         :root {
@@ -19,7 +19,7 @@
             --red: #ef4444;
             --yellow: #f59e0b;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -28,18 +28,19 @@
             -webkit-user-select: none;
             user-select: none;
         }
-        
+
         body {
             width: 320px;
             background-color: var(--bg-dark);
             color: var(--text-light);
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
-        
+
         .popup-container {
             padding: 16px;
         }
-        
+
         .header {
             display: flex;
             align-items: center;
@@ -48,7 +49,7 @@
             padding-bottom: 12px;
             border-bottom: 1px solid var(--border);
         }
-        
+
         .header h1 {
             font-size: 16px;
             color: var(--primary);
@@ -56,22 +57,22 @@
             display: flex;
             align-items: center;
         }
-        
+
         .header h1 i {
             margin-right: 8px;
         }
-        
+
         .settings-btn {
             color: var(--text-muted);
             cursor: pointer;
             transition: color 0.2s;
             font-size: 18px;
         }
-        
+
         .settings-btn:hover {
             color: var(--text-light);
         }
-        
+
         .current-site {
             display: flex;
             align-items: center;
@@ -81,14 +82,14 @@
             margin-bottom: 16px;
             border: 1px solid var(--border);
         }
-        
+
         .progress-container {
             position: relative;
             width: 90px;
             height: 90px;
             margin-right: 16px;
         }
-        
+
         .circle-info {
             position: absolute;
             top: 0;
@@ -103,23 +104,23 @@
             font-size: 12px;
             padding: 5px;
         }
-        
+
         .time-used {
             font-weight: 600;
             color: var(--text-light);
             margin-bottom: 4px;
             font-size: 14px;
         }
-        
+
         .time-left {
             font-size: 10px;
             color: var(--text-muted);
         }
-        
+
         .site-info {
             flex: 1;
         }
-        
+
         .site-name {
             font-size: 16px;
             font-weight: 600;
@@ -128,25 +129,25 @@
             align-items: center;
             color: var(--text-light);
         }
-        
+
         .site-name i {
             margin-right: 8px;
             font-size: 14px;
             color: var(--primary);
         }
-        
+
         .site-limit {
             font-size: 13px;
             color: var(--text-muted);
             margin-bottom: 10px;
         }
-        
+
         .time-actions {
             display: flex;
             gap: 8px;
             margin-top: 10px;
         }
-        
+
         .time-btn {
             background-color: var(--primary-light);
             color: var(--primary);
@@ -157,15 +158,15 @@
             cursor: pointer;
             transition: all 0.2s;
         }
-        
+
         .time-btn:hover {
             background-color: rgba(74, 222, 128, 0.25);
         }
-        
+
         .other-sites {
             margin-top: 16px;
         }
-        
+
         .section-title {
             font-size: 14px;
             font-weight: 600;
@@ -173,13 +174,13 @@
             padding-left: 2px;
             color: var(--text-muted);
         }
-        
+
         .site-list {
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
-        
+
         .site-item {
             display: flex;
             align-items: center;
@@ -190,26 +191,26 @@
             border: 1px solid var(--border);
             transition: all 0.2s;
         }
-        
+
         .site-item:hover {
             background-color: var(--card-bg);
         }
-        
+
         .site-item-name {
             font-size: 13px;
             font-weight: 500;
             color: var(--text-light);
-            max-width: 150px; 
-            overflow: hidden; 
-            text-overflow: ellipsis; 
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
             white-space: nowrap;
         }
-        
+
         .site-item-time {
             font-size: 12px;
             color: var(--text-muted);
         }
-        
+
         .footer {
             display: flex;
             justify-content: space-between;
@@ -220,47 +221,46 @@
             font-size: 12px;
             color: var(--text-muted);
         }
-        
+
         .footer-links {
             display: flex;
             gap: 10px;
         }
-        
+
         .footer-link {
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.2s;
             font-size: 14px;
         }
-        
+
         .footer-link:hover {
             color: var(--primary);
         }
-        
+
         .status {
             font-size: 11px;
             display: flex;
             align-items: center;
         }
-        
+
         .status i {
             margin-right: 4px;
             color: var(--primary);
         }
-        
-        /* SVG Circle Progress */
+
         .progress-circle {
             width: 90px;
             height: 90px;
             transform: rotate(-90deg);
         }
-        
+
         .progress-circle__background {
             fill: none;
             stroke: rgba(74, 222, 128, 0.1);
             stroke-width: 7;
         }
-        
+
         .progress-circle__progress {
             fill: none;
             stroke: var(--primary);
@@ -271,22 +271,198 @@
             transition: stroke-dashoffset 0.5s ease;
         }
 
-        /* Language dropdown styling */
+        .site-manage-panel {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 14px;
+            margin-bottom: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .panel-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .url-display {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 12px;
+            color: var(--text-light);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 10px;
+        }
+
+        .url-display i {
+            color: var(--primary);
+            margin-right: 6px;
+            font-size: 11px;
+        }
+
+        .template-row {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 8px;
+        }
+
+        .tpl-btn {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 4px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .tpl-btn:hover {
+            background-color: rgba(74, 222, 128, 0.12);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .tpl-btn.selected {
+            background-color: rgba(74, 222, 128, 0.2);
+            color: var(--primary);
+            border-color: var(--primary);
+            font-weight: 600;
+        }
+
+        .custom-time-row {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .time-input-wrap {
+            flex: 1;
+            position: relative;
+        }
+
+        .time-input-wrap input {
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 6px 28px 6px 8px;
+            font-size: 12px;
+            color: var(--text-light);
+            outline: none;
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+
+        .time-input-wrap input::-webkit-outer-spin-button,
+        .time-input-wrap input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        .time-input-wrap input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(74, 222, 128, 0.15);
+        }
+
+        .unit-label {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 10px;
+            color: var(--text-muted);
+            pointer-events: none;
+        }
+
+        .manage-actions {
+            display: flex;
+            gap: 6px;
+        }
+
+        .action-btn-popup {
+            flex: 1;
+            padding: 7px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .btn-add {
+            background-color: var(--primary);
+            color: #111827;
+        }
+
+        .btn-add:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-remove {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--red);
+        }
+
+        .btn-remove:hover {
+            background-color: rgba(239, 68, 68, 0.25);
+        }
+
+        .btn-edit {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: #3b82f6;
+        }
+
+        .btn-edit:hover {
+            background-color: rgba(59, 130, 246, 0.25);
+        }
+
+        .btn-disabled {
+            background-color: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .manage-status {
+            font-size: 10px;
+            color: var(--primary);
+            text-align: center;
+            margin-top: 6px;
+            display: none;
+        }
+
         #languageSwitcher option {
             background-color: rgba(31, 41, 55, 0.95);
-            color: var(--text-light); /* White text for all options */
+            color: var(--text-light);
             padding: 8px 12px;
         }
-        
+
         #languageSwitcher option:checked {
             background-color: rgba(31, 41, 55, 0.95);
-            color: #f59e0b; /* Yellow text for selected option */
+            color: #f59e0b;
             font-weight: 500;
         }
-        
+
         #languageSwitcher option:hover {
             background-color: rgba(31, 41, 55, 0.8);
-            color: var(--primary); /* Green text for hovered option */
+            color: var(--primary);
         }
     </style>
 </head>
@@ -296,7 +472,7 @@
             <h1><i class="fas fa-hourglass-half"></i> <span data-lang="app.name">SaveYourTime</span></h1>
             <i class="fas fa-cog settings-btn" id="settingsBtn" data-lang-title="common.settings"></i>
         </div>
-        
+
         <div class="current-site">
             <div class="progress-container">
                 <svg class="progress-circle" viewBox="0 0 100 100">
@@ -308,13 +484,11 @@
                     <div class="time-left" id="timeLeft">45dk kaldı</div>
                 </div>
             </div>
-            
+
             <div class="site-info">
                 <div class="site-name">
                     <i class="fas fa-globe"></i>
-                    <span id="currentSiteName" style="max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom;">
-                        
-                    </span>
+                    <span id="currentSiteName" style="max-width: 110px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: inline-block; vertical-align: bottom;"></span>
                 </div>
                 <div class="site-limit" id="siteLimit" data-lang="popup.timeLeft">Günlük Limit:</div>
                 <div class="time-actions">
@@ -324,20 +498,48 @@
                 </div>
             </div>
         </div>
-        
+
+        <div class="site-manage-panel" id="siteManagePanel">
+            <div class="panel-title">
+                <i class="fas fa-sliders-h"></i>
+                <span data-lang="popup.siteManage.title">Limit for This Site</span>
+            </div>
+            <div class="url-display">
+                <i class="fas fa-link"></i>
+                <span id="manageUrlText">—</span>
+            </div>
+            <div class="template-row">
+                <button class="tpl-btn" data-minutes="30">30m</button>
+                <button class="tpl-btn" data-minutes="60">1h</button>
+                <button class="tpl-btn" data-minutes="120">2h</button>
+                <button class="tpl-btn" data-minutes="180">3h</button>
+            </div>
+            <div class="custom-time-row">
+                <div class="time-input-wrap">
+                    <input type="number" id="popupTimeHours" min="0" max="23" placeholder="0">
+                    <span class="unit-label" data-lang="common.time.hourShort">h</span>
+                </div>
+                <div class="time-input-wrap">
+                    <input type="number" id="popupTimeMinutes" min="0" max="59" placeholder="0">
+                    <span class="unit-label" data-lang="common.time.minutesShort">m</span>
+                </div>
+            </div>
+            <div class="manage-actions" id="manageActions"></div>
+            <div class="manage-status" id="manageStatus"></div>
+        </div>
+
         <div class="other-sites">
             <div class="section-title" data-lang="popup.otherSites">Diğer Kısıtlı Siteler</div>
             <div class="site-list" id="siteList"></div>
         </div>
-        
+
         <div class="footer">
-            <div class="status">
-                <i class="fas fa-circle-check"></i>
-                <span data-lang="common.active" style="font-size: 14px;">Aktif</span>
+            <div class="status" id="footerStatusContainer">
+                <i id="footerStatusIcon" class="fas fa-circle-check"></i>
+                <span id="footerStatusText" data-lang="common.active" style="font-size: 14px;">Aktif</span>
             </div>
             <div class="footer-links" style="display: flex; justify-content: flex-end; align-items: center; width: 100%; padding: 0 5px;">
-                <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 3px 8px; width: 130px; font-size: 14px; border-radius: 4px; margin-bottom: 10px;">
-                </select>
+                <select id="languageSwitcher" style="background: rgba(31, 41, 55, 0.8); border: 1px solid var(--border); color: var(--primary); cursor: pointer; padding: 3px 8px; width: 130px; font-size: 14px; border-radius: 4px; margin-bottom: 10px;"></select>
             </div>
         </div>
 

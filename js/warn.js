@@ -23,6 +23,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const deleteButton = document.querySelector('.delete-btn');
+    if (deleteButton) {
+        deleteButton.addEventListener('click', function() {
+            window.parent.postMessage({ type: 'delete' }, '*');
+        });
+    }
+
+    const closeButton = document.querySelector('.close-btn');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            window.parent.postMessage({ type: 'close' }, '*');
+        });
+    }
+
     window.addEventListener('message', function(event) {
         if (event.data.type === 'initialize') {
             document.getElementById("site-domain").innerText = event.data.domain;

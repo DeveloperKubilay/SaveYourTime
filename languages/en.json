@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limit for This Site",
+      "setLimit": "Set Limit",
+      "updateLimit": "Update",
+      "added": "Limit added",
+      "updated": "Limit updated",
+      "removed": "Limit removed",
+      "unsupported": "Unsupported page"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Management",
-      "activeLimits": "Active Limits"
+      "activeLimits": "Active Limits",
+      "allSites": "All Sites"
     },
     "stats": {
       "restrictedSites": "Restricted Sites",
@@ -65,7 +75,8 @@
       "addNew": "Add New Site",
       "editSite": "Edit Site",
       "siteUrl": "Site URL (e.g. facebook.com)",
-      "timeTemplates": "Time Templates",      "customTime": "Custom Time",
+      "timeTemplates": "Time Templates",
+      "customTime": "Custom Time",
       "add": "Add",
       "quickAdd": "Quick Add",
       "restrictedSites": "Restricted Sites",
@@ -73,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Currently Limited Sites"
+    },
+    "allSites": {
+      "title": "All Sites (Top 20)",
+      "search": "Search Site..."
     },
     "general": {
       "title": "General Settings",
