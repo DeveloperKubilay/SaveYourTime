@@ -289,14 +289,19 @@ async function handleAddTime(message) {
 
     const addedMs = message.minutes * MINUTE_MS;
     const currentUsage = usageData[message.currentpattern] || 0;
+    const updatedUsage = Math.max(0, currentUsage - addedMs);
+    const urlItem = Urls.find(item => item.url === message.currentpattern);
+    const stillLimited = urlItem ? updatedUsage >= urlItem.limit : false;
 
     await chrome.storage.local.set({
-        [message.currentpattern]: Math.max(0, currentUsage - addedMs),
+        [message.currentpattern]: updatedUsage,
         Urls: Urls.map((item) =>
-            item.url === message.currentpattern ? { ...item, limited: false } : item
+            item.url === message.currentpattern ? { ...item, limited: stillLimited } : item
         ),
         warnedUrls: warnedUrls,
-        Tabignores: Tabignores.filter((tab) => tab.url !== message.currentpattern),
+        Tabignores: stillLimited
+            ? Tabignores
+            : Tabignores.filter((tab) => tab.url !== message.currentpattern),
         [`_lastTrack_${message.currentpattern}`]: Date.now()
     });
 }

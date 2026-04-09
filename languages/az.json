@@ -35,6 +35,14 @@
       "30min": "+30d",
       "1hour": "+1s"
     },
+    "siteManage": {
+      "title": "Bu sayt üçün limit",
+      "setLimit": "Limit təyin et",
+      "updateLimit": "Güncəllə",
+      "added": "Limit əlavə edildi",
+      "updated": "Limit yeniləndi",
+      "removed": "Limit silindi",
+      "unsupported": "Səhifə dəstəklənmir"
     }
   },
   "warn": {
@@ -54,8 +62,8 @@
     "tabs": {
       "dashboard": "İdarəetmə paneli",
       "siteManagement": "Sayt İdarəetmə",
-      "activeLimits": "Aktiv Limitlər"
       "activeLimits": "Aktiv Limitlər",
+      "allSites": "Bütün Saytlar"
     },
     "stats": {
       "restrictedSites": "Məhdudlaşdırılmış Saytlar",
