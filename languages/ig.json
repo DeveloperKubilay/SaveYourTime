@@ -34,6 +34,15 @@
       "15min": "+15n",
       "30min": "+30n",
       "1hour": "+1e"
+    },
+    "siteManage": {
+      "title": "Mkpọchi maka saịtị a",
+      "setLimit": "Tọọ oke",
+      "updateLimit": "Melite",
+      "added": "E tinyere oke",
+      "updated": "E melitere oke",
+      "removed": "E wepụrụ oke",
+      "unsupported": "E nweghị nkwado maka ibe a"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Njikwa Saịtị",
-      "activeLimits": "Oke Na-arụ Ọrụ"
+      "activeLimits": "Oke Na-arụ Ọrụ",
+      "allSites": "Ibe niile"
     },
     "stats": {
       "restrictedSites": "Saịtị A Na-agbachi Agbachi",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Saịtị A Na-agbachi Ugbu A"
+    },
+    "allSites": {
+      "title": "Ibe niile (Top 20)",
+      "search": "Chọọ saịtị..."
     },
     "general": {
       "title": "Ntọala Ozuruọnụ",

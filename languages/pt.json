@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limite para este site",
+      "setLimit": "Definir limite",
+      "updateLimit": "Atualizar",
+      "added": "Limite adicionado",
+      "updated": "Limite atualizado",
+      "removed": "Limite removido",
+      "unsupported": "Página não suportada"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Painel",
       "siteManagement": "Gerenciamento de Sites",
-      "activeLimits": "Limites Ativos"
+      "activeLimits": "Limites Ativos",
+      "allSites": "Todos os Sites"
     },
     "stats": {
       "restrictedSites": "Sites Restritos",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Sites Atualmente Limitados"
+    },
+    "allSites": {
+      "title": "Todos os Sites (Top 20)",
+      "search": "Buscar site..."
     },
     "general": {
       "title": "Configurações Gerais",

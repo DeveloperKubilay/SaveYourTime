@@ -34,6 +34,15 @@
       "15min": "+15ד",
       "30min": "+30ד",
       "1hour": "+1ש"
+    },
+    "siteManage": {
+      "title": "מגבלה לאתר זה",
+      "setLimit": "הגדר מגבלה",
+      "updateLimit": "עדכן",
+      "added": "מגבלה נוסף",
+      "updated": "המגבלה עודכנה",
+      "removed": "המגבלה הוסרה",
+      "unsupported": "הדף אינו נתמך"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "לוח בקרה",
       "siteManagement": "ניהול אתרים",
-      "activeLimits": "מגבלות פעילות"
+      "activeLimits": "מגבלות פעילות",
+      "allSites": "כל האתרים"
     },
     "stats": {
       "restrictedSites": "אתרים מוגבלים",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "אתרים מוגבלים כעת"
+    },
+    "allSites": {
+      "title": "כל האתרים (Top 20)",
+      "search": "חפש אתר..."
     },
     "general": {
       "title": "הגדרות כלליות",

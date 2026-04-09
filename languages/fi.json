@@ -34,6 +34,15 @@
       "15min": "+15min",
       "30min": "+30min",
       "1hour": "+1t"
+    },
+    "siteManage": {
+      "title": "Rajoitus tälle sivulle",
+      "setLimit": "Aseta raja",
+      "updateLimit": "Päivitä",
+      "added": "Raja lisätty",
+      "updated": "Raja päivitetty",
+      "removed": "Raja poistettu",
+      "unsupported": "Sivua ei tueta"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Kojelauta",
       "siteManagement": "Sivustojen hallinta",
-      "activeLimits": "Aktiiviset rajat"
+      "activeLimits": "Aktiiviset rajat",
+      "allSites": "Kaikki sivustot"
     },
     "stats": {
       "restrictedSites": "Rajoitetut sivustot",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Tällä hetkellä rajoitetut sivustot"
+    },
+    "allSites": {
+      "title": "Kaikki sivustot (Top 20)",
+      "search": "Etsi sivusto..."
     },
     "general": {
       "title": "Yleiset asetukset",

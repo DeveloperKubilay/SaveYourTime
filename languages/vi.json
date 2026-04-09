@@ -30,6 +30,15 @@
     "timeEnd": "Hết giờ",
     "noLimits": "Chưa đặt giới hạn",
     "otherSites": "Các trang bị hạn chế khác",
+    "siteManage": {
+      "title": "Quản lý trang",
+      "setLimit": "Đặt giới hạn",
+      "updateLimit": "Cập nhật giới hạn",
+      "added": "Đã thêm trang",
+      "updated": "Đã cập nhật giới hạn",
+      "removed": "Đã xóa giới hạn",
+      "unsupported": "Trang này không được hỗ trợ"
+    },
     "timeButtons": {
       "15min": "+15p",
       "30min": "+30p",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Bảng điều khiển",
       "siteManagement": "Quản lý trang web",
-      "activeLimits": "Giới hạn đang hoạt động"
+      "activeLimits": "Giới hạn đang hoạt động",
+      "allSites": "Tất cả trang"
     },
     "stats": {
       "restrictedSites": "Trang web bị hạn chế",
@@ -71,6 +81,10 @@
       "quickAdd": "Thêm nhanh",
       "restrictedSites": "Trang web bị hạn chế",
       "remaining": "Thời gian còn lại"
+    },
+    "allSites": {
+      "title": "Tất cả trang",
+      "search": "Tìm kiếm trang"
     },
     "activeLimits": {
       "title": "Trang web hiện đang bị giới hạn"

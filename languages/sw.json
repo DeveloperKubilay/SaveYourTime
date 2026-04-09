@@ -34,6 +34,15 @@
       "15min": "+15d",
       "30min": "+30d",
       "1hour": "+1s"
+    },
+    "siteManage": {
+      "title": "Kikomo kwa Tovuti hii",
+      "setLimit": "Weka kikomo",
+      "updateLimit": "Sasisha",
+      "added": "Kikomo kimeongezwa",
+      "updated": "Kikomo kimesasishwa",
+      "removed": "Kikomo imeondolewa",
+      "unsupported": "Ukurasa hauungwi mkono"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashibodi",
       "siteManagement": "Usimamizi wa Tovuti",
-      "activeLimits": "Vikomo Hai"
+      "activeLimits": "Vikomo Hai",
+      "allSites": "Tovuti zote"
     },
     "stats": {
       "restrictedSites": "Tovuti Zilizowekewa Vikomo",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Tovuti Zilizowekewa Vikomo Kwa Sasa"
+    },
+    "allSites": {
+      "title": "Tovuti zote (Top 20)",
+      "search": "Tafuta tovuti..."
     },
     "general": {
       "title": "Mipangilio ya Jumla",

@@ -34,6 +34,15 @@
       "15min": "+15p",
       "30min": "+30p",
       "1hour": "+1ó"
+    },
+    "siteManage": {
+      "title": "Limit ennek az oldalnak",
+      "setLimit": "Limit beállítása",
+      "updateLimit": "Frissítés",
+      "added": "Limit hozzáadva",
+      "updated": "Limit frissítve",
+      "removed": "Limit eltávolítva",
+      "unsupported": "Az oldal nem támogatott"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Irányítópult",
       "siteManagement": "Oldalkezelés",
-      "activeLimits": "Aktív limitek"
+      "activeLimits": "Aktív limitek",
+      "allSites": "Minden oldal"
     },
     "stats": {
       "restrictedSites": "Korlátozott oldalak",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Jelenleg korlátozott oldalak"
+    },
+    "allSites": {
+      "title": "Minden oldal (Top 20)",
+      "search": "Oldal keresése..."
     },
     "general": {
       "title": "Általános beállítások",
