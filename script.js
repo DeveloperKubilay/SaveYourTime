@@ -17,6 +17,11 @@ window.addEventListener('message', async function (event) {
         return;
     }
 
+    const iframe = document.getElementById('site-SAVE_YOUR_TIME_iframe');
+    if (!iframe || event.source !== iframe.contentWindow) {
+        return;
+    }
+
     try {
         if (event.data.type === 'addTime') {
             chrome.runtime.sendMessage({

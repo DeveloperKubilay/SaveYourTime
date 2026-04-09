@@ -6,9 +6,15 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     const baseTranslations = await (await fetch('../languages/en.json')).json();
     const selectedFile = availableLanguages[lang]?.file || 'en.json';
-    const selectedTranslations = selectedFile === 'en.json'
-        ? baseTranslations
-        : await (await fetch(`../languages/${selectedFile}`)).json();
+    let selectedTranslations = baseTranslations;
+    if (selectedFile !== 'en.json') {
+        try {
+            selectedTranslations = await (await fetch(`../languages/${selectedFile}`)).json();
+        } catch {
+            await chrome.storage.local.set({ lang: 'en' }).catch(() => {});
+            selectedTranslations = baseTranslations;
+        }
+    }
 
     window.translations = mergeTranslations(baseTranslations, selectedTranslations);
     window.formatTime = function (ms, minimum, forHourselectmenu) {
@@ -90,6 +96,17 @@ function applyTranslations(translations) {
 
         if (translation) {
             element.setAttribute('title', translation);
+        }
+    });
+
+    // aria-label erişilebilirlik etiketi
+    const ariaLabelElements = document.querySelectorAll('[data-lang-aria-label]');
+    ariaLabelElements.forEach(element => {
+        const key = element.getAttribute('data-lang-aria-label');
+        const translation = getNestedTranslation(translations, key);
+
+        if (translation) {
+            element.setAttribute('aria-label', translation);
         }
     });
 }
