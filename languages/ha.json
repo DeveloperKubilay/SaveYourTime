@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1a"
+    },
+    "siteManage": {
+      "title": "Iyakantawa don wannan shafi",
+      "setLimit": "Saita iyaka",
+      "updateLimit": "Sabunta",
+      "added": "Iyaka an ƙara",
+      "updated": "Iyaka an sabunta",
+      "removed": "Iyaka an cire",
+      "unsupported": "Shafin baya goyan baya"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashbod",
       "siteManagement": "Gudanar da Gidajen Yanar Gizo",
-      "activeLimits": "Iyakoki Masu Aiki"
+      "activeLimits": "Iyakoki Masu Aiki",
+      "allSites": "Duk shafuka"
     },
     "stats": {
       "restrictedSites": "Gidajen Yanar Gizo da aka Iyakance",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Gidajen Yanar Gizo da aka Iyakance a Halin Yanzu"
+    },
+    "allSites": {
+      "title": "Duk shafuka (Top 20)",
+      "search": "Bincika shafi..."
     },
     "general": {
       "title": "Saituna na Gaba Ɗaya",

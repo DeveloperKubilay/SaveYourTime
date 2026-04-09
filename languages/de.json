@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limit für diese Seite",
+      "setLimit": "Limit setzen",
+      "updateLimit": "Aktualisieren",
+      "added": "Limit hinzugefügt",
+      "updated": "Limit aktualisiert",
+      "removed": "Limit entfernt",
+      "unsupported": "Seite nicht unterstützt"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Website-Verwaltung",
-      "activeLimits": "Aktive Limits"
+      "activeLimits": "Aktive Limits",
+      "allSites": "Alle Seiten"
     },
     "stats": {
       "restrictedSites": "Eingeschränkte Websites",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Aktuell limitierte Websites"
+    },
+    "allSites": {
+      "title": "Alle Seiten (Top 20)",
+      "search": "Website suchen..."
     },
     "general": {
       "title": "Allgemeine Einstellungen",

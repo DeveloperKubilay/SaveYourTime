@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Omejitev za to stran",
+      "setLimit": "Nastavi omejitev",
+      "updateLimit": "Posodobi",
+      "added": "Omejitev dodana",
+      "updated": "Omejitev posodobljena",
+      "removed": "Omejitev odstranjena",
+      "unsupported": "Stran ni podprta"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Nadzorna plošča",
       "siteManagement": "Upravljanje strani",
-      "activeLimits": "Aktivne omejitve"
+      "activeLimits": "Aktivne omejitve",
+      "allSites": "Vse strani"
     },
     "stats": {
       "restrictedSites": "Omejene strani",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Trenutno omejene strani"
+    },
+    "allSites": {
+      "title": "Vse strani (Top 20)",
+      "search": "Iskanje strani..."
     },
     "general": {
       "title": "Splošne nastavitve",

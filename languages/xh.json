@@ -30,6 +30,15 @@
     "timeEnd": "Ixesha Liphelile",
     "noLimits": "Akukho Mimiselo Yesikhokelo",
     "otherSites": "Ezinye Iiwebhusayithi Ezithintelweyo",
+    "siteManage": {
+      "title": "Ulawulo lweSayithi",
+      "setLimit": "Setha umda",
+      "updateLimit": "Hlaziya umda",
+      "added": "Isiza songezwe",
+      "updated": "Umda uhlaziywe",
+      "removed": "Umda ususiwe",
+      "unsupported": "Esi siza asixhaswanga"
+    },
     "timeButtons": {
       "15min": "+15m",
       "30min": "+30m",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Ideshibhodi",
       "siteManagement": "Ulawulo Lwewebhusayithi",
-      "activeLimits": "Imida Esebenzayo"
+      "activeLimits": "Imida Esebenzayo",
+      "allSites": "Onke amasayithi"
     },
     "stats": {
       "restrictedSites": "Iiwebhusayithi Ezithintelweyo",
@@ -71,6 +81,10 @@
       "quickAdd": "Faka ngokukhawuleza",
       "restrictedSites": "Iiwebhusayithi Ezithintelweyo",
       "remaining": "Ixesha eliseleyo"
+    },
+    "allSites": {
+      "title": "Onke amasayithi",
+      "search": "Khangela ii-sayithi"
     },
     "activeLimits": {
       "title": "Iiwebhusayithi Ezithintelwe Okwangoku"

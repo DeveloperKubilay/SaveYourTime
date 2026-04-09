@@ -4,10 +4,10 @@
     "version": "1.3.1",
     "description": "Limit time soon, SaveYourTime!!!",
     "icons": {
-        "16": "icons/icon16.png",
-        "32": "icons/icon32.png",
-        "64": "icons/icon64.png",
-        "128": "icons/icon128.png"
+        "16": "public/icons/icon16.png",
+        "32": "public/icons/icon32.png",
+        "64": "public/icons/icon64.png",
+        "128": "public/icons/icon128.png"
     },
     "permissions": [
         "tabs",
@@ -26,12 +26,12 @@
     },
     "web_accessible_resources": [
         {
-            "resources": ["html/*.html", "languages/*.json", "js/*.js", "icons/*.png"],
+            "resources": ["html/*.html", "languages/*.json", "js/*.js", "public/icons/*.png", "public/css/*.css", "public/webfonts/*"],
             "matches": ["<all_urls>"]
         }
     ],
     "content_security_policy": {
-        "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; font-src 'self' https://cdnjs.cloudflare.com"
+        "extension_pages": "default-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self'"
     },
     "content_scripts": [
         {
@@ -44,7 +44,7 @@
         "gecko": {
             "id": "mail@kubidev.com",
             "strict_min_version": "109.0",
-            "icon": "icons/icon64.png"
+            "icon": "public/icons/icon64.png"
         }
     }
 }

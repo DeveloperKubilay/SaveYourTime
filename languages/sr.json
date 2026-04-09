@@ -34,6 +34,15 @@
       "15min": "+15м",
       "30min": "+30м",
       "1hour": "+1с"
+    },
+    "siteManage": {
+      "title": "Лимит за овај сајт",
+      "setLimit": "Постави лимит",
+      "updateLimit": "Ажурирај",
+      "added": "Лимит додат",
+      "updated": "Лимит ажуриран",
+      "removed": "Лимит уклоњен",
+      "unsupported": "Страница није подржана"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Контролна Табла",
       "siteManagement": "Управљање Сајтовима",
-      "activeLimits": "Активна Ограничења"
+      "activeLimits": "Активна Ограничења",
+      "allSites": "Сви сајтови"
     },
     "stats": {
       "restrictedSites": "Ограничени Сајтови",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Тренутно Ограничени Сајтови"
+    },
+    "allSites": {
+      "title": "Сви сајтови (Top 20)",
+      "search": "Претрага сајта..."
     },
     "general": {
       "title": "Општа Подешавања",

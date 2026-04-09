@@ -34,6 +34,15 @@
       "15min": "+15م",
       "30min": "+30م",
       "1hour": "+1گھ"
+    },
+    "siteManage": {
+      "title": "اس سائٹ کے لیے حد",
+      "setLimit": "حد مقرر کریں",
+      "updateLimit": "اپ ڈیٹ کریں",
+      "added": "حد شامل کی گئی",
+      "updated": "حد اپ ڈیٹ کی گئی",
+      "removed": "حد ہٹا دی گئی",
+      "unsupported": "صفحہ تعاون یافتہ نہیں ہے"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "ڈیش بورڈ",
       "siteManagement": "سائٹ مینجمنٹ",
-      "activeLimits": "فعال حدود"
+      "activeLimits": "فعال حدود",
+      "allSites": "تمام سائٹس"
     },
     "stats": {
       "restrictedSites": "محدود سائٹس",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "فی الحال محدود سائٹس"
+    },
+    "allSites": {
+      "title": "تمام سائٹس (Top 20)",
+      "search": "سائٹ تلاش کریں..."
     },
     "general": {
       "title": "عام ترتیبات",

@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Begränsning för denna sida",
+      "setLimit": "Sätt gräns",
+      "updateLimit": "Uppdatera",
+      "added": "Begränsning tillagd",
+      "updated": "Begränsning uppdaterad",
+      "removed": "Begränsning borttagen",
+      "unsupported": "Sidan stöds inte"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Webbplatshantering",
-      "activeLimits": "Aktiva gränser"
+      "activeLimits": "Aktiva gränser",
+      "allSites": "Alla webbplatser"
     },
     "stats": {
       "restrictedSites": "Begränsade webbplatser",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "För närvarande begränsade webbplatser"
+    },
+    "allSites": {
+      "title": "Alla webbplatser (Topp 20)",
+      "search": "Sök webbplats..."
     },
     "general": {
       "title": "Allmänna inställningar",

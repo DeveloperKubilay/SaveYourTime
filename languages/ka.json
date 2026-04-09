@@ -34,6 +34,15 @@
       "15min": "+15წთ",
       "30min": "+30წთ",
       "1hour": "+1სთ"
+    },
+    "siteManage": {
+      "title": "ლიმიტი ამ საიტისთვის",
+      "setLimit": "ლიმიტის დაკ設定",
+      "updateLimit": "განახლება",
+      "added": "ლიმიტი დამატ edildi",
+      "updated": "ლიმიტი განახლდა",
+      "removed": "ლიმიტი წაიშალა",
+      "unsupported": "გვერდი არ არის მხარდაჭერილი"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "დაფა",
       "siteManagement": "საიტის მართვა",
-      "activeLimits": "აქტიური ლიმიტები"
+      "activeLimits": "აქტიური ლიმიტები",
+      "allSites": "საზოგადო ყველა საიტი"
     },
     "stats": {
       "restrictedSites": "შეზღუდული საიტები",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "ამჟამად შეზღუდული საიტები"
+    },
+    "allSites": {
+      "title": "ყველა საიტი (Top 20)",
+      "search": "საიტის ძებნა..."
     },
     "general": {
       "title": "ზოგადი პარამეტრები",

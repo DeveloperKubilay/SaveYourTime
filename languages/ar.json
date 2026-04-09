@@ -34,6 +34,15 @@
       "15min": "+15د",
       "30min": "+30د",
       "1hour": "+1س"
+    },
+    "siteManage": {
+      "title": "الحد لهذا الموقع",
+      "setLimit": "تعيين حد",
+      "updateLimit": "تحديث",
+      "added": "تمت إضافة الحد",
+      "updated": "تم تحديث الحد",
+      "removed": "تمت إزالة الحد",
+      "unsupported": "الصفحة غير مدعومة"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "لوحة المعلومات",
       "siteManagement": "إدارة المواقع",
-      "activeLimits": "الحدود النشطة"
+      "activeLimits": "الحدود النشطة",
+      "allSites": "جميع المواقع"
     },
     "stats": {
       "restrictedSites": "المواقع المقيدة",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "المواقع المقيدة حاليًا"
+    },
+    "allSites": {
+      "title": "جميع المواقع (أفضل 20)",
+      "search": "ابحث عن موقع..."
     },
     "general": {
       "title": "الإعدادات العامة",

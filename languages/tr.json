@@ -34,6 +34,15 @@
       "15min": "+15dk",
       "30min": "+30dk",
       "1hour": "+1s"
+    },
+    "siteManage": {
+      "title": "Bu Site İçin Limit",
+      "setLimit": "Limit Koy",
+      "updateLimit": "Güncelle",
+      "added": "Limit eklendi",
+      "updated": "Limit güncellendi",
+      "removed": "Limit kaldırıldı",
+      "unsupported": "Bu sayfada kullanılamaz"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Yönetimi",
-      "activeLimits": "Aktif Limitler"
+      "activeLimits": "Aktif Limitler",
+      "allSites": "Tüm Siteler"
     },
     "stats": {
       "restrictedSites": "Kısıtlanan Siteler",
@@ -65,7 +75,8 @@
       "addNew": "Yeni Site Ekle",
       "editSite": "Siteyi Düzenle",
       "siteUrl": "Site URL (örn: facebook.com)",
-      "timeTemplates": "Zaman Şablonları",      "customTime": "Özel Süre",
+      "timeTemplates": "Zaman Şablonları",
+      "customTime": "Özel Süre",
       "add": "Ekle",
       "quickAdd": "Hızlı Ekle",
       "restrictedSites": "Kısıtlı Siteler",
@@ -73,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Şu Anda Limitli Siteler"
+    },
+    "allSites": {
+      "title": "Tüm Siteler (İlk 20)",
+      "search": "Site Ara..."
     },
     "general": {
       "title": "Genel Ayarlar",
