@@ -5,7 +5,7 @@ function initializeCharts(labelArray, usageArray, backgroundColor) {
     if (!sitesCtx) return;
     if (window.sitesChart instanceof Chart) window.sitesChart.destroy();
 
-    const maxValue = Math.max(...usageArray);
+    const maxValue = usageArray.length ? Math.max(...usageArray) : 0;
 
     window.sitesChart = new Chart(sitesCtx, {
         type: 'bar',
@@ -28,7 +28,7 @@ function initializeCharts(labelArray, usageArray, backgroundColor) {
                     },
                     ticks: {
                         color: '#9ca3af',
-                        callback: function(value) {
+                        callback: function (value) {
                             return window.formatTime(value * 60000, -1, true);
                         }
                     },
@@ -83,14 +83,81 @@ function resetSiteForm() {
     document.getElementById('timeHours').value = '';
     document.getElementById('timeMinutes').value = '';
     document.getElementById('editingSiteId').value = '';
-    document.getElementById('siteFormTitle').innerHTML = 
-        '<i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span>'+window.translations.settings.sites.addNew+'</span>';
-    document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-plus"></i> <span>'+window.translations.settings.sites.add+'</span>';
+    document.getElementById('siteFormTitle').innerHTML =
+        '<i class="fas fa-plus" style="color: var(--primary); margin-right: 8px;"></i> <span>' + window.translations.settings.sites.addNew + '</span>';
+    document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-plus"></i> <span>' + window.translations.settings.sites.add + '</span>';
     document.getElementById('cancelEditBtn').style.display = 'none';
 
     document.querySelectorAll('.template-btn').forEach(btn => btn.classList.remove('selected'));
 }
 
+function formatDomainLabel(domain) {
+    let label = domain.split('.')[0];
+    label = label.charAt(0).toUpperCase() + label.slice(1);
+
+    if (label === 'Youtube') return 'YouTube';
+    if (label === 'Tiktok') return 'TikTok';
+    if (label === 'Whatsapp') return 'WhatsApp';
+    if (label === 'Pornhub') return 'PornHub';
+    if (label === 'X') return 'X';
+
+    return label;
+}
+
+function hashString(value) {
+    let hash = 0;
+    for (let i = 0; i < value.length; i++) {
+        hash = ((hash << 5) - hash) + value.charCodeAt(i);
+        hash |= 0;
+    }
+    return Math.abs(hash);
+}
+
+function getSiteColor(label) {
+    if (label === 'YouTube') return 'rgba(255, 0, 0, 1)';
+    if (label === 'Facebook') return 'rgba(66, 103, 178, 1)';
+    if (label === 'X' || label === 'TikTok') return 'rgba(0, 0, 0, 1)';
+    if (label === 'Instagram') return 'rgba(131, 58, 180, 1)';
+    if (label === 'WhatsApp') return 'rgba(37, 211, 102, 1)';
+    if (label === 'Reddit') return 'rgba(255, 69, 0, 1)';
+    if (label === 'Snapchat') return 'rgba(255, 252, 0, 1)';
+    if (label === 'Pinterest') return 'rgba(189, 8, 28, 1)';
+    if (label === 'Vimeo') return 'rgba(26, 183, 234, 1)';
+    if (label === 'Odysee') return 'rgba(252, 66, 123, 1)';
+    if (label === 'Linkedin') return 'rgba(0, 119, 181, 1)';
+    if (label === 'Discord') return 'rgba(88, 101, 242, 1)';
+    if (label === 'Telegram') return 'rgba(0, 122, 255, 1)';
+    if (label === 'Twitch') return 'rgba(100, 65, 164, 1)';
+    if (label === 'Spotify') return 'rgba(30, 215, 96, 1)';
+    if (label === 'Netflix') return 'rgba(229, 9, 20, 1)';
+    if (label === 'Steam') return 'rgba(0, 120, 180, 1)';
+    if (label === 'Amazon') return 'rgba(255, 153, 0, 1)';
+    if (label === 'Ebay') return 'rgba(255, 0, 0, 1)';
+    if (label === 'Kick') return 'rgba(0, 255, 0, 1)';
+    if (label === 'Google') return 'rgba(219, 68, 55, 1)';
+    if (label === 'PornHub') return 'rgba(255, 153, 0, 1)';
+
+    return `hsl(${hashString(label) % 360}, 70%, 50%)`;
+}
+
+function renderAllSitesList(allSitesList, stats, searchTerm = '') {
+    if (!allSitesList) return;
+
+    allSitesList.innerHTML = '';
+    stats
+        .filter((item) => item.domain.toLowerCase().includes(searchTerm.toLowerCase()))
+        .forEach((item) => {
+            const siteItem = document.createElement('div');
+            siteItem.className = 'site-item';
+            const timeStr = window.formatTime(item.usage, -1, true);
+            siteItem.innerHTML = `
+                <div class="site-info" style="flex-direction:row; justify-content:space-between; align-items:center; gap: 12px;">
+                    <span class="site-url" style="font-size:16px;">${getIconHTML(item.domain)}${item.domain}</span>
+                    <span class="site-remaining" style="color:var(--primary); font-weight:bold; font-size:16px; white-space:nowrap;">${timeStr}</span>
+                </div>`;
+            allSitesList.appendChild(siteItem);
+        });
+}
 
 window.SAVE_YOUR_TIME_RUN = async function () {
     //Global
@@ -99,7 +166,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
     document.querySelectorAll('.nav-item').forEach(item => {
         item.addEventListener('click', function () {
             if (this.querySelector('select')) return;
-            
+
             document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
             document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
@@ -110,9 +177,9 @@ window.SAVE_YOUR_TIME_RUN = async function () {
         });
     });
 
-
     //site Editleme buttonları
     const siteList = document.getElementById('sitesList');
+    const activeLimitsList = document.getElementById('activeLimitsList');
     const allSitesList = document.getElementById('allSitesList');
     const searchSitesInput = document.getElementById('searchSites');
 
@@ -128,7 +195,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 const limitMatch = remainingText.split('.');
 
                 const hours = Math.floor(limitMatch[0]);
-                const minutes = Math.floor(limitMatch[1])
+                const minutes = Math.floor(limitMatch[1]);
 
                 document.getElementById('siteUrl').value = url;
                 document.getElementById('timeHours').value = hours;
@@ -138,7 +205,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                 document.getElementById('siteFormTitle').innerHTML = '<i class="fas fa-edit" style="color: #3b82f6; margin-right: 8px;"></i>' +
                     '<span>' + window.translations.settings.sites.editSite + '</span>';
 
-                document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">'+window.translations.common.save+'</span>';
+                document.getElementById('addSiteBtn').innerHTML = '<i class="fas fa-save"></i> <span data-lang="common.save">' + window.translations.common.save + '</span>';
                 document.getElementById('cancelEditBtn').style.display = 'inline-flex';
                 document.getElementById('siteFormCard').scrollIntoView({ behavior: 'smooth' });
 
@@ -146,7 +213,6 @@ window.SAVE_YOUR_TIME_RUN = async function () {
             }
         }
     });
-
 
     //Delete buttonları
     function addDeleteButtonListener(listElement) {
@@ -163,120 +229,111 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                                 item.remove();
                             }
                         });
-                    } else
+                    } else {
                         siteItem.remove();
+                    }
 
-                    window.SendMSG("deleteSite", { url: url });
+                    window.SendMSG('deleteSite', { url: url });
                 }
             });
         }
     }
 
     addDeleteButtonListener(siteList);
+    addDeleteButtonListener(activeLimitsList);
 
-
-    window.getUrlData(null, true).then(data => {
-        data = data.urls
-        data.forEach((item, index) => {
-            //Site management
-            addSite(item.url, item.limit / 60000, item.usage / 60000, item.limited)
-        });
-        
-        chrome.storage.local.get(['DailyUsage'], function(result) {
-            const daily = result.DailyUsage || {};
-            const allStats = Object.keys(daily).map(domain => ({
-                domain: domain,
-                usage: daily[domain]
-            })).sort((a, b) => b.usage - a.usage).slice(0, 20); // Top 20
-
-            var labelArray = [];
-            var usageArray = [];
-            var backgroundColor = [];
-
-            allStats.slice(0, 10).forEach((item, index) => {
-                var url = item.domain;
-                var bg = "hsl(" + Math.floor(Math.random() * 360) + ", 70%, 50%)";
-                var usageMinutes = item.usage / 60000;
-
-                try {
-                    let formattedUrl = url.split(".")[0];
-                    formattedUrl = formattedUrl.charAt(0).toUpperCase() + formattedUrl.slice(1);
-
-                    if (formattedUrl === "Youtube") formattedUrl = "YouTube";
-                    else if (formattedUrl === "Tiktok") formattedUrl = "TikTok";
-                    else if (formattedUrl === "Whatsapp") formattedUrl = "WhatsApp";
-                    else if (formattedUrl == "Pornhub") formattedUrl = "PornHub";
-                    
-                    url = formattedUrl;
-                } catch (error) {
-                    url = item.domain.replace("https://", "").replace("http://").replace("www.", "");
-                }
-
-
-                if (url == "YouTube") bg = "rgba(255, 0, 0, 1)";
-                else if (url == "Facebook") bg = "rgba(66, 103, 178, 1)";
-                else if (url == "X" || url == "TikTok") bg = "rgba(0, 0, 0, 1)";
-                else if (url == "Instagram") bg = "rgba(131, 58, 180, 1)";
-                else if (url == "WhatsApp") bg = "rgba(37, 211, 102, 1)";
-                else if (url == "Reddit") bg = "rgba(255, 69, 0, 1)";
-                else if (url == "Snapchat") bg = "rgba(255, 252, 0, 1)";
-                else if (url == "Pinterest") bg = "rgba(189, 8, 28, 1)";
-                else if (url == "Vimeo") bg = "rgba(26, 183, 234, 1)";
-                else if (url == "Odysee") bg = "rgba(252, 66, 123, 1)";
-                else if (url == "Linkedin") bg = "rgba(0, 119, 181, 1)";
-                else if (url == "Discord") bg = "rgba(88, 101, 242, 1)";
-                else if (url == "Telegram") bg = "rgba(0, 122, 255, 1)";
-                else if (url == "Twitch") bg = "rgba(100, 65, 164, 1)";
-                else if (url == "Spotify") bg = "rgba(30, 215, 96, 1)";
-                else if (url == "Netflix") bg = "rgba(229, 9, 20, 1)";
-                else if (url == "Steam") bg = "rgba(0, 120, 180, 1)";
-                else if (url == "Amazon") bg = "rgba(255, 153, 0, 1)";
-                else if (url == "Ebay") bg = "rgba(255, 0, 0, 1)";
-                else if (url == "Kick") bg = "rgba(0, 255, 0, 1)";
-                else if (url == "Google") bg = "rgba(219, 68, 55, 1)";
-                else if (url == "Pornhub") bg = "rgba(255, 153, 0, 1)";
-
-
-                labelArray.push(url);
-                usageArray.push(usageMinutes < 0 ? 0 : +usageMinutes.toFixed(2));
-                backgroundColor.push(bg);
-            });
-            
-            initializeCharts(labelArray, usageArray, backgroundColor);
+    window.getUrlData(null, true).then(async data => {
+        data = data.urls;
         const limitedSites = data.filter(item => item.limited).length;
         const totalSites = data.length;
 
-        document.getElementById('restrictedSites'). textContent= totalSites;
+        document.getElementById('restrictedSites').textContent = totalSites;
         document.getElementById('blockedSites').textContent = limitedSites;
         document.getElementById('notBlockedSites').textContent = totalSites - limitedSites;
 
-            function renderAllSites(searchTerm = "") {
-                if (!allSitesList) return;
-                allSitesList.innerHTML = '';
-                allStats.filter(s => s.domain.toLowerCase().includes(searchTerm.toLowerCase())).forEach(item => {
-                    const siteItem = document.createElement('div');
-                    siteItem.className = 'site-item';
-                    const timeStr = window.formatTime(item.usage, -9999999999999999999, true);
-                    siteItem.innerHTML = `
-                        <div class="site-info" style="flex-direction:row; justify-content:space-between; align-items:center;">
-                            <span class="site-url" style="font-size:16px;">${getIconHTML(item.domain)}${item.domain}</span>
-                            <span class="site-remaining" style="color:var(--primary); font-weight:bold; font-size:16px;">${timeStr}</span>
-                        </div>`;
-                    allSitesList.appendChild(siteItem);
-                });
-            }
+        data.forEach((item, index) => {
+            //Site management
+            addSite(item.url, item.limit / 60000, item.usage / 60000, item.limited);
+        });
 
-            renderAllSites();
+        const { DailyUsage = {} } = await chrome.storage.local.get(['DailyUsage']);
+        const allStats = Object.entries(DailyUsage)
+            .map(([domain, usage]) => ({ domain, usage }))
+            .sort((a, b) => b.usage - a.usage)
+            .slice(0, 20);
 
-            if (searchSitesInput) {
-                searchSitesInput.addEventListener('input', (e) => {
-                    renderAllSites(e.target.value);
+        let chartSource = allStats.slice(0, 10).map((item) => ({
+            label: formatDomainLabel(item.domain),
+            usageMinutes: item.usage / 60000
+        }));
+
+        if (!chartSource.length) {
+            chartSource = data.map((item) => ({
+                label: formatDomainLabel(item.url.replace(/^https?:\/\//, '').replace(/^www\./, '')),
+                usageMinutes: item.usage / 60000
+            })).slice(0, 10);
+        }
+
+        initializeCharts(
+            chartSource.map((item) => item.label),
+            chartSource.map((item) => item.usageMinutes < 0 ? 0 : +item.usageMinutes.toFixed(2)),
+            chartSource.map((item) => getSiteColor(item.label))
+        );
+
+        renderAllSitesList(allSitesList, allStats);
+        if (searchSitesInput) {
+            searchSitesInput.addEventListener('input', function (event) {
+                renderAllSitesList(allSitesList, allStats, event.target.value);
+            });
+        }
+
+        //Active limits
+        data.filter(item => item.limited).forEach(item => {
+            const siteItem = document.createElement('div');
+            siteItem.className = 'site-item';
+            siteItem.innerHTML = `
+                    <div class="site-info">
+                        <span class="site-url">${item.url}</span>
+                        <span class="site-remaining" data-time="${-item.usage}">${window.translations.settings.sites.remaining}: ${
+                            window.formatTime(-item.usage, -9999999999999999999, true)
+                        }</span>
+                    </div>
+                    <div class="site-actions">
+                        <button class="time-btn" data-time="15">+15${window.translations.common.time.minutesShort}</button>
+                        <button class="time-btn" data-time="30">+30${window.translations.common.time.minutesShort}</button>
+                        <button class="time-btn" data-time="60">+1${window.translations.common.time.hourShort}</button>
+                        <button class="time-btn" data-time="120">+2${window.translations.common.time.hoursShort}</button>
+                        <button class="time-btn" data-time="-60">-1${window.translations.common.time.hoursShort}</button>
+                        <button class="delete-btn" data-lang-title="common.close"><i class="fas fa-times"></i></button>
+                    </div>`;
+            siteItem.querySelector('.delete-btn').setAttribute('title', window.translations.common.delete);
+            activeLimitsList.innerHTML += siteItem.outerHTML;
+        });
+        const timeButtons = document.querySelectorAll('.time-btn');
+        timeButtons.forEach(button => {
+            button.addEventListener('click', function (btn) {
+                const siteItem = btn.target.closest('.site-item');
+                const url = siteItem.querySelector('.site-url').textContent;
+                const timeChange = parseInt(this.getAttribute('data-time'));
+                const remainingTime = siteItem.querySelector('.site-remaining');
+
+                const time = Number(remainingTime.getAttribute('data-time')) + (timeChange * 60000);
+                remainingTime.setAttribute('data-time', time);
+
+                remainingTime.innerHTML =
+                    `${window.translations.settings.sites.remaining}: ${window.formatTime(
+                        Number(remainingTime.getAttribute('data-time')),
+                        -9999999999999999999,
+                        true
+                    )}`;
+
+                window.SendMSG('addTime', {
+                    currentpattern: url,
+                    minutes: timeChange
                 });
-            }
+            });
         });
     });
-
-
 
     //Site managment
     document.getElementById('cancelEditBtn').addEventListener('click', resetSiteForm);//iptal butonu
@@ -299,8 +356,6 @@ window.SAVE_YOUR_TIME_RUN = async function () {
             document.getElementById('timeMinutes').value = minutes;
         });
     });
-
-
 
     const quickAddBtn = document.getElementById('quickAddBtn');
     const quickAddDropdown = document.getElementById('quickAddDropdown');
@@ -325,8 +380,7 @@ window.SAVE_YOUR_TIME_RUN = async function () {
                     if (icon.classList.contains('fa-youtube')) {
                         if (icon.classList.contains('yt-shorts')) url = 'www.youtube.com/shorts';
                         else url = 'www.youtube.com';
-                    }
-                    else if (icon.classList.contains('fa-facebook')) url = 'facebook.com';
+                    } else if (icon.classList.contains('fa-facebook')) url = 'facebook.com';
                     else if (icon.classList.contains('fa-x-twitter')) url = 'twitter.com';
                     else if (icon.classList.contains('fa-tiktok')) url = 'tiktok.com';
                     else if (icon.classList.contains('fa-instagram')) url = 'instagram.com';
@@ -355,29 +409,23 @@ window.SAVE_YOUR_TIME_RUN = async function () {
         });
     }
 
-
     //Settings
     const resetDataBtn = document.getElementById('resetDataBtn');
     if (resetDataBtn) {
         resetDataBtn.addEventListener('click', function () {
             const confirmReset = confirm(window.translations.settings.general.resetDataConfirm);
             if (confirmReset) {
-                window.SendMSG("resetAllData")
-                setTimeout(() => window.location.reload(), 500)
+                window.SendMSG('resetAllData');
+                setTimeout(() => window.location.reload(), 500);
             }
         });
-
-
     }
-}
-
-
-
+};
 
 function updateSite() {
     const siteId = document.getElementById('editingSiteId').value;
-    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "").replace(/\/+$/, "");
-    if (!url.includes(".")) return;
+    const url = document.getElementById('siteUrl').value.trim().toLowerCase().replace('https://', '').replace('http://', '').replace(/\/+$/, '');
+    if (!url.includes('.')) return;
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
 
@@ -385,19 +433,19 @@ function updateSite() {
     const validMinutes = Math.min(59, Math.max(0, timeMinutes));
 
     const timeLimitMinutes = (validHours * 60) + validMinutes;
- 
+
     if (url && timeLimitMinutes > 0) {
         const siteItem = document.querySelector(`.site-item[data-site-id="${siteId}"]`);
         if (siteItem) {
             const oldUrl = siteItem.querySelector('.site-url').textContent.trim();
             const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
-            
+
             siteItem.querySelector('.site-url').innerHTML = `${getIconHTML(url)}${url}`;
             siteItem.querySelector('.site-limit').innerHTML = `${window.translations.popup.dailyLimit}: ${timeString}`;
             siteItem.querySelector('.site-remaining').innerHTML = `${window.translations.settings.sites.remaining}: ${timeString}`;
             siteItem.querySelector('.site-remaining').setAttribute('data-remaining', validHours + '.' + validMinutes);
 
-            window.SendMSG("addSite", {
+            window.SendMSG('addSite', {
                 oldurl: oldUrl,
                 url: url,
                 limit: timeLimitMinutes * 60 * 1000
@@ -461,16 +509,14 @@ function getIconHTML(url) {
     return iconHTML;
 }
 
-
-
-function addSite(murl, timeLimit, usage,itsLimited) {
-    const url = (murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace("https://", "").replace("http://", "")).replace(/\/+$/, "");
-    if (!url.includes(".")) return;
+function addSite(murl, timeLimit, usage, itsLimited) {
+    const url = (murl ?? document.getElementById('siteUrl').value.trim().toLowerCase().replace('https://', '').replace('http://', '')).replace(/\/+$/, '');
+    if (!url.includes('.')) return;
     const timeHours = parseInt(document.getElementById('timeHours').value) || 0;
     const timeMinutes = parseInt(document.getElementById('timeMinutes').value) || 0;
 
     let validHours, validMinutes;
-    
+
     if (timeLimit !== undefined) {
         validHours = Math.floor(timeLimit / 60);
         validMinutes = timeLimit % 60;
@@ -478,7 +524,7 @@ function addSite(murl, timeLimit, usage,itsLimited) {
         validHours = Math.min(23, Math.max(0, timeHours));
         validMinutes = Math.min(59, Math.max(0, timeMinutes));
     }
-    
+
     const timeLimitMinutes = validHours * 60 + validMinutes;
     if (!url || timeLimitMinutes < 0.000000000000001) return;
     const siteId = url.replace(/[^a-zA-Z0-9]/g, '');//URL ama arındırılmış hali
@@ -502,14 +548,13 @@ function addSite(murl, timeLimit, usage,itsLimited) {
     newSite.className = 'site-item';
     newSite.setAttribute('data-site-id', siteId);
 
-    
     const timeString = window.formatTime(timeLimitMinutes * 60 * 1000);
     newSite.innerHTML = `
             <div class="site-info">
                 <span class="site-url">${getIconHTML(url)}${url}</span>
                 <span class="site-limit">${window.translations.popup.dailyLimit}: ${timeString}</span>
                 <span class="site-remaining" data-remaining="${validHours}.${validMinutes}">${window.translations.settings.sites.remaining}: ${
-                    typeof usage !== "undefined" ? window.formatTime(!itsLimited ? (timeLimit-usage)*60000 : usage*60000) : timeString
+                    typeof usage !== 'undefined' ? window.formatTime(!itsLimited ? (timeLimit - usage) * 60000 : usage * 60000) : timeString
                 }</span>
             </div>
             <div class="site-actions">
@@ -517,14 +562,14 @@ function addSite(murl, timeLimit, usage,itsLimited) {
                 <button class="delete-btn"><i class="fas fa-trash"></i></button>
             </div>
         `;
-    newSite.querySelector(".edit-btn").setAttribute('title', window.translations.common.edit);
-    newSite.querySelector(".delete-btn").setAttribute('title', window.translations.common.delete);
+    newSite.querySelector('.edit-btn').setAttribute('title', window.translations.common.edit);
+    newSite.querySelector('.delete-btn').setAttribute('title', window.translations.common.delete);
 
-    if (typeof usage === "undefined") {
-        window.SendMSG("addSite", {
+    if (typeof usage === 'undefined') {
+        window.SendMSG('addSite', {
             url: url,
             limit: timeLimitMinutes * 60 * 1000
-        })
+        });
     }
 
     sitesList.prepend(newSite);

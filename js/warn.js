@@ -23,10 +23,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    const continueRemoveButton = document.querySelector('.continue-remove-btn');
-    if (continueRemoveButton) {
-        continueRemoveButton.addEventListener('click', function() {
-            window.parent.postMessage({ type: 'continueAndRemove' }, '*');
+    const closeButton = document.querySelector('.close-btn');
+    if (closeButton) {
+        closeButton.addEventListener('click', function() {
+            window.parent.postMessage({ type: 'close' }, '*');
         });
     }
 

@@ -41,14 +41,14 @@
       "updateLimit": "Update",
       "added": "Limit added",
       "updated": "Limit updated",
-      "removed": "Limit removed"
+      "removed": "Limit removed",
+      "unsupported": "Unsupported page"
     }
   },
   "warn": {
     "title": "You've Run Out of Time!",
     "message": "You've reached your daily time limit for this site. A great opportunity to redirect your attention to more important tasks!",
     "continueAnyway": "Continue Anyway",
-    "continueAndRemove": "Continue & Remove Timer",
     "ThrowWarn":"You have {{ minutes }}m left until you reach your daily limit! - {{ appName }}",
     "dailyStats": "Today This site with total usage of <strong>{{ totalTime }}</strong>",
     "timeOption": {
@@ -62,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Management",
-      "allSites": "Statistics"
+      "activeLimits": "Active Limits",
+      "allSites": "All Sites"
     },
     "stats": {
       "restrictedSites": "Restricted Sites",
@@ -79,6 +80,9 @@
       "quickAdd": "Quick Add",
       "restrictedSites": "Restricted Sites",
       "remaining": "Remaining time"
+    },
+    "activeLimits": {
+      "title": "Currently Limited Sites"
     },
     "allSites": {
       "title": "All Sites (Top 20)",
