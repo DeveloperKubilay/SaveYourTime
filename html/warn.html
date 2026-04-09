@@ -55,6 +55,7 @@
             flex-direction: column;
             animation: slideIn 0.6s ease;
             border: 1px solid var(--border);
+            position: relative;
         }
 
         @keyframes slideIn {
@@ -215,15 +216,10 @@
             font-weight: normal;
         }
 
-        .action-buttons-wrap {
-            display: flex;
-            flex-direction: column;
-            margin-top: 15px;
-        }
-
-        .action-buttons-row {
+        .action-buttons {
             display: flex;
             gap: 10px;
+            margin-top: 15px;
         }
 
         .action-btn {
@@ -282,26 +278,32 @@
             color: var(--text-muted);
         }
 
-        .continue-remove-btn {
-            background-color: rgba(239, 68, 68, 0.15);
-            color: #ef4444;
-            flex: 1;
-            margin-top: 8px;
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border: none;
+            border-radius: 999px;
+            background-color: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
-        .continue-remove-btn:hover {
-            background-color: rgba(239, 68, 68, 0.25);
-            transform: translateY(-1px);
+        .close-btn:hover {
+            background-color: rgba(255, 255, 255, 0.14);
+            color: var(--text-light);
         }
 
-        .continue-remove-btn span {
-            color: #ef4444;
-            font-size: 14px;
-            font-weight: 500;
-        }
-
-        .continue-remove-btn i {
-            color: #ef4444;
+        .close-btn i {
+            margin: 0;
+            font-size: 16px;
         }
 
         .footer {
@@ -375,6 +377,9 @@
 
 <body>
     <div class="time-limit-container">
+        <button class="close-btn" data-lang-title="common.close" aria-label="Close">
+            <i class="fas fa-times"></i>
+        </button>
         <div class="time-limit-content">
             <div class="left-section">
                 <div class="shield-container">
@@ -415,19 +420,13 @@
                     </button>
                 </div>
 
-                <div class="action-buttons-wrap">
-                    <div class="action-buttons-row">
-                        <button class="action-btn continue-btn">
-                            <i class="fas fa-arrow-right" style="position:relative; top:1px;"></i>
-                            <span data-lang="warn.continueAnyway"></span>
-                        </button>
-                        <button class="action-btn settings-btn" data-lang-title="common.settings">
-                            <i class="fas fa-cog"></i>
-                        </button>
-                    </div>
-                    <button class="action-btn continue-remove-btn">
-                        <i class="fas fa-trash-alt"></i>
-                        <span data-lang="warn.continueAndRemove">Devam Et ve Zamanlayıcıyı Kaldır</span>
+                <div class="action-buttons">
+                    <button class="action-btn continue-btn">
+                        <i class="fas fa-arrow-right" style="position:relative; top:1px;"></i>
+                        <span data-lang="warn.continueAnyway"></span>
+                    </button>
+                    <button class="action-btn settings-btn" data-lang-title="common.settings">
+                        <i class="fas fa-cog"></i>
                     </button>
                 </div>
             </div>

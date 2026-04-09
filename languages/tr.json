@@ -41,14 +41,14 @@
       "updateLimit": "Güncelle",
       "added": "Limit eklendi",
       "updated": "Limit güncellendi",
-      "removed": "Limit kaldırıldı"
+      "removed": "Limit kaldırıldı",
+      "unsupported": "Bu sayfada kullanılamaz"
     }
   },
   "warn": {
     "title": "Zamanınızı Doldurdunuz!",
     "message": "Bu site için belirlediğiniz günlük zaman limitine ulaştınız. Dikkatinizi daha önemli işlere yönlendirmek için harika bir fırsat!",
     "continueAnyway": "Yine de Devam Et",
-    "continueAndRemove": "Devam Et ve Zamanlayıcıyı Kaldır",
     "ThrowWarn":"Günlük limitinize ulaşmanıza {{ minutes }} dk kaldı! - {{ appName }}",
     "dailyStats": "Bugün bu site için toplam <strong>{{ totalTime }}</strong> kullanım",
     "timeOption": {
@@ -62,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashboard",
       "siteManagement": "Site Yönetimi",
-      "allSites": "İstatistikler"
+      "activeLimits": "Aktif Limitler",
+      "allSites": "Tüm Siteler"
     },
     "stats": {
       "restrictedSites": "Kısıtlanan Siteler",
@@ -79,6 +80,9 @@
       "quickAdd": "Hızlı Ekle",
       "restrictedSites": "Kısıtlı Siteler",
       "remaining": "Kalan süre"
+    },
+    "activeLimits": {
+      "title": "Şu Anda Limitli Siteler"
     },
     "allSites": {
       "title": "Tüm Siteler (İlk 20)",

@@ -1,398 +1,327 @@
+const MINUTE_MS = 60 * 1000;
+const DAY_MS = 24 * 60 * 60 * 1000;
+const STORAGE_KEYS = ['Urls', 'lang', 'Tabignores', 'lastResetTime', 'warnedUrls', 'DailyUsage'];
+
 chrome.runtime.onInstalled.addListener(async function (details) {
     if (details.reason === 'install') {
-        chrome.storage.local.clear();
+        await chrome.storage.local.clear();
 
-        var lang = "en";
+        let lang = 'en';
         try {
-            lang = navigator.language.substring(0, 2).toLowerCase()
-            await fetch(chrome.runtime.getURL('languages/' + lang + ".json"));
-        } catch { lang = "en" }
+            lang = navigator.language.substring(0, 2).toLowerCase();
+            await fetch(chrome.runtime.getURL(`languages/${lang}.json`));
+        } catch {
+            lang = 'en';
+        }
 
-        chrome.storage.local.set({
+        await chrome.storage.local.set({
             Urls: [],
             lang: lang,
             lastResetTime: Date.now(),
-            warnedUrls: {}
-        }, function () {
-            chrome.tabs.create({
-                url: chrome.runtime.getURL('html/thanks.html')
-            });
+            warnedUrls: {},
+            DailyUsage: {}
+        });
+
+        chrome.tabs.create({
+            url: chrome.runtime.getURL('html/thanks.html')
         });
     }
-    
-    try {
-        const tabs = await chrome.tabs.query({});
-        for (const tab of tabs) {
-            if (tab.url && !tab.url.startsWith("chrome://") && !tab.url.startsWith("edge://") && !tab.url.startsWith("opera://") && !tab.url.startsWith("about:") && !tab.url.startsWith("chrome-extension://")) {
-                try {
-                    await chrome.scripting.executeScript({
-                        target: { tabId: tab.id },
-                        files: ["script.js"]
-                    });
-                } catch(e) {}
-            }
-        }
-    } catch(e) {}
 
     await chrome.storage.local.set({ Tabignores: [] });
 });
 
-chrome.runtime.onStartup.addListener(async () =>
-    await chrome.storage.local.set({ Tabignores: [] })
-);
+chrome.runtime.onStartup.addListener(async function () {
+    await chrome.storage.local.set({ Tabignores: [] });
+});
 
-chrome.alarms.create("myTimer", { periodInMinutes: 1 / 30 });
-chrome.alarms.onAlarm.addListener(async (alarm) => {
-    if (alarm.name === "myTimer") {
-        await run();
+chrome.alarms.create('myTimer', { periodInMinutes: 1 });
+chrome.alarms.onAlarm.addListener(async function (alarm) {
+    if (alarm.name !== 'myTimer') {
+        return;
+    }
+
+    const [activeTab] = await chrome.tabs.query({ active: true, currentWindow: true });
+    if (activeTab) {
+        await run(activeTab, true);
     }
 });
 
-chrome.tabs.onUpdated.addListener(async (tabId, changeInfo, tab) => {
+chrome.tabs.onUpdated.addListener(async function (_tabId, changeInfo, tab) {
     if (changeInfo.status === 'complete' && tab.url) {
-        if (tab.active) await run();
+        await run(tab, false);
     }
 });
 
-chrome.tabs.onActivated.addListener(async (activeInfo) => {
-    await run();
+chrome.tabs.onActivated.addListener(async function (activeInfo) {
+    try {
+        const tab = await chrome.tabs.get(activeInfo.tabId);
+        if (tab?.url) {
+            await run(tab, false);
+        }
+    } catch { }
 });
 
-chrome.windows.onFocusChanged.addListener(async (windowId) => {
-    if (windowId === chrome.windows.WINDOW_ID_NONE) {
-        await run(true);
-    } else {
-        await run();
+async function run(tab, shouldTrack) {
+    if (!tab || !tab.url || !isTrackableUrl(tab.url)) {
+        return;
     }
-});
 
+    let {
+        Urls = [],
+        lang: langCode = 'en',
+        Tabignores = [],
+        lastResetTime = 0,
+        warnedUrls = {},
+        DailyUsage = {}
+    } = await chrome.storage.local.get(STORAGE_KEYS);
 
+    if (Date.now() - lastResetTime > DAY_MS) {
+        const resetValues = {};
 
-async function run(stopTracking = false) {
-    var data = await chrome.storage.local.get([
-        'Urls', 'lang', 'Tabignores', 'lastResetTime',
-        'globalActiveUrl', 'globalActiveDomain', 'globalLastActiveTime',
-        'warnedUrls', 'DailyUsage'
-    ]);
-
-    var Urls = data.Urls || [];
-    var langCode = data.lang || "en";
-    var Tabignores = data.Tabignores || [];
-    var lastResetTime = data.lastResetTime || 0;
-    var globalActiveUrl = data.globalActiveUrl || null;
-    var globalActiveDomain = data.globalActiveDomain || null;
-    var globalLastActiveTime = data.globalLastActiveTime || Date.now();
-    var warnedUrls = data.warnedUrls || {};
-    var DailyUsage = data.DailyUsage || {};
-
-    // Günlük reset
-    if (Date.now() - lastResetTime > 24 * 60 * 60 * 1000) {
-        var temp = {}
-        Urls = Urls.map(url => {
-            temp[url.url] = 0;
-            url.limited = false;
-            return url;
+        Urls = Urls.map((item) => {
+            resetValues[item.url] = 0;
+            return { ...item, limited: false };
         });
+
         await chrome.storage.local.set({
-            ...temp,
+            ...resetValues,
             Urls: Urls,
             lastResetTime: Date.now(),
-            warnedUrls: {},  // Uyarıları da sıfırla
-            DailyUsage: {}   // Tüm istatistikleri sıfırla
+            warnedUrls: {},
+            DailyUsage: {}
         });
+
         warnedUrls = {};
         DailyUsage = {};
     }
 
-    let elapsed = Date.now() - globalLastActiveTime;
-    if (elapsed > 300000) elapsed = 30000;
-    if (elapsed < 0) elapsed = 0;
+    const activeDomain = getDomainFromUrl(tab.url);
+    if (shouldTrack && activeDomain) {
+        DailyUsage[activeDomain] = (DailyUsage[activeDomain] || 0) + MINUTE_MS;
+        await chrome.storage.local.set({ DailyUsage: DailyUsage });
+    }
 
-    if (globalActiveUrl && elapsed > 0) {
-        const urlItem = Urls.find(u => u.url === globalActiveUrl);
-        if (urlItem && !urlItem.limited) {
-            const usageData = await chrome.storage.local.get(urlItem.url);
-            let usage = usageData[urlItem.url] || 0;
-            if (usage < urlItem.limit) {
-                let newUsage = usage + elapsed;
-                if (newUsage > urlItem.limit) newUsage = urlItem.limit;
+    const urlItem = getMatchedLimit(tab.url, Urls);
+    if (!urlItem) {
+        return;
+    }
 
-                await chrome.storage.local.set({
-                    [urlItem.url]: newUsage,
-                    [`_lastTrack_${urlItem.url}`]: Date.now()
+    const isTabIgnored = Tabignores.some((ignoredTab) =>
+        ignoredTab.id === tab.id && ignoredTab.url === urlItem.url
+    );
+    if (isTabIgnored) {
+        return;
+    }
+
+    const lang = await getLanguage(langCode);
+    let usage = (await chrome.storage.local.get(urlItem.url))[urlItem.url] || 0;
+
+    if (shouldTrack && !urlItem.limited && usage < urlItem.limit) {
+        const nextUsage = usage + MINUTE_MS;
+        const remainingMinutes = Math.floor((urlItem.limit - nextUsage) / MINUTE_MS);
+
+        if (remainingMinutes === 5 || remainingMinutes === 1) {
+            const warnKey = `${urlItem.url}_${remainingMinutes}`;
+            if (!warnedUrls[warnKey]) {
+                warnedUrls[warnKey] = true;
+                await chrome.storage.local.set({ warnedUrls: warnedUrls });
+                sendTabMessage(tab.id, {
+                    target: 'throwWarn',
+                    lang: lang,
+                    minutes: remainingMinutes
                 });
             }
         }
-    }
-    
-    if (globalActiveDomain && elapsed > 0) {
-        DailyUsage[globalActiveDomain] = (DailyUsage[globalActiveDomain] || 0) + elapsed;
-        await chrome.storage.local.set({ DailyUsage });
-    }
 
-    globalLastActiveTime = Date.now();
-
-    if (stopTracking) {
+        usage = Math.min(nextUsage, urlItem.limit);
         await chrome.storage.local.set({
-            globalActiveUrl: null,
-            globalActiveDomain: null,
-            globalLastActiveTime: globalLastActiveTime
+            [urlItem.url]: usage,
+            [`_lastTrack_${urlItem.url}`]: Date.now()
         });
-        return;
     }
 
-    const allWindows = await chrome.windows.getAll({ populate: true, windowTypes: ['normal'] });
-    const normalWindow = allWindows.find(w => w.focused) || allWindows.find(w => w.state !== 'minimized') || allWindows[0];
-    const tab = normalWindow?.tabs?.find(t => t.active);
-
-    if (!tab || !tab.url) {
-        await chrome.storage.local.set({
-            globalActiveUrl: null,
-            globalActiveDomain: null,
-            globalLastActiveTime: globalLastActiveTime
+    if (usage >= urlItem.limit) {
+        sendTabMessage(tab.id, {
+            target: 'addIframe',
+            lang: lang,
+            currentpattern: urlItem.url,
+            usage: usage,
+            tabId: tab.id,
+            limited: true
         });
-        return;
-    }
 
-
-    const langResponse = await fetch(chrome.runtime.getURL('languages/' + langCode + ".json"));
-    lang = await langResponse.json();
-
-    const tabHost = tab.url.replace("https://", "").replace("http://", "").toLowerCase();
-    const tabHostNoWww = tabHost.replace(/^www\./, '');
-    const tabDomainOnly = tabHost.split('/')[0].replace(/^www\./, ''); // Exact domain
-    
-    globalActiveDomain = tabDomainOnly;
-
-    const urlItem = Urls.filter(pattern => {
-        const p = pattern.url.toLowerCase();
-        const pNoWww = p.replace(/^www\./, '');
-        return tabHost.startsWith(p) || tabHostNoWww.startsWith(pNoWww);
-    }).sort((a, b) => b.url.length - a.url.length)[0] || {};
-
-    if (urlItem.url) {
-        const isTabIgnored = Tabignores.some(ignoredTab => ignoredTab.id === tab.id && ignoredTab.url === urlItem.url);
-        if (isTabIgnored) {
+        if (!urlItem.limited) {
             await chrome.storage.local.set({
-                globalActiveUrl: null,
-                globalLastActiveTime: globalLastActiveTime
-            });
-            return;
-        }
-
-        globalActiveUrl = urlItem.url;
-
-        const usageData = await chrome.storage.local.get(urlItem.url);
-        const usage = usageData[urlItem.url] || 0;
-
-        const remainingTimeObj = urlItem.limit - usage;
-        const remainingMinutes = Math.floor(remainingTimeObj / 60000);
-
-        // === DÜZELTME: Uyarı sistemi ===
-        if (!urlItem.limited && remainingTimeObj > 0) {
-            const warnKey5 = `${urlItem.url}_warn5`;
-            const warnKey1 = `${urlItem.url}_warn1`;
-
-            if (remainingMinutes <= 5 && remainingMinutes > 1 && !warnedUrls[warnKey5]) {
-                warnedUrls[warnKey5] = true;
-                await chrome.storage.local.set({ warnedUrls });
-                await sendMessageWithRetry(tab.id, {
-                    target: "throwWarn",
-                    lang: lang,
-                    minutes: 5,
-                });
-            } else if (remainingMinutes <= 1 && remainingMinutes > 0 && !warnedUrls[warnKey1]) {
-                warnedUrls[warnKey1] = true;
-                await chrome.storage.local.set({ warnedUrls });
-                await sendMessageWithRetry(tab.id, {
-                    target: "throwWarn",
-                    lang: lang,
-                    minutes: 1,
-                });
-            }
-        }
-        // === DÜZELTME SONU ===
-
-        if (remainingTimeObj <= 0) {
-            await sendMessageWithRetry(tab.id, {
-                target: "addIframe",
-                lang: lang,
-                currentpattern: urlItem.url,
-                usage: DailyUsage[urlItem.url] || usage, // GERÇEK GÜNLÜK KULLANIM
-                tabId: tab.id,
-                limited: true
-            });
-
-            if (!urlItem.limited) {
-                Urls = Urls.map(url => {
-                    if (url.url === urlItem.url) url.limited = true;
-                    return url;
-                });
-                await chrome.storage.local.set({ Urls: Urls });
-            }
-        } else {
-            await sendMessageWithRetry(tab.id, {
-                target: "scheduleIframe",
-                lang: lang,
-                currentpattern: urlItem.url,
-                usage: DailyUsage[globalActiveDomain] || usage,
-                tabId: tab.id,
-                remainingMs: remainingTimeObj
+                Urls: Urls.map((item) =>
+                    item.url === urlItem.url ? { ...item, limited: true } : item
+                )
             });
         }
-
-        await chrome.storage.local.set({
-            globalActiveUrl: globalActiveUrl,
-            globalActiveDomain: globalActiveDomain,
-            globalLastActiveTime: globalLastActiveTime
-        });
-
-    } else {
-        await chrome.storage.local.set({
-            globalActiveUrl: null,
-            globalActiveDomain: globalActiveDomain,
-            globalLastActiveTime: globalLastActiveTime
-        });
     }
 }
 
-async function sendMessageWithRetry(tabId, message, maxRetries = 3, delay = 500) {
-    for (let i = 0; i < maxRetries; i++) {
-        try {
-            await chrome.tabs.sendMessage(tabId, message);
-            return true;
-        } catch (e) {
-            if (i === maxRetries - 1) {
-                console.log("Content script not ready after retries");
-                return false;
-            }
-            await new Promise(resolve => setTimeout(resolve, delay));
-        }
-    }
-    return false;
+function normalizeUrlPattern(url = '') {
+    return url
+        .replace(/^https?:\/\//i, '')
+        .toLowerCase()
+        .replace(/^www\./, '');
 }
 
+function getMatchedLimit(tabUrl, urls) {
+    const cleanUrl = normalizeUrlPattern(tabUrl);
+
+    return urls
+        .filter((item) => cleanUrl.startsWith(normalizeUrlPattern(item.url)))
+        .sort((a, b) => normalizeUrlPattern(b.url).length - normalizeUrlPattern(a.url).length)[0] || null;
+}
+
+function isTrackableUrl(url) {
+    return ![
+        'chrome://',
+        'chrome-extension://',
+        'edge://',
+        'opera://',
+        'about:',
+        'moz-extension://'
+    ].some((prefix) => url.startsWith(prefix));
+}
+
+function getDomainFromUrl(url) {
+    try {
+        return new URL(url).hostname.replace(/^www\./, '').toLowerCase();
+    } catch {
+        return null;
+    }
+}
+
+async function getLanguage(langCode) {
+    try {
+        const response = await fetch(chrome.runtime.getURL(`languages/${langCode}.json`));
+        return await response.json();
+    } catch {
+        const response = await fetch(chrome.runtime.getURL('languages/en.json'));
+        return await response.json();
+    }
+}
+
+function sendTabMessage(tabId, message) {
+    chrome.tabs.sendMessage(tabId, message).catch(() => { });
+}
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-    if (message.target == "addTime") {
-        chrome.storage.local.get([message.currentpattern, 'Urls', 'warnedUrls'])
-            .then(result => {
-                const currentUsage = result[message.currentpattern] || 0;
-                const newUsage = Math.max(0, currentUsage - (message.minutes * 60 * 1000));
+    handleMessage(message)
+        .then(() => sendResponse({ success: true }))
+        .catch((error) => sendResponse({ success: false, error: error.message }));
 
-                const Urls = result.Urls || [];
-                const updatedUrls = Urls.map(url => {
-                    if (url.url === message.currentpattern) url.limited = false;
-                    return url;
-                });
-
-                const warnedUrls = result.warnedUrls || {};
-                delete warnedUrls[`${message.currentpattern}_warn5`];
-                delete warnedUrls[`${message.currentpattern}_warn1`];
-
-                // Clear ignores for this tab to re-enable limits on this site after adding time
-                chrome.storage.local.get(['Tabignores']).then(({ Tabignores = [] }) => {
-                    const filtered = Tabignores.filter(t => t.url !== message.currentpattern);
-                    chrome.storage.local.set({ Tabignores: filtered });
-                });
-
-                return chrome.storage.local.set({
-                    [message.currentpattern]: newUsage,
-                    Urls: updatedUrls,
-                    warnedUrls: warnedUrls,
-                    [`_lastTrack_${message.currentpattern}`]: Date.now()
-                });
-            })
-            .then(() => sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }));
-        return true;
-    }
-    else if (message.target == "resetAllData") {
-        chrome.storage.local.clear()
-            .then(() => {
-                return chrome.storage.local.set({
-                    lang: "en",
-                    Urls: [],
-                    Tabignores: [],
-                    lastResetTime: Date.now(),
-                    warnedUrls: {}
-                });
-            })
-            .then(() => sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }));
-        return true;
-    }
-    else if (message.target == "Iframe_Continue") {
-        chrome.storage.local.get(['Tabignores'])
-            .then(({ Tabignores = [] }) => {
-                const updatedTabignores = Tabignores.filter(tab => !(tab.id === message.tabId && tab.url === message.url));
-                updatedTabignores.push({ id: message.tabId, url: message.url });
-                return chrome.storage.local.set({ Tabignores: updatedTabignores });
-            })
-            .then(() => sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }));
-        return true;
-    } else if (message.target == "deleteSite") {
-        chrome.storage.local.get(['Urls', 'warnedUrls'])
-            .then(({ Urls, warnedUrls = {} }) => {
-                const updatedUrls = Urls.filter(url => url.url !== message.url);
-                // Silinen sitenin uyarılarını da temizle
-                delete warnedUrls[`${message.url}_warn5`];
-                delete warnedUrls[`${message.url}_warn1`];
-
-                // Remove from Tabignores
-                chrome.storage.local.get(['Tabignores']).then(({ Tabignores = [] }) => {
-                    const filtered = Tabignores.filter(t => t.url !== message.url);
-                    chrome.storage.local.set({ Tabignores: filtered });
-                });
-                return chrome.storage.local.set({
-                    Urls: updatedUrls,
-                    [message.url]: 0,
-                    warnedUrls
-                });
-            })
-            .then(() => sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }));
-        return true;
-    } else if (message.target == "addSite") {
-        chrome.storage.local.get(['Urls', message.url, 'warnedUrls'])
-            .then((data) => {
-                const Urls = data.Urls || [];
-                const warnedUrls = data.warnedUrls || {};
-                const updatedUrls = Urls.filter(url =>
-                    message.oldurl ?
-                        url.url !== message.oldurl && url.url !== message.url
-                        : url.url !== message.url
-                );
-                updatedUrls.push({ url: message.url, limit: message.limit, limited: false });
-                const currentUsage = data[message.url] || 0;
-
-                // Site güncellenince uyarıları sıfırla
-                delete warnedUrls[`${message.url}_warn5`];
-                delete warnedUrls[`${message.url}_warn1`];
-                if (message.oldurl) {
-                    delete warnedUrls[`${message.oldurl}_warn5`];
-                    delete warnedUrls[`${message.oldurl}_warn1`];
-                }
-
-                // Testing için eklendiğinde Tabignores'tan temizle
-                chrome.storage.local.get(['Tabignores']).then(({ Tabignores = [] }) => {
-                    const filtered = Tabignores.filter(t => t.url !== message.url && t.url !== message.oldurl);
-                    chrome.storage.local.set({ Tabignores: filtered });
-                });
-
-                return chrome.storage.local.set({
-                    Urls: updatedUrls,
-                    [message.url]: currentUsage,
-                    warnedUrls,
-                    [`_lastTrack_${message.url}`]: Date.now()
-                });
-            })
-            .then(() => sendResponse({ success: true }))
-            .catch(error => sendResponse({ success: false, error: error.message }));
-        return true;
-    } else {
-        sendResponse({ success: false });
-        return true;
-    }
+    return true;
 });
+
+async function handleMessage(message) {
+    if (message.target === 'addTime') {
+        await handleAddTime(message);
+        return;
+    }
+
+    if (message.target === 'resetAllData') {
+        await chrome.storage.local.clear();
+        await chrome.storage.local.set({
+            lang: 'en',
+            Urls: [],
+            Tabignores: [],
+            lastResetTime: Date.now(),
+            warnedUrls: {},
+            DailyUsage: {}
+        });
+        return;
+    }
+
+    if (message.target === 'Iframe_Continue') {
+        const { Tabignores = [] } = await chrome.storage.local.get(['Tabignores']);
+        const updatedTabignores = Tabignores.filter((tab) =>
+            !(tab.id === message.tabId && tab.url === message.url)
+        );
+
+        updatedTabignores.push({ id: message.tabId, url: message.url });
+        await chrome.storage.local.set({ Tabignores: updatedTabignores });
+        return;
+    }
+
+    if (message.target === 'deleteSite') {
+        const { Urls = [], warnedUrls = {}, Tabignores = [] } =
+            await chrome.storage.local.get(['Urls', 'warnedUrls', 'Tabignores']);
+
+        delete warnedUrls[`${message.url}_5`];
+        delete warnedUrls[`${message.url}_1`];
+
+        await chrome.storage.local.set({
+            Urls: Urls.filter((item) => item.url !== message.url),
+            [message.url]: 0,
+            warnedUrls: warnedUrls,
+            Tabignores: Tabignores.filter((tab) => tab.url !== message.url)
+        });
+        return;
+    }
+
+    if (message.target === 'addSite') {
+        await handleAddSite(message);
+        return;
+    }
+
+    throw new Error('Unknown message target');
+}
+
+async function handleAddTime(message) {
+    const { Urls = [], warnedUrls = {}, Tabignores = [], ...usageData } =
+        await chrome.storage.local.get([message.currentpattern, 'Urls', 'warnedUrls', 'Tabignores']);
+
+    delete warnedUrls[`${message.currentpattern}_5`];
+    delete warnedUrls[`${message.currentpattern}_1`];
+
+    await chrome.storage.local.set({
+        [message.currentpattern]: (usageData[message.currentpattern] || 0) - (message.minutes * MINUTE_MS),
+        Urls: Urls.map((item) =>
+            item.url === message.currentpattern ? { ...item, limited: false } : item
+        ),
+        warnedUrls: warnedUrls,
+        Tabignores: Tabignores.filter((tab) => tab.url !== message.currentpattern),
+        [`_lastTrack_${message.currentpattern}`]: Date.now()
+    });
+}
+
+async function handleAddSite(message) {
+    const keys = ['Urls', 'warnedUrls', 'Tabignores', message.url];
+    if (message.oldurl) {
+        keys.push(message.oldurl);
+    }
+
+    const data = await chrome.storage.local.get(keys);
+    const Urls = data.Urls || [];
+    const warnedUrls = data.warnedUrls || {};
+    const Tabignores = data.Tabignores || [];
+
+    delete warnedUrls[`${message.url}_5`];
+    delete warnedUrls[`${message.url}_1`];
+
+    if (message.oldurl) {
+        delete warnedUrls[`${message.oldurl}_5`];
+        delete warnedUrls[`${message.oldurl}_1`];
+    }
+
+    const updatedUrls = Urls.filter((item) =>
+        message.oldurl
+            ? item.url !== message.oldurl && item.url !== message.url
+            : item.url !== message.url
+    );
+
+    updatedUrls.push({ url: message.url, limit: message.limit, limited: false });
+
+    await chrome.storage.local.set({
+        Urls: updatedUrls,
+        [message.url]: data[message.url] ?? data[message.oldurl] ?? 0,
+        warnedUrls: warnedUrls,
+        Tabignores: Tabignores.filter((tab) =>
+            tab.url !== message.url && tab.url !== message.oldurl
+        ),
+        [`_lastTrack_${message.url}`]: Date.now()
+    });
+}
