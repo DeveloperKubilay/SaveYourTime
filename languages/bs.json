@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limit za ovu stranicu",
+      "setLimit": "Postavi limit",
+      "updateLimit": "Ažuriraj",
+      "added": "Limit dodat",
+      "updated": "Limit ažuriran",
+      "removed": "Limit uklonjen",
+      "unsupported": "Stranica nije podržana"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Kontrolna tabla",
       "siteManagement": "Upravljanje stranicama",
-      "activeLimits": "Aktivna ograničenja"
+      "activeLimits": "Aktivna ograničenja",
+      "allSites": "Sve stranice"
     },
     "stats": {
       "restrictedSites": "Ograničene stranice",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Trenutno ograničene stranice"
+    },
+    "allSites": {
+      "title": "Sve stranice (Top 20)",
+      "search": "Pretraži stranicu..."
     },
     "general": {
       "title": "Opće postavke",

@@ -30,6 +30,15 @@
     "timeEnd": "时间到",
     "noLimits": "未设置限制",
     "otherSites": "其他受限网站",
+    "siteManage": {
+      "title": "站点管理",
+      "setLimit": "设置限制",
+      "updateLimit": "更新限制",
+      "added": "已添加站点",
+      "updated": "已更新限制",
+      "removed": "已移除限制",
+      "unsupported": "不支持此站点"
+    },
     "timeButtons": {
       "15min": "+15分钟",
       "30min": "+30分钟",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "仪表板",
       "siteManagement": "网站管理",
-      "activeLimits": "活跃限制"
+      "activeLimits": "活跃限制",
+      "allSites": "所有站点"
     },
     "stats": {
       "restrictedSites": "受限网站",
@@ -71,6 +81,10 @@
       "quickAdd": "快速添加",
       "restrictedSites": "受限网站",
       "remaining": "剩余时间"
+    },
+    "allSites": {
+      "title": "所有站点",
+      "search": "搜索站点"
     },
     "activeLimits": {
       "title": "当前受限网站"

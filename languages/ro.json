@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1h"
+    },
+    "siteManage": {
+      "title": "Limită pentru acest site",
+      "setLimit": "Setează limită",
+      "updateLimit": "Actualizează",
+      "added": "Limită adăugată",
+      "updated": "Limită actualizată",
+      "removed": "Limită eliminată",
+      "unsupported": "Pagină neacceptată"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Tablou de Bord",
       "siteManagement": "Gestionarea Site-urilor",
-      "activeLimits": "Limite Active"
+      "activeLimits": "Limite Active",
+      "allSites": "Toate Site-urile"
     },
     "stats": {
       "restrictedSites": "Site-uri Restricționate",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Site-uri Limitate în Prezent"
+    },
+    "allSites": {
+      "title": "Toate Site-urile (Top 20)",
+      "search": "Caută site..."
     },
     "general": {
       "title": "Setări Generale",

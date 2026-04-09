@@ -30,6 +30,15 @@
     "timeEnd": "ਸਮਾਂ ਖਤਮ",
     "noLimits": "ਕੋਈ ਸੀਮਾਵਾਂ ਨਹੀਂ ਸੈੱਟ ਕੀਤੀਆਂ",
     "otherSites": "ਹੋਰ ਰੋਕੇ ਗਏ ਸਾਈਟਾਂ",
+    "siteManage": {
+      "title": "ਸਾਈਟ ਪ੍ਰਬੰਧਨ",
+      "setLimit": "ਸੀਮਾ ਸੈੱਟ ਕਰੋ",
+      "updateLimit": "ਸੀਮਾ ਅਪਡੇਟ ਕਰੋ",
+      "added": "ਸਾਈਟ ਸ਼ਾਮਲ ਕੀਤੀ ਗਈ",
+      "updated": "ਸੀਮਾ ਅਪਡੇਟ ਕੀਤੀ ਗਈ",
+      "removed": "ਸੀਮਾ ਹਟਾਈ ਗਈ",
+      "unsupported": "ਇਹ ਸਾਈਟ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ"
+    },
     "timeButtons": {
       "15min": "+15ਮਿੰ",
       "30min": "+30ਮਿੰ",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "ਡੈਸ਼ਬੋਰਡ",
       "siteManagement": "ਸਾਈਟ ਪ੍ਰਬੰਧਨ",
-      "activeLimits": "ਸਰਗਰਮ ਸੀਮਾਵਾਂ"
+      "activeLimits": "ਸਰਗਰਮ ਸੀਮਾਵਾਂ",
+      "allSites": "ਸਭ ਸਾਈਟਾਂ"
     },
     "stats": {
       "restrictedSites": "ਰੋਕੇ ਗਏ ਸਾਈਟਾਂ",
@@ -71,6 +81,10 @@
       "quickAdd": "ਤੇਜ਼ੀ ਨਾਲ ਸ਼ਾਮਲ ਕਰੋ",
       "restrictedSites": "ਰੋਕੇ ਗਏ ਸਾਈਟਾਂ",
       "remaining": "ਬਾਕੀ ਸਮਾਂ"
+    },
+    "allSites": {
+      "title": "ਸਭ ਸਾਈਟਾਂ",
+      "search": "ਸਾਈਟਾਂ ਲੱਭੋ"
     },
     "activeLimits": {
       "title": "ਵਰਤਮਾਨ ਵਿੱਚ ਸੀਮਿਤ ਸਾਈਟਾਂ"

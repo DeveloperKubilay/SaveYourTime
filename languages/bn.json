@@ -34,6 +34,15 @@
       "15min": "+১৫মি",
       "30min": "+৩০মি",
       "1hour": "+১ঘ"
+    },
+    "siteManage": {
+      "title": "এই সাইটের জন্য সীমা",
+      "setLimit": "সীমা নির্ধারণ করুন",
+      "updateLimit": "আপডেট করুন",
+      "added": "সীমা যোগ করা হয়েছে",
+      "updated": "সীমা আপডেট হয়েছে",
+      "removed": "সীমা সরানো হয়েছে",
+      "unsupported": "পৃষ্ঠাটি সমর্থিত নয়"
     }
   },
   "warn": {
@@ -54,6 +63,7 @@
       "dashboard": "ড্যাশবোর্ড",
       "siteManagement": "সাইট ব্যবস্থাপনা",
       "activeLimits": "সক্রিয় সীমাবদ্ধতা"
+      "allSites": "সমস্ত সাইট"
     },
     "stats": {
       "restrictedSites": "সীমিত সাইট",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "বর্তমানে সীমিত সাইট"
+    },
+    "allSites": {
+      "title": "সমস্ত সাইট (Top 20)",
+      "search": "সাইট খুঁজুন..."
     },
     "general": {
       "title": "সাধারণ সেটিংস",

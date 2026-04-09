@@ -34,6 +34,15 @@
       "15min": "+15मि",
       "30min": "+30मि",
       "1hour": "+1घं"
+    },
+    "siteManage": {
+      "title": "इस साइट के लिए सीमा",
+      "setLimit": "सीमा सेट करें",
+      "updateLimit": "अपडेट करें",
+      "added": "सीमा जोड़ी गई",
+      "updated": "सीमा अपडेट की गई",
+      "removed": "सीमा हटाई गई",
+      "unsupported": "पृष्ठ समर्थित नहीं है"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "डैशबोर्ड",
       "siteManagement": "साइट प्रबंधन",
-      "activeLimits": "सक्रिय सीमाएं"
+      "activeLimits": "सक्रिय सीमाएं",
+      "allSites": "सभी साइट्स"
     },
     "stats": {
       "restrictedSites": "प्रतिबंधित साइट्स",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "वर्तमान में सीमित साइट्स"
+    },
+    "allSites": {
+      "title": "सभी साइट्स (Top 20)",
+      "search": "साइट खोजें..."
     },
     "general": {
       "title": "सामान्य सेटिंग्स",

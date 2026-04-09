@@ -30,6 +30,15 @@
     "timeEnd": "Vaqt tugadi",
     "noLimits": "Limitlar O'rnatilmagan",
     "otherSites": "Boshqa Cheklangan Saytlar",
+    "siteManage": {
+      "title": "Saytni boshqarish",
+      "setLimit": "Chegara qo'yish",
+      "updateLimit": "Chegarani yangilash",
+      "added": "Sayt qo'shildi",
+      "updated": "Chegara yangilandi",
+      "removed": "Chegara olib tashlandi",
+      "unsupported": "Bu sayt qo'llab-quvvatlanmaydi"
+    },
     "timeButtons": {
       "15min": "+15d",
       "30min": "+30d",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Boshqaruv paneli",
       "siteManagement": "Sayt Boshqaruvi",
-      "activeLimits": "Faol Limitlar"
+      "activeLimits": "Faol Limitlar",
+      "allSites": "Barcha saytlar"
     },
     "stats": {
       "restrictedSites": "Cheklangan Saytlar",
@@ -71,6 +81,10 @@
       "quickAdd": "Tezkor qo'shish",
       "restrictedSites": "Cheklangan Saytlar",
       "remaining": "Qolgan vaqt"
+    },
+    "allSites": {
+      "title": "Barcha saytlar",
+      "search": "Saytlarni qidirish"
     },
     "activeLimits": {
       "title": "Hozir Cheklangan Saytlar"

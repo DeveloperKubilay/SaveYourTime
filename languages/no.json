@@ -30,6 +30,15 @@
     "timeEnd": "Tiden er ute",
     "noLimits": "Ingen grenser satt",
     "otherSites": "Andre begrensede nettsteder",
+    "siteManage": {
+      "title": "Administrer side",
+      "setLimit": "Sett grense",
+      "updateLimit": "Oppdater grense",
+      "added": "Nettside lagt til",
+      "updated": "Grense oppdatert",
+      "removed": "Grense fjernet",
+      "unsupported": "Denne siden støttes ikke"
+    },
     "timeButtons": {
       "15min": "+15m",
       "30min": "+30m",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dashbord",
       "siteManagement": "Nettstedadministrasjon",
-      "activeLimits": "Aktive grenser"
+      "activeLimits": "Aktive grenser",
+      "allSites": "Alle sider"
     },
     "stats": {
       "restrictedSites": "Begrensede nettsteder",
@@ -71,6 +81,10 @@
       "quickAdd": "Hurtig legg til",
       "restrictedSites": "Begrensede nettsteder",
       "remaining": "Gjenværende tid"
+    },
+    "allSites": {
+      "title": "Alle sider",
+      "search": "Søk sider"
     },
     "activeLimits": {
       "title": "Nåværende begrensede nettsteder"

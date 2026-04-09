@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1s"
+    },
+    "siteManage": {
+      "title": "Bu sahypa çägi",
+      "setLimit": "Çäklendirme goý",
+      "updateLimit": "Täzeläň",
+      "added": "Çäklendirme goşuldy",
+      "updated": "Çäklendirme täzelendi",
+      "removed": "Çäklendirme aýryldy",
+      "unsupported": "Sahypa goldanylmaýar"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dolandyryş paneli",
       "siteManagement": "Saýt dolandyryşy",
-      "activeLimits": "Işjeň çäkler"
+      "activeLimits": "Işjeň çäkler",
+      "allSites": "Ähli saýtlary"
     },
     "stats": {
       "restrictedSites": "Çäklendirilen saýtlar",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Häzirki çäklendirilen saýtlar"
+    },
+    "allSites": {
+      "title": "Ähli saýtlary (Top 20)",
+      "search": "Saýty gözle..."
     },
     "general": {
       "title": "Umumy sazlamalar",

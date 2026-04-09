@@ -33,7 +33,16 @@
     "timeButtons": {
       "15min": "+15분",
       "30min": "+30분",
-      "1hour": "+1시간"
+      "1hour": "+1時間"
+    },
+    "siteManage": {
+      "title": "이 사이트의 제한",
+      "setLimit": "제한 설정",
+      "updateLimit": "업데이트",
+      "added": "제한이 추가되었습니다",
+      "updated": "제한이 업데이트되었습니다",
+      "removed": "제한이 제거되었습니다",
+      "unsupported": "페이지가 지원되지 않습니다"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "대시보드",
       "siteManagement": "사이트 관리",
-      "activeLimits": "활성 제한"
+      "activeLimits": "활성 제한",
+      "allSites": "모든 사이트"
     },
     "stats": {
       "restrictedSites": "제한된 사이트",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "현재 제한된 사이트"
+    },
+    "allSites": {
+      "title": "모든 사이트 (Top 20)",
+      "search": "사이트 검색..."
     },
     "general": {
       "title": "일반 설정",

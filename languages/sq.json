@@ -34,6 +34,15 @@
       "15min": "+15m",
       "30min": "+30m",
       "1hour": "+1o"
+    },
+    "siteManage": {
+      "title": "Kufiri për këtë faqe",
+      "setLimit": "Vendos kufirin",
+      "updateLimit": "Përditëso",
+      "added": "Kufiri u shtua",
+      "updated": "Kufiri u përditësua",
+      "removed": "Kufiri u hoq",
+      "unsupported": "Faqja nuk mbështetet"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Paneli",
       "siteManagement": "Menaxhimi i Faqeve",
-      "activeLimits": "Kufizimet Aktive"
+      "activeLimits": "Kufizimet Aktive",
+      "allSites": "Të gjitha faqet"
     },
     "stats": {
       "restrictedSites": "Faqet e Kufizuara",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Faqet Aktualisht të Kufizuara"
+    },
+    "allSites": {
+      "title": "Të gjitha faqet (Top 20)",
+      "search": "Kërko faqe..."
     },
     "general": {
       "title": "Cilësimet e Përgjithshme",

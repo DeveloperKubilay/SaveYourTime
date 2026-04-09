@@ -30,6 +30,15 @@
     "timeEnd": "Isikhathi Siphelile",
     "noLimits": "Awekho Amalimiti Abekiwe",
     "otherSites": "Amanye Amawebhusayithi Anemikhawulo",
+    "siteManage": {
+      "title": "Ukuphathwa kweSayithi",
+      "setLimit": "Setha umkhawulo",
+      "updateLimit": "Buyekeza umkhawulo",
+      "added": "Isiza sengezwe",
+      "updated": "Umkhawulo ubuyekeziwe",
+      "removed": "Umkhawulo ususiwe",
+      "unsupported": "Lesi sayithi asisekeliwe"
+    },
     "timeButtons": {
       "15min": "+15m",
       "30min": "+30m",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Ideshibhodi",
       "siteManagement": "Ukuphathwa Kwewebhusayithi",
-      "activeLimits": "Imikhawulo Esebenzayo"
+      "activeLimits": "Imikhawulo Esebenzayo",
+      "allSites": "Wonke amasayithi"
     },
     "stats": {
       "restrictedSites": "Amasayithi Anemikhawulo",
@@ -71,6 +81,10 @@
       "quickAdd": "Engeza Ngokushesha",
       "restrictedSites": "Amasayithi Anemikhawulo",
       "remaining": "Isikhathi esisele"
+    },
+    "allSites": {
+      "title": "Wonke amasayithi",
+      "search": "Sesha amasayithi"
     },
     "activeLimits": {
       "title": "Amasayithi Anemkhawulo Okwamanje"

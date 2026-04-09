@@ -34,6 +34,15 @@
       "15min": "+۱۵د",
       "30min": "+۳۰د",
       "1hour": "+۱س"
+    },
+    "siteManage": {
+      "title": "محدودیت برای این سایت",
+      "setLimit": "تنظیم محدودیت",
+      "updateLimit": "به‌روزرسانی",
+      "added": "محدودیت افزوده شد",
+      "updated": "محدودیت به‌روز شد",
+      "removed": "محدودیت حذف شد",
+      "unsupported": "صفحه پشتیبانی نمی‌شود"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "داشبورد",
       "siteManagement": "مدیریت سایت",
-      "activeLimits": "محدودیت‌های فعال"
+      "activeLimits": "محدودیت‌های فعال",
+      "allSites": "همه سایت‌ها"
     },
     "stats": {
       "restrictedSites": "سایت‌های محدود",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "سایت‌های محدود شده فعلی"
+    },
+    "allSites": {
+      "title": "همه سایت‌ها (Top 20)",
+      "search": "جستجوی سایت..."
     },
     "general": {
       "title": "تنظیمات کلی",

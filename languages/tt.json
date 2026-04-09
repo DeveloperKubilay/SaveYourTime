@@ -34,6 +34,15 @@
       "15min": "+15м",
       "30min": "+30м",
       "1hour": "+1с"
+    },
+    "siteManage": {
+      "title": "Бу сайт өчен чикләү",
+      "setLimit": "Чикләү куярга",
+      "updateLimit": "Яңарту",
+      "added": "Чикләү өстәлде",
+      "updated": "Чикләү яңартылды",
+      "removed": "Чикләү бетерелде",
+      "unsupported": "Сәхифә хупланмый"
     }
   },
   "warn": {
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Идарә панеле",
       "siteManagement": "Сайт идарәсе",
-      "activeLimits": "Актив чикләүләр"
+      "activeLimits": "Актив чикләүләр",
+      "allSites": "Барлык сайтлар"
     },
     "stats": {
       "restrictedSites": "Чикләнгән сайтлар",
@@ -74,6 +84,10 @@
     },
     "activeLimits": {
       "title": "Хәзерге вакытта чикләнгән сайтлар"
+    },
+    "allSites": {
+      "title": "Барлык сайтлар (Top 20)",
+      "search": "Сайтны эзләү..."
     },
     "general": {
       "title": "Гомуми көйләүләр",

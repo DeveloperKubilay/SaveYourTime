@@ -30,6 +30,15 @@
     "timeEnd": "Àsìkò ti parí",
     "noLimits": "Kò sí Ààlà",
     "otherSites": "Àwọn Aaye Mìíràn Tí a ṣe ìpàdé",
+    "siteManage": {
+      "title": "Isakoso aaye",
+      "setLimit": "Ṣeto ìlà",
+      "updateLimit": "Imudojuiwọn ìlà",
+      "added": "Aaye ti a fi kun",
+      "updated": "Ìlà ti ni imudojuiwọn",
+      "removed": "Ìlà yọ",
+      "unsupported": "Aaye yii ko ṣe atilẹyin"
+    },
     "timeButtons": {
       "15min": "+15ì",
       "30min": "+30ì",
@@ -53,7 +62,8 @@
     "tabs": {
       "dashboard": "Dáṣbọ́ọ̀dù",
       "siteManagement": "Ìṣàkóso Aaye Ayelujára",
-      "activeLimits": "Ààlà Àṣeyọrí"
+      "activeLimits": "Ààlà Àṣeyọrí",
+      "allSites": "Gbogbo awọn aaye"
     },
     "stats": {
       "restrictedSites": "Àwọn Aaye Ìpàdé",
@@ -71,6 +81,10 @@
       "quickAdd": "Ìfikún kíákíá",
       "restrictedSites": "Àwọn Aaye Ìpàdé",
       "remaining": "Àsìkò tó kù"
+    },
+    "allSites": {
+      "title": "Gbogbo awọn aaye",
+      "search": "Wa awọn aaye"
     },
     "activeLimits": {
       "title": "Àwọn Aaye Tí a ṣe Ìdíwọ́ Lọ́wọ́lọ́wọ́"
