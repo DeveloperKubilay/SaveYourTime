@@ -171,7 +171,13 @@ function getMatchedLimit(tabUrl, urls) {
     const cleanUrl = normalizeUrlPattern(tabUrl);
 
     return urls
-        .filter((item) => cleanUrl.startsWith(normalizeUrlPattern(item.url)))
+        .filter((item) => {
+            const itemUrl = normalizeUrlPattern(item.url);
+            return cleanUrl === itemUrl || 
+                   cleanUrl.startsWith(itemUrl + '/') || 
+                   cleanUrl.endsWith('.' + itemUrl) || 
+                   cleanUrl.includes('.' + itemUrl + '/');
+        })
         .sort((a, b) => normalizeUrlPattern(b.url).length - normalizeUrlPattern(a.url).length)[0] || null;
 }
 
@@ -255,10 +261,14 @@ async function handleMessage(message) {
 
         await chrome.storage.local.set({
             Urls: Urls.filter((item) => item.url !== message.url),
-            [message.url]: 0,
             warnedUrls: warnedUrls,
             Tabignores: Tabignores.filter((tab) => tab.url !== message.url)
         });
+
+        await chrome.storage.local.remove([
+            message.url, 
+            `_lastTrack_${message.url}`
+        ]);
         return;
     }
 
@@ -277,8 +287,11 @@ async function handleAddTime(message) {
     delete warnedUrls[`${message.currentpattern}_5`];
     delete warnedUrls[`${message.currentpattern}_1`];
 
+    const addedMs = message.minutes * MINUTE_MS;
+    const currentUsage = usageData[message.currentpattern] || 0;
+
     await chrome.storage.local.set({
-        [message.currentpattern]: (usageData[message.currentpattern] || 0) - (message.minutes * MINUTE_MS),
+        [message.currentpattern]: Math.max(0, currentUsage - addedMs),
         Urls: Urls.map((item) =>
             item.url === message.currentpattern ? { ...item, limited: false } : item
         ),

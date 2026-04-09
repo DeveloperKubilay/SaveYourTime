@@ -29,13 +29,28 @@ window.SAVE_YOUR_TIME_RUN = async function () {
 
     initSiteManagePanel(data);
 
+    const footerText = document.getElementById('footerStatusText');
+    const footerIcon = document.getElementById('footerStatusIcon');
+
     if (!data.Limit) {
         document.querySelector('div.progress-container').style.display = 'none';
         document.querySelector('div.time-actions').style.display = 'none';
         document.getElementById('siteLimit').style.fontSize = '1.2em';
         document.getElementById('siteLimit').style.color = 'var(--text-light)';
         document.getElementById('siteLimit').innerText = window.translations.popup.noLimits;
+        
+        footerText.innerText = window.translations?.common?.inactive || 'Kapalı';
+        footerText.setAttribute('data-lang', 'common.inactive');
+        footerIcon.className = 'fas fa-circle-xmark';
+        footerIcon.style.color = 'var(--text-muted)';
+        footerText.style.color = 'var(--text-muted)';
         return;
+    } else {
+        footerText.innerText = window.translations?.common?.active || 'Aktif';
+        footerText.setAttribute('data-lang', 'common.active');
+        footerIcon.className = 'fas fa-circle-check';
+        footerIcon.style.color = 'var(--primary)';
+        footerText.style.color = 'var(--primary)';
     }
 
     kullanilanGunlukZaman = data.usage || 0;
