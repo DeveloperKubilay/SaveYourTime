@@ -26,7 +26,7 @@ SaveYourTime, belirli web siteleri için günlük kullanım süresi limiti koyan
 ## i18n (Dil Sistemi)
 
 - Arayüz çevirileri `languages/` altındaki JSON dosyalarından okunur.
-- `js/lang.js`, `data-lang` benzeri attribute’lar üzerinden metinleri uygular.
+- `js/lang.js`, `data-lang` benzeri öznitelikler üzerinden metinleri uygular.
 - Bir çeviri anahtarı yoksa mevcut metin korunur.
 
 ## Geliştirme Sırasında Kontrol
