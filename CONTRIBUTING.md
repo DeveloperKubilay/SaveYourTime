@@ -1,52 +1,52 @@
 # Contributing to SaveYourTime
 
-SaveYourTime projesine katkı vermek istediğiniz için teşekkürler. Bu belge, katkı sürecini hızlıca başlatmanız için hazırlanmıştır.
+Thank you for your interest in contributing to SaveYourTime! This document is here to help you get started quickly.
 
-## Katkı Türleri
+## Types of Contributions
 
-- Bug raporu
-- Özellik önerisi
-- Kod iyileştirmesi
-- Çeviri / metin güncellemesi
-- Dokümantasyon geliştirmesi
+- Bug reports
+- Feature suggestions
+- Code improvements
+- Translation / text updates
+- Documentation improvements
 
-## Başlamadan Önce
+## Before You Start
 
-1. Mevcut issue ve pull request’leri kontrol edin.
-2. Çalışmanızı tek bir konuya odaklayın.
-3. Gerekirse önce issue açarak değişikliği tartışın.
+1. Check existing issues and pull requests to avoid duplicates.
+2. Keep your work focused on a single topic.
+3. For significant changes, open an issue first to discuss the approach.
 
-## Yerel Geliştirme
+## Local Development
 
-Bu proje bir tarayıcı eklentisidir ve paket yöneticisi bağımlılığı gerektirmez.
+This project is a browser extension and has no package manager dependencies.
 
-1. Repoyu fork edin ve klonlayın.
-2. Tarayıcınızda “Developer mode” açın.
-3. “Load unpacked” ile proje klasörünü yükleyin.
-4. Değişikliklerinizi yapıp eklentiyi yeniden yükleyerek test edin.
+1. Fork and clone the repository.
+2. Enable **Developer mode** in your browser's extension settings.
+3. Click **Load unpacked** and select the project folder.
+4. Make your changes and reload the extension to test them.
 
-## Kodlama ve İçerik Kuralları
+## Code and Content Guidelines
 
-- Mevcut dosya yapısını ve isimlendirme stilini koruyun.
-- Alakasız dosyalarda değişiklik yapmayın.
-- Çeviri eklerken `languages/` altındaki mevcut yapıyı takip edin.
-- Arayüz metni değişikliklerinde İngilizce ana metinleri tutarlı bırakın.
+- Preserve the existing file structure and naming style.
+- Do not modify files unrelated to your change.
+- When adding translations, follow the existing structure under `languages/`.
+- Keep English as the primary/reference language for UI text.
 
-## Commit ve Pull Request
+## Commits and Pull Requests
 
-- Commit mesajlarını kısa ve anlaşılır yazın.
-- Tek PR içinde tek ana değişiklik yapın.
-- PR açıklamasında şu başlıkları belirtin:
-  - Ne değişti?
-  - Neden değişti?
-  - Nasıl test edildi?
+- Write short, clear commit messages.
+- Keep each PR focused on a single change.
+- In the PR description, include:
+  - What changed?
+  - Why was it changed?
+  - How was it tested?
 
-## Güvenlik
+## Security
 
-Güvenlik açığı tespit ederseniz public issue açmak yerine repository sahibiyle doğrudan iletişime geçin.
+If you discover a security vulnerability, please contact the repository owner directly instead of opening a public issue.
 
-## Davranış
+## Code of Conduct
 
-Katkı sürecinde yapıcı, saygılı ve kapsayıcı iletişim beklenir.
+Constructive, respectful, and inclusive communication is expected throughout the contribution process.
 
-Tekrar teşekkürler 🙌
+Thank you again 🙌
