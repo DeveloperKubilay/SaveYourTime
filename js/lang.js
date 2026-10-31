@@ -2,7 +2,16 @@ document.addEventListener('DOMContentLoaded', async function () {
     const availableLanguages = (await (await fetch('../languages/data.json')).json()).languages;
 
     const browserLang = (navigator.language || navigator.userLanguage).split('-')[0];
-    const { lang = availableLanguages[browserLang] ? browserLang : "en" } = await chrome.storage.local.get(['lang']);
+    let lang = availableLanguages[browserLang] ? browserLang : "en";
+    try {
+        if (typeof chrome !== 'undefined' && chrome.storage?.local) {
+            const storage = await chrome.storage.local.get(['lang']);
+            if (storage?.lang) lang = storage.lang;
+        } else if (typeof localStorage !== 'undefined') {
+            const stored = localStorage.getItem('lang');
+            if (stored) lang = stored;
+        }
+    } catch {}
 
     const baseTranslations = await (await fetch('../languages/en.json')).json();
     const selectedFile = availableLanguages[lang]?.file || 'en.json';
