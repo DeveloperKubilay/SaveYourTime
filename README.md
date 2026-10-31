@@ -8,7 +8,8 @@
 ## Download
 <p align="center">
   <a href="https://chromewebstore.google.com/detail/saveyourtime/noefpbkcooahahhneghdjomngoigjdbf">Chrome Web Store</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="https://addons.mozilla.org/tr/firefox/addon/saveyourtime">Firefox</a>
+  <a href="https://addons.mozilla.org/tr/firefox/addon/saveyourtime">Firefox</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://developerkubilay.github.io/SaveYourTime/html/privacy.html">Privacy Policy</a>
 </p>
 
 
@@ -69,6 +70,7 @@ SaveYourTime respects your privacy:
 - No analytics or tracking
 - No data sent to external servers
 - Open source - verify the code yourself!
+- 📄 **[Privacy Policy](https://developerkubilay.github.io/SaveYourTime/html/privacy.html)**
 
 ## 🌍 Supported Languages
 
@@ -147,6 +149,7 @@ SaveYourTime gizliliğinize saygı duyar:
 - Analiz veya izleme yoktur
 - Hiçbir veri harici sunuculara gönderilmez
 - Açık kaynak - kodu kendiniz doğrulayabilirsiniz!
+- 📄 **[Gizlilik Politikası](https://developerkubilay.github.io/SaveYourTime/html/privacy.html)**
 
 ## 🌍 Desteklenen Diller
 
